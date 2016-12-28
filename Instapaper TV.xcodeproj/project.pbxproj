@@ -12,6 +12,7 @@
 		24332BDD1E108D1A00D5AA18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24332BDB1E108D1A00D5AA18 /* Main.storyboard */; };
 		24332BDF1E108D1A00D5AA18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24332BDE1E108D1A00D5AA18 /* Assets.xcassets */; };
 		2459544C1E14420B00997693 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544B1E14420B00997693 /* Bookmark.swift */; };
+		2459544F1E14565400997693 /* BookmarksDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544E1E14565400997693 /* BookmarksDelegateProtocol.swift */; };
 		247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */; };
 		24988A551E141E37003E46FB /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24988A541E141E37003E46FB /* AVKit.framework */; };
 		24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A771E143A50003E46FB /* IKBookmark.m */; };
@@ -35,6 +36,7 @@
 		24332BDE1E108D1A00D5AA18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24332BE01E108D1A00D5AA18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2459544B1E14420B00997693 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		2459544E1E14565400997693 /* BookmarksDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksDelegateProtocol.swift; sourceTree = "<group>"; };
 		247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstapaperAPI.swift; sourceTree = "<group>"; };
 		247D7F871E143D970037E4EC /* Instapaper TV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Instapaper TV.entitlements"; sourceTree = "<group>"; };
 		24988A541E141E37003E46FB /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
@@ -107,6 +109,7 @@
 				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
 				247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */,
 				2459544B1E14420B00997693 /* Bookmark.swift */,
+				2459544E1E14565400997693 /* BookmarksDelegateProtocol.swift */,
 			);
 			path = "Instapaper TV";
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				24332BDA1E108D1A00D5AA18 /* ViewController.swift in Sources */,
 				24988A8E1E143A50003E46FB /* IKConstants.m in Sources */,
 				24332BD81E108D1A00D5AA18 /* AppDelegate.swift in Sources */,
+				2459544F1E14565400997693 /* BookmarksDelegateProtocol.swift in Sources */,
 				24988A951E143A50003E46FB /* NSData+Base64.m in Sources */,
 				24988A921E143A50003E46FB /* IKURLConnection.m in Sources */,
 				24988A941E143A50003E46FB /* NSString+IKEncoding.m in Sources */,

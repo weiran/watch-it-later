@@ -12,22 +12,25 @@ import AVKit
 import XCDYouTubeKit
 import YTVimeoExtractor
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, BookmarksDelegateProtocol {
     
     fileprivate let instapaperAPI = InstapaperAPI()
+    fileprivate var bookmarks: [Bookmark]?
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        instapaperAPI.login()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        instapaperAPI.delegate = self
+        instapaperAPI.storedAuth()
+        instapaperAPI.fetch()
     }
     
+    func bookmarksUpdated(bookmarks: [Bookmark]) {
+        self.bookmarks = bookmarks.filter({ (bookmark) -> Bool in
+            bookmark.url!.contains("vimeo.com") || bookmark.url!.contains("youtube.com") || bookmark.url!.contains("youtu.be")
+        })
+        tableView.reloadData()
+    }
 }
 
 // Table View
@@ -38,7 +41,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return bookmarks?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,11 +49,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        instapaperAPI.fetch()
-//        playVimeoVideo(url: "https://vimeo.com/channels/staffpicks/147876560")
-//        playYouTubeVideo(url: "https://www.youtube.com/watch?v=OVYF4t-v6Zw")
+        let bookmark = bookmarks![indexPath.row]
+        if bookmark.url!.contains("vimeo.com") {
+            playVimeoVideo(url: bookmark.url)
+        } else {
+            playYouTubeVideo(url: bookmark.url)
+        }
     }
-    
     
 }
 
