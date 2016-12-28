@@ -12,6 +12,15 @@
 		24332BDD1E108D1A00D5AA18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24332BDB1E108D1A00D5AA18 /* Main.storyboard */; };
 		24332BDF1E108D1A00D5AA18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24332BDE1E108D1A00D5AA18 /* Assets.xcassets */; };
 		24988A551E141E37003E46FB /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24988A541E141E37003E46FB /* AVKit.framework */; };
+		24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A771E143A50003E46FB /* IKBookmark.m */; };
+		24988A8E1E143A50003E46FB /* IKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A791E143A50003E46FB /* IKConstants.m */; };
+		24988A8F1E143A50003E46FB /* IKDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A7B1E143A50003E46FB /* IKDeserializer.m */; };
+		24988A901E143A50003E46FB /* IKEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A7D1E143A50003E46FB /* IKEngine.m */; };
+		24988A911E143A50003E46FB /* IKFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A7F1E143A50003E46FB /* IKFolder.m */; };
+		24988A921E143A50003E46FB /* IKURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A821E143A50003E46FB /* IKURLConnection.m */; };
+		24988A931E143A50003E46FB /* IKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A841E143A50003E46FB /* IKUser.m */; };
+		24988A941E143A50003E46FB /* NSString+IKEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A871E143A50003E46FB /* NSString+IKEncoding.m */; };
+		24988A951E143A50003E46FB /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A891E143A50003E46FB /* NSData+Base64.m */; };
 		C2FC143D186A289451DB2089 /* Pods_Instapaper_TV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0907EFA89238A51C318C6A1B /* Pods_Instapaper_TV.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +33,26 @@
 		24332BDE1E108D1A00D5AA18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24332BE01E108D1A00D5AA18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24988A541E141E37003E46FB /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		24988A761E143A50003E46FB /* IKBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKBookmark.h; sourceTree = "<group>"; };
+		24988A771E143A50003E46FB /* IKBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKBookmark.m; sourceTree = "<group>"; };
+		24988A781E143A50003E46FB /* IKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKConstants.h; sourceTree = "<group>"; };
+		24988A791E143A50003E46FB /* IKConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKConstants.m; sourceTree = "<group>"; };
+		24988A7A1E143A50003E46FB /* IKDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKDeserializer.h; sourceTree = "<group>"; };
+		24988A7B1E143A50003E46FB /* IKDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKDeserializer.m; sourceTree = "<group>"; };
+		24988A7C1E143A50003E46FB /* IKEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKEngine.h; sourceTree = "<group>"; };
+		24988A7D1E143A50003E46FB /* IKEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKEngine.m; sourceTree = "<group>"; };
+		24988A7E1E143A50003E46FB /* IKFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKFolder.h; sourceTree = "<group>"; };
+		24988A7F1E143A50003E46FB /* IKFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKFolder.m; sourceTree = "<group>"; };
+		24988A801E143A50003E46FB /* IKURLConnection+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IKURLConnection+Private.h"; sourceTree = "<group>"; };
+		24988A811E143A50003E46FB /* IKURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKURLConnection.h; sourceTree = "<group>"; };
+		24988A821E143A50003E46FB /* IKURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKURLConnection.m; sourceTree = "<group>"; };
+		24988A831E143A50003E46FB /* IKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKUser.h; sourceTree = "<group>"; };
+		24988A841E143A50003E46FB /* IKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKUser.m; sourceTree = "<group>"; };
+		24988A851E143A50003E46FB /* InstapaperKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstapaperKit.h; sourceTree = "<group>"; };
+		24988A861E143A50003E46FB /* NSString+IKEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IKEncoding.h"; sourceTree = "<group>"; };
+		24988A871E143A50003E46FB /* NSString+IKEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IKEncoding.m"; sourceTree = "<group>"; };
+		24988A881E143A50003E46FB /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		24988A891E143A50003E46FB /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		24D942411E113238008387CC /* Instapaper TV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instapaper TV-Bridging-Header.h"; sourceTree = "<group>"; };
 		7BF35E4AB8148B4EB34F3F97 /* Pods-Instapaper TV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instapaper TV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instapaper TV/Pods-Instapaper TV.debug.xcconfig"; sourceTree = "<group>"; };
 		A4008F7C45C94E53A734621B /* Pods-Instapaper TV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instapaper TV.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instapaper TV/Pods-Instapaper TV.release.xcconfig"; sourceTree = "<group>"; };
@@ -46,9 +75,10 @@
 			isa = PBXGroup;
 			children = (
 				24332BD61E108D1A00D5AA18 /* Instapaper TV */,
+				24988A8C1E143A50003E46FB /* InstapaperKit */,
+				D279746CFF176AADEDCE0547 /* Frameworks */,
 				24332BD51E108D1A00D5AA18 /* Products */,
 				47394F7B99E535ACC4A2C3CA /* Pods */,
-				D279746CFF176AADEDCE0547 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,13 +94,56 @@
 			isa = PBXGroup;
 			children = (
 				24332BD71E108D1A00D5AA18 /* AppDelegate.swift */,
-				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
-				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
 				24332BDE1E108D1A00D5AA18 /* Assets.xcassets */,
 				24332BE01E108D1A00D5AA18 /* Info.plist */,
 				24D942411E113238008387CC /* Instapaper TV-Bridging-Header.h */,
+				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
+				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
 			);
 			path = "Instapaper TV";
+			sourceTree = "<group>";
+		};
+		24988A8A1E143A50003E46FB /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				24988A881E143A50003E46FB /* NSData+Base64.h */,
+				24988A891E143A50003E46FB /* NSData+Base64.m */,
+			);
+			path = Base64;
+			sourceTree = "<group>";
+		};
+		24988A8B1E143A50003E46FB /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				24988A8A1E143A50003E46FB /* Base64 */,
+			);
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
+		24988A8C1E143A50003E46FB /* InstapaperKit */ = {
+			isa = PBXGroup;
+			children = (
+				24988A761E143A50003E46FB /* IKBookmark.h */,
+				24988A771E143A50003E46FB /* IKBookmark.m */,
+				24988A781E143A50003E46FB /* IKConstants.h */,
+				24988A791E143A50003E46FB /* IKConstants.m */,
+				24988A7A1E143A50003E46FB /* IKDeserializer.h */,
+				24988A7B1E143A50003E46FB /* IKDeserializer.m */,
+				24988A7C1E143A50003E46FB /* IKEngine.h */,
+				24988A7D1E143A50003E46FB /* IKEngine.m */,
+				24988A7E1E143A50003E46FB /* IKFolder.h */,
+				24988A7F1E143A50003E46FB /* IKFolder.m */,
+				24988A801E143A50003E46FB /* IKURLConnection+Private.h */,
+				24988A811E143A50003E46FB /* IKURLConnection.h */,
+				24988A821E143A50003E46FB /* IKURLConnection.m */,
+				24988A831E143A50003E46FB /* IKUser.h */,
+				24988A841E143A50003E46FB /* IKUser.m */,
+				24988A851E143A50003E46FB /* InstapaperKit.h */,
+				24988A861E143A50003E46FB /* NSString+IKEncoding.h */,
+				24988A871E143A50003E46FB /* NSString+IKEncoding.m */,
+				24988A8B1E143A50003E46FB /* Third Party */,
+			);
+			path = InstapaperKit;
 			sourceTree = "<group>";
 		};
 		47394F7B99E535ACC4A2C3CA /* Pods */ = {
@@ -216,7 +289,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				24332BDA1E108D1A00D5AA18 /* ViewController.swift in Sources */,
+				24988A8E1E143A50003E46FB /* IKConstants.m in Sources */,
 				24332BD81E108D1A00D5AA18 /* AppDelegate.swift in Sources */,
+				24988A951E143A50003E46FB /* NSData+Base64.m in Sources */,
+				24988A921E143A50003E46FB /* IKURLConnection.m in Sources */,
+				24988A941E143A50003E46FB /* NSString+IKEncoding.m in Sources */,
+				24988A901E143A50003E46FB /* IKEngine.m in Sources */,
+				24988A8F1E143A50003E46FB /* IKDeserializer.m in Sources */,
+				24988A911E143A50003E46FB /* IKFolder.m in Sources */,
+				24988A931E143A50003E46FB /* IKUser.m in Sources */,
+				24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +311,7 @@
 				24332BDC1E108D1A00D5AA18 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

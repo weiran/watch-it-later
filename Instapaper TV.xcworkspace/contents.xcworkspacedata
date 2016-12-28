@@ -4,6 +4,78 @@
    <FileRef
       location = "group:Instapaper TV.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:InstapaperKit"
+      name = "InstapaperKit">
+      <FileRef
+         location = "group:IKBookmark.h">
+      </FileRef>
+      <FileRef
+         location = "group:IKBookmark.m">
+      </FileRef>
+      <FileRef
+         location = "group:IKConstants.h">
+      </FileRef>
+      <FileRef
+         location = "group:IKConstants.m">
+      </FileRef>
+      <FileRef
+         location = "group:IKDeserializer.h">
+      </FileRef>
+      <FileRef
+         location = "group:IKDeserializer.m">
+      </FileRef>
+      <FileRef
+         location = "group:IKEngine.h">
+      </FileRef>
+      <FileRef
+         location = "group:IKEngine.m">
+      </FileRef>
+      <FileRef
+         location = "group:IKFolder.h">
+      </FileRef>
+      <FileRef
+         location = "group:IKFolder.m">
+      </FileRef>
+      <FileRef
+         location = "group:IKURLConnection+Private.h">
+      </FileRef>
+      <FileRef
+         location = "group:IKURLConnection.h">
+      </FileRef>
+      <FileRef
+         location = "group:IKURLConnection.m">
+      </FileRef>
+      <FileRef
+         location = "group:IKUser.h">
+      </FileRef>
+      <FileRef
+         location = "group:IKUser.m">
+      </FileRef>
+      <FileRef
+         location = "group:InstapaperKit.h">
+      </FileRef>
+      <FileRef
+         location = "group:NSString+IKEncoding.h">
+      </FileRef>
+      <FileRef
+         location = "group:NSString+IKEncoding.m">
+      </FileRef>
+      <Group
+         location = "group:Third Party"
+         name = "Third Party">
+         <Group
+            location = "group:Base64"
+            name = "Base64">
+            <FileRef
+               location = "group:NSData+Base64.h">
+            </FileRef>
+            <FileRef
+               location = "group:NSData+Base64.m">
+            </FileRef>
+         </Group>
+      </Group>
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
