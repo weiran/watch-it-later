@@ -1,0 +1,25 @@
+PODS:
+  - XCDYouTubeKit (2.5.3)
+  - YTVimeoExtractor (1.1.0)
+
+DEPENDENCIES:
+  - XCDYouTubeKit
+  - YTVimeoExtractor (from `https://github.com/lilfaf/YTVimeoExtractor`, commit `b484d9879b42ab1b31dae23aaccd0e8be192e9fb`)
+
+EXTERNAL SOURCES:
+  YTVimeoExtractor:
+    :commit: b484d9879b42ab1b31dae23aaccd0e8be192e9fb
+    :git: https://github.com/lilfaf/YTVimeoExtractor
+
+CHECKOUT OPTIONS:
+  YTVimeoExtractor:
+    :commit: b484d9879b42ab1b31dae23aaccd0e8be192e9fb
+    :git: https://github.com/lilfaf/YTVimeoExtractor
+
+SPEC CHECKSUMS:
+  XCDYouTubeKit: 90690f9e3523735dc93b8024269d991b0cfffe78
+  YTVimeoExtractor: 36a8f37598c8529c7064229fb6a3f4ba5d38f265
+
+PODFILE CHECKSUM: 9e076d202a733e5cc5741060fa7081994cac3f53
+
+COCOAPODS: 1.1.1

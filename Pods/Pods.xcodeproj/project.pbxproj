@@ -1,0 +1,804 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		071BD5D02FC5378137F75F1FA0832BD9 /* XCDYouTubeClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F14EAFAF49DC23BE0174CCCA315F0 /* XCDYouTubeClient.m */; };
+		18236C457DF61207D8EC765EC137296D /* XCDYouTubeLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E4DF3FBF1A0B55E083323FBC08A65B /* XCDYouTubeLogger.m */; };
+		27A7C86B579253FD16506C4687B22AC6 /* Pods-Instapaper TV-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2007E260A4041C38AF874E9360005D43 /* Pods-Instapaper TV-dummy.m */; };
+		3E801BA782473EB67A3593EBC1287B5C /* XCDYouTubeVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = 44D020AA6CB90A408B7BAEB25FD97770 /* XCDYouTubeVideo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E8EF0409F705909803F74EF35536E78 /* YTVimeoExtractorOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6851F0390CC4A90785D4066FC5E3FA27 /* YTVimeoExtractorOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46C2F5427672A9D0D76FFB704F4D000E /* XCDYouTubeVideo+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 44C5A39D643E2F5712BBEF7ECB495A23 /* XCDYouTubeVideo+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		49FD2335DC708D4DC3A77790518CCBA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC8AE754DE567E9869FBC59AFCD0D5A /* Foundation.framework */; };
+		4F457A2306A5CF840DCD04984FF98DA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC8AE754DE567E9869FBC59AFCD0D5A /* Foundation.framework */; };
+		640E6D4C379C2A425739BE716DD56B80 /* YTVimeoExtractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3211B79EC92C7C165CFD7219E343ACCF /* YTVimeoExtractor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67AF3B11C335E196D9EECD830CE4CA8E /* YTVimeoVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BECD2B95604CBD85CD8B00B53F2B032 /* YTVimeoVideo.m */; };
+		6A0E52D1921FBD2E24589C69D2B21DCE /* XCDYouTubeVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE96146E933A3305B005260EBEEBB7 /* XCDYouTubeVideo.m */; };
+		6DE180E61E91187D4E5CAA17DEA0495B /* YTVimeoVideo+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FE4CAEBE55FE9732CF4ABA34B541921 /* YTVimeoVideo+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71F3C039427B3CDADBB8A3ADC5C058A6 /* XCDYouTubeVideoOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF1A622775426E362F2F944A1E0685D /* XCDYouTubeVideoOperation.m */; };
+		746C21F4E23B26A82804258BD13BC994 /* XCDYouTubePlayerScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 87ADAB39AE05D6E3CB52FE764CC548B8 /* XCDYouTubePlayerScript.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		853CE1EFEC407B10C6D94FB42BEF7C53 /* XCDYouTubeVideoWebpage.m in Sources */ = {isa = PBXBuildFile; fileRef = B41B6421368A61EFA33E475897E21720 /* XCDYouTubeVideoWebpage.m */; };
+		8971D3BC14B8EB403EBAF9B1301A32F5 /* XCDYouTubeKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FB871E0152A0196565A7A20D7001539 /* XCDYouTubeKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B1058D660EC986554CA8D58F0A52C7A /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18528CA735974E8F1FB126B8007D3347 /* JavaScriptCore.framework */; };
+		8C76E66B20804BC43C86F3671DBAF732 /* XCDYouTubeVideoOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 58EA95E750B929E912A866EA711B4F62 /* XCDYouTubeVideoOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DBBB4592A7AAD1D0BF51A8DBCD446FF /* XCDYouTubePlayerScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B9DC1B6E339AB884566E26180681A /* XCDYouTubePlayerScript.m */; };
+		8FFDDCD519C7605D3CD227E43B9433CE /* YTVimeoURLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = FF0A3070D98E76FE440E4A9FEB50B73E /* YTVimeoURLParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90BC4C4188500F66D7D3AD943FD7D283 /* Pods-Instapaper TV-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E50B2E9B890346BB5B680A378E39905D /* Pods-Instapaper TV-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A31AB075C754E8D306C19175E912B01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC8AE754DE567E9869FBC59AFCD0D5A /* Foundation.framework */; };
+		A33997B12E17D2E8F9AC046262144F84 /* XCDYouTubeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 155BFF0B9F25FEB5510D9466E3B3C537 /* XCDYouTubeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A60983D52656D8B85A13EC92AF5D2C20 /* YTVimeoVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = EB1A2868674901EB7E1EF389CFD2D8FF /* YTVimeoVideo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9C638D99B1F17A6A12D692A3CF70B8A /* XCDYouTubeLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 949F8E0933364E894ED1C5A7E147F247 /* XCDYouTubeLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF7A18D9B2662A0F1F55FDCC42A13C19 /* YTVimeoExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = A239028709DD94BCF73B1634C04E40F3 /* YTVimeoExtractor.m */; };
+		B6DF0DBB8A0C3B76DB4BFF182ED7F37B /* XCDYouTubeVideoWebpage.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E873EB18FCA34D13D396D3205DDC287 /* XCDYouTubeVideoWebpage.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C496AB03502ADDFF16DF43894BE436E9 /* YTVimeoExtractor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D19F5AAB1D9FB00F1AF6CB32E14B6E7 /* YTVimeoExtractor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8A8900C4165AFA764063F1C9195E08D /* YTVimeoError.h in Headers */ = {isa = PBXBuildFile; fileRef = 70491BFD69DDAE9D993355DB88B3A283 /* YTVimeoError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF23EDB8F9CBA0D1819136B2E7D610A7 /* YTVimeoExtractor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F85F4B2A039E7C51372087B0ECD45E7E /* YTVimeoExtractor-dummy.m */; };
+		E107D631C7F42DE6D2C56136E1A8A96E /* YTVimeoURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 54334435DA54B2E09E042B82D8159AEF /* YTVimeoURLParser.m */; };
+		E258E29F38EF3FE0CD4882E85A016464 /* YTVimeoExtractorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 605F9BC9E9D2F84210E12F2F05883607 /* YTVimeoExtractorOperation.m */; };
+		E2A37BF4884FCB41A83124B5C10B17A5 /* XCDYouTubeLogger+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = DBE0892FB8AAF86A74F7733642988ABD /* XCDYouTubeLogger+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E51AC272A7C912D2F0FC65FDD7E74341 /* XCDYouTubeKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF57827F41316A4A4F0C3FE90A3DA6AA /* XCDYouTubeKit-dummy.m */; };
+		F2FC84F0EAE5F54903B6DB4798951EA1 /* XCDYouTubeError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F166A1F80746C99E1F9F29B099CEA2D /* XCDYouTubeError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA74566E69CD2FFF4540CE07112258EF /* XCDYouTubeOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 44D9C30EFA33F78485F57B4B38AB1F00 /* XCDYouTubeOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FBE91BCA5F95258360FAA3072047AC44 /* XCDYouTubeClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E8BDB21A22CFD5A0C6FB851E437CD0 /* XCDYouTubeClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		44A12B342E1BFA3A6322A71CF6743C4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5805FDC02BB4BC533FF4582624F4CD0A;
+			remoteInfo = XCDYouTubeKit;
+		};
+		B9B8DD99AD747345A85F47298439DCD2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96FBE50362794429F5D79B807E3DDD09;
+			remoteInfo = YTVimeoExtractor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A02A93839CE1250874E11144DFC8634 /* XCDYouTubeKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XCDYouTubeKit.xcconfig; sourceTree = "<group>"; };
+		134B9DC1B6E339AB884566E26180681A /* XCDYouTubePlayerScript.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubePlayerScript.m; path = XCDYouTubeKit/XCDYouTubePlayerScript.m; sourceTree = "<group>"; };
+		155BFF0B9F25FEB5510D9466E3B3C537 /* XCDYouTubeKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeKit.h; path = XCDYouTubeKit/XCDYouTubeKit.h; sourceTree = "<group>"; };
+		18528CA735974E8F1FB126B8007D3347 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		19D77FD69BC698E69049232CCEF5836D /* YTVimeoExtractor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = YTVimeoExtractor.modulemap; sourceTree = "<group>"; };
+		2007E260A4041C38AF874E9360005D43 /* Pods-Instapaper TV-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Instapaper TV-dummy.m"; sourceTree = "<group>"; };
+		28BE96146E933A3305B005260EBEEBB7 /* XCDYouTubeVideo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeVideo.m; path = XCDYouTubeKit/XCDYouTubeVideo.m; sourceTree = "<group>"; };
+		2EA0F1E101DD64827DBA8FF6627EB746 /* XCDYouTubeKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XCDYouTubeKit-prefix.pch"; sourceTree = "<group>"; };
+		2FC537DA82A7B90903E51983BD25F67C /* Pods-Instapaper TV.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Instapaper TV.modulemap"; sourceTree = "<group>"; };
+		3211B79EC92C7C165CFD7219E343ACCF /* YTVimeoExtractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTVimeoExtractor.h; path = YTVimeoExtractor/YTVimeoExtractor.h; sourceTree = "<group>"; };
+		3B85FC50FDD43CD35C09D2F9064993FB /* Pods-Instapaper TV-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Instapaper TV-resources.sh"; sourceTree = "<group>"; };
+		3BECD2B95604CBD85CD8B00B53F2B032 /* YTVimeoVideo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTVimeoVideo.m; path = YTVimeoExtractor/YTVimeoVideo.m; sourceTree = "<group>"; };
+		3D19F5AAB1D9FB00F1AF6CB32E14B6E7 /* YTVimeoExtractor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YTVimeoExtractor-umbrella.h"; sourceTree = "<group>"; };
+		40015E0DDFDB69210CDFDFA6A59441DC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44C5A39D643E2F5712BBEF7ECB495A23 /* XCDYouTubeVideo+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XCDYouTubeVideo+Private.h"; path = "XCDYouTubeKit/XCDYouTubeVideo+Private.h"; sourceTree = "<group>"; };
+		44D020AA6CB90A408B7BAEB25FD97770 /* XCDYouTubeVideo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeVideo.h; path = XCDYouTubeKit/XCDYouTubeVideo.h; sourceTree = "<group>"; };
+		44D9C30EFA33F78485F57B4B38AB1F00 /* XCDYouTubeOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeOperation.h; path = XCDYouTubeKit/XCDYouTubeOperation.h; sourceTree = "<group>"; };
+		4F166A1F80746C99E1F9F29B099CEA2D /* XCDYouTubeError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeError.h; path = XCDYouTubeKit/XCDYouTubeError.h; sourceTree = "<group>"; };
+		54334435DA54B2E09E042B82D8159AEF /* YTVimeoURLParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTVimeoURLParser.m; path = YTVimeoExtractor/YTVimeoURLParser.m; sourceTree = "<group>"; };
+		5581F8707A98FCF7D02AD9E6447C2DCD /* Pods_Instapaper_TV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Instapaper_TV.framework; path = "Pods-Instapaper TV.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58EA95E750B929E912A866EA711B4F62 /* XCDYouTubeVideoOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeVideoOperation.h; path = XCDYouTubeKit/XCDYouTubeVideoOperation.h; sourceTree = "<group>"; };
+		5C8F14EAFAF49DC23BE0174CCCA315F0 /* XCDYouTubeClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeClient.m; path = XCDYouTubeKit/XCDYouTubeClient.m; sourceTree = "<group>"; };
+		5D14AE2D5CBFBEC1DFE792029AC2CB3F /* Pods-Instapaper TV-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Instapaper TV-acknowledgements.plist"; sourceTree = "<group>"; };
+		5D5157FF995D7A128594C8C6FDFCB123 /* Pods-Instapaper TV-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Instapaper TV-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5E873EB18FCA34D13D396D3205DDC287 /* XCDYouTubeVideoWebpage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeVideoWebpage.h; path = XCDYouTubeKit/XCDYouTubeVideoWebpage.h; sourceTree = "<group>"; };
+		605F9BC9E9D2F84210E12F2F05883607 /* YTVimeoExtractorOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTVimeoExtractorOperation.m; path = YTVimeoExtractor/YTVimeoExtractorOperation.m; sourceTree = "<group>"; };
+		6851F0390CC4A90785D4066FC5E3FA27 /* YTVimeoExtractorOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTVimeoExtractorOperation.h; path = YTVimeoExtractor/YTVimeoExtractorOperation.h; sourceTree = "<group>"; };
+		68808CCBD82C43F0CDC6DC4992AA8C6C /* YTVimeoExtractor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YTVimeoExtractor.framework; path = YTVimeoExtractor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69228676330C4AE9B353420AE5CE539D /* XCDYouTubeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XCDYouTubeKit.framework; path = XCDYouTubeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FB871E0152A0196565A7A20D7001539 /* XCDYouTubeKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XCDYouTubeKit-umbrella.h"; sourceTree = "<group>"; };
+		6FC8AE754DE567E9869FBC59AFCD0D5A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		70491BFD69DDAE9D993355DB88B3A283 /* YTVimeoError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTVimeoError.h; path = YTVimeoExtractor/YTVimeoError.h; sourceTree = "<group>"; };
+		774C846942ECC2B5BF60FD6C749241A1 /* YTVimeoExtractor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YTVimeoExtractor-prefix.pch"; sourceTree = "<group>"; };
+		7FE4CAEBE55FE9732CF4ABA34B541921 /* YTVimeoVideo+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "YTVimeoVideo+Private.h"; path = "YTVimeoExtractor/YTVimeoVideo+Private.h"; sourceTree = "<group>"; };
+		87ADAB39AE05D6E3CB52FE764CC548B8 /* XCDYouTubePlayerScript.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubePlayerScript.h; path = XCDYouTubeKit/XCDYouTubePlayerScript.h; sourceTree = "<group>"; };
+		90E4DF3FBF1A0B55E083323FBC08A65B /* XCDYouTubeLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeLogger.m; path = XCDYouTubeKit/XCDYouTubeLogger.m; sourceTree = "<group>"; };
+		92E8BDB21A22CFD5A0C6FB851E437CD0 /* XCDYouTubeClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeClient.h; path = XCDYouTubeKit/XCDYouTubeClient.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		949F8E0933364E894ED1C5A7E147F247 /* XCDYouTubeLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeLogger.h; path = XCDYouTubeKit/XCDYouTubeLogger.h; sourceTree = "<group>"; };
+		97D9465D9EEB5021F5028ED20B451544 /* Pods-Instapaper TV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Instapaper TV.debug.xcconfig"; sourceTree = "<group>"; };
+		9B4F7D9CB27B2C52255B2A531BC35B22 /* Pods-Instapaper TV-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Instapaper TV-frameworks.sh"; sourceTree = "<group>"; };
+		9CEB424B0697C1B591E9A0D7C95E355A /* YTVimeoExtractor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YTVimeoExtractor.xcconfig; sourceTree = "<group>"; };
+		A239028709DD94BCF73B1634C04E40F3 /* YTVimeoExtractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTVimeoExtractor.m; path = YTVimeoExtractor/YTVimeoExtractor.m; sourceTree = "<group>"; };
+		B41B6421368A61EFA33E475897E21720 /* XCDYouTubeVideoWebpage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeVideoWebpage.m; path = XCDYouTubeKit/XCDYouTubeVideoWebpage.m; sourceTree = "<group>"; };
+		BE6CFF2F6E2B04631FE788C0231913F6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C38929F757229C7182658881252ED901 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C573E08B2C3228D6920C870526F3AA07 /* XCDYouTubeKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = XCDYouTubeKit.modulemap; sourceTree = "<group>"; };
+		CF57827F41316A4A4F0C3FE90A3DA6AA /* XCDYouTubeKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XCDYouTubeKit-dummy.m"; sourceTree = "<group>"; };
+		DBE0892FB8AAF86A74F7733642988ABD /* XCDYouTubeLogger+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XCDYouTubeLogger+Private.h"; path = "XCDYouTubeKit/XCDYouTubeLogger+Private.h"; sourceTree = "<group>"; };
+		E2250D012AA194D13F04AFBE811FC642 /* Pods-Instapaper TV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Instapaper TV.release.xcconfig"; sourceTree = "<group>"; };
+		E50B2E9B890346BB5B680A378E39905D /* Pods-Instapaper TV-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Instapaper TV-umbrella.h"; sourceTree = "<group>"; };
+		EB1A2868674901EB7E1EF389CFD2D8FF /* YTVimeoVideo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTVimeoVideo.h; path = YTVimeoExtractor/YTVimeoVideo.h; sourceTree = "<group>"; };
+		EFF1A622775426E362F2F944A1E0685D /* XCDYouTubeVideoOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeVideoOperation.m; path = XCDYouTubeKit/XCDYouTubeVideoOperation.m; sourceTree = "<group>"; };
+		F85F4B2A039E7C51372087B0ECD45E7E /* YTVimeoExtractor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YTVimeoExtractor-dummy.m"; sourceTree = "<group>"; };
+		FF0A3070D98E76FE440E4A9FEB50B73E /* YTVimeoURLParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTVimeoURLParser.h; path = YTVimeoExtractor/YTVimeoURLParser.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0354BB2FF89E345F0803DFFD1FA98916 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F457A2306A5CF840DCD04984FF98DA7 /* Foundation.framework in Frameworks */,
+				8B1058D660EC986554CA8D58F0A52C7A /* JavaScriptCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4562F9ABF5D99F2453C4EEECDEC4C944 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49FD2335DC708D4DC3A77790518CCBA3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A89280CD38F425AAD75FDBDC8BD8D5EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A31AB075C754E8D306C19175E912B01 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4ED0949CE37A2FE255C0689FF12EB8E6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB17950277EF4A9B00F915DAE269AA67 /* Pods-Instapaper TV */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		6EC461C1435A31577346ED4ADA0BD5A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E620EBE9428C546AE61A4B77FCA86D2F /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				6EC461C1435A31577346ED4ADA0BD5A9 /* Frameworks */,
+				B8726BC1168924DF700E59E6A14AD520 /* Pods */,
+				EFCF5930D6763E8D138DFE5AEFC951FB /* Products */,
+				4ED0949CE37A2FE255C0689FF12EB8E6 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8C1294A50ACF82E8CCB8E3F7A6DDAECF /* XCDYouTubeKit */ = {
+			isa = PBXGroup;
+			children = (
+				92E8BDB21A22CFD5A0C6FB851E437CD0 /* XCDYouTubeClient.h */,
+				5C8F14EAFAF49DC23BE0174CCCA315F0 /* XCDYouTubeClient.m */,
+				4F166A1F80746C99E1F9F29B099CEA2D /* XCDYouTubeError.h */,
+				155BFF0B9F25FEB5510D9466E3B3C537 /* XCDYouTubeKit.h */,
+				949F8E0933364E894ED1C5A7E147F247 /* XCDYouTubeLogger.h */,
+				90E4DF3FBF1A0B55E083323FBC08A65B /* XCDYouTubeLogger.m */,
+				DBE0892FB8AAF86A74F7733642988ABD /* XCDYouTubeLogger+Private.h */,
+				44D9C30EFA33F78485F57B4B38AB1F00 /* XCDYouTubeOperation.h */,
+				87ADAB39AE05D6E3CB52FE764CC548B8 /* XCDYouTubePlayerScript.h */,
+				134B9DC1B6E339AB884566E26180681A /* XCDYouTubePlayerScript.m */,
+				44D020AA6CB90A408B7BAEB25FD97770 /* XCDYouTubeVideo.h */,
+				28BE96146E933A3305B005260EBEEBB7 /* XCDYouTubeVideo.m */,
+				44C5A39D643E2F5712BBEF7ECB495A23 /* XCDYouTubeVideo+Private.h */,
+				58EA95E750B929E912A866EA711B4F62 /* XCDYouTubeVideoOperation.h */,
+				EFF1A622775426E362F2F944A1E0685D /* XCDYouTubeVideoOperation.m */,
+				5E873EB18FCA34D13D396D3205DDC287 /* XCDYouTubeVideoWebpage.h */,
+				B41B6421368A61EFA33E475897E21720 /* XCDYouTubeVideoWebpage.m */,
+				93D0CE352805794E0E7907CD2BE119E1 /* Support Files */,
+			);
+			name = XCDYouTubeKit;
+			path = XCDYouTubeKit;
+			sourceTree = "<group>";
+		};
+		93D0CE352805794E0E7907CD2BE119E1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE6CFF2F6E2B04631FE788C0231913F6 /* Info.plist */,
+				C573E08B2C3228D6920C870526F3AA07 /* XCDYouTubeKit.modulemap */,
+				0A02A93839CE1250874E11144DFC8634 /* XCDYouTubeKit.xcconfig */,
+				CF57827F41316A4A4F0C3FE90A3DA6AA /* XCDYouTubeKit-dummy.m */,
+				2EA0F1E101DD64827DBA8FF6627EB746 /* XCDYouTubeKit-prefix.pch */,
+				6FB871E0152A0196565A7A20D7001539 /* XCDYouTubeKit-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/XCDYouTubeKit";
+			sourceTree = "<group>";
+		};
+		9D22D685501B40354CFA7922DCAE03E9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				40015E0DDFDB69210CDFDFA6A59441DC /* Info.plist */,
+				19D77FD69BC698E69049232CCEF5836D /* YTVimeoExtractor.modulemap */,
+				9CEB424B0697C1B591E9A0D7C95E355A /* YTVimeoExtractor.xcconfig */,
+				F85F4B2A039E7C51372087B0ECD45E7E /* YTVimeoExtractor-dummy.m */,
+				774C846942ECC2B5BF60FD6C749241A1 /* YTVimeoExtractor-prefix.pch */,
+				3D19F5AAB1D9FB00F1AF6CB32E14B6E7 /* YTVimeoExtractor-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YTVimeoExtractor";
+			sourceTree = "<group>";
+		};
+		AC565C720AC3D03860C3AD834502E74E /* YTVimeoExtractor */ = {
+			isa = PBXGroup;
+			children = (
+				70491BFD69DDAE9D993355DB88B3A283 /* YTVimeoError.h */,
+				3211B79EC92C7C165CFD7219E343ACCF /* YTVimeoExtractor.h */,
+				A239028709DD94BCF73B1634C04E40F3 /* YTVimeoExtractor.m */,
+				6851F0390CC4A90785D4066FC5E3FA27 /* YTVimeoExtractorOperation.h */,
+				605F9BC9E9D2F84210E12F2F05883607 /* YTVimeoExtractorOperation.m */,
+				FF0A3070D98E76FE440E4A9FEB50B73E /* YTVimeoURLParser.h */,
+				54334435DA54B2E09E042B82D8159AEF /* YTVimeoURLParser.m */,
+				EB1A2868674901EB7E1EF389CFD2D8FF /* YTVimeoVideo.h */,
+				3BECD2B95604CBD85CD8B00B53F2B032 /* YTVimeoVideo.m */,
+				7FE4CAEBE55FE9732CF4ABA34B541921 /* YTVimeoVideo+Private.h */,
+				9D22D685501B40354CFA7922DCAE03E9 /* Support Files */,
+			);
+			name = YTVimeoExtractor;
+			path = YTVimeoExtractor;
+			sourceTree = "<group>";
+		};
+		B8726BC1168924DF700E59E6A14AD520 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C1294A50ACF82E8CCB8E3F7A6DDAECF /* XCDYouTubeKit */,
+				AC565C720AC3D03860C3AD834502E74E /* YTVimeoExtractor */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BB17950277EF4A9B00F915DAE269AA67 /* Pods-Instapaper TV */ = {
+			isa = PBXGroup;
+			children = (
+				C38929F757229C7182658881252ED901 /* Info.plist */,
+				2FC537DA82A7B90903E51983BD25F67C /* Pods-Instapaper TV.modulemap */,
+				5D5157FF995D7A128594C8C6FDFCB123 /* Pods-Instapaper TV-acknowledgements.markdown */,
+				5D14AE2D5CBFBEC1DFE792029AC2CB3F /* Pods-Instapaper TV-acknowledgements.plist */,
+				2007E260A4041C38AF874E9360005D43 /* Pods-Instapaper TV-dummy.m */,
+				9B4F7D9CB27B2C52255B2A531BC35B22 /* Pods-Instapaper TV-frameworks.sh */,
+				3B85FC50FDD43CD35C09D2F9064993FB /* Pods-Instapaper TV-resources.sh */,
+				E50B2E9B890346BB5B680A378E39905D /* Pods-Instapaper TV-umbrella.h */,
+				97D9465D9EEB5021F5028ED20B451544 /* Pods-Instapaper TV.debug.xcconfig */,
+				E2250D012AA194D13F04AFBE811FC642 /* Pods-Instapaper TV.release.xcconfig */,
+			);
+			name = "Pods-Instapaper TV";
+			path = "Target Support Files/Pods-Instapaper TV";
+			sourceTree = "<group>";
+		};
+		E620EBE9428C546AE61A4B77FCA86D2F /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				6FC8AE754DE567E9869FBC59AFCD0D5A /* Foundation.framework */,
+				18528CA735974E8F1FB126B8007D3347 /* JavaScriptCore.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		EFCF5930D6763E8D138DFE5AEFC951FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5581F8707A98FCF7D02AD9E6447C2DCD /* Pods_Instapaper_TV.framework */,
+				69228676330C4AE9B353420AE5CE539D /* XCDYouTubeKit.framework */,
+				68808CCBD82C43F0CDC6DC4992AA8C6C /* YTVimeoExtractor.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6DFA97B0AC4D1B91A0ADE0823FEEFEE0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8A8900C4165AFA764063F1C9195E08D /* YTVimeoError.h in Headers */,
+				C496AB03502ADDFF16DF43894BE436E9 /* YTVimeoExtractor-umbrella.h in Headers */,
+				640E6D4C379C2A425739BE716DD56B80 /* YTVimeoExtractor.h in Headers */,
+				3E8EF0409F705909803F74EF35536E78 /* YTVimeoExtractorOperation.h in Headers */,
+				8FFDDCD519C7605D3CD227E43B9433CE /* YTVimeoURLParser.h in Headers */,
+				6DE180E61E91187D4E5CAA17DEA0495B /* YTVimeoVideo+Private.h in Headers */,
+				A60983D52656D8B85A13EC92AF5D2C20 /* YTVimeoVideo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D4018D1490A3DFB7F48BED160A20A5D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBE91BCA5F95258360FAA3072047AC44 /* XCDYouTubeClient.h in Headers */,
+				F2FC84F0EAE5F54903B6DB4798951EA1 /* XCDYouTubeError.h in Headers */,
+				8971D3BC14B8EB403EBAF9B1301A32F5 /* XCDYouTubeKit-umbrella.h in Headers */,
+				A33997B12E17D2E8F9AC046262144F84 /* XCDYouTubeKit.h in Headers */,
+				E2A37BF4884FCB41A83124B5C10B17A5 /* XCDYouTubeLogger+Private.h in Headers */,
+				A9C638D99B1F17A6A12D692A3CF70B8A /* XCDYouTubeLogger.h in Headers */,
+				FA74566E69CD2FFF4540CE07112258EF /* XCDYouTubeOperation.h in Headers */,
+				746C21F4E23B26A82804258BD13BC994 /* XCDYouTubePlayerScript.h in Headers */,
+				46C2F5427672A9D0D76FFB704F4D000E /* XCDYouTubeVideo+Private.h in Headers */,
+				3E801BA782473EB67A3593EBC1287B5C /* XCDYouTubeVideo.h in Headers */,
+				8C76E66B20804BC43C86F3671DBAF732 /* XCDYouTubeVideoOperation.h in Headers */,
+				B6DF0DBB8A0C3B76DB4BFF182ED7F37B /* XCDYouTubeVideoWebpage.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8D51525680B78678EE62BE5AE76C564 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90BC4C4188500F66D7D3AD943FD7D283 /* Pods-Instapaper TV-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		01F1EFBFDDB0F295BD4269D771447E59 /* Pods-Instapaper TV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA5A45947E0C25529955586129CB3865 /* Build configuration list for PBXNativeTarget "Pods-Instapaper TV" */;
+			buildPhases = (
+				A4DACEFD5EA34C7A0655331110329F59 /* Sources */,
+				4562F9ABF5D99F2453C4EEECDEC4C944 /* Frameworks */,
+				B8D51525680B78678EE62BE5AE76C564 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6FFBC1C1B1F4C5A4EF40FBDA45FC2482 /* PBXTargetDependency */,
+				2A9BB77C17F7399872EC51C624FFF13C /* PBXTargetDependency */,
+			);
+			name = "Pods-Instapaper TV";
+			productName = "Pods-Instapaper TV";
+			productReference = 5581F8707A98FCF7D02AD9E6447C2DCD /* Pods_Instapaper_TV.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5805FDC02BB4BC533FF4582624F4CD0A /* XCDYouTubeKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 797D63402506D2B34BD24BCCEB56777C /* Build configuration list for PBXNativeTarget "XCDYouTubeKit" */;
+			buildPhases = (
+				7388D93ADD5940A83570E979CFB84948 /* Sources */,
+				0354BB2FF89E345F0803DFFD1FA98916 /* Frameworks */,
+				8D4018D1490A3DFB7F48BED160A20A5D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XCDYouTubeKit;
+			productName = XCDYouTubeKit;
+			productReference = 69228676330C4AE9B353420AE5CE539D /* XCDYouTubeKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		96FBE50362794429F5D79B807E3DDD09 /* YTVimeoExtractor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A71587D421CB087D1E64744E68B580A /* Build configuration list for PBXNativeTarget "YTVimeoExtractor" */;
+			buildPhases = (
+				6E6A0C0AFA4B4BC3A87AA269066D4EF4 /* Sources */,
+				A89280CD38F425AAD75FDBDC8BD8D5EC /* Frameworks */,
+				6DFA97B0AC4D1B91A0ADE0823FEEFEE0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YTVimeoExtractor;
+			productName = YTVimeoExtractor;
+			productReference = 68808CCBD82C43F0CDC6DC4992AA8C6C /* YTVimeoExtractor.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = EFCF5930D6763E8D138DFE5AEFC951FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01F1EFBFDDB0F295BD4269D771447E59 /* Pods-Instapaper TV */,
+				5805FDC02BB4BC533FF4582624F4CD0A /* XCDYouTubeKit */,
+				96FBE50362794429F5D79B807E3DDD09 /* YTVimeoExtractor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E6A0C0AFA4B4BC3A87AA269066D4EF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF23EDB8F9CBA0D1819136B2E7D610A7 /* YTVimeoExtractor-dummy.m in Sources */,
+				AF7A18D9B2662A0F1F55FDCC42A13C19 /* YTVimeoExtractor.m in Sources */,
+				E258E29F38EF3FE0CD4882E85A016464 /* YTVimeoExtractorOperation.m in Sources */,
+				E107D631C7F42DE6D2C56136E1A8A96E /* YTVimeoURLParser.m in Sources */,
+				67AF3B11C335E196D9EECD830CE4CA8E /* YTVimeoVideo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7388D93ADD5940A83570E979CFB84948 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				071BD5D02FC5378137F75F1FA0832BD9 /* XCDYouTubeClient.m in Sources */,
+				E51AC272A7C912D2F0FC65FDD7E74341 /* XCDYouTubeKit-dummy.m in Sources */,
+				18236C457DF61207D8EC765EC137296D /* XCDYouTubeLogger.m in Sources */,
+				8DBBB4592A7AAD1D0BF51A8DBCD446FF /* XCDYouTubePlayerScript.m in Sources */,
+				6A0E52D1921FBD2E24589C69D2B21DCE /* XCDYouTubeVideo.m in Sources */,
+				71F3C039427B3CDADBB8A3ADC5C058A6 /* XCDYouTubeVideoOperation.m in Sources */,
+				853CE1EFEC407B10C6D94FB42BEF7C53 /* XCDYouTubeVideoWebpage.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4DACEFD5EA34C7A0655331110329F59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27A7C86B579253FD16506C4687B22AC6 /* Pods-Instapaper TV-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2A9BB77C17F7399872EC51C624FFF13C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YTVimeoExtractor;
+			target = 96FBE50362794429F5D79B807E3DDD09 /* YTVimeoExtractor */;
+			targetProxy = B9B8DD99AD747345A85F47298439DCD2 /* PBXContainerItemProxy */;
+		};
+		6FFBC1C1B1F4C5A4EF40FBDA45FC2482 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XCDYouTubeKit;
+			target = 5805FDC02BB4BC533FF4582624F4CD0A /* XCDYouTubeKit */;
+			targetProxy = 44A12B342E1BFA3A6322A71CF6743C4A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		30E45D5515F269E206B032ADF430FF08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A02A93839CE1250874E11144DFC8634 /* XCDYouTubeKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/XCDYouTubeKit/XCDYouTubeKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/XCDYouTubeKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XCDYouTubeKit/XCDYouTubeKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = XCDYouTubeKit;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4F0656B0C958B4658A8FF48431A2AD9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A02A93839CE1250874E11144DFC8634 /* XCDYouTubeKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/XCDYouTubeKit/XCDYouTubeKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/XCDYouTubeKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XCDYouTubeKit/XCDYouTubeKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = XCDYouTubeKit;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6EE2F0D404FBECA434B334546CB55E8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8AD32D73101289FFCB44EDCCC8F20B34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Debug;
+		};
+		BAFEC5C098C4C75211CD49C443DF8D84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CEB424B0697C1B591E9A0D7C95E355A /* YTVimeoExtractor.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/YTVimeoExtractor/YTVimeoExtractor-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YTVimeoExtractor/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/YTVimeoExtractor/YTVimeoExtractor.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = YTVimeoExtractor;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C699C1704D824D0E717A18761C8CA795 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2250D012AA194D13F04AFBE811FC642 /* Pods-Instapaper TV.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Instapaper TV/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Instapaper TV/Pods-Instapaper TV.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Instapaper_TV;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CA50FD4DA4DB6939F40EC272DF5D0A82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97D9465D9EEB5021F5028ED20B451544 /* Pods-Instapaper TV.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Instapaper TV/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Instapaper TV/Pods-Instapaper TV.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Instapaper_TV;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E2ADD6284B8DEB11ADCEA80CD31BECAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CEB424B0697C1B591E9A0D7C95E355A /* YTVimeoExtractor.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/YTVimeoExtractor/YTVimeoExtractor-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YTVimeoExtractor/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/YTVimeoExtractor/YTVimeoExtractor.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = YTVimeoExtractor;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AD32D73101289FFCB44EDCCC8F20B34 /* Debug */,
+				6EE2F0D404FBECA434B334546CB55E8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A71587D421CB087D1E64744E68B580A /* Build configuration list for PBXNativeTarget "YTVimeoExtractor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAFEC5C098C4C75211CD49C443DF8D84 /* Debug */,
+				E2ADD6284B8DEB11ADCEA80CD31BECAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		797D63402506D2B34BD24BCCEB56777C /* Build configuration list for PBXNativeTarget "XCDYouTubeKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F0656B0C958B4658A8FF48431A2AD9A /* Debug */,
+				30E45D5515F269E206B032ADF430FF08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA5A45947E0C25529955586129CB3865 /* Build configuration list for PBXNativeTarget "Pods-Instapaper TV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA50FD4DA4DB6939F40EC272DF5D0A82 /* Debug */,
+				C699C1704D824D0E717A18761C8CA795 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
