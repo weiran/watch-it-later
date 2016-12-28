@@ -13,10 +13,14 @@ import XCDYouTubeKit
 import YTVimeoExtractor
 
 class ViewController: UIViewController {
+    
+    fileprivate let instapaperAPI = InstapaperAPI()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        instapaperAPI.login()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,8 +46,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        instapaperAPI.fetch()
 //        playVimeoVideo(url: "https://vimeo.com/channels/staffpicks/147876560")
-        playYouTubeVideo(url: "https://www.youtube.com/watch?v=OVYF4t-v6Zw")
+//        playYouTubeVideo(url: "https://www.youtube.com/watch?v=OVYF4t-v6Zw")
     }
     
     
@@ -114,4 +119,3 @@ extension ViewController {
         
     }
 }
-

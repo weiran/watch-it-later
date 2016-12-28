@@ -5,3 +5,4 @@
 
 #import <XCDYouTubeKit/XCDYouTubeKit.h>
 #import <YTVimeoExtractor/YTVimeoExtractor.h>
+#import "InstapaperKit.h"

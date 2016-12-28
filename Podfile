@@ -8,4 +8,5 @@ target 'Instapaper TV' do
   # Pods for Instapaper TV
   pod 'XCDYouTubeKit'
   pod 'YTVimeoExtractor', :git => 'https://github.com/lilfaf/YTVimeoExtractor', :commit => 'b484d9879b42ab1b31dae23aaccd0e8be192e9fb'
+  pod 'Locksmith'
 end

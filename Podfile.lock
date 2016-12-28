@@ -1,8 +1,10 @@
 PODS:
+  - Locksmith (3.0.0)
   - XCDYouTubeKit (2.5.3)
   - YTVimeoExtractor (1.1.0)
 
 DEPENDENCIES:
+  - Locksmith
   - XCDYouTubeKit
   - YTVimeoExtractor (from `https://github.com/lilfaf/YTVimeoExtractor`, commit `b484d9879b42ab1b31dae23aaccd0e8be192e9fb`)
 
@@ -17,9 +19,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/lilfaf/YTVimeoExtractor
 
 SPEC CHECKSUMS:
+  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   XCDYouTubeKit: 90690f9e3523735dc93b8024269d991b0cfffe78
   YTVimeoExtractor: 36a8f37598c8529c7064229fb6a3f4ba5d38f265
 
-PODFILE CHECKSUM: 9e076d202a733e5cc5741060fa7081994cac3f53
+PODFILE CHECKSUM: a35af3771a263e44907ac94510908f563a5695d0
 
 COCOAPODS: 1.1.1
