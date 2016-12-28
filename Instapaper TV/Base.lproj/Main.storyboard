@@ -31,7 +31,7 @@
                                             <constraint firstAttribute="width" constant="700" id="UW6-cv-Abn"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="VideoCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VideoCell" rowHeight="140" id="hbi-bX-5X7">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="BookmarkCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookmarkCell" rowHeight="140" id="hbi-bX-5X7" customClass="BookmarkCell" customModule="Instapaper_TV" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="66" width="700" height="140"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hbi-bX-5X7" id="PfG-sa-Hq4">
@@ -39,7 +39,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZD-Sc-pbm">
-                                                            <rect key="frame" x="0.0" y="0.0" width="700" height="140"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="1540" height="140"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NEe-k1-V4F">
                                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="140"/>
@@ -48,10 +48,10 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9aE-wS-98R">
-                                                                    <rect key="frame" x="240" y="0.0" width="460" height="140"/>
+                                                                    <rect key="frame" x="240" y="0.0" width="1300" height="140"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8b-g7-SXN">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="460" height="140"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="1300" height="140"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -68,6 +68,10 @@
                                                         <constraint firstAttribute="trailing" secondItem="xZD-Sc-pbm" secondAttribute="trailing" id="io5-A1-Nw1"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="thumbnailImageView" destination="NEe-k1-V4F" id="Mcw-bD-8Wg"/>
+                                                    <outlet property="titleLabelView" destination="o8b-g7-SXN" id="G3j-JS-4kk"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>

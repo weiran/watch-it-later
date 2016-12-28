@@ -45,7 +45,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "VideoCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookmarkCell") as! BookmarkCell
+        let bookmark = bookmarks![indexPath.row]
+        cell.titleLabelView.text = bookmark.title
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
