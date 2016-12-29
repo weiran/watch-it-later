@@ -56,7 +56,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5z-KT-jKo">
-                                                    <rect key="frame" x="16" y="196" width="454" height="51"/>
+                                                    <rect key="frame" x="16" y="196" width="438" height="51"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -64,12 +64,12 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="J5z-KT-jKo" firstAttribute="trailing" secondItem="9vx-S2-r2N" secondAttribute="trailingMargin" constant="8" id="4Go-WB-FSn"/>
                                             <constraint firstItem="J5z-KT-jKo" firstAttribute="top" secondItem="aHf-7S-giT" secondAttribute="bottom" constant="8" id="Adk-QO-7Fd"/>
                                             <constraint firstItem="aHf-7S-giT" firstAttribute="top" secondItem="9vx-S2-r2N" secondAttribute="topMargin" id="J0G-A3-EBV"/>
                                             <constraint firstItem="aHf-7S-giT" firstAttribute="centerX" secondItem="9vx-S2-r2N" secondAttribute="centerX" id="Xct-Fr-XxY"/>
                                             <constraint firstItem="J5z-KT-jKo" firstAttribute="bottom" secondItem="9vx-S2-r2N" secondAttribute="bottomMargin" id="axy-ZB-gWG"/>
                                             <constraint firstItem="J5z-KT-jKo" firstAttribute="leading" secondItem="9vx-S2-r2N" secondAttribute="leadingMargin" constant="8" id="sDp-LP-Oad"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="J5z-KT-jKo" secondAttribute="trailing" constant="8" id="tUn-mO-AHB"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="thumbnailImageView" destination="aHf-7S-giT" id="nhg-dP-xpL"/>
