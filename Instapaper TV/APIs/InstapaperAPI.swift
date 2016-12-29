@@ -10,7 +10,6 @@ import Locksmith
 
 protocol API {
     static var name: String { get }
-    var bookmarks: [Bookmark]? { get set }
     
     func login()
     func storedAuth()
@@ -21,9 +20,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     
     static var name = "Instapaper"
     fileprivate var engine: IKEngine
-    weak var delegate: BookmarksDelegateProtocol?
-    
-    var bookmarks: [Bookmark]?
+    weak var delegate: VideosDelegateProtocol?
     
     override init() {
         IKEngine.setOAuthConsumerKey("JhxaIHH9KhRc3Mj2JaiJ6bYOhMR5Kv7sdeESoBgxlEf51YOdtb", andConsumerSecret: "Yl6nzC2cVu2AGm8XrqoTt8QgVI0FJs0ndsV5jWbSN7bI3tBSb1")
@@ -61,11 +58,10 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     
     func engine(_ engine: IKEngine!, connection: IKURLConnection!, didReceiveBookmarks bookmarks: [Any]!, of user: IKUser!, for folder: IKFolder!) {
         if let bookmarks = bookmarks as! [IKBookmark]! {
-            let convertedBookmarks = bookmarks.map { (instapaperBookmark) -> Bookmark in
-                return Bookmark(instapaperBookmark)
+            let videos = bookmarks.map { (bookmark) -> Video in
+                return Video(bookmark)
             }
-            self.bookmarks = convertedBookmarks
-            delegate?.bookmarksUpdated(bookmarks: self.bookmarks!)
+            delegate?.videosUpdated(videos: videos)
         }
     }
 

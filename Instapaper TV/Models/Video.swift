@@ -1,16 +1,16 @@
 //
-//  Bookmark.swift
+//  Video.swift
 //  Instapaper TV
 //
 //  Created by Weiran Zhang on 28/12/2016.
 //  Copyright © 2016 Weiran Zhang. All rights reserved.
 //
 
-class Bookmark {
+class Video {
     
     init(_ bookmark: IKBookmark) {
         title = bookmark.title
-        description = bookmark.description
+        description = bookmark.descr
         url = bookmark.url.absoluteString
     }
 

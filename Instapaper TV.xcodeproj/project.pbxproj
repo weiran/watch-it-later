@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		241C2ABD1E154337009F98D7 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C2ABC1E154337009F98D7 /* VideoCell.swift */; };
+		241C2AC21E15511E009F98D7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C2AC11E15511E009F98D7 /* DetailViewController.swift */; };
+		241C2AC41E1557FD009F98D7 /* YouTube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C2AC31E1557FD009F98D7 /* YouTube.swift */; };
 		24332BD81E108D1A00D5AA18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24332BD71E108D1A00D5AA18 /* AppDelegate.swift */; };
 		24332BDA1E108D1A00D5AA18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24332BD91E108D1A00D5AA18 /* ViewController.swift */; };
 		24332BDD1E108D1A00D5AA18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24332BDB1E108D1A00D5AA18 /* Main.storyboard */; };
 		24332BDF1E108D1A00D5AA18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24332BDE1E108D1A00D5AA18 /* Assets.xcassets */; };
-		2459544C1E14420B00997693 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544B1E14420B00997693 /* Bookmark.swift */; };
-		2459544F1E14565400997693 /* BookmarksDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544E1E14565400997693 /* BookmarksDelegateProtocol.swift */; };
+		2459544C1E14420B00997693 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544B1E14420B00997693 /* Video.swift */; };
+		2459544F1E14565400997693 /* VideosDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544E1E14565400997693 /* VideosDelegateProtocol.swift */; };
 		247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */; };
 		24988A551E141E37003E46FB /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24988A541E141E37003E46FB /* AVKit.framework */; };
 		24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A771E143A50003E46FB /* IKBookmark.m */; };
@@ -31,14 +33,16 @@
 /* Begin PBXFileReference section */
 		0907EFA89238A51C318C6A1B /* Pods_Instapaper_TV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instapaper_TV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		241C2ABC1E154337009F98D7 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		241C2AC11E15511E009F98D7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		241C2AC31E1557FD009F98D7 /* YouTube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTube.swift; sourceTree = "<group>"; };
 		24332BD41E108D1A00D5AA18 /* Instapaper TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instapaper TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24332BD71E108D1A00D5AA18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24332BD91E108D1A00D5AA18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24332BDC1E108D1A00D5AA18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24332BDE1E108D1A00D5AA18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24332BE01E108D1A00D5AA18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2459544B1E14420B00997693 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
-		2459544E1E14565400997693 /* BookmarksDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksDelegateProtocol.swift; sourceTree = "<group>"; };
+		2459544B1E14420B00997693 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		2459544E1E14565400997693 /* VideosDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosDelegateProtocol.swift; sourceTree = "<group>"; };
 		247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstapaperAPI.swift; sourceTree = "<group>"; };
 		247D7F871E143D970037E4EC /* Instapaper TV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Instapaper TV.entitlements"; sourceTree = "<group>"; };
 		24988A541E141E37003E46FB /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
@@ -95,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */,
+				241C2AC31E1557FD009F98D7 /* YouTube.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -102,7 +107,7 @@
 		241C2AC01E1549AC009F98D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2459544B1E14420B00997693 /* Bookmark.swift */,
+				2459544B1E14420B00997693 /* Video.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,10 +138,11 @@
 				241C2AC01E1549AC009F98D7 /* Models */,
 				241C2ABE1E15498E009F98D7 /* Supporting Files */,
 				24332BD71E108D1A00D5AA18 /* AppDelegate.swift */,
-				2459544E1E14565400997693 /* BookmarksDelegateProtocol.swift */,
+				2459544E1E14565400997693 /* VideosDelegateProtocol.swift */,
 				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
 				241C2ABC1E154337009F98D7 /* VideoCell.swift */,
 				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
+				241C2AC11E15511E009F98D7 /* DetailViewController.swift */,
 			);
 			path = "Instapaper TV";
 			sourceTree = "<group>";
@@ -335,14 +341,16 @@
 				241C2ABD1E154337009F98D7 /* VideoCell.swift in Sources */,
 				24988A8E1E143A50003E46FB /* IKConstants.m in Sources */,
 				24332BD81E108D1A00D5AA18 /* AppDelegate.swift in Sources */,
-				2459544F1E14565400997693 /* BookmarksDelegateProtocol.swift in Sources */,
+				2459544F1E14565400997693 /* VideosDelegateProtocol.swift in Sources */,
 				24988A951E143A50003E46FB /* NSData+Base64.m in Sources */,
 				24988A921E143A50003E46FB /* IKURLConnection.m in Sources */,
+				241C2AC21E15511E009F98D7 /* DetailViewController.swift in Sources */,
 				24988A941E143A50003E46FB /* NSString+IKEncoding.m in Sources */,
 				24988A901E143A50003E46FB /* IKEngine.m in Sources */,
 				247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */,
+				241C2AC41E1557FD009F98D7 /* YouTube.swift in Sources */,
 				24988A8F1E143A50003E46FB /* IKDeserializer.m in Sources */,
-				2459544C1E14420B00997693 /* Bookmark.swift in Sources */,
+				2459544C1E14420B00997693 /* Video.swift in Sources */,
 				24988A911E143A50003E46FB /* IKFolder.m in Sources */,
 				24988A931E143A50003E46FB /* IKUser.m in Sources */,
 				24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */,

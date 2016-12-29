@@ -12,10 +12,10 @@ import AVKit
 import XCDYouTubeKit
 import YTVimeoExtractor
 
-class ViewController: UIViewController, BookmarksDelegateProtocol {
+class ViewController: UIViewController, VideosDelegateProtocol {
     
     fileprivate let instapaperAPI = InstapaperAPI()
-    fileprivate var bookmarks: [Bookmark]?
+    fileprivate var videos: [Video]?
     
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -26,9 +26,9 @@ class ViewController: UIViewController, BookmarksDelegateProtocol {
         instapaperAPI.fetch()
     }
     
-    func bookmarksUpdated(bookmarks: [Bookmark]) {
-        self.bookmarks = bookmarks.filter({ (bookmark) -> Bool in
-            bookmark.url.contains("vimeo.com") || bookmark.url.contains("youtube.com") || bookmark.url.contains("youtu.be")
+    func videosUpdated(videos: [Video]) {
+        self.videos = videos.filter({ (video) -> Bool in
+            video.url.contains("vimeo.com") || video.url.contains("youtube.com") || video.url.contains("youtu.be")
         })
         collectionView.reloadData()
     }
@@ -38,22 +38,22 @@ class ViewController: UIViewController, BookmarksDelegateProtocol {
 // Collection View
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return bookmarks?.count ?? 0
+        return videos?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
-        let bookmark = bookmarks![indexPath.row]
-        cell.titleLabel.text = bookmark.title
+        let video = videos![indexPath.row]
+        cell.titleLabel.text = video.title
         
-        if bookmark.url.contains("vimeo.com") {
-            YTVimeoExtractor.shared().fetchVideo(withVimeoURL: bookmark.url, withReferer: nil) { (video, error) in
+        if video.url.contains("vimeo.com") {
+            YTVimeoExtractor.shared().fetchVideo(withVimeoURL: video.url, withReferer: nil) { (video, error) in
                 if let thumbnailURLs = video?.thumbnailURLs, thumbnailURLs.count > 0 {
                     cell.thumbnailImageView.imageURL = thumbnailURLs[NSNumber(value: YTVimeoVideoThumbnailQuality.HD.rawValue)]
                 }
             }
-        } else if bookmark.url.contains("youtube.com") || bookmark.url.contains("youtu.be") {
-            let identifier = parseYoutubeIdentifier(bookmark.url)
+        } else if video.url.contains("youtube.com") || video.url.contains("youtu.be") {
+            let identifier = parseYoutubeIdentifier(video.url)
             XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { (video, error) in
                 cell.thumbnailImageView.imageURL = video?.largeThumbnailURL ?? video?.mediumThumbnailURL ?? video?.smallThumbnailURL
             }
@@ -62,12 +62,23 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let bookmark = bookmarks![indexPath.row]
-        if bookmark.url.contains("vimeo.com") {
-            playVimeoVideo(url: bookmark.url)
-        } else {
-            playYouTubeVideo(url: bookmark.url)
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let bookmark = bookmarks![indexPath.row]
+//        if bookmark.url.contains("vimeo.com") {
+//            playVimeoVideo(url: bookmark.url)
+//        } else {
+//            playYouTubeVideo(url: bookmark.url)
+//        }
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetailSegue" {
+            let cell = sender as! VideoCell
+            let indexPath = collectionView.indexPath(for: cell)!
+            let video = videos?[indexPath.row]
+            
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.video = video
         }
     }
 }

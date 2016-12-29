@@ -1,5 +1,5 @@
 //
-//  BookmarksProtocol.swift
+//  VideosDelegateProtocol.swift
 //  Instapaper TV
 //
 //  Created by Weiran Zhang on 28/12/2016.
@@ -7,8 +7,8 @@
 //
 
 
-protocol BookmarksDelegateProtocol: class {
+protocol VideosDelegateProtocol: class {
 
-    func bookmarksUpdated(bookmarks: [Bookmark])
+    func videosUpdated(videos: [Video])
     
 }
