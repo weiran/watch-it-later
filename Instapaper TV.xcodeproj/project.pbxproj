@@ -88,7 +88,6 @@
 				24D942411E113238008387CC /* Instapaper TV-Bridging-Header.h */,
 				247D7F871E143D970037E4EC /* Instapaper TV.entitlements */,
 			);
-			name = "Supporting Files";
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
@@ -97,7 +96,6 @@
 			children = (
 				247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */,
 			);
-			name = APIs;
 			path = APIs;
 			sourceTree = "<group>";
 		};
@@ -106,7 +104,6 @@
 			children = (
 				2459544B1E14420B00997693 /* Bookmark.swift */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -465,7 +462,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Instapaper TV/Instapaper TV.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Instapaper TV/Supporting Files/Instapaper TV.entitlements";
 				DEVELOPMENT_TEAM = 2KB59GPA9B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -475,7 +472,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.weiran.Instapaper-TV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Instapaper TV/Instapaper TV-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Instapaper TV/Supporting Files/Instapaper TV-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -488,7 +485,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Instapaper TV/Instapaper TV.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Instapaper TV/Supporting Files/Instapaper TV.entitlements";
 				DEVELOPMENT_TEAM = 2KB59GPA9B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,7 +495,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.weiran.Instapaper-TV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Instapaper TV/Instapaper TV-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Instapaper TV/Supporting Files/Instapaper TV-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
