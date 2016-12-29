@@ -19,7 +19,7 @@ protocol API {
 class InstapaperAPI: NSObject, API, IKEngineDelegate {
     
     static var name = "Instapaper"
-    fileprivate var engine: IKEngine
+    private var engine: IKEngine
     weak var delegate: VideosDelegateProtocol?
     
     override init() {
@@ -68,5 +68,5 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
             delegate?.videosUpdated(videos: videos)
         }
     }
-
+    
 }

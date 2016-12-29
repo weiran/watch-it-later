@@ -14,7 +14,6 @@ protocol VideoProviderProtocol {
     
     func streamURL() -> Promise<URL>
     func thumbnailURL() -> Promise<URL>
-    func description() -> Promise<String>
     func duration() -> Promise<Double>
     
 }

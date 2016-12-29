@@ -54,13 +54,6 @@ class YouTubeProvider: VideoProviderProtocol {
         }
     }
     
-    func description() -> Promise<String> {
-        // figure out a way to get a YouTube description
-        return Promise { fulfill, reject in
-            fulfill("")
-        }
-    }
-    
     func duration() -> Promise<Double> {
         return Promise { fulfill, reject in
             XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in

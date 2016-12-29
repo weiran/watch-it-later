@@ -48,13 +48,6 @@ class VimeoProvider: VideoProviderProtocol {
         }
     }
     
-    func description() -> Promise<String> {
-        // figure out a way to get a Vimeo description
-        return Promise { fulfill, reject in
-            fulfill("")
-        }
-    }
-    
     func duration() -> Promise<Double> {
         return Promise { fulfill, reject in
             YTVimeoExtractor.shared().fetchVideo(withVimeoURL: url.absoluteString, withReferer: nil) { video, error in

@@ -36,14 +36,10 @@ class DetailViewController: UIViewController {
                 let thumbnailPromise = videoProvider!.thumbnailURL().then { [weak self] url in
                     self?.thumbnailImageView.imageURL = url
                 }
-                let descriptionPromise = videoProvider!.description().then { [weak self] description in
-                    self?.descriptionLabel.text = description
-                }
                 let durationPromise = videoProvider!.duration().then { [weak self] (duration: Double) in
                     self?.durationLabel.text = self?.formatTimeInterval(duration: duration)
                 }
-
-                when(fulfilled: [thumbnailPromise, descriptionPromise, durationPromise])
+                when(fulfilled: [thumbnailPromise, durationPromise])
                 .catch { [weak self] error in
                     self?.showError()
                 }
