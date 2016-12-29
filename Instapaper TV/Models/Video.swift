@@ -22,7 +22,7 @@ class Video: Equatable {
     var bookmark: IKBookmark
     
     static func == (left: Video, right: Video) -> Bool {
-        return left.bookmark == right.bookmark
+        return left.bookmark.bookmarkID == right.bookmark.bookmarkID
     }
     
 }

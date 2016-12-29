@@ -13,6 +13,9 @@ class ViewController: UIViewController, VideosDelegateProtocol {
     fileprivate let instapaperAPI = InstapaperAPI()
     fileprivate var videos: [Video]?
     
+    var isChildViewController: Bool = false
+    var hideVideo: Video?
+    
     @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
@@ -23,23 +26,28 @@ class ViewController: UIViewController, VideosDelegateProtocol {
         instapaperAPI.fetch()
         
         observeNotifications()
+        
+        if isChildViewController {
+            let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            layout.scrollDirection = .horizontal
+        }
     }
     
     func observeNotifications() {
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "VideoArchived"), object: nil, queue: nil) { [weak self] notification in
-            if let video = notification.userInfo?["video"] as? Video {
-                let index = self?.videos?.index(where: { $0 == video })
-                self?.videos?.remove(at: index!)
+            if let video = notification.userInfo?["video"] as? Video,
+                let index = self?.videos?.index(where: { $0 == video }) {
+                self?.videos?.remove(at: index)
                 self?.collectionView.performBatchUpdates({
-                    self?.collectionView.deleteItems(at: [IndexPath(row: index!, section: 0)])
+                    self?.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
                 }, completion: nil)
             }
         }
     }
     
     func videosUpdated(videos: [Video]) {
-        self.videos = videos.filter({ (video) -> Bool in
-            video.url.contains("vimeo.com") || video.url.contains("youtube.com") || video.url.contains("youtu.be")
+        self.videos = videos.filter({ video -> Bool in
+            (video.url.contains("vimeo.com") || video.url.contains("youtube.com") || video.url.contains("youtu.be")) && video != hideVideo
         })
         collectionView.reloadData()
     }
@@ -80,6 +88,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.video = video
             detailViewController.instapaperAPI = instapaperAPI // todo change to dependency injection
+            
+            if isChildViewController {
+                // stop the chain of view controllers being created
+                navigationController?.popToRootViewController(animated: false)
+            }
         }
     }
 }

@@ -83,13 +83,23 @@ class DetailViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EmbededVideos" {
+            let videosViewController = segue.destination as! ViewController
+            videosViewController.isChildViewController = true
+            videosViewController.hideVideo = video
+        }
+    }
+    
     private func showError() {
-        let alertController = UIAlertController(title: "Video Error", message: "There's something wrong with the video.", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: { action in
-            self.dismiss(animated: true, completion: nil)
-        })
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true)
+        DispatchQueue(label: "ErrorQueue").sync {
+            let alertController = UIAlertController(title: "Video Error", message: "There's something wrong with the video.", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+                self.dismiss(animated: true, completion: nil)
+            })
+            alertController.addAction(alertAction)
+            present(alertController, animated: true)
+        }
     }
     
     func formatTimeInterval(duration: TimeInterval) -> String {
