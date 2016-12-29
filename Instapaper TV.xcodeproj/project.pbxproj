@@ -104,14 +104,14 @@
 		241C2ABF1E1549A1009F98D7 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
-				241C2AC51E155C36009F98D7 /* VideoProviderProtocol.swift */,
 				247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */,
-				241C2AC31E1557FD009F98D7 /* YouTubeProvider.swift */,
-				241C2AC91E156564009F98D7 /* VimeoProvider.swift */,
 				241C2AC71E155FCC009F98D7 /* VideoProvider.swift */,
+				241C2AC51E155C36009F98D7 /* VideoProviderProtocol.swift */,
+				241C2AC91E156564009F98D7 /* VimeoProvider.swift */,
+				241C2AC31E1557FD009F98D7 /* YouTubeProvider.swift */,
 			);
 			name = Providers;
-			path = APIs;
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		241C2AC01E1549AC009F98D7 /* Models */ = {
@@ -144,15 +144,15 @@
 		24332BD61E108D1A00D5AA18 /* Instapaper TV */ = {
 			isa = PBXGroup;
 			children = (
-				241C2ABF1E1549A1009F98D7 /* Providers */,
 				241C2AC01E1549AC009F98D7 /* Models */,
+				241C2ABF1E1549A1009F98D7 /* Providers */,
 				241C2ABE1E15498E009F98D7 /* Supporting Files */,
 				24332BD71E108D1A00D5AA18 /* AppDelegate.swift */,
-				2459544E1E14565400997693 /* VideosDelegateProtocol.swift */,
+				241C2AC11E15511E009F98D7 /* DetailViewController.swift */,
 				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
 				241C2ABC1E154337009F98D7 /* VideoCell.swift */,
+				2459544E1E14565400997693 /* VideosDelegateProtocol.swift */,
 				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
-				241C2AC11E15511E009F98D7 /* DetailViewController.swift */,
 			);
 			path = "Instapaper TV";
 			sourceTree = "<group>";
