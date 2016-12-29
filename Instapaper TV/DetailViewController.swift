@@ -52,6 +52,15 @@ class DetailViewController: UIViewController {
             }
         }
         
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didPlay(_:)))
+        tapRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
+        view.addGestureRecognizer(tapRecognizer)
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.endReceivingRemoteControlEvents()
     }
 
     @IBAction func didPlay(_ sender: Any) {
