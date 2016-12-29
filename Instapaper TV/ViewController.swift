@@ -17,9 +17,24 @@ class ViewController: UIViewController, VideosDelegateProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         instapaperAPI.delegate = self
         instapaperAPI.storedAuth()
         instapaperAPI.fetch()
+        
+        observeNotifications()
+    }
+    
+    func observeNotifications() {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "VideoArchived"), object: nil, queue: nil) { [weak self] notification in
+            if let video = notification.userInfo?["video"] as? Video {
+                let index = self?.videos?.index(where: { $0 == video })
+                self?.videos?.remove(at: index!)
+                self?.collectionView.performBatchUpdates({
+                    self?.collectionView.deleteItems(at: [IndexPath(row: index!, section: 0)])
+                }, completion: nil)
+            }
+        }
     }
     
     func videosUpdated(videos: [Video]) {
@@ -64,6 +79,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.video = video
+            detailViewController.instapaperAPI = instapaperAPI // todo change to dependency injection
         }
     }
 }

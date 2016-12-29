@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     
     var video: Video?
     var videoProvider: VideoProviderProtocol?
+    var instapaperAPI: InstapaperAPI?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var domainLabel: UILabel!
@@ -68,10 +69,12 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func didArchive(_ sender: Any) {
-        
+        instapaperAPI?.archive(bookmark: video!.bookmark)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "VideoArchived"), object: sender, userInfo: ["video": video!])
+        dismiss(animated: true, completion: nil)
     }
     
-    fileprivate func showError() {
+    private func showError() {
         let alertController = UIAlertController(title: "Video Error", message: "There's something wrong with the video.", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: { action in
             self.dismiss(animated: true, completion: nil)

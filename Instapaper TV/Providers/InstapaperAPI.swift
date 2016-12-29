@@ -47,6 +47,10 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         engine.bookmarks(withUserInfo: nil)
     }
     
+    func archive(bookmark: IKBookmark) {
+        engine.archiveBookmark(bookmark, userInfo: nil)
+    }
+    
     func engine(_ engine: IKEngine!, connection: IKURLConnection!, didReceiveAuthToken token: String!, andTokenSecret secret: String!) {
         do {
             try Locksmith.deleteDataForUserAccount(userAccount: InstapaperAPI.name)
