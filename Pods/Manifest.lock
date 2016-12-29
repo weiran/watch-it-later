@@ -1,12 +1,24 @@
 PODS:
   - AsyncImageView (1.6)
   - Locksmith (3.0.0)
+  - PromiseKit (4.1.0):
+    - PromiseKit/Foundation (= 4.1.0)
+    - PromiseKit/QuartzCore (= 4.1.0)
+    - PromiseKit/UIKit (= 4.1.0)
+  - PromiseKit/CorePromise (4.1.0)
+  - PromiseKit/Foundation (4.1.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.1.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.1.0):
+    - PromiseKit/CorePromise
   - XCDYouTubeKit (2.5.3)
   - YTVimeoExtractor (1.1.0)
 
 DEPENDENCIES:
   - AsyncImageView
   - Locksmith
+  - PromiseKit (~> 4.0)
   - XCDYouTubeKit
   - YTVimeoExtractor (from `https://github.com/lilfaf/YTVimeoExtractor`, commit `b484d9879b42ab1b31dae23aaccd0e8be192e9fb`)
 
@@ -23,9 +35,10 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AsyncImageView: 416e99402e5b1f20571de70ad619ced90f56a7d9
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
+  PromiseKit: c98453ff78544c0ad5bb0ea980782e6875f47978
   XCDYouTubeKit: 90690f9e3523735dc93b8024269d991b0cfffe78
   YTVimeoExtractor: 36a8f37598c8529c7064229fb6a3f4ba5d38f265
 
-PODFILE CHECKSUM: 9e873439c4d812595972650eb2c8900b4ecfbe6f
+PODFILE CHECKSUM: 21315c9f7a6aef594d6aa7e0b7958e432125c3e6
 
 COCOAPODS: 1.1.1
