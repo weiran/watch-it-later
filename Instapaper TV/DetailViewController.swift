@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var domainLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var thumbnailImageView: AsyncImageView!
     
@@ -37,8 +38,11 @@ class DetailViewController: UIViewController {
                 let descriptionPromise = videoProvider!.description().then { [weak self] description in
                     self?.descriptionLabel.text = description
                 }
-                
-                when(fulfilled: [thumbnailPromise, descriptionPromise])
+                let durationPromise = videoProvider!.duration().then { [weak self] (duration: Double) in
+                    self?.durationLabel.text = self?.formatTimeInterval(duration: duration)
+                }
+
+                when(fulfilled: [thumbnailPromise, descriptionPromise, durationPromise])
                 .catch { [weak self] error in
                     self?.showError()
                 }
@@ -73,5 +77,20 @@ class DetailViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         })
         alertController.addAction(alertAction)
-        self.present(alertController, animated: true)    }
+        self.present(alertController, animated: true)
+    }
+    
+    func formatTimeInterval(duration: TimeInterval) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.zeroFormattingBehavior = .pad
+        
+        if duration >= 3600 {
+            formatter.allowedUnits = [.hour, .minute, .second]
+        } else {
+            formatter.allowedUnits = [.minute, .second]
+        }
+        
+        return formatter.string(from: duration) ?? ""
+    }
+    
 }

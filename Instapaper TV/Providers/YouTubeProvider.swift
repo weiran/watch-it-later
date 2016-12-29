@@ -61,6 +61,20 @@ class YouTubeProvider: VideoProviderProtocol {
         }
     }
     
+    func duration() -> Promise<Double> {
+        return Promise { fulfill, reject in
+            XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
+                if let video = video {
+                    fulfill(Double(video.duration))
+                } else if let error = error {
+                    reject(error)
+                } else {
+                    reject(VideoError.InvalidURL)
+                }
+            }
+        }
+    }
+    
     fileprivate func parseYoutubeIdentifier(_ url: String) throws -> String {
         do {
             let identifierRegex = try NSRegularExpression(pattern: "(?<=v(=|/))([-a-zA-Z0-9_]+)|(?<=youtu.be/)([-a-zA-Z0-9_]+)")
