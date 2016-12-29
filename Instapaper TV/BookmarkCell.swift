@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import AsyncImageView
 
 class BookmarkCell: UITableViewCell {
 
     @IBOutlet weak var titleLabelView: UILabel!
-    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var domainLabelView: UILabel!
+    @IBOutlet weak var thumbnailImageView: AsyncImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

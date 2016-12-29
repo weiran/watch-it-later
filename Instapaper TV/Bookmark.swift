@@ -7,10 +7,15 @@
 //
 
 class Bookmark {
+    
+    init(_ bookmark: IKBookmark) {
+        title = bookmark.title
+        description = bookmark.description
+        url = bookmark.url.absoluteString
+    }
 
-    var title: String?
-    var description: String?
-    var url: String?
-    var thumbnailURL: String?
+    var title: String
+    var description: String
+    var url: String
     
 }

@@ -27,7 +27,7 @@ class ViewController: UIViewController, BookmarksDelegateProtocol {
     
     func bookmarksUpdated(bookmarks: [Bookmark]) {
         self.bookmarks = bookmarks.filter({ (bookmark) -> Bool in
-            bookmark.url!.contains("vimeo.com") || bookmark.url!.contains("youtube.com") || bookmark.url!.contains("youtu.be")
+            bookmark.url.contains("vimeo.com") || bookmark.url.contains("youtube.com") || bookmark.url.contains("youtu.be")
         })
         tableView.reloadData()
     }
@@ -48,12 +48,28 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookmarkCell") as! BookmarkCell
         let bookmark = bookmarks![indexPath.row]
         cell.titleLabelView.text = bookmark.title
+        
+        if bookmark.url.contains("vimeo.com") {
+            cell.domainLabelView.text = "vimeo.com"
+            YTVimeoExtractor.shared().fetchVideo(withVimeoURL: bookmark.url, withReferer: nil) { (video, error) in
+                if let thumbnailURLs = video?.thumbnailURLs, thumbnailURLs.count > 0 {
+                    cell.thumbnailImageView.imageURL = thumbnailURLs[NSNumber(value: YTVimeoVideoThumbnailQuality.HD.rawValue)]
+                }
+            }
+        } else if bookmark.url.contains("youtube.com") || bookmark.url.contains("youtu.be") {
+            cell.domainLabelView.text = "youtube.com"
+            let identifier = parseYoutubeIdentifier(bookmark.url)
+            XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { (video, error) in
+                cell.thumbnailImageView.imageURL = video?.largeThumbnailURL ?? video?.mediumThumbnailURL ?? video?.smallThumbnailURL
+            }
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let bookmark = bookmarks![indexPath.row]
-        if bookmark.url!.contains("vimeo.com") {
+        if bookmark.url.contains("vimeo.com") {
             playVimeoVideo(url: bookmark.url)
         } else {
             playYouTubeVideo(url: bookmark.url)
@@ -66,23 +82,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 extension ViewController {
     
     func playYouTubeVideo(url: String!) {
-        var identifier: String
-        
-        do {
-            let identifierRegex = try NSRegularExpression(pattern: "(?<=v(=|/))([-a-zA-Z0-9_]+)|(?<=youtu.be/)([-a-zA-Z0-9_]+)")
-            let results = identifierRegex.matches(in: url, range: NSRange(location: 0, length: url.characters.count))
-            if results.count > 0 {
-                let urlNSString = url as NSString
-                identifier = urlNSString.substring(with: results.first!.range)
-            } else {
-                // invalid url
-                return
-            }
-        } catch _ {
-            // invalid regex
-            return
-        }
-        
+        let identifier = parseYoutubeIdentifier(url)
         XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { (video, error) in
             
             if let streamURLs = video?.streamURLs, let streamURL = (streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ?? streamURLs[YouTubeVideoQuality.hd720] ?? streamURLs[YouTubeVideoQuality.medium360] ?? streamURLs[YouTubeVideoQuality.small240]) {
@@ -113,6 +113,21 @@ extension ViewController {
         }
     }
     
+    fileprivate func parseYoutubeIdentifier(_ url: String) -> String {
+        do {
+            let identifierRegex = try NSRegularExpression(pattern: "(?<=v(=|/))([-a-zA-Z0-9_]+)|(?<=youtu.be/)([-a-zA-Z0-9_]+)")
+            let results = identifierRegex.matches(in: url, range: NSRange(location: 0, length: url.characters.count))
+            if results.count > 0 {
+                let urlNSString = url as NSString
+                return urlNSString.substring(with: results.first!.range)
+            } else {
+                return ""
+            }
+        } catch _ {
+            return ""
+        }
+    }
+    
     
     struct YouTubeVideoQuality {
         
@@ -126,4 +141,5 @@ extension ViewController {
         static let small240 = NSNumber(value: XCDYouTubeVideoQuality.small240.rawValue)
         
     }
+    
 }
