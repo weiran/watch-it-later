@@ -16,7 +16,8 @@ class ViewController: UIViewController, BookmarksDelegateProtocol {
     
     fileprivate let instapaperAPI = InstapaperAPI()
     fileprivate var bookmarks: [Bookmark]?
-    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,35 +30,29 @@ class ViewController: UIViewController, BookmarksDelegateProtocol {
         self.bookmarks = bookmarks.filter({ (bookmark) -> Bool in
             bookmark.url.contains("vimeo.com") || bookmark.url.contains("youtube.com") || bookmark.url.contains("youtu.be")
         })
-        tableView.reloadData()
+        collectionView.reloadData()
     }
 }
 
-// Table View
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+// Collection View
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bookmarks?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BookmarkCell") as! BookmarkCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
         let bookmark = bookmarks![indexPath.row]
-        cell.titleLabelView.text = bookmark.title
+        cell.titleLabel.text = bookmark.title
         
         if bookmark.url.contains("vimeo.com") {
-            cell.domainLabelView.text = "vimeo.com"
             YTVimeoExtractor.shared().fetchVideo(withVimeoURL: bookmark.url, withReferer: nil) { (video, error) in
                 if let thumbnailURLs = video?.thumbnailURLs, thumbnailURLs.count > 0 {
                     cell.thumbnailImageView.imageURL = thumbnailURLs[NSNumber(value: YTVimeoVideoThumbnailQuality.HD.rawValue)]
                 }
             }
         } else if bookmark.url.contains("youtube.com") || bookmark.url.contains("youtu.be") {
-            cell.domainLabelView.text = "youtube.com"
             let identifier = parseYoutubeIdentifier(bookmark.url)
             XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { (video, error) in
                 cell.thumbnailImageView.imageURL = video?.largeThumbnailURL ?? video?.mediumThumbnailURL ?? video?.smallThumbnailURL
@@ -67,7 +62,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let bookmark = bookmarks![indexPath.row]
         if bookmark.url.contains("vimeo.com") {
             playVimeoVideo(url: bookmark.url)
@@ -75,8 +70,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             playYouTubeVideo(url: bookmark.url)
         }
     }
-    
 }
+
 
 // Video Playback
 extension ViewController {
