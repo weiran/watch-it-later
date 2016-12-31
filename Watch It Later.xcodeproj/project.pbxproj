@@ -126,8 +126,8 @@
 		24332BCB1E108D1900D5AA18 = {
 			isa = PBXGroup;
 			children = (
-				D279746CFF176AADEDCE0547 /* Frameworks */,
 				24332BD61E108D1A00D5AA18 /* App */,
+				D279746CFF176AADEDCE0547 /* Frameworks */,
 				24988A8C1E143A50003E46FB /* InstapaperKit */,
 				47394F7B99E535ACC4A2C3CA /* Pods */,
 				24332BD51E108D1A00D5AA18 /* Products */,
@@ -150,14 +150,13 @@
 				241C2ABE1E15498E009F98D7 /* Supporting Files */,
 				24332BD71E108D1A00D5AA18 /* AppDelegate.swift */,
 				241C2AC11E15511E009F98D7 /* DetailViewController.swift */,
+				24C52E221E17C6D200865185 /* LoginViewController.swift */,
 				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
+				24C52E241E17E42900865185 /* StringError.swift */,
 				241C2ABC1E154337009F98D7 /* VideoCell.swift */,
 				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
-				24C52E221E17C6D200865185 /* LoginViewController.swift */,
-				24C52E241E17E42900865185 /* StringError.swift */,
 			);
-			name = App;
-			path = "Instapaper TV";
+			path = App;
 			sourceTree = "<group>";
 		};
 		24988A8A1E143A50003E46FB /* Base64 */ = {
@@ -488,17 +487,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Instapaper TV/Supporting Files/Instapaper TV.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/Instapaper TV.entitlements";
 				DEVELOPMENT_TEAM = 2KB59GPA9B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
 				);
-				INFOPLIST_FILE = "Instapaper TV/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "App/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.weiran.WatchItLater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Instapaper TV/Supporting Files/Instapaper TV-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/Instapaper TV-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -512,17 +511,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Instapaper TV/Supporting Files/Instapaper TV.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/Instapaper TV.entitlements";
 				DEVELOPMENT_TEAM = 2KB59GPA9B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
 				);
-				INFOPLIST_FILE = "Instapaper TV/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "App/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.weiran.WatchItLater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Instapaper TV/Supporting Files/Instapaper TV-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/Instapaper TV-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
