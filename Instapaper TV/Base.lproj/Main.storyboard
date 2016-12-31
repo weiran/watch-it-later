@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iRi-cv-cnM">
-    <device id="appleTV" orientation="landscape">
-        <adaptation id="light"/>
-    </device>
     <dependencies>
-        <deployment identifier="tvOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -40,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username or Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2l-ac-PdK">
-                                <rect key="frame" x="691" y="565" width="539" height="46"/>
+                                <rect key="frame" x="691" y="565" width="539" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
@@ -57,7 +53,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5C5-9x-ysu">
-                                <rect key="frame" x="691" y="642" width="539" height="46"/>
+                                <rect key="frame" x="691" y="642" width="539" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
@@ -118,7 +114,7 @@
             </objects>
             <point key="canvasLocation" x="-2065" y="2838"/>
         </scene>
-        <!--Instapaper TV-->
+        <!--Watch It Later-->
         <scene sceneID="gXf-k7-2Hc">
             <objects>
                 <viewController id="fUF-kK-vMu" customClass="ViewController" customModule="Instapaper_TV" customModuleProvider="target" sceneMemberID="viewController">
@@ -202,7 +198,7 @@
                             <constraint firstItem="aRm-TV-fxu" firstAttribute="top" secondItem="ZCn-0u-Axu" secondAttribute="bottom" id="tid-m1-7Or"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Instapaper TV" id="m9P-J2-lwj">
+                    <navigationItem key="navigationItem" title="Watch It Later" id="m9P-J2-lwj">
                         <barButtonItem key="leftBarButtonItem" title="Reload" id="tAi-aP-d9m">
                             <connections>
                                 <action selector="didReload:" destination="fUF-kK-vMu" id="eZ6-eP-pC1"/>

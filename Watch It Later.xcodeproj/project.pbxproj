@@ -42,7 +42,7 @@
 		241C2AC51E155C36009F98D7 /* VideoProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProviderProtocol.swift; sourceTree = "<group>"; };
 		241C2AC71E155FCC009F98D7 /* VideoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProvider.swift; sourceTree = "<group>"; };
 		241C2AC91E156564009F98D7 /* VimeoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimeoProvider.swift; sourceTree = "<group>"; };
-		24332BD41E108D1A00D5AA18 /* Instapaper TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instapaper TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24332BD41E108D1A00D5AA18 /* Watch It Later.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch It Later.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24332BD71E108D1A00D5AA18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24332BD91E108D1A00D5AA18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24332BDC1E108D1A00D5AA18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				D279746CFF176AADEDCE0547 /* Frameworks */,
-				24332BD61E108D1A00D5AA18 /* Instapaper TV */,
+				24332BD61E108D1A00D5AA18 /* App */,
 				24988A8C1E143A50003E46FB /* InstapaperKit */,
 				47394F7B99E535ACC4A2C3CA /* Pods */,
 				24332BD51E108D1A00D5AA18 /* Products */,
@@ -137,12 +137,12 @@
 		24332BD51E108D1A00D5AA18 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24332BD41E108D1A00D5AA18 /* Instapaper TV.app */,
+				24332BD41E108D1A00D5AA18 /* Watch It Later.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		24332BD61E108D1A00D5AA18 /* Instapaper TV */ = {
+		24332BD61E108D1A00D5AA18 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				241C2AC01E1549AC009F98D7 /* Models */,
@@ -156,6 +156,7 @@
 				24C52E221E17C6D200865185 /* LoginViewController.swift */,
 				24C52E241E17E42900865185 /* StringError.swift */,
 			);
+			name = App;
 			path = "Instapaper TV";
 			sourceTree = "<group>";
 		};
@@ -223,9 +224,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24332BD31E108D1A00D5AA18 /* Instapaper TV */ = {
+		24332BD31E108D1A00D5AA18 /* Watch It Later */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24332BE31E108D1A00D5AA18 /* Build configuration list for PBXNativeTarget "Instapaper TV" */;
+			buildConfigurationList = 24332BE31E108D1A00D5AA18 /* Build configuration list for PBXNativeTarget "Watch It Later" */;
 			buildPhases = (
 				3A41687B673BDB494F279B40 /* [CP] Check Pods Manifest.lock */,
 				24332BD01E108D1A00D5AA18 /* Sources */,
@@ -238,9 +239,9 @@
 			);
 			dependencies = (
 			);
-			name = "Instapaper TV";
+			name = "Watch It Later";
 			productName = "Instapaper TV";
-			productReference = 24332BD41E108D1A00D5AA18 /* Instapaper TV.app */;
+			productReference = 24332BD41E108D1A00D5AA18 /* Watch It Later.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -266,7 +267,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 24332BCF1E108D1A00D5AA18 /* Build configuration list for PBXProject "Instapaper TV" */;
+			buildConfigurationList = 24332BCF1E108D1A00D5AA18 /* Build configuration list for PBXProject "Watch It Later" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -279,7 +280,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24332BD31E108D1A00D5AA18 /* Instapaper TV */,
+				24332BD31E108D1A00D5AA18 /* Watch It Later */,
 			);
 		};
 /* End PBXProject section */
@@ -495,7 +496,7 @@
 				);
 				INFOPLIST_FILE = "Instapaper TV/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "co.weiran.Instapaper-TV";
+				PRODUCT_BUNDLE_IDENTIFIER = co.weiran.WatchItLater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Instapaper TV/Supporting Files/Instapaper TV-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -519,7 +520,7 @@
 				);
 				INFOPLIST_FILE = "Instapaper TV/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "co.weiran.Instapaper-TV";
+				PRODUCT_BUNDLE_IDENTIFIER = co.weiran.WatchItLater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Instapaper TV/Supporting Files/Instapaper TV-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -529,7 +530,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		24332BCF1E108D1A00D5AA18 /* Build configuration list for PBXProject "Instapaper TV" */ = {
+		24332BCF1E108D1A00D5AA18 /* Build configuration list for PBXProject "Watch It Later" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24332BE11E108D1A00D5AA18 /* Debug */,
@@ -538,7 +539,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24332BE31E108D1A00D5AA18 /* Build configuration list for PBXNativeTarget "Instapaper TV" */ = {
+		24332BE31E108D1A00D5AA18 /* Build configuration list for PBXNativeTarget "Watch It Later" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24332BE41E108D1A00D5AA18 /* Debug */,

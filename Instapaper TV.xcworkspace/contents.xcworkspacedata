@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Instapaper TV.xcodeproj">
+      location = "group:/Users/weiran/Documents/git/weiran/Instapaper TV/Watch It Later.xcodeproj">
    </FileRef>
    <Group
       location = "group:InstapaperKit"
