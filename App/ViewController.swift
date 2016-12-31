@@ -84,6 +84,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
         let video = videos![indexPath.row]
         cell.titleLabel.text = video.title
+        cell.thumbnailImageView.image = UIImage.init(named: "ThumbnailPlaceholder")
         
         do {
             let provider = try VideoProvider.videoProvider(for: video.url)
