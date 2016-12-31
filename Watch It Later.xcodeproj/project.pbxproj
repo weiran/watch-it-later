@@ -31,11 +31,10 @@
 		24988A951E143A50003E46FB /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A891E143A50003E46FB /* NSData+Base64.m */; };
 		24C52E231E17C6D200865185 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C52E221E17C6D200865185 /* LoginViewController.swift */; };
 		24C52E251E17E42900865185 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C52E241E17E42900865185 /* StringError.swift */; };
-		C2FC143D186A289451DB2089 /* Pods_Instapaper_TV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0907EFA89238A51C318C6A1B /* Pods_Instapaper_TV.framework */; };
+		3645C9BC2D8F6A3E094A1802 /* Pods_Watch_It_Later.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3190ADB191EFC5AE067390D3 /* Pods_Watch_It_Later.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0907EFA89238A51C318C6A1B /* Pods_Instapaper_TV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instapaper_TV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		241C2ABC1E154337009F98D7 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		241C2AC11E15511E009F98D7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		241C2AC31E1557FD009F98D7 /* YouTubeProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeProvider.swift; sourceTree = "<group>"; };
@@ -75,8 +74,9 @@
 		24C52E221E17C6D200865185 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		24C52E241E17E42900865185 /* StringError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
 		24D942411E113238008387CC /* Instapaper TV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instapaper TV-Bridging-Header.h"; sourceTree = "<group>"; };
-		7BF35E4AB8148B4EB34F3F97 /* Pods-Instapaper TV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instapaper TV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instapaper TV/Pods-Instapaper TV.debug.xcconfig"; sourceTree = "<group>"; };
-		A4008F7C45C94E53A734621B /* Pods-Instapaper TV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instapaper TV.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instapaper TV/Pods-Instapaper TV.release.xcconfig"; sourceTree = "<group>"; };
+		3190ADB191EFC5AE067390D3 /* Pods_Watch_It_Later.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_It_Later.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72EFA373C4EBC61236322AF5 /* Pods-Watch It Later.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch It Later.release.xcconfig"; path = "Pods/Target Support Files/Pods-Watch It Later/Pods-Watch It Later.release.xcconfig"; sourceTree = "<group>"; };
+		D92214F08E2A2BCCA8B18A30 /* Pods-Watch It Later.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch It Later.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watch It Later/Pods-Watch It Later.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24988A551E141E37003E46FB /* AVKit.framework in Frameworks */,
-				C2FC143D186A289451DB2089 /* Pods_Instapaper_TV.framework in Frameworks */,
+				3645C9BC2D8F6A3E094A1802 /* Pods_Watch_It_Later.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,8 +206,8 @@
 		47394F7B99E535ACC4A2C3CA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7BF35E4AB8148B4EB34F3F97 /* Pods-Instapaper TV.debug.xcconfig */,
-				A4008F7C45C94E53A734621B /* Pods-Instapaper TV.release.xcconfig */,
+				D92214F08E2A2BCCA8B18A30 /* Pods-Watch It Later.debug.xcconfig */,
+				72EFA373C4EBC61236322AF5 /* Pods-Watch It Later.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -216,7 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				24988A541E141E37003E46FB /* AVKit.framework */,
-				0907EFA89238A51C318C6A1B /* Pods_Instapaper_TV.framework */,
+				3190ADB191EFC5AE067390D3 /* Pods_Watch_It_Later.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -325,7 +325,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Instapaper TV/Pods-Instapaper TV-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch It Later/Pods-Watch It Later-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		956807396A09D443F2936B47 /* [CP] Copy Pods Resources */ = {
@@ -340,7 +340,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Instapaper TV/Pods-Instapaper TV-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch It Later/Pods-Watch It Later-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -482,7 +482,7 @@
 		};
 		24332BE41E108D1A00D5AA18 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7BF35E4AB8148B4EB34F3F97 /* Pods-Instapaper TV.debug.xcconfig */;
+			baseConfigurationReference = D92214F08E2A2BCCA8B18A30 /* Pods-Watch It Later.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
@@ -506,7 +506,7 @@
 		};
 		24332BE51E108D1A00D5AA18 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4008F7C45C94E53A734621B /* Pods-Instapaper TV.release.xcconfig */;
+			baseConfigurationReference = 72EFA373C4EBC61236322AF5 /* Pods-Watch It Later.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";

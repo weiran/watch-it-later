@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iRi-cv-cnM">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
     <dependencies>
+        <deployment identifier="tvOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -26,7 +30,7 @@
         <!--Login View Controller-->
         <scene sceneID="bvh-uf-fIA">
             <objects>
-                <viewController id="vxv-ho-fRw" customClass="LoginViewController" customModule="Instapaper_TV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vxv-ho-fRw" customClass="LoginViewController" customModule="Watch_It_Later" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eC0-aK-ej2"/>
                         <viewControllerLayoutGuide type="bottom" id="4W5-9E-iQn"/>
@@ -117,7 +121,7 @@
         <!--Watch It Later-->
         <scene sceneID="gXf-k7-2Hc">
             <objects>
-                <viewController id="fUF-kK-vMu" customClass="ViewController" customModule="Instapaper_TV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fUF-kK-vMu" customClass="ViewController" customModule="Watch_It_Later" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZCn-0u-Axu"/>
                         <viewControllerLayoutGuide type="bottom" id="Daq-HC-BlC"/>
@@ -144,7 +148,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="64" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="9vx-S2-r2N" customClass="VideoCell" customModule="Instapaper_TV" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="9vx-S2-r2N" customClass="VideoCell" customModule="Watch_It_Later" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="64" width="470" height="255"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -221,7 +225,7 @@
         <!--Detail View Controller-->
         <scene sceneID="aFN-6c-kiE">
             <objects>
-                <viewController id="lEY-XT-agt" customClass="DetailViewController" customModule="Instapaper_TV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lEY-XT-agt" customClass="DetailViewController" customModule="Watch_It_Later" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VFg-4Y-U4O"/>
                         <viewControllerLayoutGuide type="bottom" id="BX0-5u-oLs"/>
