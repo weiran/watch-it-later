@@ -53,6 +53,11 @@ class DetailViewController: UIViewController {
         tapRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
         view.addGestureRecognizer(tapRecognizer)
         UIApplication.shared.beginReceivingRemoteControlEvents()
+        
+        
+        thumbnailImageView.layer.shadowRadius = 10
+        thumbnailImageView.layer.shadowOpacity = 0.5
+        thumbnailImageView.layer.shadowColor = UIColor.black.cgColor
     }
     
     override func viewWillDisappear(_ animated: Bool) {
