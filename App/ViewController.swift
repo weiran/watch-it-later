@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class ViewController: UIViewController {
     
@@ -22,7 +23,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         instapaperAPI.storedAuth().then {
-            self.fetchVideos()
+            return self.fetchVideos()
+        }.then { _ -> Void in
+            self.setNeedsFocusUpdate()
+            self.updateFocusIfNeeded()
         }.catch { _ -> Void in
             self.performSegue(withIdentifier: "ShowLoginSegue", sender: self)
         }
@@ -40,14 +44,12 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    func fetchVideos() {
-        instapaperAPI.fetch().then { videos -> Void in
+    func fetchVideos() -> Promise<Void> {
+        return instapaperAPI.fetch().then { videos -> Void in
             self.videos = videos.filter({ video -> Bool in
                 (video.url.contains("vimeo.com") || video.url.contains("youtube.com") || video.url.contains("youtu.be")) && video != self.hideVideo
             })
             self.collectionView.reloadData()
-        }.catch { error -> Void in
-            // todo: show error
         }
     }
     
@@ -63,12 +65,16 @@ class ViewController: UIViewController {
         }
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "AuthenticationChanged"), object: nil, queue: nil) { [weak self] notification in
-            self?.fetchVideos()
+            _ = self?.fetchVideos()
         }
     }
     
     @IBAction func didReload(_ sender: Any) {
-        fetchVideos()
+        _ = fetchVideos()
+    }
+    
+    override weak var preferredFocusedView: UIView? {
+        return collectionView
     }
     
 }
