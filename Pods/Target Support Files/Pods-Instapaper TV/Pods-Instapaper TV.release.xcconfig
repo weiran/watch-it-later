@@ -1,10 +1,10 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AsyncImageView" "$PODS_CONFIGURATION_BUILD_DIR/Locksmith" "$PODS_CONFIGURATION_BUILD_DIR/PromiseKit" "$PODS_CONFIGURATION_BUILD_DIR/XCDYouTubeKit" "$PODS_CONFIGURATION_BUILD_DIR/YTVimeoExtractor"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AsyncImageView" "$PODS_CONFIGURATION_BUILD_DIR/Locksmith" "$PODS_CONFIGURATION_BUILD_DIR/PromiseKit" "$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD" "$PODS_CONFIGURATION_BUILD_DIR/XCDYouTubeKit" "$PODS_CONFIGURATION_BUILD_DIR/YTVimeoExtractor"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/AsyncImageView/AsyncImageView.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/Locksmith/Locksmith.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/PromiseKit/PromiseKit.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/XCDYouTubeKit/XCDYouTubeKit.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/YTVimeoExtractor/YTVimeoExtractor.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "AsyncImageView" -framework "Locksmith" -framework "PromiseKit" -framework "XCDYouTubeKit" -framework "YTVimeoExtractor"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/AsyncImageView/AsyncImageView.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/Locksmith/Locksmith.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/PromiseKit/PromiseKit.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD/SVProgressHUD.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/XCDYouTubeKit/XCDYouTubeKit.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/YTVimeoExtractor/YTVimeoExtractor.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "AsyncImageView" -framework "Locksmith" -framework "PromiseKit" -framework "SVProgressHUD" -framework "XCDYouTubeKit" -framework "YTVimeoExtractor"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

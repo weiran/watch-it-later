@@ -12,4 +12,5 @@ target 'Instapaper TV' do
   pod 'Locksmith'
   pod 'AsyncImageView'
   pod 'PromiseKit', '~> 4.0'
+  pod 'SVProgressHUD'
 end

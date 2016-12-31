@@ -11,6 +11,7 @@ import AVKit
 
 import AsyncImageView
 import PromiseKit
+import SVProgressHUD
 
 class DetailViewController: UIViewController {
     
@@ -65,7 +66,9 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func didPlay(_ sender: Any) {
-        videoProvider!.streamURL().then { streamURL -> Void in
+        SVProgressHUD.show()
+        view.isUserInteractionEnabled = false
+        _ = videoProvider!.streamURL().then { streamURL -> Void in
             let player = AVPlayer(url: streamURL)
             let videoPlayerViewController = AVPlayerViewController()
             videoPlayerViewController.player = player
@@ -75,6 +78,9 @@ class DetailViewController: UIViewController {
         }
         .catch { [weak self] error in
             self?.showError()
+        }.always {
+            SVProgressHUD.dismiss()
+            self.view.isUserInteractionEnabled = true
         }
     }
     

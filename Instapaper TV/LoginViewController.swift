@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
     
@@ -19,7 +20,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         _ = instapaperAPI?.storedAuth().then { [weak self] (Void) -> Void in
             self?.hasStoredCredentials = true
         }
@@ -31,13 +31,18 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func didLogin(_ sender: Any) {
+        SVProgressHUD.show()
+        view.isUserInteractionEnabled = false
         if let username = usernameTextField.text, let password = passwordTextField.text {
-            instapaperAPI?.login(username: username, password: password).then { Void -> Void in
+            let _ = instapaperAPI?.login(username: username, password: password).then { Void -> Void in
                 // login successful
                 self.dismiss(animated: true)
                 NotificationCenter.default.post(name: NSNotification.Name("AuthenticationChanged"), object: self)
             }.catch { error in
                 self.showError()
+            }.always {
+                SVProgressHUD.dismiss()
+                self.view.isUserInteractionEnabled = true
             }
         }
     }
