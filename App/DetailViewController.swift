@@ -32,15 +32,15 @@ class DetailViewController: UIViewController {
             titleLabel.text = video.title
             domainLabel.text = video.url.contains("vimeo.com") ? "vimeo.com" : "youtube.com"
             descriptionLabel.text = video.description
-            do {
-                videoProvider = try VideoProvider.videoProvider(for: video.url)
-                _ = videoProvider!.thumbnailURL().then { [weak self] url in
+            
+            if let videoProvider = try? VideoProvider.videoProvider(for: video.url) {
+                _ = videoProvider.thumbnailURL().then { [weak self] url in
                     self?.thumbnailImageView.imageURL = url
                 }
-                _ = videoProvider!.duration().then { [weak self] (duration: Double) in
+                _ = videoProvider.duration().then { [weak self] (duration: Double) in
                     self?.durationLabel.text = self?.formatTimeInterval(duration: duration)
                 }
-            } catch _ { }
+            }
         }
         
         

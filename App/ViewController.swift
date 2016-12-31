@@ -86,15 +86,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.titleLabel.text = video.title
         cell.thumbnailImageView.image = UIImage.init(named: "ThumbnailPlaceholder")
         
-        do {
-            let provider = try VideoProvider.videoProvider(for: video.url)
-            provider.thumbnailURL().then {
+        if let provider = try? VideoProvider.videoProvider(for: video.url) {
+            _ = provider.thumbnailURL().then {
                 cell.thumbnailImageView.imageURL = $0
-            }.catch { error in
-                // todo
             }
-        } catch _ {
-            // todo
         }
         
         return cell
