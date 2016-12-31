@@ -74,6 +74,8 @@ class DetailViewController: UIViewController {
             self.present(videoPlayerViewController, animated: true) {
                 videoPlayerViewController.player!.play()
             }
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(self.didFinishPlaying(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         }
         .catch { [weak self] error in
             self?.showError()
@@ -87,6 +89,11 @@ class DetailViewController: UIViewController {
         instapaperAPI?.archive(bookmark: video!.bookmark)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "VideoArchived"), object: sender, userInfo: ["video": video!])
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func didFinishPlaying(notification: NSNotification) {
+        dismiss(animated: true, completion: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
