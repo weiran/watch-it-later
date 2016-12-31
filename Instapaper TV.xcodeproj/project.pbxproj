@@ -18,7 +18,6 @@
 		24332BDD1E108D1A00D5AA18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24332BDB1E108D1A00D5AA18 /* Main.storyboard */; };
 		24332BDF1E108D1A00D5AA18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24332BDE1E108D1A00D5AA18 /* Assets.xcassets */; };
 		2459544C1E14420B00997693 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544B1E14420B00997693 /* Video.swift */; };
-		2459544F1E14565400997693 /* VideosDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544E1E14565400997693 /* VideosDelegateProtocol.swift */; };
 		247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */; };
 		24988A551E141E37003E46FB /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24988A541E141E37003E46FB /* AVKit.framework */; };
 		24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A771E143A50003E46FB /* IKBookmark.m */; };
@@ -30,6 +29,8 @@
 		24988A931E143A50003E46FB /* IKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A841E143A50003E46FB /* IKUser.m */; };
 		24988A941E143A50003E46FB /* NSString+IKEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A871E143A50003E46FB /* NSString+IKEncoding.m */; };
 		24988A951E143A50003E46FB /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A891E143A50003E46FB /* NSData+Base64.m */; };
+		24C52E231E17C6D200865185 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C52E221E17C6D200865185 /* LoginViewController.swift */; };
+		24C52E251E17E42900865185 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C52E241E17E42900865185 /* StringError.swift */; };
 		C2FC143D186A289451DB2089 /* Pods_Instapaper_TV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0907EFA89238A51C318C6A1B /* Pods_Instapaper_TV.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +49,6 @@
 		24332BDE1E108D1A00D5AA18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24332BE01E108D1A00D5AA18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2459544B1E14420B00997693 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
-		2459544E1E14565400997693 /* VideosDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosDelegateProtocol.swift; sourceTree = "<group>"; };
 		247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstapaperAPI.swift; sourceTree = "<group>"; };
 		247D7F871E143D970037E4EC /* Instapaper TV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Instapaper TV.entitlements"; sourceTree = "<group>"; };
 		24988A541E141E37003E46FB /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
@@ -72,6 +72,8 @@
 		24988A871E143A50003E46FB /* NSString+IKEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IKEncoding.m"; sourceTree = "<group>"; };
 		24988A881E143A50003E46FB /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		24988A891E143A50003E46FB /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		24C52E221E17C6D200865185 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		24C52E241E17E42900865185 /* StringError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
 		24D942411E113238008387CC /* Instapaper TV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instapaper TV-Bridging-Header.h"; sourceTree = "<group>"; };
 		7BF35E4AB8148B4EB34F3F97 /* Pods-Instapaper TV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instapaper TV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instapaper TV/Pods-Instapaper TV.debug.xcconfig"; sourceTree = "<group>"; };
 		A4008F7C45C94E53A734621B /* Pods-Instapaper TV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instapaper TV.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instapaper TV/Pods-Instapaper TV.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,7 +112,6 @@
 				241C2AC91E156564009F98D7 /* VimeoProvider.swift */,
 				241C2AC31E1557FD009F98D7 /* YouTubeProvider.swift */,
 			);
-			name = Providers;
 			path = Providers;
 			sourceTree = "<group>";
 		};
@@ -151,8 +152,9 @@
 				241C2AC11E15511E009F98D7 /* DetailViewController.swift */,
 				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
 				241C2ABC1E154337009F98D7 /* VideoCell.swift */,
-				2459544E1E14565400997693 /* VideosDelegateProtocol.swift */,
 				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
+				24C52E221E17C6D200865185 /* LoginViewController.swift */,
+				24C52E241E17E42900865185 /* StringError.swift */,
 			);
 			path = "Instapaper TV";
 			sourceTree = "<group>";
@@ -347,13 +349,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24C52E231E17C6D200865185 /* LoginViewController.swift in Sources */,
 				24332BDA1E108D1A00D5AA18 /* ViewController.swift in Sources */,
 				241C2ABD1E154337009F98D7 /* VideoCell.swift in Sources */,
 				24988A8E1E143A50003E46FB /* IKConstants.m in Sources */,
 				24332BD81E108D1A00D5AA18 /* AppDelegate.swift in Sources */,
 				241C2AC61E155C36009F98D7 /* VideoProviderProtocol.swift in Sources */,
 				241C2AC81E155FCC009F98D7 /* VideoProvider.swift in Sources */,
-				2459544F1E14565400997693 /* VideosDelegateProtocol.swift in Sources */,
+				24C52E251E17E42900865185 /* StringError.swift in Sources */,
 				24988A951E143A50003E46FB /* NSData+Base64.m in Sources */,
 				24988A921E143A50003E46FB /* IKURLConnection.m in Sources */,
 				241C2AC21E15511E009F98D7 /* DetailViewController.swift in Sources */,
@@ -480,6 +483,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BF35E4AB8148B4EB34F3F97 /* Pods-Instapaper TV.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -503,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A4008F7C45C94E53A734621B /* Pods-Instapaper TV.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, VideosDelegateProtocol {
+class ViewController: UIViewController {
     
     fileprivate let instapaperAPI = InstapaperAPI()
     fileprivate var videos: [Video]?
@@ -21,15 +21,33 @@ class ViewController: UIViewController, VideosDelegateProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        instapaperAPI.delegate = self
-        instapaperAPI.storedAuth()
-        instapaperAPI.fetch()
+        instapaperAPI.storedAuth().then {
+            self.fetchVideos()
+        }.catch { _ -> Void in
+            self.performSegue(withIdentifier: "ShowLoginSegue", sender: self)
+        }
         
         observeNotifications()
         
         if isChildViewController {
             let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
             layout.scrollDirection = .horizontal
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    func fetchVideos() {
+        instapaperAPI.fetch().then { videos -> Void in
+            self.videos = videos.filter({ video -> Bool in
+                (video.url.contains("vimeo.com") || video.url.contains("youtube.com") || video.url.contains("youtu.be")) && video != self.hideVideo
+            })
+            self.collectionView.reloadData()
+        }.catch { error -> Void in
+            // todo: show error
         }
     }
     
@@ -43,14 +61,12 @@ class ViewController: UIViewController, VideosDelegateProtocol {
                 }, completion: nil)
             }
         }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "AuthenticationChanged"), object: nil, queue: nil) { [weak self] notification in
+            self?.fetchVideos()
+        }
     }
     
-    func videosUpdated(videos: [Video]) {
-        self.videos = videos.filter({ video -> Bool in
-            (video.url.contains("vimeo.com") || video.url.contains("youtube.com") || video.url.contains("youtu.be")) && video != hideVideo
-        })
-        collectionView.reloadData()
-    }
 }
 
 
@@ -91,8 +107,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             
             if isChildViewController {
                 // stop the chain of view controllers being created
-                navigationController?.popToRootViewController(animated: false)
             }
+        } else if segue.identifier == "ShowLoginSegue" {
+            let loginViewController = segue.destination as! LoginViewController
+            loginViewController.instapaperAPI = instapaperAPI // todo change to dependency injection
         }
     }
 }
