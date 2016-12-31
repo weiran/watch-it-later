@@ -48,12 +48,10 @@ class LoginViewController: UIViewController {
     }
     
     private func showError() {
-        DispatchQueue(label: "ErrorQueue").sync {
-            let alertController = UIAlertController(title: "Login Error", message: "Couldn't login with your username and password.", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler:nil)
-            alertController.addAction(alertAction)
-            present(alertController, animated: true)
-        }
+        let alertController = UIAlertController(title: "Login Error", message: "Couldn't login with your username and password.", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler:nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true)
     }
     
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {

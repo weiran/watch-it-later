@@ -34,19 +34,13 @@ class DetailViewController: UIViewController {
             descriptionLabel.text = video.description
             do {
                 videoProvider = try VideoProvider.videoProvider(for: video.url)
-                let thumbnailPromise = videoProvider!.thumbnailURL().then { [weak self] url in
+                _ = videoProvider!.thumbnailURL().then { [weak self] url in
                     self?.thumbnailImageView.imageURL = url
                 }
-                let durationPromise = videoProvider!.duration().then { [weak self] (duration: Double) in
+                _ = videoProvider!.duration().then { [weak self] (duration: Double) in
                     self?.durationLabel.text = self?.formatTimeInterval(duration: duration)
                 }
-                when(fulfilled: [thumbnailPromise, durationPromise])
-                .catch { [weak self] error in
-                    self?.showError()
-                }
-            } catch _ {
-                showError()
-            }
+            } catch _ { }
         }
         
         
@@ -66,6 +60,11 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func didPlay(_ sender: Any) {
+        guard videoProvider != nil else {
+            showError()
+            return
+        }
+        
         SVProgressHUD.show()
         view.isUserInteractionEnabled = false
         _ = videoProvider!.streamURL().then { streamURL -> Void in
@@ -99,14 +98,10 @@ class DetailViewController: UIViewController {
     }
     
     private func showError() {
-        DispatchQueue(label: "ErrorQueue").sync {
-            let alertController = UIAlertController(title: "Video Error", message: "There's something wrong with the video.", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: { action in
-                self.dismiss(animated: true, completion: nil)
-            })
-            alertController.addAction(alertAction)
-            present(alertController, animated: true)
-        }
+        let alertController = UIAlertController(title: "Video Error", message: "There's something wrong with the video and it can't be played.", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler:nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true)
     }
     
     func formatTimeInterval(duration: TimeInterval) -> String {
