@@ -203,8 +203,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Instapaper TV" id="m9P-J2-lwj">
-                        <barButtonItem key="leftBarButtonItem" title="Reload" id="tAi-aP-d9m"/>
-                        <barButtonItem key="rightBarButtonItem" title="Login" id="J6g-XT-If9">
+                        <barButtonItem key="leftBarButtonItem" title="Reload" id="tAi-aP-d9m">
+                            <connections>
+                                <action selector="didReload:" destination="fUF-kK-vMu" id="eZ6-eP-pC1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Change Account" id="J6g-XT-If9">
                             <connections>
                                 <segue destination="vxv-ho-fRw" kind="presentation" identifier="ShowLoginSegue" id="7J1-g0-X2p"/>
                             </connections>

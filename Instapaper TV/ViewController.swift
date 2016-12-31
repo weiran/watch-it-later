@@ -67,6 +67,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func didReload(_ sender: Any) {
+        fetchVideos()
+    }
+    
 }
 
 
