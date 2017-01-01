@@ -34,6 +34,7 @@ class DetailViewController: UIViewController {
             descriptionLabel.text = video.description
             
             if let videoProvider = try? VideoProvider.videoProvider(for: video.url) {
+                self.videoProvider = videoProvider
                 _ = videoProvider.thumbnailURL().then { [weak self] url in
                     self?.thumbnailImageView.imageURL = url
                 }
