@@ -164,7 +164,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5z-KT-jKo">
                                                     <rect key="frame" x="16" y="196" width="438" height="51"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -270,16 +270,17 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-yz-xCT">
-                                                        <rect key="frame" x="64" y="249" width="832" height="161"/>
+                                                        <rect key="frame" x="64" y="249" width="832" height="168"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="V8Q-ir-vTk">
-                                                        <rect key="frame" x="64" y="434" width="832" height="102"/>
+                                                        <rect key="frame" x="64" y="441" width="832" height="95"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1n-kX-To6">
-                                                                <rect key="frame" x="128" y="8" width="256" height="86"/>
+                                                                <rect key="frame" x="128" y="8" width="256" height="79"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                 <state key="normal" title="Play"/>
                                                                 <connections>
@@ -287,7 +288,8 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMa-3b-Oi2">
-                                                                <rect key="frame" x="448" y="8" width="256" height="86"/>
+                                                                <rect key="frame" x="448" y="8" width="256" height="79"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                 <state key="normal" title="Archive"/>
                                                                 <connections>
