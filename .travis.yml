@@ -14,4 +14,4 @@ before_script:
 - mv 'App/Supporting Files/InstapaperConfiguration.defaults.plist' 'App/Supporting Files/InstapaperConfiguration.plist'
 - xctool -workspace ${TRAVIS_XCODE_WORKSPACE} -scheme ${TRAVIS_XCODE_SCHEME} run-tests
 script:
-- set -o pipefail && xcodebuild -workspace ${TRAVIS_XCODE_WORKSPACE} -scheme ${TRAVIS_XCODE_SCHEME} -sdk iphonesimulator -configuration Release | xcpretty
+- set -o pipefail && xcodebuild -workspace ${TRAVIS_XCODE_WORKSPACE} -scheme ${TRAVIS_XCODE_SCHEME} -sdk appletvsimulator -configuration Release | xcpretty
