@@ -51,7 +51,7 @@
 		244DE6C01E59CBE8005B441E /* InstapaperConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InstapaperConfiguration.plist; sourceTree = "<group>"; };
 		2459544B1E14420B00997693 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstapaperAPI.swift; sourceTree = "<group>"; };
-		247D7F871E143D970037E4EC /* Instapaper TV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Instapaper TV.entitlements"; sourceTree = "<group>"; };
+		247D7F871E143D970037E4EC /* WatchItLater.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchItLater.entitlements; sourceTree = "<group>"; };
 		24988A541E141E37003E46FB /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		24988A761E143A50003E46FB /* IKBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKBookmark.h; sourceTree = "<group>"; };
 		24988A771E143A50003E46FB /* IKBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKBookmark.m; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		24988A891E143A50003E46FB /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		24C52E221E17C6D200865185 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		24C52E241E17E42900865185 /* StringError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
-		24D942411E113238008387CC /* Instapaper TV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instapaper TV-Bridging-Header.h"; sourceTree = "<group>"; };
+		24D942411E113238008387CC /* WatchItLater-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WatchItLater-Bridging-Header.h"; sourceTree = "<group>"; };
 		3190ADB191EFC5AE067390D3 /* Pods_Watch_It_Later.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_It_Later.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D1A12AC984509D574EF96C4 /* Pods-WatchItLater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchItLater.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater.release.xcconfig"; sourceTree = "<group>"; };
 		CCF768DA898BB9E3C49C091A /* Pods-WatchItLater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchItLater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,8 +100,8 @@
 			children = (
 				24332BDE1E108D1A00D5AA18 /* Assets.xcassets */,
 				24332BE01E108D1A00D5AA18 /* Info.plist */,
-				24D942411E113238008387CC /* Instapaper TV-Bridging-Header.h */,
-				247D7F871E143D970037E4EC /* Instapaper TV.entitlements */,
+				24D942411E113238008387CC /* WatchItLater-Bridging-Header.h */,
+				247D7F871E143D970037E4EC /* WatchItLater.entitlements */,
 				244DE6C01E59CBE8005B441E /* InstapaperConfiguration.plist */,
 			);
 			path = "Supporting Files";
@@ -493,7 +493,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/Instapaper TV.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/WatchItLater.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -505,7 +505,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.weiran.WatchItLater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/Instapaper TV-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/WatchItLater-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -519,7 +519,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/Instapaper TV.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/WatchItLater.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -531,7 +531,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.weiran.WatchItLater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/Instapaper TV-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/WatchItLater-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

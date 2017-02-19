@@ -4,7 +4,7 @@
 <dict>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)co.weiran.Instapaper-TV</string>
+		<string>$(AppIdentifierPrefix)co.weiran.WatchItLater</string>
 	</array>
 </dict>
 </plist>
