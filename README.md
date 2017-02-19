@@ -33,10 +33,11 @@ Watch It Later is open source and licenced under the MIT licence.
 
 ## How to build
 
-1. Install [cocoapods](http://cocoapods.org/), you can use RubyGems: `gem install cocoapods`.
-2. Install pods, in the project root folder, run `pod install`.
-3. Enter your Instapaper OAuth consumer key and secret in `App\Supporting Files\InstapaperConfiguration.plist`.
-4. Open the workspace file (`WatchItLater.xcworkspace`) in Xcode 8 or later, and build.
+1. Enter your Instapaper OAuth consumer key and secret in `App\Supporting Files\InstapaperConfiguration.defaults.plist`.
+2. Rename `InstapaperConfiguration.defaults.plist` to `InstapaperConfiguration.plist`.
+3. Install [cocoapods](http://cocoapods.org/), you can use RubyGems: `gem install cocoapods`.
+4. Install pods, in the project root folder, run `pod install`.
+5. Open the workspace file (`WatchItLater.xcworkspace`) in Xcode 8 or later, and build.
 
 ## About
 
