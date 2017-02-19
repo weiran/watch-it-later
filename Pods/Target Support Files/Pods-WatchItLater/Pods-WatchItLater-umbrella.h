@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "AsyncImageView.h"
 
-FOUNDATION_EXPORT double AsyncImageViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char AsyncImageViewVersionString[];
+FOUNDATION_EXPORT double Pods_WatchItLaterVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_WatchItLaterVersionString[];
 

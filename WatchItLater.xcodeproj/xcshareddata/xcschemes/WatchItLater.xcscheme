@@ -17,7 +17,7 @@
                BlueprintIdentifier = "24332BD31E108D1A00D5AA18"
                BuildableName = "WatchItLater.app"
                BlueprintName = "WatchItLater"
-               ReferencedContainer = "container:Watch It Later.xcodeproj">
+               ReferencedContainer = "container:WatchItLater.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "24332BD31E108D1A00D5AA18"
             BuildableName = "WatchItLater.app"
             BlueprintName = "WatchItLater"
-            ReferencedContainer = "container:Watch It Later.xcodeproj">
+            ReferencedContainer = "container:WatchItLater.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "24332BD31E108D1A00D5AA18"
             BuildableName = "WatchItLater.app"
             BlueprintName = "WatchItLater"
-            ReferencedContainer = "container:Watch It Later.xcodeproj">
+            ReferencedContainer = "container:WatchItLater.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "24332BD31E108D1A00D5AA18"
             BuildableName = "WatchItLater.app"
             BlueprintName = "WatchItLater"
-            ReferencedContainer = "container:Watch It Later.xcodeproj">
+            ReferencedContainer = "container:WatchItLater.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
