@@ -17,6 +17,7 @@
 		24332BDA1E108D1A00D5AA18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24332BD91E108D1A00D5AA18 /* ViewController.swift */; };
 		24332BDD1E108D1A00D5AA18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24332BDB1E108D1A00D5AA18 /* Main.storyboard */; };
 		24332BDF1E108D1A00D5AA18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24332BDE1E108D1A00D5AA18 /* Assets.xcassets */; };
+		244DE6C11E59CBE8005B441E /* InstapaperConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 244DE6C01E59CBE8005B441E /* InstapaperConfiguration.plist */; };
 		2459544C1E14420B00997693 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544B1E14420B00997693 /* Video.swift */; };
 		247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */; };
 		24988A551E141E37003E46FB /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24988A541E141E37003E46FB /* AVKit.framework */; };
@@ -41,12 +42,13 @@
 		241C2AC51E155C36009F98D7 /* VideoProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProviderProtocol.swift; sourceTree = "<group>"; };
 		241C2AC71E155FCC009F98D7 /* VideoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProvider.swift; sourceTree = "<group>"; };
 		241C2AC91E156564009F98D7 /* VimeoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimeoProvider.swift; sourceTree = "<group>"; };
-		24332BD41E108D1A00D5AA18 /* Watch It Later.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch It Later.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24332BD41E108D1A00D5AA18 /* WatchItLater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchItLater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24332BD71E108D1A00D5AA18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24332BD91E108D1A00D5AA18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24332BDC1E108D1A00D5AA18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24332BDE1E108D1A00D5AA18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24332BE01E108D1A00D5AA18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		244DE6C01E59CBE8005B441E /* InstapaperConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InstapaperConfiguration.plist; sourceTree = "<group>"; };
 		2459544B1E14420B00997693 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstapaperAPI.swift; sourceTree = "<group>"; };
 		247D7F871E143D970037E4EC /* Instapaper TV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Instapaper TV.entitlements"; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				24332BE01E108D1A00D5AA18 /* Info.plist */,
 				24D942411E113238008387CC /* Instapaper TV-Bridging-Header.h */,
 				247D7F871E143D970037E4EC /* Instapaper TV.entitlements */,
+				244DE6C01E59CBE8005B441E /* InstapaperConfiguration.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -137,7 +140,7 @@
 		24332BD51E108D1A00D5AA18 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24332BD41E108D1A00D5AA18 /* Watch It Later.app */,
+				24332BD41E108D1A00D5AA18 /* WatchItLater.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,9 +226,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24332BD31E108D1A00D5AA18 /* Watch It Later */ = {
+		24332BD31E108D1A00D5AA18 /* WatchItLater */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24332BE31E108D1A00D5AA18 /* Build configuration list for PBXNativeTarget "Watch It Later" */;
+			buildConfigurationList = 24332BE31E108D1A00D5AA18 /* Build configuration list for PBXNativeTarget "WatchItLater" */;
 			buildPhases = (
 				3A41687B673BDB494F279B40 /* [CP] Check Pods Manifest.lock */,
 				24332BD01E108D1A00D5AA18 /* Sources */,
@@ -238,9 +241,9 @@
 			);
 			dependencies = (
 			);
-			name = "Watch It Later";
+			name = WatchItLater;
 			productName = "Instapaper TV";
-			productReference = 24332BD41E108D1A00D5AA18 /* Watch It Later.app */;
+			productReference = 24332BD41E108D1A00D5AA18 /* WatchItLater.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -279,7 +282,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24332BD31E108D1A00D5AA18 /* Watch It Later */,
+				24332BD31E108D1A00D5AA18 /* WatchItLater */,
 			);
 		};
 /* End PBXProject section */
@@ -291,6 +294,7 @@
 			files = (
 				24332BDF1E108D1A00D5AA18 /* Assets.xcassets in Resources */,
 				24332BDD1E108D1A00D5AA18 /* Main.storyboard in Resources */,
+				244DE6C11E59CBE8005B441E /* InstapaperConfiguration.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,7 +546,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24332BE31E108D1A00D5AA18 /* Build configuration list for PBXNativeTarget "Watch It Later" */ = {
+		24332BE31E108D1A00D5AA18 /* Build configuration list for PBXNativeTarget "WatchItLater" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24332BE41E108D1A00D5AA18 /* Debug */,
