@@ -1,10 +1,10 @@
 # Watch It Later
 
+[![Build Status](https://travis-ci.org/weiran/watch-it-later.svg?branch=master)](https://travis-ci.org/weiran/watch-it-later)
+
 ![Logo][logo]
 
 [logo]: http://i.imgur.com/SyC0DMZ.png
-
-[![Build Status](https://travis-ci.org/weiran/watch-it-later.svg?branch=master)](https://travis-ci.org/weiran/watch-it-later)
 
 Watch It Later is a native Apple TV app for watching YouTube and Vimeo videos saved to your Instapaper account.
 
