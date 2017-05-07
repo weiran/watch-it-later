@@ -34,7 +34,6 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
         if let video = video {
             titleLabel.text = video.title
             domainLabel.text = video.urlString.contains("vimeo.com") ? "vimeo.com" : "youtube.com"
-            descriptionLabel.text = video.description
             
             if let videoProvider = try? VideoProvider.videoProvider(for: video.urlString) {
                 self.videoProvider = videoProvider
