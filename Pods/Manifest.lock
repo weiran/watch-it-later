@@ -12,6 +12,11 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.1.0):
     - PromiseKit/CorePromise
+  - Realm (2.7.0):
+    - Realm/Headers (= 2.7.0)
+  - Realm/Headers (2.7.0)
+  - RealmSwift (2.7.0):
+    - Realm (= 2.7.0)
   - SVProgressHUD (2.1.2)
   - XCDYouTubeKit (2.5.3)
   - YTVimeoExtractor (1.1.0)
@@ -20,6 +25,7 @@ DEPENDENCIES:
   - AsyncImageView
   - Locksmith
   - PromiseKit (~> 4.0)
+  - RealmSwift
   - SVProgressHUD
   - XCDYouTubeKit
   - YTVimeoExtractor (from `https://github.com/lilfaf/YTVimeoExtractor`, commit `b484d9879b42ab1b31dae23aaccd0e8be192e9fb`)
@@ -38,10 +44,12 @@ SPEC CHECKSUMS:
   AsyncImageView: 416e99402e5b1f20571de70ad619ced90f56a7d9
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   PromiseKit: c98453ff78544c0ad5bb0ea980782e6875f47978
+  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
+  RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   XCDYouTubeKit: 90690f9e3523735dc93b8024269d991b0cfffe78
   YTVimeoExtractor: 36a8f37598c8529c7064229fb6a3f4ba5d38f265
 
-PODFILE CHECKSUM: 692f0d56ac299f318c9aab083a1cf3d95efadff7
+PODFILE CHECKSUM: b0e2c23c339d6c9756788e3ada4a280d0da1e4b5
 
 COCOAPODS: 1.2.0

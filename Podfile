@@ -1,5 +1,6 @@
 platform :tvos, '10.1'
 use_frameworks!
+inhibit_all_warnings!
 
 target 'WatchItLater' do
 
@@ -10,4 +11,5 @@ target 'WatchItLater' do
   pod 'AsyncImageView'
   pod 'PromiseKit', '~> 4.0'
   pod 'SVProgressHUD'
+  pod 'RealmSwift'
 end

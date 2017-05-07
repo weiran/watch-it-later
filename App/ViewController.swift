@@ -45,22 +45,39 @@ class ViewController: UIViewController {
     }
     
     func fetchVideos() -> Promise<Void> {
-        return instapaperAPI.fetch().then { videos -> Void in
-            self.videos = videos.filter({ video -> Bool in
-                (video.url.contains("vimeo.com") || video.url.contains("youtube.com") || video.url.contains("youtu.be")) && video != self.hideVideo
+        return instapaperAPI.fetch().then { [unowned self] videos -> Void in
+            let filteredVideos = videos.filter({ video -> Bool in
+                (video.urlString.contains("vimeo.com") || video.urlString.contains("youtube.com") || video.urlString.contains("youtu.be")) && video != self.hideVideo
             })
-            self.collectionView.reloadData()
+            
+            let database = Database()
+            let syncedVideos = filteredVideos.map { video -> (Video) in
+                if let existingVideo = database.getVideo(id: video.id) {
+                    return existingVideo
+                } else {
+                    database.addVideo(video)
+                    return video
+                }
+            }
+            
+            self.videos = syncedVideos
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
     
     func observeNotifications() {
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "VideoArchived"), object: nil, queue: nil) { [weak self] notification in
             if let video = notification.userInfo?["video"] as? Video,
-                let index = self?.videos?.index(where: { $0 == video }) {
-                self?.videos?.remove(at: index)
-                self?.collectionView.performBatchUpdates({
-                    self?.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
-                }, completion: nil)
+                let strongSelf = self,
+                let index = strongSelf.videos?.index(where: { $0 == video }) {
+                strongSelf.videos?.remove(at: index)
+                strongSelf.collectionView.performBatchUpdates({
+                    strongSelf.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
+                }, completion: { completed in
+                    Database().deleteVideo(video)
+                })
             }
         }
         
@@ -92,7 +109,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.titleLabel.text = video.title
         cell.thumbnailImageView.image = UIImage.init(named: "ThumbnailPlaceholder")
         
-        if let provider = try? VideoProvider.videoProvider(for: video.url) {
+        if let provider = try? VideoProvider.videoProvider(for: video.urlString) {
             _ = provider.thumbnailURL().then {
                 cell.thumbnailImageView.imageURL = $0
             }

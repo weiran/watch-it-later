@@ -8,6 +8,7 @@
 
 import Locksmith
 import PromiseKit
+import RealmSwift
 
 protocol API {
     static var name: String { get }
@@ -84,7 +85,8 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         }
     }
     
-    func archive(bookmark: IKBookmark) {
+    func archive(id: Int) {
+        let bookmark = IKBookmark(bookmarkID: id)
         engine.archiveBookmark(bookmark, userInfo: nil)
     }
     
@@ -123,7 +125,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
             
         default:
             return
-            
+        
         }
     }
     
