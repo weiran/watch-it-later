@@ -1,4 +1,4 @@
-platform :tvos, '10.1'
+platform :tvos, '10.2'
 use_frameworks!
 inhibit_all_warnings!
 
