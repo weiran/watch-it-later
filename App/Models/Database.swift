@@ -33,8 +33,10 @@ class Database {
     }
     
     func deleteVideo(_ video: Video) {
-        try? realm.write {
-            realm.delete(video)
+        if let realmVideo = realm.objects(Video.self).first(where: { $0.id == video.id }) {
+            try? realm.write {
+                realm.delete(realmVideo)
+            }
         }
     }
     

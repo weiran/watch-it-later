@@ -67,22 +67,27 @@ class ViewController: UIViewController {
     }
     
     func observeNotifications() {
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "VideoArchived"), object: nil, queue: nil) { [weak self] notification in
-            if let video = notification.userInfo?["video"] as? Video,
-                let strongSelf = self,
-                let index = strongSelf.videos?.index(where: { $0 == video }) {
-                strongSelf.videos?.remove(at: index)
-                strongSelf.collectionView.performBatchUpdates({
-                    strongSelf.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
-                }, completion: { completed in
-                    Database.shared.deleteVideo(video)
-                })
-            }
+        if self.parent is UINavigationController { // only when root view controller, not embedded
+            NotificationCenter.default.removeObserver(self)
+            NotificationCenter.default.addObserver(self, selector: #selector(videoArchived), name: Notification.Name("VideoArchived"), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(authenticationChanged), name: Notification.Name("AuthenticationChanged"), object: nil)
         }
-        
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "AuthenticationChanged"), object: nil, queue: nil) { [weak self] notification in
-            _ = self?.fetchVideos()
+    }
+    
+    func videoArchived(notification: Notification) {
+        if let video = notification.userInfo?["video"] as? Video, let index = self.videos?.index(where: { $0 == video }) {
+            self.videos?.remove(at: index)
+            
+            self.collectionView.performBatchUpdates({
+                self.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
+            }, completion: { completed in
+                Database.shared.deleteVideo(video)
+            })
         }
+    }
+    
+    func authenticationChanged() {
+        _ = self.fetchVideos()
     }
     
     @IBAction func didReload(_ sender: Any) {
