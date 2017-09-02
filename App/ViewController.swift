@@ -46,9 +46,9 @@ class ViewController: UIViewController {
     
     func fetchVideos() -> Promise<Void> {
         return instapaperAPI.fetch().then { [unowned self] videos -> Void in
-            let filteredVideos = videos.filter({ video -> Bool in
-                (video.urlString.contains("vimeo.com") || video.urlString.contains("youtube.com") || video.urlString.contains("youtu.be")) && video != self.hideVideo
-            })
+            let filteredVideos = videos.filter {
+                ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be")) && $0 != self.hideVideo
+            }
             
             let syncedVideos = filteredVideos.map { video -> (Video) in
                 if let existingVideo = Database.shared.getVideo(id: video.id) {
