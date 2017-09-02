@@ -106,7 +106,7 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
     @objc private func didFinishPlaying(notification: NSNotification) {
         playerViewController?.dismiss(animated: true, completion: { [unowned self] in
             if let video = self.video {
-                Database().updateVideoProgress(video, progress: nil)
+                Database.shared.updateVideoProgress(video, progress: nil)
             }
         })
         NotificationCenter.default.removeObserver(self, name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
@@ -121,8 +121,7 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
         if let video = video, let playerViewController = playerViewController, let player = playerViewController.player {
             let currentTime = player.currentTime()
             let timeData = NSKeyedArchiver.archivedData(withRootObject: currentTime)
-            let database = Database()
-            database.updateVideoProgress(video, progress: timeData)
+            Database.shared.updateVideoProgress(video, progress: timeData)
         }
     }
     

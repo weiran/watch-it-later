@@ -10,7 +10,8 @@ import RealmSwift
 
 class Database {
 
-    let realm: Realm
+    static let shared = Database()
+    private let realm: Realm
     
     init() {
         realm = try! Realm()

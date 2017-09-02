@@ -50,12 +50,11 @@ class ViewController: UIViewController {
                 (video.urlString.contains("vimeo.com") || video.urlString.contains("youtube.com") || video.urlString.contains("youtu.be")) && video != self.hideVideo
             })
             
-            let database = Database()
             let syncedVideos = filteredVideos.map { video -> (Video) in
-                if let existingVideo = database.getVideo(id: video.id) {
+                if let existingVideo = Database.shared.getVideo(id: video.id) {
                     return existingVideo
                 } else {
-                    database.addVideo(video)
+                    Database.shared.addVideo(video)
                     return video
                 }
             }
@@ -76,7 +75,7 @@ class ViewController: UIViewController {
                 strongSelf.collectionView.performBatchUpdates({
                     strongSelf.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
                 }, completion: { completed in
-                    Database().deleteVideo(video)
+                    Database.shared.deleteVideo(video)
                 })
             }
         }
