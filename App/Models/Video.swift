@@ -6,23 +6,50 @@
 //  Copyright © 2017 Weiran Zhang. All rights reserved.
 //
 
-class Video: Equatable {
+import RealmSwift
+import CoreMedia
+
+class Video: Object {
     
-    init(_ bookmark: IKBookmark) {
+    convenience init(_ bookmark: IKBookmark) {
+        self.init()
+
+        id = bookmark.bookmarkID
         title = bookmark.title
-        description = bookmark.descr
-        url = bookmark.url.absoluteString
-        self.bookmark = bookmark
+        date = bookmark.date
+        urlString = bookmark.url.absoluteString
     }
 
-    var title: String
-    var description: String
-    var url: String
+    dynamic var id: Int = 0
+    dynamic var title: String = ""
+    dynamic var date: Date = Date()
+    dynamic var urlString: String = ""
+    dynamic var progress: Data?
     
-    var bookmark: IKBookmark
+    var url: URL? {
+        if let url = URL(string: urlString) {
+            return url
+        }
+        return nil
+    }
+    
+    var progressTime: CMTime? {
+        if let progress = progress, let time = NSKeyedUnarchiver.unarchiveObject(with: progress) as? CMTime {
+            return time
+        }
+        return nil
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["url", "progressTime"]
+    }
     
     static func == (left: Video, right: Video) -> Bool {
-        return left.bookmark.bookmarkID == right.bookmark.bookmarkID
+        return left.id == right.id
     }
     
 }

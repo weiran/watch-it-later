@@ -46,7 +46,7 @@ public enum PMKURLError: Error {
     case stringEncoding(URLRequest, Data, URLResponse)
 
     /**
-     Usually the `NSURLResponse` is actually an `NSHTTPURLResponse`, if so you
+     Usually the `URLResponse` is actually an `HTTPURLResponse`, if so you
      can access it using this property. Since it is returned as an unwrapped
      optional: be sure.
      */
@@ -58,6 +58,21 @@ public enum PMKURLError: Error {
             return rsp as! Foundation.HTTPURLResponse
         case .stringEncoding(_, _, let rsp):
             return rsp as! Foundation.HTTPURLResponse
+        }
+    }
+}
+
+extension PMKURLError: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case let .badResponse(rq, data, rsp):
+            if let data = data, let str = String(data: data, encoding: .utf8), let rsp = rsp {
+                return "PromiseKit: badResponse: \(rq): \(rsp)\n\(str)"
+            } else {
+                fallthrough
+            }
+        default:
+            return "\(self)"
         }
     }
 }
@@ -113,6 +128,7 @@ extension NSError {
 
 private var cancelledErrorIdentifiers = Set([
     ErrorPair(PMKErrorDomain, PMKOperationCancelled),
+    ErrorPair(NSCocoaErrorDomain, NSUserCancelledError),
     ErrorPair(NSURLErrorDomain, NSURLErrorCancelled),
 ])
 

@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8.2
+osx_image: xcode8.3
 xcode_workspace: WatchItLater.xcworkspace
 xcode_scheme: WatchItLater
 before_install:
@@ -7,9 +7,8 @@ before_install:
 - brew outdated xctool || brew upgrade xctool
 - gem install xcpretty
 - gem update cocoapods
-- pod repo update --silent
 install:
-- pod install --project-directory=$TRAVIS_BUILD_DIR
+- pod install --repo-update --project-directory=$TRAVIS_BUILD_DIR
 before_script:
 - mv 'App/Supporting Files/InstapaperConfiguration.defaults.plist' 'App/Supporting Files/InstapaperConfiguration.plist'
 - xctool -workspace ${TRAVIS_XCODE_WORKSPACE} -scheme ${TRAVIS_XCODE_SCHEME} run-tests

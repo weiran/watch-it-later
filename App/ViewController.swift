@@ -45,28 +45,49 @@ class ViewController: UIViewController {
     }
     
     func fetchVideos() -> Promise<Void> {
-        return instapaperAPI.fetch().then { videos -> Void in
-            self.videos = videos.filter({ video -> Bool in
-                (video.url.contains("vimeo.com") || video.url.contains("youtube.com") || video.url.contains("youtu.be")) && video != self.hideVideo
-            })
-            self.collectionView.reloadData()
+        return instapaperAPI.fetch().then { [unowned self] videos -> Void in
+            let filteredVideos = videos.filter {
+                ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be")) && $0 != self.hideVideo
+            }
+            
+            let syncedVideos = filteredVideos.map { video -> (Video) in
+                if let existingVideo = Database.shared.getVideo(id: video.id) {
+                    return existingVideo
+                } else {
+                    Database.shared.addVideo(video)
+                    return video
+                }
+            }
+            
+            self.videos = syncedVideos
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
     
     func observeNotifications() {
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "VideoArchived"), object: nil, queue: nil) { [weak self] notification in
-            if let video = notification.userInfo?["video"] as? Video,
-                let index = self?.videos?.index(where: { $0 == video }) {
-                self?.videos?.remove(at: index)
-                self?.collectionView.performBatchUpdates({
-                    self?.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
-                }, completion: nil)
-            }
+        if self.parent is UINavigationController { // only when root view controller, not embedded
+            NotificationCenter.default.removeObserver(self)
+            NotificationCenter.default.addObserver(self, selector: #selector(videoArchived), name: Notification.Name("VideoArchived"), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(authenticationChanged), name: Notification.Name("AuthenticationChanged"), object: nil)
         }
-        
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "AuthenticationChanged"), object: nil, queue: nil) { [weak self] notification in
-            _ = self?.fetchVideos()
+    }
+    
+    func videoArchived(notification: Notification) {
+        if let video = notification.userInfo?["video"] as? Video, let index = self.videos?.index(where: { $0 == video }) {
+            self.videos?.remove(at: index)
+            
+            self.collectionView.performBatchUpdates({
+                self.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
+            }, completion: { completed in
+                Database.shared.deleteVideo(video)
+            })
         }
+    }
+    
+    func authenticationChanged() {
+        _ = self.fetchVideos()
     }
     
     @IBAction func didReload(_ sender: Any) {
@@ -92,7 +113,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.titleLabel.text = video.title
         cell.thumbnailImageView.image = UIImage.init(named: "ThumbnailPlaceholder")
         
-        if let provider = try? VideoProvider.videoProvider(for: video.url) {
+        if let provider = try? VideoProvider.videoProvider(for: video.urlString) {
             _ = provider.thumbnailURL().then {
                 cell.thumbnailImageView.imageURL = $0
             }

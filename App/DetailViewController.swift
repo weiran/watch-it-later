@@ -13,11 +13,14 @@ import AsyncImageView
 import PromiseKit
 import SVProgressHUD
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, AVPlayerViewControllerDismissDelegate {
     
     var video: Video?
     var videoProvider: VideoProviderProtocol?
     var instapaperAPI: InstapaperAPI?
+    
+    var playerViewController: AVPlayerViewControllerDismiss?
+    @objc var player: AVPlayer?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var domainLabel: UILabel!
@@ -30,10 +33,9 @@ class DetailViewController: UIViewController {
         
         if let video = video {
             titleLabel.text = video.title
-            domainLabel.text = video.url.contains("vimeo.com") ? "vimeo.com" : "youtube.com"
-            descriptionLabel.text = video.description
+            domainLabel.text = video.urlString.contains("vimeo.com") ? "vimeo.com" : "youtube.com"
             
-            if let videoProvider = try? VideoProvider.videoProvider(for: video.url) {
+            if let videoProvider = try? VideoProvider.videoProvider(for: video.urlString) {
                 self.videoProvider = videoProvider
                 _ = videoProvider.thumbnailURL().then { [weak self] url in
                     self?.thumbnailImageView.imageURL = url
@@ -50,7 +52,6 @@ class DetailViewController: UIViewController {
         view.addGestureRecognizer(tapRecognizer)
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
-        
         thumbnailImageView.layer.shadowRadius = 10
         thumbnailImageView.layer.shadowOpacity = 0.5
         thumbnailImageView.layer.shadowColor = UIColor.black.cgColor
@@ -61,22 +62,30 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func didPlay(_ sender: Any) {
-        guard videoProvider != nil else {
+        guard let videoProvider = videoProvider else {
             showError()
             return
         }
         
         SVProgressHUD.show()
         view.isUserInteractionEnabled = false
-        _ = videoProvider!.streamURL().then { streamURL -> Void in
+        _ = videoProvider.streamURL().then { streamURL -> Void in
             let player = AVPlayer(url: streamURL)
-            let videoPlayerViewController = AVPlayerViewController()
-            videoPlayerViewController.player = player
-            self.present(videoPlayerViewController, animated: true) {
-                videoPlayerViewController.player!.play()
+            let playerViewController = AVPlayerViewControllerDismiss()
+            playerViewController.player = player
+            playerViewController.dismissDelegate = self
+            
+            self.present(playerViewController, animated: true) {
+                
+                playerViewController.player!.play()
             }
             
+            self.playerViewController = playerViewController
+            self.player = player
+            
             NotificationCenter.default.addObserver(self, selector: #selector(self.didFinishPlaying(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+            
+            player.addObserver(self, forKeyPath: "status", options: [.old, .new], context: nil)
         }
         .catch { [weak self] error in
             self?.showError()
@@ -87,14 +96,33 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func didArchive(_ sender: Any) {
-        instapaperAPI?.archive(bookmark: video!.bookmark)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "VideoArchived"), object: sender, userInfo: ["video": video!])
+        if let video = video, let instapaperAPI = instapaperAPI {
+            instapaperAPI.archive(id: video.id)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "VideoArchived"), object: sender, userInfo: ["video": video])
+        }
         dismiss(animated: true, completion: nil)
     }
     
     @objc private func didFinishPlaying(notification: NSNotification) {
-        dismiss(animated: true, completion: nil)
+        playerViewController?.dismiss(animated: true, completion: { [unowned self] in
+            if let video = self.video {
+                Database.shared.updateVideoProgress(video, progress: nil)
+            }
+        })
         NotificationCenter.default.removeObserver(self, name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+    
+    func didDismissPlayerViewController() {
+        self.player?.removeObserver(self, forKeyPath: "status")
+        updateVideoProgress()
+    }
+    
+    func updateVideoProgress() {
+        if let video = video, let playerViewController = playerViewController, let player = playerViewController.player {
+            let currentTime = player.currentTime()
+            let timeData = NSKeyedArchiver.archivedData(withRootObject: currentTime)
+            Database.shared.updateVideoProgress(video, progress: timeData)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -123,6 +151,14 @@ class DetailViewController: UIViewController {
         }
         
         return formatter.string(from: duration) ?? ""
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "status", let player = object as? AVPlayer {
+            if let video = video, player.status == .readyToPlay, let time = video.progressTime {
+                player.seek(to: time)
+            }
+        }
     }
     
 }

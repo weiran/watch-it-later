@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = instapaperAPI?.storedAuth().then { [weak self] (Void) -> Void in
+        _ = instapaperAPI?.storedAuth().then { [weak self] in
             self?.hasStoredCredentials = true
         }
     }
