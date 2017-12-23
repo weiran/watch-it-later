@@ -68,8 +68,8 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
         
         SVProgressHUD.show()
         view.isUserInteractionEnabled = false
-        videoProvider.streamURL().then { streamURL -> Void in
-            let player = AVPlayer(url: streamURL)
+        videoProvider.videoStream().then { videoStream -> Void in
+            let player = AVPlayer(url: videoStream.videoURL)
             let playerViewController = AVPlayerViewControllerDismiss()
             playerViewController.player = player
             playerViewController.dismissDelegate = self

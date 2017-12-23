@@ -21,7 +21,7 @@ class YouTubeProvider: VideoProviderProtocol {
         self.identifier = try parseYoutubeIdentifier(url)
     }
     
-    func streamURL() -> Promise<URL> {
+    func videoStream() -> Promise<VideoStream> {
         return Promise { fulfill, reject in
             XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
                 if let streamURLs = video?.streamURLs, let streamURL = streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
@@ -29,7 +29,7 @@ class YouTubeProvider: VideoProviderProtocol {
                     streamURLs[YouTubeVideoQuality.medium360] ??
                     streamURLs[YouTubeVideoQuality.small240] {
                     // TODO: need to combine audio and video tracks for dash: http://stackoverflow.com/questions/40113274/avasset-with-separate-video-and-audio-urls-ios
-                    fulfill(streamURL)
+                    fulfill(VideoStream(videoURL: streamURL, audioURL: nil))
                 } else if let error = error {
                     reject(error)
                 } else {

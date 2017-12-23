@@ -11,7 +11,7 @@ import PromiseKit
 protocol VideoProviderProtocol {
     init(_ url: String) throws
     
-    func streamURL() -> Promise<URL>
+    func videoStream() -> Promise<VideoStream>
     func thumbnailURL() -> Promise<URL>
     func duration() -> Promise<Double>
 }
@@ -20,4 +20,14 @@ enum VideoError: Error {
     case InvalidURL
     case NoStreamURLFound
     case NoThumbnailURLFound
+}
+
+struct VideoStream {
+    let videoURL: URL!
+    let audioURL: URL?
+    
+    init(videoURL: URL, audioURL: URL?) {
+        self.videoURL = videoURL
+        self.audioURL = audioURL
+    }
 }
