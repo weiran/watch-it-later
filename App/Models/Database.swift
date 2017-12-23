@@ -9,7 +9,6 @@
 import RealmSwift
 
 class Database {
-
     static let shared = Database()
     private let realm: Realm
     
@@ -51,5 +50,4 @@ class Database {
             video.progress = progress
         }
     }
-    
 }

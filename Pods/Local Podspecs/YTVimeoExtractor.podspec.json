@@ -1,6 +1,6 @@
 {
   "name": "YTVimeoExtractor",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "summary": "Fetches Vimeo's mp4 URLs for iOS.",
   "description": "YTVimeoExtractor is a class which lets you get the iOS\ncompatible video url from Vimeo which you can use in\nMPMoviePlayerController, no need to use a UIWebView.",
   "homepage": "https://github.com/lilfaf/YTVimeoExtractor",
@@ -9,11 +9,12 @@
     "file": "LICENSE"
   },
   "authors": {
-    "Louis Larpin": "louis.larpin@gmail.com"
+    "Louis Larpin": "louis.larpin@gmail.com",
+    "Soneé John": "sonee@alphasoftware.co"
   },
   "source": {
     "git": "https://github.com/lilfaf/YTVimeoExtractor.git",
-    "tag": "1.1.0"
+    "tag": "1.2.0"
   },
   "platforms": {
     "ios": "7.0",

@@ -10,7 +10,6 @@ import UIKit
 import PromiseKit
 
 class ViewController: UIViewController {
-    
     fileprivate let instapaperAPI = InstapaperAPI()
     fileprivate var videos: [Video]?
     
@@ -74,7 +73,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func videoArchived(notification: Notification) {
+    @objc func videoArchived(notification: Notification) {
         if let video = notification.userInfo?["video"] as? Video, let index = self.videos?.index(where: { $0 == video }) {
             self.videos?.remove(at: index)
             
@@ -86,7 +85,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func authenticationChanged() {
+    @objc func authenticationChanged() {
         _ = self.fetchVideos()
     }
     
@@ -97,9 +96,7 @@ class ViewController: UIViewController {
     override weak var preferredFocusedView: UIView? {
         return collectionView
     }
-    
 }
-
 
 // Collection View
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {

@@ -10,7 +10,6 @@ import UIKit
 import SVProgressHUD
 
 class LoginViewController: UIViewController {
-    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -60,16 +59,13 @@ class LoginViewController: UIViewController {
         }
         super.pressesBegan(presses, with: event)
     }
-    
 }
 
 extension LoginViewController: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == passwordTextField {
             didLogin(textField)
         }
         return true
     }
-    
 }

@@ -14,7 +14,6 @@ import PromiseKit
 import SVProgressHUD
 
 class DetailViewController: UIViewController, AVPlayerViewControllerDismissDelegate {
-    
     var video: Video?
     var videoProvider: VideoProviderProtocol?
     var instapaperAPI: InstapaperAPI?
@@ -69,14 +68,13 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
         
         SVProgressHUD.show()
         view.isUserInteractionEnabled = false
-        _ = videoProvider.streamURL().then { streamURL -> Void in
+        videoProvider.streamURL().then { streamURL -> Void in
             let player = AVPlayer(url: streamURL)
             let playerViewController = AVPlayerViewControllerDismiss()
             playerViewController.player = player
             playerViewController.dismissDelegate = self
             
             self.present(playerViewController, animated: true) {
-                
                 playerViewController.player!.play()
             }
             
@@ -160,5 +158,4 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
             }
         }
     }
-    
 }

@@ -7,7 +7,6 @@
 //
 
 class VideoProvider {
-
     static func videoProvider(for url: String) throws -> VideoProviderProtocol {
         if url.contains("vimeo.com") {
             return try VimeoProvider(url)
@@ -17,5 +16,4 @@ class VideoProvider {
             throw VideoError.InvalidURL
         }
     }
-    
 }

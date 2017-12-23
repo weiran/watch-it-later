@@ -19,16 +19,14 @@ protocol API {
 }
 
 class InstapaperAPI: NSObject, API, IKEngineDelegate {
-    
     static var name = "Instapaper"
     private var engine: IKEngine
     
-    private var loginFulfill: ((Void) -> Void)?
+    private var loginFulfill: (() -> Void)?
     private var loginReject: ((Error) -> Void)?
     
     private var fetchFulfill: (([Video]) -> Void)?
     private var fetchReject: ((Error) -> Void)?
-    
     
     override init() {
         let (consumerKey, consumerSecret) = InstapaperAPI.getOAuthConfiguration()
@@ -70,7 +68,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
             if let token = keys?["token"], let secret = keys?["secret"] {
                 engine.oAuthToken = token as? String
                 engine.oAuthTokenSecret = secret as? String
-                fulfill()
+                fulfill(())
             } else {
                 reject("Couldn't get authentication credentials in keychain")
             }
@@ -114,7 +112,6 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     
     func engine(_ engine: IKEngine!, didFail connection: IKURLConnection!, error: Error!) {
         switch connection.type {
-        
         case .authAccessToken:
             loginReject?(error)
             clearLoginPromise()
@@ -125,7 +122,6 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
             
         default:
             return
-        
         }
     }
     
@@ -138,5 +134,4 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         fetchReject = nil
         fetchFulfill = nil
     }
-    
 }

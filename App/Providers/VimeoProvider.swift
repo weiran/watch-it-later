@@ -10,7 +10,6 @@ import PromiseKit
 import YTVimeoExtractor
 
 class VimeoProvider: VideoProviderProtocol {
-    
     var url: URL
     
     required init(_ url: String) throws {
@@ -61,5 +60,4 @@ class VimeoProvider: VideoProviderProtocol {
             }
         }
     }
-    
 }

@@ -12,7 +12,6 @@ import PromiseKit
 import XCDYouTubeKit
 
 class YouTubeProvider: VideoProviderProtocol {
-    
     var url: URL
     var identifier: String
     
@@ -71,7 +70,7 @@ class YouTubeProvider: VideoProviderProtocol {
     fileprivate func parseYoutubeIdentifier(_ url: String) throws -> String {
         do {
             let identifierRegex = try NSRegularExpression(pattern: "(?<=v(=|/))([-a-zA-Z0-9_]+)|(?<=youtu.be/)([-a-zA-Z0-9_]+)")
-            let results = identifierRegex.matches(in: url, range: NSRange(location: 0, length: url.characters.count))
+            let results = identifierRegex.matches(in: url, range: NSRange(location: 0, length: url.count))
             if results.count > 0 {
                 let urlNSString = url as NSString
                 return urlNSString.substring(with: results.first!.range)
@@ -85,7 +84,6 @@ class YouTubeProvider: VideoProviderProtocol {
     
     
     struct YouTubeVideoQuality {
-        
         static let dash1080p60 = NSNumber(value: 299)
         static let dash720p60 = NSNumber(value: 298)
         static let dash1080 = NSNumber(value: 137)
@@ -94,6 +92,5 @@ class YouTubeProvider: VideoProviderProtocol {
         static let hd720 = NSNumber(value: XCDYouTubeVideoQuality.HD720.rawValue)
         static let medium360 = NSNumber(value: XCDYouTubeVideoQuality.medium360.rawValue)
         static let small240 = NSNumber(value: XCDYouTubeVideoQuality.small240.rawValue)
-        
     }
 }
