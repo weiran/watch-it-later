@@ -71,7 +71,7 @@ class YouTubeProvider: VideoProviderProtocol {
     fileprivate func parseYoutubeIdentifier(_ url: String) throws -> String {
         do {
             let identifierRegex = try NSRegularExpression(pattern: "(?<=v(=|/))([-a-zA-Z0-9_]+)|(?<=youtu.be/)([-a-zA-Z0-9_]+)")
-            let results = identifierRegex.matches(in: url, range: NSRange(location: 0, length: url.characters.count))
+            let results = identifierRegex.matches(in: url, range: NSRange(location: 0, length: url.count))
             if results.count > 0 {
                 let urlNSString = url as NSString
                 return urlNSString.substring(with: results.first!.range)

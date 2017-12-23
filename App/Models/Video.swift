@@ -20,11 +20,11 @@ class Video: Object {
         urlString = bookmark.url.absoluteString
     }
 
-    dynamic var id: Int = 0
-    dynamic var title: String = ""
-    dynamic var date: Date = Date()
-    dynamic var urlString: String = ""
-    dynamic var progress: Data?
+    @objc dynamic var id: Int = 0
+    @objc dynamic var title: String = ""
+    @objc dynamic var date: Date = Date()
+    @objc dynamic var urlString: String = ""
+    @objc dynamic var progress: Data?
     
     var url: URL? {
         if let url = URL(string: urlString) {

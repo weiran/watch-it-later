@@ -23,7 +23,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     static var name = "Instapaper"
     private var engine: IKEngine
     
-    private var loginFulfill: ((Void) -> Void)?
+    private var loginFulfill: (() -> Void)?
     private var loginReject: ((Error) -> Void)?
     
     private var fetchFulfill: (([Video]) -> Void)?
@@ -70,7 +70,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
             if let token = keys?["token"], let secret = keys?["secret"] {
                 engine.oAuthToken = token as? String
                 engine.oAuthTokenSecret = secret as? String
-                fulfill()
+                fulfill(())
             } else {
                 reject("Couldn't get authentication credentials in keychain")
             }
