@@ -13,23 +13,20 @@ import XCDYouTubeKit
 
 class YouTubeProvider: VideoProviderProtocol {
     var url: URL
-    var identifier: String
+    var identifier: String = ""
     
     required init(_ url: String) throws {
         self.url = URL(string: url)!
-        self.identifier = ""
         self.identifier = try parseYoutubeIdentifier(url)
     }
     
     func videoStream() -> Promise<VideoStream> {
         return Promise { fulfill, reject in
             XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
-                if let streamURLs = video?.streamURLs, let streamURL = streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
-                    streamURLs[YouTubeVideoQuality.hd720] ??
-                    streamURLs[YouTubeVideoQuality.medium360] ??
-                    streamURLs[YouTubeVideoQuality.small240] {
-                    // TODO: need to combine audio and video tracks for dash: http://stackoverflow.com/questions/40113274/avasset-with-separate-video-and-audio-urls-ios
-                    fulfill(VideoStream(videoURL: streamURL, audioURL: nil))
+                if let streamURLs = video?.streamURLs as? Dictionary<Int, URL>,
+                    let highestQualityStream = YouTubeProvider.getHighestQualityFormatType(streams: streamURLs),
+                    let videoStream = YouTubeProvider.getVideoStream(streams: streamURLs, for: highestQualityStream) {
+                    fulfill(videoStream)
                 } else if let error = error {
                     reject(error)
                 } else {
@@ -42,6 +39,7 @@ class YouTubeProvider: VideoProviderProtocol {
     func thumbnailURL() -> Promise<URL> {
         return Promise { fulfill, reject in
             XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
+                // TODO: adding 'sd' or 'hq' to the beginning of the filename for the thumbnail often gives higher quality thumbnails
                 if let video = video, let thumbnailURL = video.largeThumbnailURL ?? video.mediumThumbnailURL ?? video.smallThumbnailURL {
                     fulfill(thumbnailURL)
                 } else if let error = error {
@@ -82,15 +80,37 @@ class YouTubeProvider: VideoProviderProtocol {
         }
     }
     
-    
-    struct YouTubeVideoQuality {
-        static let dash1080p60 = NSNumber(value: 299)
-        static let dash720p60 = NSNumber(value: 298)
-        static let dash1080 = NSNumber(value: 137)
-        static let dash720 = NSNumber(value: 136)
+    fileprivate static func getHighestQualityFormatType(streams: Dictionary<Int, URL>, highestQuality: YouTubeFormatType = .video1080p60) -> YouTubeFormatType? {
+        let qualityOrder = [YouTubeFormatType.video1080p60,
+                            YouTubeFormatType.video1080p,
+                            YouTubeFormatType.video720p60,
+                            YouTubeFormatType.video720p,
+                            YouTubeFormatType.video480p,
+                            YouTubeFormatType.video360p
+                            ]
         
-        static let hd720 = NSNumber(value: XCDYouTubeVideoQuality.HD720.rawValue)
-        static let medium360 = NSNumber(value: XCDYouTubeVideoQuality.medium360.rawValue)
-        static let small240 = NSNumber(value: XCDYouTubeVideoQuality.small240.rawValue)
+        guard let startIndex = qualityOrder.index(of: highestQuality) else { return nil }
+        
+        for i in startIndex..<qualityOrder.count {
+            let qualityType = qualityOrder[i]
+            let (videoTypeId, _) = qualityType.typeIdentifiers()
+            if let _ = streams[videoTypeId] {
+                return qualityType
+            }
+        }
+        
+        return nil
+    }
+    
+    fileprivate static func getVideoStream(streams: Dictionary<Int, URL>, for quality: YouTubeFormatType) -> VideoStream? {
+        let (videoTypeId, audioTypeId) = quality.typeIdentifiers()
+        guard let videoURL = streams[videoTypeId] else { return nil }
+        var audioURL: URL?
+        if let audioTypeId = audioTypeId {
+            guard let unoptionalAudioURL = streams[audioTypeId] else { return nil }
+            audioURL = unoptionalAudioURL
+        }
+        
+        return VideoStream(videoURL: videoURL, audioURL: audioURL)
     }
 }

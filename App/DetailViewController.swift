@@ -26,6 +26,10 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var thumbnailImageView: AsyncImageView!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var archiveButton: UIButton!
+    
+    var duration: CMTime?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +40,15 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
             
             if let videoProvider = try? VideoProvider.videoProvider(for: video.urlString) {
                 self.videoProvider = videoProvider
-                _ = videoProvider.thumbnailURL().then { [weak self] url in
+                videoProvider.thumbnailURL().then { [weak self] url in
                     self?.thumbnailImageView.imageURL = url
                 }
-                _ = videoProvider.duration().then { [weak self] (duration: Double) in
+                videoProvider.duration().then { [weak self] (duration: Double) -> Void in
                     self?.durationLabel.text = self?.formatTimeInterval(duration: duration)
+                    self?.duration = CMTime(seconds: duration, preferredTimescale: CMTimeScale(duration * 60))
                 }
             }
         }
-        
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didPlay(_:)))
         tapRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
@@ -69,13 +73,35 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
         SVProgressHUD.show()
         view.isUserInteractionEnabled = false
         videoProvider.videoStream().then { videoStream -> Void in
-            let player = AVPlayer(url: videoStream.videoURL)
+            var player: AVPlayer?
+            let videoAsset = AVAsset(url: videoStream.videoURL)
+            
+            if let audioURL = videoStream.audioURL {
+                // dash stream
+                // let duration = videoAsset.duration // TODO: this causes a network request
+                let duration = self.duration!
+                
+                let composition = AVMutableComposition()
+                let videoTrack = composition.addMutableTrack(withMediaType: AVMediaType.video, preferredTrackID: kCMPersistentTrackID_Invalid)
+                try? videoTrack?.insertTimeRange(CMTimeRange(start: kCMTimeZero, duration: duration), of: videoAsset.tracks(withMediaType: .video)[0], at: kCMTimeZero)
+                
+                let audioAsset = AVAsset(url: audioURL)
+                let audioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+                try? audioTrack?.insertTimeRange(CMTimeRange(start: kCMTimeZero, duration: duration), of: audioAsset.tracks(withMediaType: .audio)[0], at: kCMTimeZero)
+                
+                let playerItem = AVPlayerItem(asset: composition)
+                player = AVPlayer(playerItem: playerItem)
+            } else {
+                // standard stream
+                player = AVPlayer(url: videoStream.videoURL)
+            }
+            
             let playerViewController = AVPlayerViewControllerDismiss()
             playerViewController.player = player
             playerViewController.dismissDelegate = self
             
             self.present(playerViewController, animated: true) {
-                playerViewController.player!.play()
+                playerViewController.player?.play()
             }
             
             self.playerViewController = playerViewController
@@ -83,7 +109,7 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
             
             NotificationCenter.default.addObserver(self, selector: #selector(self.didFinishPlaying(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
             
-            player.addObserver(self, forKeyPath: "status", options: [.old, .new], context: nil)
+            player?.addObserver(self, forKeyPath: "status", options: [.old, .new], context: nil)
         }
         .catch { [weak self] error in
             self?.showError()
