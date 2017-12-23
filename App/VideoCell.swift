@@ -10,8 +10,6 @@ import UIKit
 import AsyncImageView
 
 class VideoCell: UICollectionViewCell {
-    
     @IBOutlet weak var thumbnailImageView: AsyncImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    
 }

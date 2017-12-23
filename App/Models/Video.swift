@@ -10,7 +10,6 @@ import RealmSwift
 import CoreMedia
 
 class Video: Object {
-    
     convenience init(_ bookmark: IKBookmark) {
         self.init()
 
@@ -51,5 +50,4 @@ class Video: Object {
     static func == (left: Video, right: Video) -> Bool {
         return left.id == right.id
     }
-    
 }

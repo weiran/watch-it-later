@@ -10,7 +10,6 @@ import UIKit
 import PromiseKit
 
 class ViewController: UIViewController {
-    
     fileprivate let instapaperAPI = InstapaperAPI()
     fileprivate var videos: [Video]?
     
@@ -97,9 +96,7 @@ class ViewController: UIViewController {
     override weak var preferredFocusedView: UIView? {
         return collectionView
     }
-    
 }
-
 
 // Collection View
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {

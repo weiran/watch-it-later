@@ -19,7 +19,6 @@ protocol API {
 }
 
 class InstapaperAPI: NSObject, API, IKEngineDelegate {
-    
     static var name = "Instapaper"
     private var engine: IKEngine
     
@@ -28,7 +27,6 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     
     private var fetchFulfill: (([Video]) -> Void)?
     private var fetchReject: ((Error) -> Void)?
-    
     
     override init() {
         let (consumerKey, consumerSecret) = InstapaperAPI.getOAuthConfiguration()
@@ -114,7 +112,6 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     
     func engine(_ engine: IKEngine!, didFail connection: IKURLConnection!, error: Error!) {
         switch connection.type {
-        
         case .authAccessToken:
             loginReject?(error)
             clearLoginPromise()
@@ -125,7 +122,6 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
             
         default:
             return
-        
         }
     }
     
@@ -138,5 +134,4 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         fetchReject = nil
         fetchFulfill = nil
     }
-    
 }
