@@ -74,18 +74,20 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
         view.isUserInteractionEnabled = false
         videoProvider.videoStream().then { videoStream -> Void in
             var player: AVPlayer?
-            let videoAsset = AVAsset(url: videoStream.videoURL)
+            let videoAsset = AVURLAsset(url: videoStream.videoURL, options: [AVURLAssetPreferPreciseDurationAndTimingKey: false])
             
             if let audioURL = videoStream.audioURL {
                 // dash stream
                 // let duration = videoAsset.duration // TODO: this causes a network request
                 let duration = self.duration!
                 
-                let composition = AVMutableComposition()
+                let composition = AVMutableComposition(urlAssetInitializationOptions: [AVURLAssetPreferPreciseDurationAndTimingKey: false])
                 let videoTrack = composition.addMutableTrack(withMediaType: AVMediaType.video, preferredTrackID: kCMPersistentTrackID_Invalid)
-                try? videoTrack?.insertTimeRange(CMTimeRange(start: kCMTimeZero, duration: duration), of: videoAsset.tracks(withMediaType: .video)[0], at: kCMTimeZero)
+                let videoTimeRange = CMTimeRange(start: kCMTimeZero, duration: duration)
+                let videoAssetTrack = videoAsset.tracks(withMediaType: .video).first
+                try? videoTrack?.insertTimeRange(videoTimeRange, of: videoAssetTrack!, at: kCMTimeZero)
                 
-                let audioAsset = AVAsset(url: audioURL)
+                let audioAsset = AVURLAsset(url: audioURL, options: [AVURLAssetPreferPreciseDurationAndTimingKey: false])
                 let audioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
                 try? audioTrack?.insertTimeRange(CMTimeRange(start: kCMTimeZero, duration: duration), of: audioAsset.tracks(withMediaType: .audio)[0], at: kCMTimeZero)
                 
