@@ -269,7 +269,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-yz-xCT">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-yz-xCT">
                                                         <rect key="frame" x="154" y="259" width="742" height="163"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -348,7 +348,7 @@
                         <outlet property="playButton" destination="q1n-kX-To6" id="i6b-4I-elA"/>
                         <outlet property="thumbnailImageView" destination="qEv-cj-EVp" id="3co-LW-v1Y"/>
                         <outlet property="titleLabel" destination="ofa-Ty-xsz" id="Wfa-y5-8LB"/>
-                        <segue destination="4eg-kQ-xAr" kind="presentation" identifier="ShowPlayerSegue" id="612-xf-7dR"/>
+                        <segue destination="4eg-kQ-xAr" kind="show" identifier="ShowPlayerSegue" id="612-xf-7dR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OYa-eb-eSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
