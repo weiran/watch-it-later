@@ -104,6 +104,14 @@ class DetailViewController: UIViewController {
                 if let audioURL = videoStream.audioURL {
                     playerViewController.player.addPlaybackSlave(audioURL, type: .audio, enforce: true)
                 }
+                
+                if let video = self.video, video.progress > 0 {
+                    let time = VLCTime.init(number: NSNumber(value: video.progress))
+                    playerViewController.player.time = time
+                }
+                
+                playerViewController.playerDelegate = self
+                self.playerViewController = playerViewController
             }
         }
     }
@@ -127,7 +135,33 @@ class DetailViewController: UIViewController {
         
         return formatter.string(from: duration) ?? ""
     }
+}
+
+extension DetailViewController: VLCMediaPlayerDelegate {
+    func mediaPlayerStateChanged(_ aNotification: Notification!) {
+        if let playerViewController = self.playerViewController {
+            let player = playerViewController.player
+            if player.state == .ended {
+                updateVideoProgress(duration: 0)
+            } else {
+                updateVideoProgress(duration: Int(player.time.intValue))
             }
         }
+    }
+    
+    func updateVideoProgress(duration: Int) {
+        if let video = video {
+            Database.shared.updateVideoProgress(video, progress: duration)
+        }
+    }
+}
+
+extension VLCPlayerViewController {
+    public override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        if presses.first?.type == .menu {
+            // stop the player when quitting to trigger the delegate
+            player.stop()
+        }
+        super.pressesBegan(presses, with: event)
     }
 }
