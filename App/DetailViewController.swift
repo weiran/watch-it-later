@@ -50,6 +50,7 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
                     self?.durationLabel.text = self?.formatTimeInterval(duration: duration)
                     self?.duration = CMTime(seconds: duration, preferredTimescale: CMTimeScale(duration * 60))
                 }
+                self.descriptionLabel.text = ""
             }
         }
         
