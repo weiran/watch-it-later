@@ -3,3 +3,4 @@
 //
 
 #import "InstapaperKit.h"
+#import <TVVLCKit/TVVLCKit.h>

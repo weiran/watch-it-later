@@ -1,23 +1,26 @@
 PODS:
   - AsyncImageView (1.6)
   - Locksmith (4.0.0)
-  - PromiseKit (4.5.1):
-    - PromiseKit/Foundation (= 4.5.1)
-    - PromiseKit/QuartzCore (= 4.5.1)
-    - PromiseKit/UIKit (= 4.5.1)
-  - PromiseKit/CorePromise (4.5.1)
-  - PromiseKit/Foundation (4.5.1):
+  - PromiseKit (4.5.2):
+    - PromiseKit/Foundation (= 4.5.2)
+    - PromiseKit/QuartzCore (= 4.5.2)
+    - PromiseKit/UIKit (= 4.5.2)
+  - PromiseKit/CorePromise (4.5.2)
+  - PromiseKit/Foundation (4.5.2):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.5.1):
+  - PromiseKit/QuartzCore (4.5.2):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.5.1):
+  - PromiseKit/UIKit (4.5.2):
     - PromiseKit/CorePromise
-  - Realm (3.1.0):
-    - Realm/Headers (= 3.1.0)
-  - Realm/Headers (3.1.0)
-  - RealmSwift (3.1.0):
-    - Realm (= 3.1.0)
-  - SVProgressHUD (2.2.2)
+  - Realm (3.2.0):
+    - Realm/Headers (= 3.2.0)
+  - Realm/Headers (3.2.0)
+  - RealmSwift (3.2.0):
+    - Realm (= 3.2.0)
+  - SVProgressHUD (2.2.5)
+  - TVVLCKit (3.0.2)
+  - TVVLCPlayer (1.0.1):
+    - TVVLCKit
   - XCDYouTubeKit (2.5.6)
   - YTVimeoExtractor (1.2.0)
 
@@ -27,6 +30,8 @@ DEPENDENCIES:
   - PromiseKit (~> 4.0)
   - RealmSwift
   - SVProgressHUD
+  - TVVLCKit
+  - TVVLCPlayer
   - XCDYouTubeKit
   - YTVimeoExtractor (from `https://github.com/lilfaf/YTVimeoExtractor`, commit `57bf479e860abd7dcd5fcbc520062cea3c7b5587`)
 
@@ -43,13 +48,15 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AsyncImageView: 416e99402e5b1f20571de70ad619ced90f56a7d9
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
-  PromiseKit: 445dac9b2c3c3b4b31b5f842bc325700b848a8bd
-  Realm: 09513d7c054678d65cd02ce09871f805b0d758ac
-  RealmSwift: e868fee9b10e5490ad94b6b6ecd9027944da1824
-  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  PromiseKit: 743e497a5f505a470d3bbbf4ce0663c1268af0a4
+  Realm: ae552b9b9eca3a12374a589fa842f220e286a80a
+  RealmSwift: 05727129547dcab3fe828bd87bc30be903736b9c
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TVVLCKit: 178e4f82f8b57320774821384e42eaac403d2faa
+  TVVLCPlayer: 9a6b83f878b92fc12a1477a5eb4ccc983e116a40
   XCDYouTubeKit: dccfe0c17dd5c5187969ec27e93069573badb08f
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 24e32885d86078285fff0f030b9e3204ba145393
+PODFILE CHECKSUM: 90fad6d6c8976f4d03cc0ac61dc20332be9ea01a
 
 COCOAPODS: 1.4.0

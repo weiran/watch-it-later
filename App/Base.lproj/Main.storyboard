@@ -235,9 +235,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGk-wV-acs">
-                                <rect key="frame" x="0.0" y="60" width="1920" height="960"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pEN-tW-ak1">
-                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="960"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -246,10 +246,10 @@
                                 <rect key="frame" x="0.0" y="60" width="1920" height="960"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jhe-RL-53T">
-                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="700"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="960"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="gM8-oX-YEd">
-                                                <rect key="frame" x="0.0" y="0.0" width="960" height="700"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="960" height="960"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofa-Ty-xsz">
                                                         <rect key="frame" x="154" y="64" width="742" height="55"/>
@@ -270,13 +270,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-yz-xCT">
-                                                        <rect key="frame" x="154" y="259" width="742" height="158"/>
+                                                        <rect key="frame" x="154" y="259" width="742" height="418"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="V8Q-ir-vTk">
-                                                        <rect key="frame" x="154" y="441" width="742" height="95"/>
+                                                        <rect key="frame" x="154" y="701" width="742" height="95"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1n-kX-To6">
                                                                 <rect key="frame" x="128" y="8" width="211" height="79"/>
@@ -306,7 +306,7 @@
                                                 <edgeInsets key="layoutMargins" top="64" left="64" bottom="164" right="64"/>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kw5-6F-i0c">
-                                                <rect key="frame" x="960" y="0.0" width="960" height="700"/>
+                                                <rect key="frame" x="960" y="0.0" width="960" height="960"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qEv-cj-EVp" customClass="AsyncImageView">
                                                         <rect key="frame" x="64" y="64" width="832" height="468"/>
@@ -327,24 +327,18 @@
                                             <constraint firstAttribute="height" constant="700" id="69C-Aj-vo0"/>
                                         </constraints>
                                     </stackView>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6y6-va-Ot5">
-                                        <rect key="frame" x="0.0" y="700" width="1920" height="260"/>
-                                        <connections>
-                                            <segue destination="fUF-kK-vMu" kind="embed" identifier="EmbededVideos" id="XAz-i5-rMB"/>
-                                        </connections>
-                                    </containerView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="XRW-rj-zKt" firstAttribute="leading" secondItem="Itp-jL-kZg" secondAttribute="leading" id="36r-Q6-fLv"/>
-                            <constraint firstItem="BX0-5u-oLs" firstAttribute="top" secondItem="ZGk-wV-acs" secondAttribute="bottom" id="HTV-UT-3dd"/>
-                            <constraint firstAttribute="trailing" secondItem="XRW-rj-zKt" secondAttribute="trailing" id="N6l-SG-MwX"/>
+                            <constraint firstItem="XRW-rj-zKt" firstAttribute="leading" secondItem="Itp-jL-kZg" secondAttribute="leading" id="AsQ-p8-BzR"/>
+                            <constraint firstItem="ZGk-wV-acs" firstAttribute="leading" secondItem="Itp-jL-kZg" secondAttribute="leading" id="ETx-y1-fap"/>
+                            <constraint firstAttribute="trailing" secondItem="ZGk-wV-acs" secondAttribute="trailing" id="KLV-4W-6xU"/>
+                            <constraint firstAttribute="bottom" secondItem="ZGk-wV-acs" secondAttribute="bottom" id="RxV-eI-eNs"/>
                             <constraint firstItem="XRW-rj-zKt" firstAttribute="top" secondItem="VFg-4Y-U4O" secondAttribute="bottom" id="Smf-TR-flG"/>
-                            <constraint firstItem="ZGk-wV-acs" firstAttribute="top" secondItem="VFg-4Y-U4O" secondAttribute="bottom" id="VcR-DJ-eiN"/>
+                            <constraint firstItem="ZGk-wV-acs" firstAttribute="top" secondItem="Itp-jL-kZg" secondAttribute="top" id="dZO-rn-Jrt"/>
                             <constraint firstItem="BX0-5u-oLs" firstAttribute="top" secondItem="XRW-rj-zKt" secondAttribute="bottom" id="fHE-S3-8m7"/>
-                            <constraint firstItem="ZGk-wV-acs" firstAttribute="leading" secondItem="Itp-jL-kZg" secondAttribute="leading" id="vV7-PX-VKJ"/>
-                            <constraint firstAttribute="trailing" secondItem="ZGk-wV-acs" secondAttribute="trailing" id="yNW-RD-V7V"/>
+                            <constraint firstAttribute="trailing" secondItem="XRW-rj-zKt" secondAttribute="trailing" id="rgT-qF-8hq"/>
                         </constraints>
                     </view>
                     <connections>
@@ -355,14 +349,20 @@
                         <outlet property="playButton" destination="q1n-kX-To6" id="i6b-4I-elA"/>
                         <outlet property="thumbnailImageView" destination="qEv-cj-EVp" id="3co-LW-v1Y"/>
                         <outlet property="titleLabel" destination="ofa-Ty-xsz" id="Wfa-y5-8LB"/>
+                        <segue destination="4eg-kQ-xAr" kind="presentation" identifier="ShowPlayerSegue" id="612-xf-7dR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OYa-eb-eSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2244" y="1403"/>
         </scene>
+        <!--TVVLCPlayer-->
+        <scene sceneID="W2c-9C-yKO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TVVLCPlayer" bundleIdentifier="org.cocoapods.TVVLCPlayer" id="4eg-kQ-xAr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZzO-ue-Hmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3896" y="1403"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="oKL-Bj-Ob1"/>
-    </inferredMetricsTieBreakers>
 </document>

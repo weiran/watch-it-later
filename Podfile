@@ -1,4 +1,4 @@
-platform :tvos, '10.2'
+platform :tvos, '11.0'
 use_frameworks!
 inhibit_all_warnings!
 
@@ -12,4 +12,6 @@ target 'WatchItLater' do
   pod 'PromiseKit', '~> 4.0'
   pod 'SVProgressHUD'
   pod 'RealmSwift'
+  pod 'TVVLCKit'
+  pod 'TVVLCPlayer'
 end

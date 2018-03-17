@@ -12,6 +12,7 @@ import AVKit
 import AsyncImageView
 import PromiseKit
 import SVProgressHUD
+import TVVLCPlayer
 
 class DetailViewController: UIViewController, AVPlayerViewControllerDismissDelegate {
     var video: Video?
@@ -20,6 +21,8 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
     
     var playerViewController: AVPlayerViewControllerDismiss?
     @objc var player: AVPlayer?
+    
+    var videoStream: VideoStream?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var domainLabel: UILabel!
@@ -72,46 +75,9 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
         
         SVProgressHUD.show()
         view.isUserInteractionEnabled = false
-        videoProvider.videoStream().then { videoStream -> Void in
-            var player: AVPlayer?
-            let videoAsset = AVURLAsset(url: videoStream.videoURL, options: [AVURLAssetPreferPreciseDurationAndTimingKey: false])
-            
-            if let audioURL = videoStream.audioURL {
-                // dash stream
-                // let duration = videoAsset.duration // TODO: this causes a network request
-                let duration = self.duration!
-                
-                let composition = AVMutableComposition(urlAssetInitializationOptions: [AVURLAssetPreferPreciseDurationAndTimingKey: false])
-                let videoTrack = composition.addMutableTrack(withMediaType: AVMediaType.video, preferredTrackID: kCMPersistentTrackID_Invalid)
-                let videoTimeRange = CMTimeRange(start: kCMTimeZero, duration: duration)
-                let videoAssetTrack = videoAsset.tracks(withMediaType: .video).first
-                try? videoTrack?.insertTimeRange(videoTimeRange, of: videoAssetTrack!, at: kCMTimeZero)
-                
-                let audioAsset = AVURLAsset(url: audioURL, options: [AVURLAssetPreferPreciseDurationAndTimingKey: false])
-                let audioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
-                try? audioTrack?.insertTimeRange(CMTimeRange(start: kCMTimeZero, duration: duration), of: audioAsset.tracks(withMediaType: .audio)[0], at: kCMTimeZero)
-                
-                let playerItem = AVPlayerItem(asset: composition)
-                player = AVPlayer(playerItem: playerItem)
-            } else {
-                // standard stream
-                player = AVPlayer(url: videoStream.videoURL)
-            }
-            
-            let playerViewController = AVPlayerViewControllerDismiss()
-            playerViewController.player = player
-            playerViewController.dismissDelegate = self
-            
-            self.present(playerViewController, animated: true) {
-                playerViewController.player?.play()
-            }
-            
-            self.playerViewController = playerViewController
-            self.player = player
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(self.didFinishPlaying(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-            
-            player?.addObserver(self, forKeyPath: "status", options: [.old, .new], context: nil)
+        videoProvider.videoStream().then { [weak self] videoStream -> Void in
+            self?.videoStream = videoStream
+            self?.performSegue(withIdentifier: "ShowPlayerSegue", sender: self)
         }
         .catch { [weak self] error in
             self?.showError()
@@ -152,10 +118,16 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EmbededVideos" {
-            let videosViewController = segue.destination as! ViewController
-            videosViewController.isChildViewController = true
-            videosViewController.hideVideo = video
+        if segue.identifier == "ShowPlayerSegue" {
+            if let playerViewController = segue.destination as? VLCPlayerViewController,
+                let videoStream = self.videoStream {
+                let videoMedia = VLCMedia(url: videoStream.videoURL)
+                playerViewController.media = videoMedia
+                
+                if let audioURL = videoStream.audioURL {
+                    playerViewController.player.addPlaybackSlave(audioURL, type: .audio, enforce: true)
+                }
+            }
         }
     }
     
