@@ -34,7 +34,6 @@
 		24988A941E143A50003E46FB /* NSString+IKEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A871E143A50003E46FB /* NSString+IKEncoding.m */; };
 		24988A951E143A50003E46FB /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A891E143A50003E46FB /* NSData+Base64.m */; };
 		24AEF7E11EBF5E53006458D1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AEF7E01EBF5E53006458D1 /* Database.swift */; };
-		24AEF7E31EBF6B79006458D1 /* AVPlayerViewControllerDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AEF7E21EBF6B79006458D1 /* AVPlayerViewControllerDismiss.swift */; };
 		24C52E231E17C6D200865185 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C52E221E17C6D200865185 /* LoginViewController.swift */; };
 		24C52E251E17E42900865185 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C52E241E17E42900865185 /* StringError.swift */; };
 		C36C54314052762C6E1DA083 /* Pods_WatchItLater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF2330C0884F7878D372856 /* Pods_WatchItLater.framework */; };
@@ -83,7 +82,6 @@
 		24988A881E143A50003E46FB /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		24988A891E143A50003E46FB /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		24AEF7E01EBF5E53006458D1 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		24AEF7E21EBF6B79006458D1 /* AVPlayerViewControllerDismiss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerViewControllerDismiss.swift; sourceTree = "<group>"; };
 		24C52E221E17C6D200865185 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		24C52E241E17E42900865185 /* StringError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
 		24D942411E113238008387CC /* WatchItLater-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WatchItLater-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				24C52E241E17E42900865185 /* StringError.swift */,
 				241C2ABC1E154337009F98D7 /* VideoCell.swift */,
 				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
-				24AEF7E21EBF6B79006458D1 /* AVPlayerViewControllerDismiss.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -408,7 +405,6 @@
 				24988A941E143A50003E46FB /* NSString+IKEncoding.m in Sources */,
 				2441297C1FEE7A8900202173 /* VideoStream.swift in Sources */,
 				24AEF7E11EBF5E53006458D1 /* Database.swift in Sources */,
-				24AEF7E31EBF6B79006458D1 /* AVPlayerViewControllerDismiss.swift in Sources */,
 				24988A901E143A50003E46FB /* IKEngine.m in Sources */,
 				247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */,
 				241C2ACA1E156564009F98D7 /* VimeoProvider.swift in Sources */,

@@ -14,15 +14,15 @@ import PromiseKit
 import SVProgressHUD
 import TVVLCPlayer
 
-class DetailViewController: UIViewController, AVPlayerViewControllerDismissDelegate {
+class DetailViewController: UIViewController {
     var video: Video?
     var videoProvider: VideoProviderProtocol?
     var instapaperAPI: InstapaperAPI?
     
-    var playerViewController: AVPlayerViewControllerDismiss?
-    @objc var player: AVPlayer?
-    
     var videoStream: VideoStream?
+    var duration: CMTime?
+    
+    var playerViewController: VLCPlayerViewController?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var domainLabel: UILabel!
@@ -31,8 +31,6 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
     @IBOutlet weak var thumbnailImageView: AsyncImageView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var archiveButton: UIButton!
-    
-    var duration: CMTime?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,28 +94,6 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
         dismiss(animated: true, completion: nil)
     }
     
-    @objc private func didFinishPlaying(notification: NSNotification) {
-        playerViewController?.dismiss(animated: true, completion: { [unowned self] in
-            if let video = self.video {
-                Database.shared.updateVideoProgress(video, progress: nil)
-            }
-        })
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-    }
-    
-    func didDismissPlayerViewController() {
-        self.player?.removeObserver(self, forKeyPath: "status")
-        updateVideoProgress()
-    }
-    
-    func updateVideoProgress() {
-        if let video = video, let playerViewController = playerViewController, let player = playerViewController.player {
-            let currentTime = player.currentTime()
-            let timeData = NSKeyedArchiver.archivedData(withRootObject: currentTime)
-            Database.shared.updateVideoProgress(video, progress: timeData)
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowPlayerSegue" {
             if let playerViewController = segue.destination as? VLCPlayerViewController,
@@ -151,11 +127,6 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
         
         return formatter.string(from: duration) ?? ""
     }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "status", let player = object as? AVPlayer {
-            if let video = video, player.status == .readyToPlay, let time = video.progressTime {
-                player.seek(to: time)
             }
         }
     }

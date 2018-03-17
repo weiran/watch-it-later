@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SVProgressHUD.setRingThickness(12)
         SVProgressHUD.setRingNoTextRadius(64)
         
+        let _ = Database.shared
+        
         return true
     }
 }
