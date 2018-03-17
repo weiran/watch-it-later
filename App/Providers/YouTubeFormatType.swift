@@ -7,6 +7,10 @@
 //
 
 enum YouTubeFormatType {
+    case video2160p60
+    case video2160p
+    case video1440p60
+    case video1440p
     case video1080p60
     case video1080p
     case video720p60
@@ -16,10 +20,18 @@ enum YouTubeFormatType {
     
     func typeIdentifiers() -> (Int, Int?) {
         switch self {
+        case .video2160p60:
+            return (315, 140)
+        case .video2160p:
+            return (313, 140)
+        case .video1440p60:
+            return (308, 140)
+        case .video1440p:
+            return (271, 140)
         case .video1080p60:
-            return (299, 140)
+            return (303, 140)
         case .video1080p:
-            return (137, 140)
+            return (248, 140)
         case .video720p60:
             return (298, 140)
         case .video720p:

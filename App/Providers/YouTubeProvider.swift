@@ -81,7 +81,11 @@ class YouTubeProvider: VideoProviderProtocol {
     }
     
     fileprivate static func getHighestQualityFormatType(streams: Dictionary<Int, URL>, highestQuality: YouTubeFormatType = .video1080p60) -> YouTubeFormatType? {
-        let qualityOrder = [YouTubeFormatType.video1080p60,
+        let qualityOrder = [YouTubeFormatType.video2160p60,
+                            YouTubeFormatType.video2160p,
+                            YouTubeFormatType.video1440p60,
+                            YouTubeFormatType.video1440p,
+                            YouTubeFormatType.video1080p60,
                             YouTubeFormatType.video1080p,
                             YouTubeFormatType.video720p60,
                             YouTubeFormatType.video720p,
