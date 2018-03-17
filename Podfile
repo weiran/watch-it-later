@@ -13,5 +13,5 @@ target 'WatchItLater' do
   pod 'SVProgressHUD'
   pod 'RealmSwift'
   pod 'TVVLCKit'
-  pod 'TVVLCPlayer'
+  pod 'TVVLCPlayer', :git => 'https://github.com/weiran/TVVLCPlayer', :commit => 'f5b55c74f5a5fefa8f3ef23b9dbcfe69209f442b'
 end

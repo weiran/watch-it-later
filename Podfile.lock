@@ -31,16 +31,22 @@ DEPENDENCIES:
   - RealmSwift
   - SVProgressHUD
   - TVVLCKit
-  - TVVLCPlayer
+  - TVVLCPlayer (from `https://github.com/weiran/TVVLCPlayer`, commit `f5b55c74f5a5fefa8f3ef23b9dbcfe69209f442b`)
   - XCDYouTubeKit
   - YTVimeoExtractor (from `https://github.com/lilfaf/YTVimeoExtractor`, commit `57bf479e860abd7dcd5fcbc520062cea3c7b5587`)
 
 EXTERNAL SOURCES:
+  TVVLCPlayer:
+    :commit: f5b55c74f5a5fefa8f3ef23b9dbcfe69209f442b
+    :git: https://github.com/weiran/TVVLCPlayer
   YTVimeoExtractor:
     :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
     :git: https://github.com/lilfaf/YTVimeoExtractor
 
 CHECKOUT OPTIONS:
+  TVVLCPlayer:
+    :commit: f5b55c74f5a5fefa8f3ef23b9dbcfe69209f442b
+    :git: https://github.com/weiran/TVVLCPlayer
   YTVimeoExtractor:
     :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
     :git: https://github.com/lilfaf/YTVimeoExtractor
@@ -57,6 +63,6 @@ SPEC CHECKSUMS:
   XCDYouTubeKit: dccfe0c17dd5c5187969ec27e93069573badb08f
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 90fad6d6c8976f4d03cc0ac61dc20332be9ea01a
+PODFILE CHECKSUM: fa1dc32ff1be476bdacda9672cd974d7a737da43
 
 COCOAPODS: 1.4.0
