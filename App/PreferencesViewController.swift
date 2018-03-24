@@ -15,12 +15,12 @@ class PreferencesViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let youTubeFormatType = Defaults[.defaultYouTubeQualityKey] {
+        if let youTubeFormatType = Defaults[.defaultVideoQualityKey] {
             youTubeFormatTypeLabel.text = formatName(for: youTubeFormatType)
         }
     }
     
-    func formatName(for formatType: YouTubeFormatType) -> String {
+    func formatName(for formatType: VideoFormatType) -> String {
         switch formatType {
             case .video2160p60: return "4K60"
             case .video2160p: return "4K"

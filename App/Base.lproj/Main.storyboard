@@ -148,7 +148,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="YouTube" id="ERZ-j4-QYz">
+                            <tableViewSection headerTitle="Video Playback" id="ERZ-j4-QYz">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="6LG-or-EGa" detailTextLabel="fRb-Xd-P8n" rowHeight="100" style="IBUITableViewCellStyleValue1" id="W8A-ON-rRW">
                                         <rect key="frame" x="0.0" y="246" width="1700" height="100"/>
@@ -157,8 +157,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="1640" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Default Playback Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6LG-or-EGa">
-                                                    <rect key="frame" x="20" y="27" width="406" height="46"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Video Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6LG-or-EGa">
+                                                    <rect key="frame" x="20" y="27" width="222" height="46"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                                     <nil key="textColor"/>
@@ -440,15 +440,15 @@
             </objects>
             <point key="canvasLocation" x="3896" y="1403"/>
         </scene>
-        <!--You Tube Quality Selector View Controller-->
+        <!--Video Quality Selector View Controller-->
         <scene sceneID="KGF-yh-gd3">
             <objects>
-                <tableViewController id="7jn-T5-hfb" customClass="YouTubeQualitySelectorViewController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="7jn-T5-hfb" customClass="VideoQualitySelectorViewController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="66" id="RJO-Ud-2A9">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
-                            <tableViewSection headerTitle="Default YouTube Playback Quality" id="nYV-x7-spS">
+                            <tableViewSection headerTitle="Select Default Video Quality" id="nYV-x7-spS">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="wdC-4o-a3U" detailTextLabel="UTB-Qr-8Dh" rowHeight="100" style="IBUITableViewCellStyleValue1" id="xC0-Mj-DEK">
                                         <rect key="frame" x="0.0" y="66" width="1700" height="100"/>

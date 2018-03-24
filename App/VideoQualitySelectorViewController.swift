@@ -9,23 +9,23 @@
 import UIKit
 import SwiftyUserDefaults
 
-class YouTubeQualitySelectorViewController: UITableViewController {
+class VideoQualitySelectorViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // set selection to current value
-        let defaultYouTubeQuality = Defaults[DefaultsKeys.defaultYouTubeQualityKey]
-        let selectedIndexPath = indexPath(for: defaultYouTubeQuality)
+        let defaultVideoQuality = Defaults[DefaultsKeys.defaultVideoQualityKey]
+        let selectedIndexPath = indexPath(for: defaultVideoQuality)
         self.tableView.selectRow(at: selectedIndexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedFormatType = formatType(for: indexPath)
-        Defaults[DefaultsKeys.defaultYouTubeQualityKey] = selectedFormatType
+        Defaults[DefaultsKeys.defaultVideoQualityKey] = selectedFormatType
         
         self.dismiss(animated: true)
     }
     
-    func formatType(for indexPath: IndexPath) -> YouTubeFormatType {
+    func formatType(for indexPath: IndexPath) -> VideoFormatType {
         switch indexPath.row {
             case 0: return .video1440p60
             case 1: return .video1440p
@@ -37,7 +37,7 @@ class YouTubeQualitySelectorViewController: UITableViewController {
         }
     }
     
-    func indexPath(for formatType: YouTubeFormatType?) -> IndexPath {
+    func indexPath(for formatType: VideoFormatType?) -> IndexPath {
         guard let unwrappedFormatType = formatType else {
             return IndexPath(row: 0, section: 0)
         }
@@ -55,11 +55,11 @@ class YouTubeQualitySelectorViewController: UITableViewController {
 }
 
 extension DefaultsKeys {
-    static let defaultYouTubeQualityKey = DefaultsKey<YouTubeFormatType?>("defaultYouTubeQuality")
+    static let defaultVideoQualityKey = DefaultsKey<VideoFormatType?>("defaultVideoQuality")
 }
 
 extension UserDefaults {
-    subscript(key: DefaultsKey<YouTubeFormatType?>) -> YouTubeFormatType? {
+    subscript(key: DefaultsKey<VideoFormatType?>) -> VideoFormatType? {
         get { return unarchive(key) }
         set { archive(key, newValue) }
     }

@@ -16,7 +16,7 @@ class VimeoProvider: VideoProviderProtocol {
         self.url = URL(string: url)!
     }
     
-    func videoStream() -> Promise<VideoStream> {
+    func videoStream(preferredFormatType: VideoFormatType?) -> Promise<VideoStream> {
         return Promise { fulfill, reject in
             YTVimeoExtractor.shared().fetchVideo(withVimeoURL: url.absoluteString, withReferer: nil) { video, error in
                 if let streamURL = video?.highestQualityStreamURL() {

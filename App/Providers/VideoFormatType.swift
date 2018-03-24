@@ -6,7 +6,7 @@
 //  Copyright © 2017 Weiran Zhang. All rights reserved.
 //
 
-enum YouTubeFormatType: Int {
+enum VideoFormatType: Int {
     case video2160p60 = 0
     case video2160p
     case video1440p60

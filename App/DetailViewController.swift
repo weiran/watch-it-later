@@ -13,6 +13,7 @@ import AsyncImageView
 import PromiseKit
 import SVProgressHUD
 import TVVLCPlayer
+import SwiftyUserDefaults
 
 class DetailViewController: UIViewController {
     var video: Video?
@@ -76,7 +77,7 @@ class DetailViewController: UIViewController {
         
         SVProgressHUD.show()
         view.isUserInteractionEnabled = false
-        videoProvider.videoStream().then { [weak self] videoStream -> Void in
+        videoProvider.videoStream(preferredFormatType: Defaults[DefaultsKeys.defaultVideoQualityKey]).then { [weak self] videoStream -> Void in
             self?.videoStream = videoStream
             self?.performSegue(withIdentifier: "ShowPlayerSegue", sender: self)
         }
