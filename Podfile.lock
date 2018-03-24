@@ -18,6 +18,7 @@ PODS:
   - RealmSwift (3.2.0):
     - Realm (= 3.2.0)
   - SVProgressHUD (2.2.5)
+  - SwiftyUserDefaults (3.0.1)
   - TVVLCKit (3.0.2)
   - TVVLCPlayer (1.0.2):
     - TVVLCKit
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - PromiseKit (~> 4.0)
   - RealmSwift
   - SVProgressHUD
+  - SwiftyUserDefaults
   - TVVLCKit
   - TVVLCPlayer (from `https://github.com/weiran/TVVLCPlayer`, commit `bd1bb52d7ee1d607da5a921178667297a89f53c7`)
   - XCDYouTubeKit
@@ -58,11 +60,12 @@ SPEC CHECKSUMS:
   Realm: ae552b9b9eca3a12374a589fa842f220e286a80a
   RealmSwift: 05727129547dcab3fe828bd87bc30be903736b9c
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
   TVVLCKit: 178e4f82f8b57320774821384e42eaac403d2faa
   TVVLCPlayer: 9a78db6f5363e747213d5318edd2cc8cc73af8ec
   XCDYouTubeKit: dccfe0c17dd5c5187969ec27e93069573badb08f
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 6de9f7e739ea3c8520dc481908e651ae4d4fb8b7
+PODFILE CHECKSUM: 6a5679afc7b4f0fe517cf5d3014a2b9ab82e5361
 
 COCOAPODS: 1.4.0

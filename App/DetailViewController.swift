@@ -35,6 +35,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        durationLabel.text = ""
+        
         if let video = video {
             titleLabel.text = video.title
             domainLabel.text = video.urlString.contains("vimeo.com") ? "vimeo.com" : "youtube.com"

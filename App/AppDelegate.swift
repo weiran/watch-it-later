@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import SwiftyUserDefaults
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SVProgressHUD.setRingThickness(12)
         SVProgressHUD.setRingNoTextRadius(64)
         
-        let _ = Database.shared
+        _ = Database.shared
+        
+        if Defaults[.defaultYouTubeQualityKey] == nil {
+           Defaults[.defaultYouTubeQualityKey] = .video1080p60
+        }
         
         return true
     }
