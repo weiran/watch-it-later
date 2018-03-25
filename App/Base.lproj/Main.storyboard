@@ -174,7 +174,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="7jn-T5-hfb" kind="show" id="awg-fY-juy"/>
+                                            <segue destination="7jn-T5-hfb" kind="presentation" id="awg-fY-juy"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -657,4 +657,7 @@
             <point key="canvasLocation" x="2244" y="2838"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3F1-X3-WSL"/>
+    </inferredMetricsTieBreakers>
 </document>
