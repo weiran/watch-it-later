@@ -293,6 +293,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="vJt-1Y-uJx" id="t7s-pr-tij"/>
+                        <segue destination="vxv-ho-fRw" kind="presentation" identifier="ShowLoginSegue" id="3F1-X3-WSL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1P-EG-r8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
