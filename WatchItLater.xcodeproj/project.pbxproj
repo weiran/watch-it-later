@@ -25,7 +25,6 @@
 		244DE6C11E59CBE8005B441E /* InstapaperConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 244DE6C01E59CBE8005B441E /* InstapaperConfiguration.plist */; };
 		2459544C1E14420B00997693 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544B1E14420B00997693 /* Video.swift */; };
 		247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */; };
-		24988A551E141E37003E46FB /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24988A541E141E37003E46FB /* AVKit.framework */; };
 		24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A771E143A50003E46FB /* IKBookmark.m */; };
 		24988A8E1E143A50003E46FB /* IKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A791E143A50003E46FB /* IKConstants.m */; };
 		24988A8F1E143A50003E46FB /* IKDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A7B1E143A50003E46FB /* IKDeserializer.m */; };
@@ -98,7 +97,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24988A551E141E37003E46FB /* AVKit.framework in Frameworks */,
 				C36C54314052762C6E1DA083 /* Pods_WatchItLater.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
