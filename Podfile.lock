@@ -12,11 +12,11 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.5.2):
     - PromiseKit/CorePromise
-  - Realm (3.2.0):
-    - Realm/Headers (= 3.2.0)
-  - Realm/Headers (3.2.0)
-  - RealmSwift (3.2.0):
-    - Realm (= 3.2.0)
+  - Realm (3.3.1):
+    - Realm/Headers (= 3.3.1)
+  - Realm/Headers (3.3.1)
+  - RealmSwift (3.3.1):
+    - Realm (= 3.3.1)
   - SVProgressHUD (2.2.5)
   - SwiftyUserDefaults (3.0.1)
   - TVVLCKit (3.0.2)
@@ -28,7 +28,7 @@ PODS:
 DEPENDENCIES:
   - AsyncImageView
   - Locksmith
-  - PromiseKit (~> 4.0)
+  - PromiseKit (~> 4.x)
   - RealmSwift
   - SVProgressHUD
   - SwiftyUserDefaults
@@ -57,8 +57,8 @@ SPEC CHECKSUMS:
   AsyncImageView: 416e99402e5b1f20571de70ad619ced90f56a7d9
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   PromiseKit: 743e497a5f505a470d3bbbf4ce0663c1268af0a4
-  Realm: ae552b9b9eca3a12374a589fa842f220e286a80a
-  RealmSwift: 05727129547dcab3fe828bd87bc30be903736b9c
+  Realm: 63ebf4903b446b0bdf2131244eb1e1549925c724
+  RealmSwift: f28fe8507bdfb8f1c924962401b83e7b9d7abb5c
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
   TVVLCKit: 178e4f82f8b57320774821384e42eaac403d2faa
@@ -66,6 +66,6 @@ SPEC CHECKSUMS:
   XCDYouTubeKit: dccfe0c17dd5c5187969ec27e93069573badb08f
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 6a5679afc7b4f0fe517cf5d3014a2b9ab82e5361
+PODFILE CHECKSUM: 2ec9af14e82da29de9d8dddfd28e0d65000b75f2
 
 COCOAPODS: 1.4.0
