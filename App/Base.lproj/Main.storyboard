@@ -231,7 +231,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5z-KT-jKo">
-                                                    <rect key="frame" x="20" y="214" width="430" height="34"/>
+                                                    <rect key="frame" x="20" y="224" width="430" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="ms4-Ha-S4p"/>
                                                     </constraints>
@@ -253,7 +253,7 @@
                                             <constraint firstItem="aHf-7S-giT" firstAttribute="centerX" secondItem="9vx-S2-r2N" secondAttribute="centerX" id="ZPa-xz-Tbb"/>
                                             <constraint firstItem="J5z-KT-jKo" firstAttribute="leading" secondItem="9vx-S2-r2N" secondAttribute="leading" constant="20" id="dOU-At-aEi"/>
                                             <constraint firstItem="aHf-7S-giT" firstAttribute="top" secondItem="9vx-S2-r2N" secondAttribute="top" constant="24" id="h3y-B9-d94"/>
-                                            <constraint firstItem="J5z-KT-jKo" firstAttribute="top" secondItem="aHf-7S-giT" secondAttribute="bottom" constant="10" id="ziq-AO-fnP"/>
+                                            <constraint firstItem="J5z-KT-jKo" firstAttribute="top" secondItem="aHf-7S-giT" secondAttribute="bottom" constant="20" id="ziq-AO-fnP"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="thumbnailImageView" destination="aHf-7S-giT" id="nhg-dP-xpL"/>
