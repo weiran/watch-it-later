@@ -60,8 +60,8 @@ class DetailViewController: UIViewController {
         view.addGestureRecognizer(tapRecognizer)
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
-        thumbnailImageView.layer.shadowRadius = 10
-        thumbnailImageView.layer.shadowOpacity = 0.5
+        thumbnailImageView.layer.shadowRadius = 20
+        thumbnailImageView.layer.shadowOpacity = 0.4
         thumbnailImageView.layer.shadowColor = UIColor.black.cgColor
     }
     
