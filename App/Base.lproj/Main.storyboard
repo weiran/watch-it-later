@@ -116,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="52" y="4324"/>
         </scene>
-        <!--Preferences View Controller-->
+        <!--Preferences-->
         <scene sceneID="DIS-Qp-Eak">
             <objects>
-                <tableViewController id="ggN-ta-n0d" customClass="PreferencesViewController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Preferences" id="ggN-ta-n0d" customClass="PreferencesViewController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="66" id="bak-uX-hdG">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,7 +196,7 @@
         <!--Watch It Later-->
         <scene sceneID="gXf-k7-2Hc">
             <objects>
-                <viewController id="fUF-kK-vMu" customClass="ViewController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Watch It Later" id="fUF-kK-vMu" customClass="ViewController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZCn-0u-Axu"/>
                         <viewControllerLayoutGuide type="bottom" id="Daq-HC-BlC"/>
