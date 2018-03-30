@@ -48,6 +48,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         return result
     }
     
+    @discardableResult
     func login(username: String, password: String) -> Promise<Void> {
         return Promise { fulfill, reject in
             self.loginFulfill = fulfill
@@ -62,6 +63,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         }
     }
     
+    @discardableResult
     func storedAuth() -> Promise<Void> {
         return Promise { fulfill, reject in
             let keys = Locksmith.loadDataForUserAccount(userAccount: InstapaperAPI.name)

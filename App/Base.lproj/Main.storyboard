@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Username or Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2l-ac-PdK">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email address or username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2l-ac-PdK">
                                 <rect key="frame" x="691" y="544" width="539" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -104,9 +104,17 @@
                                     <blurEffect style="regular"/>
                                 </vibrancyEffect>
                             </visualEffectView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zB1-q3-Po4">
+                                <rect key="frame" x="928" y="508" width="64" height="64"/>
+                            </activityIndicatorView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="zB1-q3-Po4" firstAttribute="centerY" secondItem="3vG-5h-5bh" secondAttribute="centerY" id="ljN-Ha-l63"/>
+                            <constraint firstItem="zB1-q3-Po4" firstAttribute="centerX" secondItem="3vG-5h-5bh" secondAttribute="centerX" id="x9j-tZ-n8p"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="zB1-q3-Po4" id="ELv-YV-01l"/>
                         <outlet property="loginButton" destination="yPK-2h-Pix" id="ZfZ-Ox-gYT"/>
                         <outlet property="passwordTextField" destination="5C5-9x-ysu" id="8O6-XG-ndP"/>
                         <outlet property="usernameTextField" destination="c2l-ac-PdK" id="7Kv-tO-bt6"/>
@@ -143,7 +151,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="vxv-ho-fRw" kind="show" id="ff7-o2-93I"/>
+                                            <segue destination="vxv-ho-fRw" kind="presentation" id="ff7-o2-93I"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -267,15 +275,20 @@
                                     <outlet property="delegate" destination="fUF-kK-vMu" id="XM2-HK-9m8"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eEv-A6-0Sw">
+                                <rect key="frame" x="928" y="508" width="64" height="64"/>
+                            </activityIndicatorView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="vJt-1Y-uJx" secondAttribute="trailing" id="30v-g6-OPi"/>
                             <constraint firstAttribute="trailing" secondItem="aRm-TV-fxu" secondAttribute="trailing" id="Bhw-KU-rAI"/>
                             <constraint firstItem="vJt-1Y-uJx" firstAttribute="leading" secondItem="XLK-iv-fXL" secondAttribute="leading" id="IMm-25-yxY"/>
                             <constraint firstItem="vJt-1Y-uJx" firstAttribute="top" secondItem="ZCn-0u-Axu" secondAttribute="bottom" id="RA4-Vy-I2x"/>
+                            <constraint firstItem="eEv-A6-0Sw" firstAttribute="centerY" secondItem="XLK-iv-fXL" secondAttribute="centerY" id="aIS-kp-fQj"/>
                             <constraint firstItem="aRm-TV-fxu" firstAttribute="leading" secondItem="XLK-iv-fXL" secondAttribute="leading" id="gH4-Pe-wWb"/>
                             <constraint firstAttribute="bottom" secondItem="aRm-TV-fxu" secondAttribute="bottom" id="hHE-gZ-caU"/>
                             <constraint firstAttribute="bottom" secondItem="vJt-1Y-uJx" secondAttribute="bottom" id="hOC-rf-hk5"/>
+                            <constraint firstItem="eEv-A6-0Sw" firstAttribute="centerX" secondItem="XLK-iv-fXL" secondAttribute="centerX" id="kqa-zS-dCH"/>
                             <constraint firstItem="aRm-TV-fxu" firstAttribute="top" secondItem="ZCn-0u-Axu" secondAttribute="bottom" id="tid-m1-7Or"/>
                         </constraints>
                     </view>
@@ -285,13 +298,14 @@
                                 <action selector="didReload:" destination="fUF-kK-vMu" id="eZ6-eP-pC1"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Preferences" image="PreferencesIcon" id="J6g-XT-If9">
+                        <barButtonItem key="rightBarButtonItem" image="PreferencesIcon" id="J6g-XT-If9">
                             <connections>
                                 <segue destination="ggN-ta-n0d" kind="show" id="jzB-0p-umX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="eEv-A6-0Sw" id="xBb-LQ-1Cx"/>
                         <outlet property="collectionView" destination="vJt-1Y-uJx" id="t7s-pr-tij"/>
                         <segue destination="vxv-ho-fRw" kind="presentation" identifier="ShowLoginSegue" id="3F1-X3-WSL"/>
                     </connections>
@@ -365,38 +379,40 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-yz-xCT">
-                                                        <rect key="frame" x="64" y="259" width="742" height="118"/>
+                                                        <rect key="frame" x="64" y="259" width="742" height="107"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="96" translatesAutoresizingMaskIntoConstraints="NO" id="V8Q-ir-vTk">
-                                                        <rect key="frame" x="64" y="401" width="742" height="135"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="V8Q-ir-vTk">
+                                                        <rect key="frame" x="64" y="390" width="742" height="146"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1n-kX-To6">
-                                                                <rect key="frame" x="0.0" y="8" width="119" height="119"/>
+                                                                <rect key="frame" x="0.0" y="8" width="130" height="130"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="q1n-kX-To6" secondAttribute="height" multiplier="1:1" id="HZB-sW-fBl"/>
                                                                 </constraints>
-                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                                 <state key="normal" image="PlayIcon"/>
                                                                 <connections>
                                                                     <action selector="didPlay:" destination="lEY-XT-agt" eventType="primaryActionTriggered" id="h2f-IZ-cLm"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMa-3b-Oi2">
-                                                                <rect key="frame" x="215" y="8" width="119" height="119"/>
+                                                                <rect key="frame" x="194" y="8" width="130" height="130"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="zMa-3b-Oi2" secondAttribute="height" multiplier="1:1" id="InX-qf-Fes"/>
                                                                 </constraints>
-                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                                 <state key="normal" image="ArchiveIcon"/>
                                                                 <connections>
                                                                     <action selector="didArchive:" destination="lEY-XT-agt" eventType="primaryActionTriggered" id="Jjh-7g-e68"/>
                                                                 </connections>
                                                             </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="083-ib-0en">
-                                                                <rect key="frame" x="430" y="8" width="312" height="119"/>
+                                                                <rect key="frame" x="388" y="8" width="354" height="130"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </view>
                                                         </subviews>
@@ -415,18 +431,24 @@
                                     <constraint firstAttribute="height" constant="700" id="LSC-T4-4v8"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dO9-8d-sBc">
+                                <rect key="frame" x="928" y="508" width="64" height="64"/>
+                            </activityIndicatorView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="XRW-rj-zKt" firstAttribute="leading" secondItem="Itp-jL-kZg" secondAttribute="leading" id="AsQ-p8-BzR"/>
                             <constraint firstItem="ZGk-wV-acs" firstAttribute="leading" secondItem="Itp-jL-kZg" secondAttribute="leading" id="ETx-y1-fap"/>
                             <constraint firstAttribute="trailing" secondItem="ZGk-wV-acs" secondAttribute="trailing" id="KLV-4W-6xU"/>
                             <constraint firstItem="XRW-rj-zKt" firstAttribute="centerY" secondItem="Itp-jL-kZg" secondAttribute="centerY" id="MFF-DW-HPk"/>
+                            <constraint firstItem="dO9-8d-sBc" firstAttribute="centerX" secondItem="Itp-jL-kZg" secondAttribute="centerX" id="MHO-Oi-73y"/>
+                            <constraint firstItem="dO9-8d-sBc" firstAttribute="centerY" secondItem="Itp-jL-kZg" secondAttribute="centerY" id="RdN-w6-G1D"/>
                             <constraint firstAttribute="bottom" secondItem="ZGk-wV-acs" secondAttribute="bottom" id="RxV-eI-eNs"/>
                             <constraint firstItem="ZGk-wV-acs" firstAttribute="top" secondItem="Itp-jL-kZg" secondAttribute="top" id="dZO-rn-Jrt"/>
                             <constraint firstAttribute="trailing" secondItem="XRW-rj-zKt" secondAttribute="trailing" id="rgT-qF-8hq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="dO9-8d-sBc" id="02e-aB-sBL"/>
                         <outlet property="archiveButton" destination="zMa-3b-Oi2" id="gh5-7G-fCx"/>
                         <outlet property="descriptionLabel" destination="0qI-yz-xCT" id="o14-ck-ufi"/>
                         <outlet property="domainLabel" destination="xSF-E8-RUR" id="aML-Hx-q7n"/>
@@ -671,6 +693,6 @@
         <image name="PreferencesIcon" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3F1-X3-WSL"/>
+        <segue reference="ff7-o2-93I"/>
     </inferredMetricsTieBreakers>
 </document>

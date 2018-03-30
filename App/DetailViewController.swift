@@ -11,7 +11,6 @@ import AVKit
 
 import AsyncImageView
 import PromiseKit
-import SVProgressHUD
 import TVVLCPlayer
 import SwiftyUserDefaults
 
@@ -32,6 +31,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var thumbnailImageView: AsyncImageView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var archiveButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +75,7 @@ class DetailViewController: UIViewController {
             return
         }
         
-        SVProgressHUD.show()
+        activityIndicator.startAnimating()
         view.isUserInteractionEnabled = false
         videoProvider.videoStream(preferredFormatType: Defaults[DefaultsKeys.defaultVideoQualityKey]).then { [weak self] videoStream -> Void in
             self?.videoStream = videoStream
@@ -83,9 +83,9 @@ class DetailViewController: UIViewController {
         }
         .catch { [weak self] error in
             self?.showError()
-        }.always {
-            SVProgressHUD.dismiss()
-            self.view.isUserInteractionEnabled = true
+        }.always { [weak self] in
+            self?.activityIndicator.stopAnimating()
+            self?.view.isUserInteractionEnabled = true
         }
     }
     

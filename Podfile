@@ -10,7 +10,6 @@ target 'WatchItLater' do
   pod 'Locksmith'
   pod 'AsyncImageView'
   pod 'PromiseKit', '~> 4.x'
-  pod 'SVProgressHUD'
   pod 'RealmSwift'
   pod 'TVVLCKit'
   pod 'TVVLCPlayer', :git => 'https://github.com/weiran/TVVLCPlayer', :commit => 'bd1bb52d7ee1d607da5a921178667297a89f53c7'
