@@ -285,7 +285,7 @@
                                 <action selector="didReload:" destination="fUF-kK-vMu" id="eZ6-eP-pC1"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Preferences" id="J6g-XT-If9">
+                        <barButtonItem key="rightBarButtonItem" title="Preferences" image="PreferencesIcon" id="J6g-XT-If9">
                             <connections>
                                 <segue destination="ggN-ta-n0d" kind="show" id="jzB-0p-umX"/>
                             </connections>
@@ -365,32 +365,40 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-yz-xCT">
-                                                        <rect key="frame" x="64" y="259" width="742" height="165"/>
+                                                        <rect key="frame" x="64" y="259" width="742" height="118"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="96" translatesAutoresizingMaskIntoConstraints="NO" id="V8Q-ir-vTk">
-                                                        <rect key="frame" x="64" y="448" width="742" height="88"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="96" translatesAutoresizingMaskIntoConstraints="NO" id="V8Q-ir-vTk">
+                                                        <rect key="frame" x="64" y="401" width="742" height="135"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1n-kX-To6">
-                                                                <rect key="frame" x="0.0" y="8" width="323" height="72"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                                                <rect key="frame" x="0.0" y="8" width="119" height="119"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="q1n-kX-To6" secondAttribute="height" multiplier="1:1" id="HZB-sW-fBl"/>
+                                                                </constraints>
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                <state key="normal" title="Play"/>
+                                                                <state key="normal" image="PlayIcon"/>
                                                                 <connections>
                                                                     <action selector="didPlay:" destination="lEY-XT-agt" eventType="primaryActionTriggered" id="h2f-IZ-cLm"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMa-3b-Oi2">
-                                                                <rect key="frame" x="419" y="8" width="323" height="72"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                                                <rect key="frame" x="215" y="8" width="119" height="119"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="zMa-3b-Oi2" secondAttribute="height" multiplier="1:1" id="InX-qf-Fes"/>
+                                                                </constraints>
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                <state key="normal" title="Archive"/>
+                                                                <state key="normal" image="ArchiveIcon"/>
                                                                 <connections>
                                                                     <action selector="didArchive:" destination="lEY-XT-agt" eventType="primaryActionTriggered" id="Jjh-7g-e68"/>
                                                                 </connections>
                                                             </button>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="083-ib-0en">
+                                                                <rect key="frame" x="430" y="8" width="312" height="119"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </view>
                                                         </subviews>
                                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                                                     </stackView>
@@ -657,6 +665,11 @@
             <point key="canvasLocation" x="2244" y="2838"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ArchiveIcon" width="50" height="50"/>
+        <image name="PlayIcon" width="50" height="50"/>
+        <image name="PreferencesIcon" width="50" height="50"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3F1-X3-WSL"/>
     </inferredMetricsTieBreakers>
