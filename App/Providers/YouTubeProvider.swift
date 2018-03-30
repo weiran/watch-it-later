@@ -38,15 +38,11 @@ class YouTubeProvider: VideoProviderProtocol {
     
     func thumbnailURL() -> Promise<URL> {
         return Promise { fulfill, reject in
-            XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
-                // TODO: adding 'sd' or 'hq' to the beginning of the filename for the thumbnail often gives higher quality thumbnails
-                if let video = video, let thumbnailURL = video.largeThumbnailURL ?? video.mediumThumbnailURL ?? video.smallThumbnailURL {
-                    fulfill(thumbnailURL)
-                } else if let error = error {
-                    reject(error)
-                } else {
-                    reject(VideoError.NoThumbnailURLFound)
-                }
+            let urlString = "https://i.ytimg.com/vi/\(identifier)/maxresdefault.jpg"
+            if let url = URL(string: urlString) {
+                fulfill(url)
+            } else {
+                reject(VideoError.NoThumbnailURLFound)
             }
         }
     }
