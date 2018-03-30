@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    @discardableResult
     func fetchVideos() -> Promise<Void> {
         return instapaperAPI.fetch().then { [unowned self] videos -> Void in
             let filteredVideos = videos.filter {
@@ -90,11 +91,11 @@ class ViewController: UIViewController {
     }
     
     @objc func authenticationChanged() {
-        _ = self.fetchVideos()
+        self.fetchVideos()
     }
     
     @IBAction func didReload(_ sender: Any) {
-        _ = fetchVideos()
+        fetchVideos()
     }
     
     override weak var preferredFocusedView: UIView? {
@@ -115,7 +116,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.thumbnailImageView.image = UIImage.init(named: "ThumbnailPlaceholder")
         
         if let provider = try? VideoProvider.videoProvider(for: video.urlString) {
-            _ = provider.thumbnailURL().then {
+            provider.thumbnailURL().then {
                 cell.thumbnailImageView.imageURL = $0
             }
         }
