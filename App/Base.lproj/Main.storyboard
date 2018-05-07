@@ -471,15 +471,15 @@
             </objects>
             <point key="canvasLocation" x="3896" y="1403"/>
         </scene>
-        <!--Video Quality Selector View Controller-->
+        <!--Video Quality-->
         <scene sceneID="KGF-yh-gd3">
             <objects>
-                <tableViewController id="7jn-T5-hfb" customClass="VideoQualitySelectorViewController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Video Quality" id="7jn-T5-hfb" customClass="VideoQualitySelectorViewController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="66" id="RJO-Ud-2A9">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
-                            <tableViewSection headerTitle="Select Default Video Quality" id="nYV-x7-spS">
+                            <tableViewSection headerTitle="Your Apple TV may not be able to play some videos above 1080p without stuttering" id="nYV-x7-spS">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="wdC-4o-a3U" detailTextLabel="UTB-Qr-8Dh" rowHeight="100" style="IBUITableViewCellStyleValue1" id="xC0-Mj-DEK">
                                         <rect key="frame" x="110" y="66" width="1700" height="100"/>
