@@ -21,8 +21,6 @@ class DetailViewController: UIViewController {
     
     var videoStream: VideoStream?
     var duration: CMTime?
-    
-    var playerViewController: VLCPlayerViewController?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var domainLabel: UILabel!
@@ -114,7 +112,6 @@ class DetailViewController: UIViewController {
                 }
                 
                 playerViewController.delegate = self
-                self.playerViewController = playerViewController
             }
         }
     }
