@@ -113,7 +113,7 @@ class DetailViewController: UIViewController {
                     playerViewController.player.time = time
                 }
                 
-                playerViewController.playerDelegate = self
+                playerViewController.delegate = self
                 self.playerViewController = playerViewController
             }
         }
@@ -140,19 +140,22 @@ class DetailViewController: UIViewController {
     }
 }
 
-extension DetailViewController: VLCMediaPlayerDelegate {
-    func mediaPlayerStateChanged(_ aNotification: Notification!) {
-        if let playerViewController = self.playerViewController {
-            let player = playerViewController.player
-            if player.state == .ended {
-                updateVideoProgress(duration: 0)
-            } else {
-                updateVideoProgress(duration: Int(player.time.intValue))
-            }
+extension DetailViewController: VLCMediaPlayerViewControllerDelegate {
+    func mediaPlayer(_ playerViewController: VLCPlayerViewController, stateChanged state: VLCMediaPlayerState) {
+        if state == .ended {
+            updateVideoProgress()
+        } else if state == .stopped {
+            updateVideoProgress(Int(playerViewController.player.time.intValue))
         }
     }
     
-    func updateVideoProgress(duration: Int) {
+    func mediaPlayer(_ playerViewController: VLCPlayerViewController, timeChanged time: VLCTime) {
+        if playerViewController.player.state == .playing || playerViewController.player.state == .buffering {
+            updateVideoProgress(Int(time.intValue))
+        }
+    }
+    
+    private func updateVideoProgress(_ duration: Int = 0) {
         if let video = video {
             Database.shared.updateVideoProgress(video, progress: duration)
         }
