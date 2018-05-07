@@ -13,6 +13,20 @@ class Database {
     private let realm: Realm
     
     init() {
+        let config = Realm.Configuration(
+            schemaVersion: 1,
+            
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < 1 {
+                    migration.enumerateObjects(ofType: Video.className(), { _, new in
+                        new!["progress"] = 0
+                    })
+                }
+            }
+        )
+        
+        Realm.Configuration.defaultConfiguration = config
+        
         realm = try! Realm()
     }
     
@@ -45,7 +59,7 @@ class Database {
         }
     }
     
-    func updateVideoProgress(_ video: Video, progress: Data?) {
+    func updateVideoProgress(_ video: Video, progress: Int) {
         try? realm.write {
             video.progress = progress
         }

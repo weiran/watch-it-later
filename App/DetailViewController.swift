@@ -11,24 +11,30 @@ import AVKit
 
 import AsyncImageView
 import PromiseKit
-import SVProgressHUD
+import TVVLCPlayer
+import SwiftyUserDefaults
 
-class DetailViewController: UIViewController, AVPlayerViewControllerDismissDelegate {
+class DetailViewController: UIViewController {
     var video: Video?
     var videoProvider: VideoProviderProtocol?
     var instapaperAPI: InstapaperAPI?
     
-    var playerViewController: AVPlayerViewControllerDismiss?
-    @objc var player: AVPlayer?
+    var videoStream: VideoStream?
+    var duration: CMTime?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var domainLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var thumbnailImageView: AsyncImageView!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var archiveButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        durationLabel.text = ""
         
         if let video = video {
             titleLabel.text = video.title
@@ -36,23 +42,24 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
             
             if let videoProvider = try? VideoProvider.videoProvider(for: video.urlString) {
                 self.videoProvider = videoProvider
-                _ = videoProvider.thumbnailURL().then { [weak self] url in
+                videoProvider.thumbnailURL().then { [weak self] url in
                     self?.thumbnailImageView.imageURL = url
                 }
-                _ = videoProvider.duration().then { [weak self] (duration: Double) in
+                videoProvider.duration().then { [weak self] (duration: Double) -> Void in
                     self?.durationLabel.text = self?.formatTimeInterval(duration: duration)
+                    self?.duration = CMTime(seconds: duration, preferredTimescale: CMTimeScale(duration * 60))
                 }
+                self.descriptionLabel.text = ""
             }
         }
-        
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didPlay(_:)))
         tapRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
         view.addGestureRecognizer(tapRecognizer)
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
-        thumbnailImageView.layer.shadowRadius = 10
-        thumbnailImageView.layer.shadowOpacity = 0.5
+        thumbnailImageView.layer.shadowRadius = 20
+        thumbnailImageView.layer.shadowOpacity = 0.4
         thumbnailImageView.layer.shadowColor = UIColor.black.cgColor
     }
     
@@ -66,30 +73,17 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
             return
         }
         
-        SVProgressHUD.show()
+        activityIndicator.startAnimating()
         view.isUserInteractionEnabled = false
-        videoProvider.streamURL().then { streamURL -> Void in
-            let player = AVPlayer(url: streamURL)
-            let playerViewController = AVPlayerViewControllerDismiss()
-            playerViewController.player = player
-            playerViewController.dismissDelegate = self
-            
-            self.present(playerViewController, animated: true) {
-                playerViewController.player!.play()
-            }
-            
-            self.playerViewController = playerViewController
-            self.player = player
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(self.didFinishPlaying(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-            
-            player.addObserver(self, forKeyPath: "status", options: [.old, .new], context: nil)
+        videoProvider.videoStream(preferredFormatType: Defaults[DefaultsKeys.defaultVideoQualityKey]).then { [weak self] videoStream -> Void in
+            self?.videoStream = videoStream
+            self?.performSegue(withIdentifier: "ShowPlayerSegue", sender: self)
         }
         .catch { [weak self] error in
             self?.showError()
-        }.always {
-            SVProgressHUD.dismiss()
-            self.view.isUserInteractionEnabled = true
+        }.always { [weak self] in
+            self?.activityIndicator.stopAnimating()
+            self?.view.isUserInteractionEnabled = true
         }
     }
     
@@ -101,33 +95,24 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
         dismiss(animated: true, completion: nil)
     }
     
-    @objc private func didFinishPlaying(notification: NSNotification) {
-        playerViewController?.dismiss(animated: true, completion: { [unowned self] in
-            if let video = self.video {
-                Database.shared.updateVideoProgress(video, progress: nil)
-            }
-        })
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-    }
-    
-    func didDismissPlayerViewController() {
-        self.player?.removeObserver(self, forKeyPath: "status")
-        updateVideoProgress()
-    }
-    
-    func updateVideoProgress() {
-        if let video = video, let playerViewController = playerViewController, let player = playerViewController.player {
-            let currentTime = player.currentTime()
-            let timeData = NSKeyedArchiver.archivedData(withRootObject: currentTime)
-            Database.shared.updateVideoProgress(video, progress: timeData)
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EmbededVideos" {
-            let videosViewController = segue.destination as! ViewController
-            videosViewController.isChildViewController = true
-            videosViewController.hideVideo = video
+        if segue.identifier == "ShowPlayerSegue" {
+            if let playerViewController = segue.destination as? VLCPlayerViewController,
+                let videoStream = self.videoStream {
+                let videoMedia = VLCMedia(url: videoStream.videoURL)
+                playerViewController.media = videoMedia
+                
+                if let audioURL = videoStream.audioURL {
+                    playerViewController.player.addPlaybackSlave(audioURL, type: .audio, enforce: true)
+                }
+                
+                if let video = self.video, video.progress > 0 {
+                    let time = VLCTime.init(number: NSNumber(value: video.progress))
+                    playerViewController.player.time = time
+                }
+                
+                playerViewController.delegate = self
+            }
         }
     }
     
@@ -150,12 +135,36 @@ class DetailViewController: UIViewController, AVPlayerViewControllerDismissDeleg
         
         return formatter.string(from: duration) ?? ""
     }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "status", let player = object as? AVPlayer {
-            if let video = video, player.status == .readyToPlay, let time = video.progressTime {
-                player.seek(to: time)
-            }
+}
+
+extension DetailViewController: VLCMediaPlayerViewControllerDelegate {
+    func mediaPlayer(_ playerViewController: VLCPlayerViewController, stateChanged state: VLCMediaPlayerState) {
+        if state == .ended {
+            updateVideoProgress()
+        } else if state == .stopped {
+            updateVideoProgress(Int(playerViewController.player.time.intValue))
         }
+    }
+    
+    func mediaPlayer(_ playerViewController: VLCPlayerViewController, timeChanged time: VLCTime) {
+        if playerViewController.player.state == .playing || playerViewController.player.state == .buffering {
+            updateVideoProgress(Int(time.intValue))
+        }
+    }
+    
+    private func updateVideoProgress(_ duration: Int = 0) {
+        if let video = video {
+            Database.shared.updateVideoProgress(video, progress: duration)
+        }
+    }
+}
+
+extension VLCPlayerViewController {
+    public override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        if presses.first?.type == .menu {
+            // stop the player when quitting to trigger the delegate
+            player.stop()
+        }
+        super.pressesBegan(presses, with: event)
     }
 }

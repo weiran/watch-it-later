@@ -22,7 +22,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     static var name = "Instapaper"
     private var engine: IKEngine
     
-    private var loginFulfill: (() -> Void)?
+    private var loginFulfill: ((Void) -> Void)?
     private var loginReject: ((Error) -> Void)?
     
     private var fetchFulfill: (([Video]) -> Void)?
@@ -48,6 +48,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         return result
     }
     
+    @discardableResult
     func login(username: String, password: String) -> Promise<Void> {
         return Promise { fulfill, reject in
             self.loginFulfill = fulfill
@@ -62,6 +63,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         }
     }
     
+    @discardableResult
     func storedAuth() -> Promise<Void> {
         return Promise { fulfill, reject in
             let keys = Locksmith.loadDataForUserAccount(userAccount: InstapaperAPI.name)
@@ -92,7 +94,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         do {
             try? Locksmith.deleteDataForUserAccount(userAccount: InstapaperAPI.name)
             try Locksmith.saveData(data: ["token": token, "secret": secret], forUserAccount: InstapaperAPI.name)
-            loginFulfill?()
+            loginFulfill?(())
         } catch {
             loginReject?(error)
         }
@@ -101,7 +103,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     }
     
     func engine(_ engine: IKEngine!, connection: IKURLConnection!, didReceiveBookmarks bookmarks: [Any]!, of user: IKUser!, for folder: IKFolder!) {
-        if let bookmarks = bookmarks as! [IKBookmark]! {
+        if let bookmarks = bookmarks as! [IKBookmark]? {
             let videos = bookmarks.map { (bookmark) -> Video in
                 return Video(bookmark)
             }

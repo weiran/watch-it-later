@@ -17,10 +17,12 @@ class ViewController: UIViewController {
     var hideVideo: Video?
     
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.startAnimating()
         instapaperAPI.storedAuth().then {
             return self.fetchVideos()
         }.then { _ -> Void in
@@ -28,6 +30,8 @@ class ViewController: UIViewController {
             self.updateFocusIfNeeded()
         }.catch { _ -> Void in
             self.performSegue(withIdentifier: "ShowLoginSegue", sender: self)
+        }.always { [weak self] in 
+            self?.activityIndicator.stopAnimating()
         }
         
         observeNotifications()
@@ -43,6 +47,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    @discardableResult
     func fetchVideos() -> Promise<Void> {
         return instapaperAPI.fetch().then { [unowned self] videos -> Void in
             let filteredVideos = videos.filter {
@@ -86,11 +91,11 @@ class ViewController: UIViewController {
     }
     
     @objc func authenticationChanged() {
-        _ = self.fetchVideos()
+        self.fetchVideos()
     }
     
     @IBAction func didReload(_ sender: Any) {
-        _ = fetchVideos()
+        fetchVideos()
     }
     
     override weak var preferredFocusedView: UIView? {
@@ -111,7 +116,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.thumbnailImageView.image = UIImage.init(named: "ThumbnailPlaceholder")
         
         if let provider = try? VideoProvider.videoProvider(for: video.urlString) {
-            _ = provider.thumbnailURL().then {
+            provider.thumbnailURL().then {
                 cell.thumbnailImageView.imageURL = $0
             }
         }

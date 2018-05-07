@@ -1,41 +1,52 @@
 PODS:
   - AsyncImageView (1.6)
   - Locksmith (4.0.0)
-  - PromiseKit (4.5.0):
-    - PromiseKit/Foundation (= 4.5.0)
-    - PromiseKit/QuartzCore (= 4.5.0)
-    - PromiseKit/UIKit (= 4.5.0)
-  - PromiseKit/CorePromise (4.5.0)
-  - PromiseKit/Foundation (4.5.0):
+  - PromiseKit (4.5.2):
+    - PromiseKit/Foundation (= 4.5.2)
+    - PromiseKit/QuartzCore (= 4.5.2)
+    - PromiseKit/UIKit (= 4.5.2)
+  - PromiseKit/CorePromise (4.5.2)
+  - PromiseKit/Foundation (4.5.2):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.5.0):
+  - PromiseKit/QuartzCore (4.5.2):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.5.0):
+  - PromiseKit/UIKit (4.5.2):
     - PromiseKit/CorePromise
-  - Realm (3.0.2):
-    - Realm/Headers (= 3.0.2)
-  - Realm/Headers (3.0.2)
-  - RealmSwift (3.0.2):
-    - Realm (= 3.0.2)
-  - SVProgressHUD (2.2.2)
+  - Realm (3.3.1):
+    - Realm/Headers (= 3.3.1)
+  - Realm/Headers (3.3.1)
+  - RealmSwift (3.3.1):
+    - Realm (= 3.3.1)
+  - SwiftyUserDefaults (3.0.1)
+  - TVVLCKit (3.0.2)
+  - TVVLCPlayer (1.0.2):
+    - TVVLCKit
   - XCDYouTubeKit (2.5.6)
   - YTVimeoExtractor (1.2.0)
 
 DEPENDENCIES:
   - AsyncImageView
   - Locksmith
-  - PromiseKit (~> 4.0)
+  - PromiseKit (~> 4.x)
   - RealmSwift
-  - SVProgressHUD
+  - SwiftyUserDefaults
+  - TVVLCKit
+  - TVVLCPlayer (from `https://github.com/weiran/TVVLCPlayer`, commit `39cf52ea5b2793dea9ff54317b4b4dcf5be41dfa`)
   - XCDYouTubeKit
   - YTVimeoExtractor (from `https://github.com/lilfaf/YTVimeoExtractor`, commit `57bf479e860abd7dcd5fcbc520062cea3c7b5587`)
 
 EXTERNAL SOURCES:
+  TVVLCPlayer:
+    :commit: 39cf52ea5b2793dea9ff54317b4b4dcf5be41dfa
+    :git: https://github.com/weiran/TVVLCPlayer
   YTVimeoExtractor:
     :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
     :git: https://github.com/lilfaf/YTVimeoExtractor
 
 CHECKOUT OPTIONS:
+  TVVLCPlayer:
+    :commit: 39cf52ea5b2793dea9ff54317b4b4dcf5be41dfa
+    :git: https://github.com/weiran/TVVLCPlayer
   YTVimeoExtractor:
     :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
     :git: https://github.com/lilfaf/YTVimeoExtractor
@@ -43,13 +54,15 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AsyncImageView: 416e99402e5b1f20571de70ad619ced90f56a7d9
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
-  PromiseKit: 9c1d9f6d7b65e3951a90bea7f407c56972be5d8e
-  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
-  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
-  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  PromiseKit: 743e497a5f505a470d3bbbf4ce0663c1268af0a4
+  Realm: 63ebf4903b446b0bdf2131244eb1e1549925c724
+  RealmSwift: f28fe8507bdfb8f1c924962401b83e7b9d7abb5c
+  SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
+  TVVLCKit: 178e4f82f8b57320774821384e42eaac403d2faa
+  TVVLCPlayer: 9a78db6f5363e747213d5318edd2cc8cc73af8ec
   XCDYouTubeKit: dccfe0c17dd5c5187969ec27e93069573badb08f
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 24e32885d86078285fff0f030b9e3204ba145393
+PODFILE CHECKSUM: 34cf23cd0b9d652c89bbd3f0ce5e2f970d7bbebd
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

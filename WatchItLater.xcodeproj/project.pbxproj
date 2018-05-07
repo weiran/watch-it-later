@@ -13,14 +13,18 @@
 		241C2AC61E155C36009F98D7 /* VideoProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C2AC51E155C36009F98D7 /* VideoProviderProtocol.swift */; };
 		241C2AC81E155FCC009F98D7 /* VideoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C2AC71E155FCC009F98D7 /* VideoProvider.swift */; };
 		241C2ACA1E156564009F98D7 /* VimeoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C2AC91E156564009F98D7 /* VimeoProvider.swift */; };
+		24205AB820666E31002BC8FF /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24205AB720666E31002BC8FF /* PreferencesViewController.swift */; };
+		24205ABA20666E40002BC8FF /* VideoQualitySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24205AB920666E40002BC8FF /* VideoQualitySelectorViewController.swift */; };
 		24332BD81E108D1A00D5AA18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24332BD71E108D1A00D5AA18 /* AppDelegate.swift */; };
 		24332BDA1E108D1A00D5AA18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24332BD91E108D1A00D5AA18 /* ViewController.swift */; };
 		24332BDD1E108D1A00D5AA18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24332BDB1E108D1A00D5AA18 /* Main.storyboard */; };
 		24332BDF1E108D1A00D5AA18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24332BDE1E108D1A00D5AA18 /* Assets.xcassets */; };
+		2441297A1FEE7A7F00202173 /* VideoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244129791FEE7A7F00202173 /* VideoError.swift */; };
+		2441297C1FEE7A8900202173 /* VideoStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441297B1FEE7A8900202173 /* VideoStream.swift */; };
+		2441297E1FEE7C9600202173 /* VideoFormatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441297D1FEE7C9600202173 /* VideoFormatType.swift */; };
 		244DE6C11E59CBE8005B441E /* InstapaperConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 244DE6C01E59CBE8005B441E /* InstapaperConfiguration.plist */; };
 		2459544C1E14420B00997693 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544B1E14420B00997693 /* Video.swift */; };
 		247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */; };
-		24988A551E141E37003E46FB /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24988A541E141E37003E46FB /* AVKit.framework */; };
 		24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A771E143A50003E46FB /* IKBookmark.m */; };
 		24988A8E1E143A50003E46FB /* IKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A791E143A50003E46FB /* IKConstants.m */; };
 		24988A8F1E143A50003E46FB /* IKDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A7B1E143A50003E46FB /* IKDeserializer.m */; };
@@ -31,26 +35,30 @@
 		24988A941E143A50003E46FB /* NSString+IKEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A871E143A50003E46FB /* NSString+IKEncoding.m */; };
 		24988A951E143A50003E46FB /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A891E143A50003E46FB /* NSData+Base64.m */; };
 		24AEF7E11EBF5E53006458D1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AEF7E01EBF5E53006458D1 /* Database.swift */; };
-		24AEF7E31EBF6B79006458D1 /* AVPlayerViewControllerDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AEF7E21EBF6B79006458D1 /* AVPlayerViewControllerDismiss.swift */; };
 		24C52E231E17C6D200865185 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C52E221E17C6D200865185 /* LoginViewController.swift */; };
 		24C52E251E17E42900865185 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C52E241E17E42900865185 /* StringError.swift */; };
-		C36C54314052762C6E1DA083 /* Pods_WatchItLater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF2330C0884F7878D372856 /* Pods_WatchItLater.framework */; };
+		C7143D89DA157AA928F45554 /* Pods_WatchItLater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8D0C478FCBEAB2CC5EA52 /* Pods_WatchItLater.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0BF2330C0884F7878D372856 /* Pods_WatchItLater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchItLater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FA8D0C478FCBEAB2CC5EA52 /* Pods_WatchItLater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchItLater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		241C2ABC1E154337009F98D7 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		241C2AC11E15511E009F98D7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		241C2AC31E1557FD009F98D7 /* YouTubeProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeProvider.swift; sourceTree = "<group>"; };
 		241C2AC51E155C36009F98D7 /* VideoProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProviderProtocol.swift; sourceTree = "<group>"; };
 		241C2AC71E155FCC009F98D7 /* VideoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProvider.swift; sourceTree = "<group>"; };
 		241C2AC91E156564009F98D7 /* VimeoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimeoProvider.swift; sourceTree = "<group>"; };
+		24205AB720666E31002BC8FF /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		24205AB920666E40002BC8FF /* VideoQualitySelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoQualitySelectorViewController.swift; sourceTree = "<group>"; };
 		24332BD41E108D1A00D5AA18 /* WatchItLater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchItLater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24332BD71E108D1A00D5AA18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24332BD91E108D1A00D5AA18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24332BDC1E108D1A00D5AA18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24332BDE1E108D1A00D5AA18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24332BE01E108D1A00D5AA18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		244129791FEE7A7F00202173 /* VideoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoError.swift; sourceTree = "<group>"; };
+		2441297B1FEE7A8900202173 /* VideoStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStream.swift; sourceTree = "<group>"; };
+		2441297D1FEE7C9600202173 /* VideoFormatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormatType.swift; sourceTree = "<group>"; };
 		244DE6C01E59CBE8005B441E /* InstapaperConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InstapaperConfiguration.plist; sourceTree = "<group>"; };
 		2459544B1E14420B00997693 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstapaperAPI.swift; sourceTree = "<group>"; };
@@ -77,12 +85,11 @@
 		24988A881E143A50003E46FB /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		24988A891E143A50003E46FB /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		24AEF7E01EBF5E53006458D1 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		24AEF7E21EBF6B79006458D1 /* AVPlayerViewControllerDismiss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerViewControllerDismiss.swift; sourceTree = "<group>"; };
 		24C52E221E17C6D200865185 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		24C52E241E17E42900865185 /* StringError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
 		24D942411E113238008387CC /* WatchItLater-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WatchItLater-Bridging-Header.h"; sourceTree = "<group>"; };
-		517EC25BA81772BB2B6EF25F /* Pods-WatchItLater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchItLater.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater.release.xcconfig"; sourceTree = "<group>"; };
-		5622E7C0FE6B165A644ED173 /* Pods-WatchItLater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchItLater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater.debug.xcconfig"; sourceTree = "<group>"; };
+		4016E8F0C73D7075DAA216C0 /* Pods-WatchItLater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchItLater.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater.release.xcconfig"; sourceTree = "<group>"; };
+		889B88034148F2099F4C25C1 /* Pods-WatchItLater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchItLater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,23 +97,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24988A551E141E37003E46FB /* AVKit.framework in Frameworks */,
-				C36C54314052762C6E1DA083 /* Pods_WatchItLater.framework in Frameworks */,
+				C7143D89DA157AA928F45554 /* Pods_WatchItLater.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		057D2901EF56BDB7D7663157 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5622E7C0FE6B165A644ED173 /* Pods-WatchItLater.debug.xcconfig */,
-				517EC25BA81772BB2B6EF25F /* Pods-WatchItLater.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		241C2ABE1E15498E009F98D7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +124,9 @@
 				241C2AC51E155C36009F98D7 /* VideoProviderProtocol.swift */,
 				241C2AC91E156564009F98D7 /* VimeoProvider.swift */,
 				241C2AC31E1557FD009F98D7 /* YouTubeProvider.swift */,
+				244129791FEE7A7F00202173 /* VideoError.swift */,
+				2441297B1FEE7A8900202173 /* VideoStream.swift */,
+				2441297D1FEE7C9600202173 /* VideoFormatType.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -147,7 +147,7 @@
 				D279746CFF176AADEDCE0547 /* Frameworks */,
 				24988A8C1E143A50003E46FB /* InstapaperKit */,
 				24332BD51E108D1A00D5AA18 /* Products */,
-				057D2901EF56BDB7D7663157 /* Pods */,
+				4613E00C874BD95CE361EFB1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,7 +172,8 @@
 				24C52E241E17E42900865185 /* StringError.swift */,
 				241C2ABC1E154337009F98D7 /* VideoCell.swift */,
 				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
-				24AEF7E21EBF6B79006458D1 /* AVPlayerViewControllerDismiss.swift */,
+				24205AB720666E31002BC8FF /* PreferencesViewController.swift */,
+				24205AB920666E40002BC8FF /* VideoQualitySelectorViewController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -220,11 +221,20 @@
 			path = InstapaperKit;
 			sourceTree = "<group>";
 		};
+		4613E00C874BD95CE361EFB1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				889B88034148F2099F4C25C1 /* Pods-WatchItLater.debug.xcconfig */,
+				4016E8F0C73D7075DAA216C0 /* Pods-WatchItLater.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D279746CFF176AADEDCE0547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				24988A541E141E37003E46FB /* AVKit.framework */,
-				0BF2330C0884F7878D372856 /* Pods_WatchItLater.framework */,
+				0FA8D0C478FCBEAB2CC5EA52 /* Pods_WatchItLater.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -236,12 +246,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24332BE31E108D1A00D5AA18 /* Build configuration list for PBXNativeTarget "WatchItLater" */;
 			buildPhases = (
-				7ECE99E4E7528CDC60E771CF /* [CP] Check Pods Manifest.lock */,
+				54B38236EAE6C0D36F1632E0 /* [CP] Check Pods Manifest.lock */,
 				24332BD01E108D1A00D5AA18 /* Sources */,
 				24332BD11E108D1A00D5AA18 /* Frameworks */,
 				24332BD21E108D1A00D5AA18 /* Resources */,
-				D2DD712B1BD7B5D22E9A8CD0 /* [CP] Embed Pods Frameworks */,
-				6C5236A466199F7DC712BBCA /* [CP] Copy Pods Resources */,
+				8E73E019B62A1DFF16818668 /* [CP] Embed Pods Frameworks */,
+				2FAE2353D2944B5FD55ADC34 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,7 +269,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Weiran Zhang";
 				TargetAttributes = {
 					24332BD31E108D1A00D5AA18 = {
@@ -307,22 +317,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6C5236A466199F7DC712BBCA /* [CP] Copy Pods Resources */ = {
+		2FAE2353D2944B5FD55ADC34 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-resources.sh",
+				"${PODS_ROOT}/TVVLCPlayer/Resources/TVVLCPlayer.storyboard",
+				"${PODS_CONFIGURATION_BUILD_DIR}/TVVLCPlayer/TVVLCPlayer.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TVVLCPlayer.storyboardc",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TVVLCPlayer.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7ECE99E4E7528CDC60E771CF /* [CP] Check Pods Manifest.lock */ = {
+		54B38236EAE6C0D36F1632E0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -340,7 +355,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D2DD712B1BD7B5D22E9A8CD0 /* [CP] Embed Pods Frameworks */ = {
+		8E73E019B62A1DFF16818668 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -352,7 +367,7 @@
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/XCDYouTubeKit/XCDYouTubeKit.framework",
 				"${BUILT_PRODUCTS_DIR}/YTVimeoExtractor/YTVimeoExtractor.framework",
 			);
@@ -363,7 +378,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCDYouTubeKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YTVimeoExtractor.framework",
 			);
@@ -387,18 +402,22 @@
 				241C2AC61E155C36009F98D7 /* VideoProviderProtocol.swift in Sources */,
 				241C2AC81E155FCC009F98D7 /* VideoProvider.swift in Sources */,
 				24C52E251E17E42900865185 /* StringError.swift in Sources */,
+				2441297E1FEE7C9600202173 /* VideoFormatType.swift in Sources */,
 				24988A951E143A50003E46FB /* NSData+Base64.m in Sources */,
+				24205ABA20666E40002BC8FF /* VideoQualitySelectorViewController.swift in Sources */,
 				24988A921E143A50003E46FB /* IKURLConnection.m in Sources */,
 				241C2AC21E15511E009F98D7 /* DetailViewController.swift in Sources */,
 				24988A941E143A50003E46FB /* NSString+IKEncoding.m in Sources */,
+				2441297C1FEE7A8900202173 /* VideoStream.swift in Sources */,
 				24AEF7E11EBF5E53006458D1 /* Database.swift in Sources */,
-				24AEF7E31EBF6B79006458D1 /* AVPlayerViewControllerDismiss.swift in Sources */,
 				24988A901E143A50003E46FB /* IKEngine.m in Sources */,
 				247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */,
 				241C2ACA1E156564009F98D7 /* VimeoProvider.swift in Sources */,
 				241C2AC41E1557FD009F98D7 /* YouTubeProvider.swift in Sources */,
 				24988A8F1E143A50003E46FB /* IKDeserializer.m in Sources */,
 				2459544C1E14420B00997693 /* Video.swift in Sources */,
+				24205AB820666E31002BC8FF /* PreferencesViewController.swift in Sources */,
+				2441297A1FEE7A7F00202173 /* VideoError.swift in Sources */,
 				24988A911E143A50003E46FB /* IKFolder.m in Sources */,
 				24988A931E143A50003E46FB /* IKUser.m in Sources */,
 				24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */,
@@ -433,6 +452,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -440,6 +460,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -488,6 +509,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -495,6 +517,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -525,10 +548,10 @@
 		};
 		24332BE41E108D1A00D5AA18 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5622E7C0FE6B165A644ED173 /* Pods-WatchItLater.debug.xcconfig */;
+			baseConfigurationReference = 889B88034148F2099F4C25C1 /* Pods-WatchItLater.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/WatchItLater.entitlements";
@@ -554,10 +577,10 @@
 		};
 		24332BE51E108D1A00D5AA18 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 517EC25BA81772BB2B6EF25F /* Pods-WatchItLater.release.xcconfig */;
+			baseConfigurationReference = 4016E8F0C73D7075DAA216C0 /* Pods-WatchItLater.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/WatchItLater.entitlements";

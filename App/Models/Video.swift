@@ -23,18 +23,11 @@ class Video: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var date: Date = Date()
     @objc dynamic var urlString: String = ""
-    @objc dynamic var progress: Data?
+    @objc dynamic var progress: Int = 0
     
     var url: URL? {
         if let url = URL(string: urlString) {
             return url
-        }
-        return nil
-    }
-    
-    var progressTime: CMTime? {
-        if let progress = progress, let time = NSKeyedUnarchiver.unarchiveObject(with: progress) as? CMTime {
-            return time
         }
         return nil
     }

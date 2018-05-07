@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9.2
+osx_image: xcode9.3
 xcode_workspace: WatchItLater.xcworkspace
 xcode_scheme: WatchItLater
 before_install:
@@ -10,4 +10,4 @@ install:
 before_script:
 - mv 'App/Supporting Files/InstapaperConfiguration.defaults.plist' 'App/Supporting Files/InstapaperConfiguration.plist'
 script:
-- set -o pipefail && xcodebuild -workspace ${TRAVIS_XCODE_WORKSPACE} -scheme ${TRAVIS_XCODE_SCHEME} -sdk iphonesimulator -configuration Release | xcpretty
+- set -o pipefail && xcodebuild -workspace ${TRAVIS_XCODE_WORKSPACE} -scheme ${TRAVIS_XCODE_SCHEME} -sdk appletvsimulator -configuration Release | xcpretty

@@ -15,7 +15,7 @@ Watch It Later is a native Apple TV app for watching YouTube and Vimeo videos sa
 
 ![Screenshots][1]
 
-[1]: http://i.imgur.com/vnTv4Nl.jpg
+[1]: https://i.imgur.com/78SPj4X.jpg
 
 ## Open Source
 
