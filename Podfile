@@ -12,6 +12,6 @@ target 'WatchItLater' do
   pod 'PromiseKit', '~> 4.x'
   pod 'RealmSwift'
   pod 'TVVLCKit'
-  pod 'TVVLCPlayer', :git => 'https://github.com/weiran/TVVLCPlayer', :commit => 'bd1bb52d7ee1d607da5a921178667297a89f53c7'
+  pod 'TVVLCPlayer', :git => 'https://github.com/weiran/TVVLCPlayer', :commit => '39cf52ea5b2793dea9ff54317b4b4dcf5be41dfa'
   pod 'SwiftyUserDefaults'
 end
