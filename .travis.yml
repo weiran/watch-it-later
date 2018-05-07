@@ -4,6 +4,8 @@ xcode_workspace: WatchItLater.xcworkspace
 xcode_scheme: WatchItLater
 before_install:
 - gem install xcpretty
+- gem uninstall cocoapods -a -x
+- gem install cocoapods -v 1.4.0
 install:
 - pod install --repo-update --project-directory=$TRAVIS_BUILD_DIR
 before_script:
