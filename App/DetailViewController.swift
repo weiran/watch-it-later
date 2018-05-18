@@ -120,7 +120,6 @@ class DetailViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Start from beginning", style: .default, handler: { action in
             self.showVideoPlayer(startFrom: 0)
         }))
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
 
         return alertController
     }
