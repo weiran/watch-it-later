@@ -75,9 +75,15 @@ class DetailViewController: UIViewController {
         
         activityIndicator.startAnimating()
         view.isUserInteractionEnabled = false
-        videoProvider.videoStream(preferredFormatType: Defaults[DefaultsKeys.defaultVideoQualityKey]).then { [weak self] videoStream -> Void in
-            self?.videoStream = videoStream
-            self?.performSegue(withIdentifier: "ShowPlayerSegue", sender: self)
+        videoProvider.videoStream(preferredFormatType: Defaults[DefaultsKeys.defaultVideoQualityKey]).then { [unowned self] videoStream -> Void in
+            self.videoStream = videoStream
+            guard let video = self.video else { return }
+            
+            if let alertController = self.playFromPositionAlertController(video) {
+                self.present(alertController, animated: true)
+            } else {
+                self.showVideoPlayer()
+            }
         }
         .catch { [weak self] error in
             self?.showError()
@@ -93,6 +99,30 @@ class DetailViewController: UIViewController {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "VideoArchived"), object: sender, userInfo: ["video": video])
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    private func showVideoPlayer(startFrom: Int? = nil) {
+        if startFrom == nil || startFrom! <= 0 {
+            updateVideoProgress()
+        }
+        performSegue(withIdentifier: "ShowPlayerSegue", sender: self)
+    }
+    
+    private func playFromPositionAlertController(_ video: Video) -> UIAlertController? {
+        guard video.progress > 0 else { return nil }
+
+        let progressInSeconds = video.progress / 1000
+        let formattedProgress = formatTimeInterval(duration: TimeInterval(progressInSeconds))
+        let alertController = UIAlertController(title: "", message: "Do you want to resume playback from your last saved position, or start from the beginning?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Resume from \(formattedProgress)", style: .default, handler: { action in
+            self.showVideoPlayer(startFrom: video.progress)
+        }))
+        alertController.addAction(UIAlertAction(title: "Start from beginning", style: .default, handler: { action in
+            self.showVideoPlayer(startFrom: 0)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
+
+        return alertController
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
