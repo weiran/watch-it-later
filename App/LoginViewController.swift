@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        instapaperAPI = InstapaperAPI()
         instapaperAPI?.storedAuth().then { [weak self] in
             self?.hasStoredCredentials = true
         }
@@ -40,6 +39,8 @@ class LoginViewController: UIViewController {
                 self.dismiss(animated: true)
                 NotificationCenter.default.post(name: NSNotification.Name("AuthenticationChanged"), object: self)
             }.catch { error in
+                // 401 is bad credentials
+                // 503 is EU
                 self.showError()
             }.always { [weak self] in
                 self?.activityIndicator.stopAnimating()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24120F5920D2CEFA0013D73A /* SwinjectStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24120F5820D2CEFA0013D73A /* SwinjectStoryboardExtension.swift */; };
 		241C2ABD1E154337009F98D7 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C2ABC1E154337009F98D7 /* VideoCell.swift */; };
 		241C2AC21E15511E009F98D7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C2AC11E15511E009F98D7 /* DetailViewController.swift */; };
 		241C2AC41E1557FD009F98D7 /* YouTubeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C2AC31E1557FD009F98D7 /* YouTubeProvider.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		0FA8D0C478FCBEAB2CC5EA52 /* Pods_WatchItLater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchItLater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24120F5820D2CEFA0013D73A /* SwinjectStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboardExtension.swift; sourceTree = "<group>"; };
 		241C2ABC1E154337009F98D7 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		241C2AC11E15511E009F98D7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		241C2AC31E1557FD009F98D7 /* YouTubeProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeProvider.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
 				24205AB720666E31002BC8FF /* PreferencesViewController.swift */,
 				24205AB920666E40002BC8FF /* VideoQualitySelectorViewController.swift */,
+				24120F5820D2CEFA0013D73A /* SwinjectStoryboardExtension.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				24988A901E143A50003E46FB /* IKEngine.m in Sources */,
 				247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */,
 				241C2ACA1E156564009F98D7 /* VimeoProvider.swift in Sources */,
+				24120F5920D2CEFA0013D73A /* SwinjectStoryboardExtension.swift in Sources */,
 				241C2AC41E1557FD009F98D7 /* YouTubeProvider.swift in Sources */,
 				24988A8F1E143A50003E46FB /* IKDeserializer.m in Sources */,
 				2459544C1E14420B00997693 /* Video.swift in Sources */,

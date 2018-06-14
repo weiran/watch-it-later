@@ -10,7 +10,7 @@ import UIKit
 import PromiseKit
 
 class ViewController: UIViewController {
-    fileprivate let instapaperAPI = InstapaperAPI()
+    var instapaperAPI: InstapaperAPI?
     fileprivate var videos: [Video]?
     
     var isChildViewController: Bool = false
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         activityIndicator.startAnimating()
-        instapaperAPI.storedAuth().then {
+        instapaperAPI?.storedAuth().then {
             return self.fetchVideos()
         }.then { _ -> Void in
             self.setNeedsFocusUpdate()
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     
     @discardableResult
     func fetchVideos() -> Promise<Void> {
-        return instapaperAPI.fetch().then { [unowned self] videos -> Void in
+        return instapaperAPI!.fetch().then { [unowned self] videos -> Void in
             let filteredVideos = videos.filter {
                 ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be")) && $0 != self.hideVideo
             }
@@ -91,6 +91,7 @@ class ViewController: UIViewController {
     }
     
     @objc func authenticationChanged() {
+        self.instapaperAPI = InstapaperAPI()
         self.fetchVideos()
     }
     
@@ -132,7 +133,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.video = video
-            detailViewController.instapaperAPI = instapaperAPI // todo change to dependency injection
             
             if isChildViewController {
                 // stop the chain of view controllers being created
