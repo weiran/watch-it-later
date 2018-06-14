@@ -18,6 +18,7 @@ PODS:
   - RealmSwift (3.3.1):
     - Realm (= 3.3.1)
   - SwiftyUserDefaults (3.0.1)
+  - Swinject (2.4.1)
   - TVVLCKit (3.0.2)
   - TVVLCPlayer (1.0.2):
     - TVVLCKit
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - PromiseKit (~> 4.x)
   - RealmSwift
   - SwiftyUserDefaults
+  - Swinject
   - TVVLCKit
   - TVVLCPlayer (from `https://github.com/weiran/TVVLCPlayer`, commit `39cf52ea5b2793dea9ff54317b4b4dcf5be41dfa`)
   - XCDYouTubeKit
@@ -58,11 +60,12 @@ SPEC CHECKSUMS:
   Realm: 63ebf4903b446b0bdf2131244eb1e1549925c724
   RealmSwift: f28fe8507bdfb8f1c924962401b83e7b9d7abb5c
   SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
+  Swinject: f7f15a9672e99328c1f07f277091087917215700
   TVVLCKit: 178e4f82f8b57320774821384e42eaac403d2faa
   TVVLCPlayer: 9a78db6f5363e747213d5318edd2cc8cc73af8ec
   XCDYouTubeKit: dccfe0c17dd5c5187969ec27e93069573badb08f
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 34cf23cd0b9d652c89bbd3f0ce5e2f970d7bbebd
+PODFILE CHECKSUM: f4334a33fceadb66e3d2315542fcf8d5deb73620
 
 COCOAPODS: 1.4.0
