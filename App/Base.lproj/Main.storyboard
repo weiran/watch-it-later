@@ -375,40 +375,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-yz-xCT">
-                                                        <rect key="frame" x="64" y="329" width="742" height="64"/>
+                                                        <rect key="frame" x="64" y="329" width="742" height="77"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="V8Q-ir-vTk">
-                                                        <rect key="frame" x="64" y="417" width="742" height="119"/>
+                                                        <rect key="frame" x="64" y="430" width="742" height="106"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1n-kX-To6">
-                                                                <rect key="frame" x="0.0" y="8" width="103" height="103"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="q1n-kX-To6" secondAttribute="height" multiplier="1:1" id="HZB-sW-fBl"/>
-                                                                </constraints>
-                                                                <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
-                                                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                                                <state key="normal" image="PlayIcon"/>
-                                                                <connections>
-                                                                    <action selector="didPlay:" destination="lEY-XT-agt" eventType="primaryActionTriggered" id="h2f-IZ-cLm"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMa-3b-Oi2">
-                                                                <rect key="frame" x="167" y="8" width="103" height="103"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="zMa-3b-Oi2" secondAttribute="height" multiplier="1:1" id="InX-qf-Fes"/>
-                                                                </constraints>
-                                                                <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
-                                                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                                                <state key="normal" image="ArchiveIcon"/>
-                                                                <connections>
-                                                                    <action selector="didArchive:" destination="lEY-XT-agt" eventType="primaryActionTriggered" id="Jjh-7g-e68"/>
-                                                                </connections>
-                                                            </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="083-ib-0en">
-                                                                <rect key="frame" x="334" y="8" width="408" height="103"/>
+                                                                <rect key="frame" x="0.0" y="8" width="742" height="90"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </view>
                                                         </subviews>
@@ -445,11 +421,10 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="dO9-8d-sBc" id="02e-aB-sBL"/>
-                        <outlet property="archiveButton" destination="zMa-3b-Oi2" id="gh5-7G-fCx"/>
+                        <outlet property="buttonsStackView" destination="V8Q-ir-vTk" id="3fJ-P7-n8W"/>
                         <outlet property="descriptionLabel" destination="0qI-yz-xCT" id="o14-ck-ufi"/>
                         <outlet property="domainLabel" destination="xSF-E8-RUR" id="aML-Hx-q7n"/>
                         <outlet property="durationLabel" destination="z5H-Qq-YoS" id="z56-Aa-Mjj"/>
-                        <outlet property="playButton" destination="q1n-kX-To6" id="i6b-4I-elA"/>
                         <outlet property="thumbnailImageView" destination="qEv-cj-EVp" id="3co-LW-v1Y"/>
                         <outlet property="titleLabel" destination="ofa-Ty-xsz" id="Wfa-y5-8LB"/>
                         <segue destination="4eg-kQ-xAr" kind="show" identifier="ShowPlayerSegue" id="612-xf-7dR"/>
@@ -684,8 +659,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ArchiveIcon" width="50" height="50"/>
-        <image name="PlayIcon" width="50" height="50"/>
         <image name="PreferencesIcon" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
