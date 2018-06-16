@@ -91,8 +91,7 @@ class ViewController: UIViewController {
     }
     
     @objc func authenticationChanged() {
-        self.instapaperAPI = InstapaperAPI()
-        self.fetchVideos()
+        fetchVideos()
     }
     
     @IBAction func didReload(_ sender: Any) {
@@ -133,13 +132,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.video = video
-            
-            if isChildViewController {
-                // stop the chain of view controllers being created
-            }
-        } else if segue.identifier == "ShowLoginSegue" {
-            let loginViewController = segue.destination as! LoginViewController
-            loginViewController.instapaperAPI = instapaperAPI // todo change to dependency injection
         }
     }
 }
