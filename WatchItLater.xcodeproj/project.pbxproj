@@ -168,14 +168,14 @@
 				241C2ABF1E1549A1009F98D7 /* Providers */,
 				241C2ABE1E15498E009F98D7 /* Supporting Files */,
 				24332BD71E108D1A00D5AA18 /* AppDelegate.swift */,
+				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
 				241C2AC11E15511E009F98D7 /* DetailViewController.swift */,
 				24C52E221E17C6D200865185 /* LoginViewController.swift */,
-				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
-				24C52E241E17E42900865185 /* StringError.swift */,
-				241C2ABC1E154337009F98D7 /* VideoCell.swift */,
-				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
 				24205AB720666E31002BC8FF /* PreferencesViewController.swift */,
 				24205AB920666E40002BC8FF /* VideoQualitySelectorViewController.swift */,
+				241C2ABC1E154337009F98D7 /* VideoCell.swift */,
+				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
+				24C52E241E17E42900865185 /* StringError.swift */,
 				24120F5820D2CEFA0013D73A /* SwinjectStoryboardExtension.swift */,
 			);
 			path = App;
