@@ -39,9 +39,16 @@ class LoginViewController: UIViewController {
                 self.dismiss(animated: true)
                 NotificationCenter.default.post(name: NSNotification.Name("AuthenticationChanged"), object: self)
             }.catch { error in
-                // 401 is bad credentials
-                // 503 is EU
-                self.showError()
+                if error.localizedDescription.contains("503") {
+                    // GDPR block
+                    self.showError(title: "Instapaper temporarily unavailable", message: "Instapaper is temporarily unavailable for residents in Europe due to GDPR. Please contact support@instapaper.com for more information.\n\nWatch It Later has no ability to affect this.")
+                } else if error.localizedDescription.contains("401") {
+                    // invalid credentials
+                    self.showError(title: "Couldn't log in", message: "The username and password you entered are incorrect.")
+                } else {
+                    // other error
+                    self.showError(title: "Couldn't log in", message: "There was an problem logging in.")
+                }
             }.always { [weak self] in
                 self?.activityIndicator.stopAnimating()
                 self?.view.isUserInteractionEnabled = true
@@ -49,9 +56,8 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private func showError(isGDPRBlock: Bool = false) {
-        let message = isGDPRBlock ? "Instapaper is currently blocking all EU customers due to GDPR. Unfortunately there is nothing this app can do about that." : "Couldn't login with your username and password."
-        let alertController = UIAlertController(title: "Login Error", message: message, preferredStyle: .alert)
+    private func showError(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler:nil)
         alertController.addAction(alertAction)
         present(alertController, animated: true)
