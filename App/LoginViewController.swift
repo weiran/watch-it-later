@@ -49,8 +49,9 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private func showError() {
-        let alertController = UIAlertController(title: "Login Error", message: "Couldn't login with your username and password.", preferredStyle: .alert)
+    private func showError(isGDPRBlock: Bool = false) {
+        let message = isGDPRBlock ? "Instapaper is currently blocking all EU customers due to GDPR. Unfortunately there is nothing this app can do about that." : "Couldn't login with your username and password."
+        let alertController = UIAlertController(title: "Login Error", message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler:nil)
         alertController.addAction(alertAction)
         present(alertController, animated: true)
