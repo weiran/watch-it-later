@@ -12,16 +12,16 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.5.2):
     - PromiseKit/CorePromise
-  - Realm (3.3.1):
-    - Realm/Headers (= 3.3.1)
-  - Realm/Headers (3.3.1)
-  - RealmSwift (3.3.1):
-    - Realm (= 3.3.1)
+  - Realm (3.7.2):
+    - Realm/Headers (= 3.7.2)
+  - Realm/Headers (3.7.2)
+  - RealmSwift (3.7.2):
+    - Realm (= 3.7.2)
   - SwiftyUserDefaults (3.0.1)
   - Swinject (2.4.1)
   - SwinjectStoryboard (2.0.1):
     - Swinject (~> 2.4)
-  - TVVLCKit (3.0.2)
+  - TVVLCKit (3.1.0)
   - TVVLCPlayer (1.0.2):
     - TVVLCKit
   - XCDYouTubeKit (2.5.6)
@@ -60,12 +60,12 @@ SPEC CHECKSUMS:
   AsyncImageView: 416e99402e5b1f20571de70ad619ced90f56a7d9
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   PromiseKit: 743e497a5f505a470d3bbbf4ce0663c1268af0a4
-  Realm: 63ebf4903b446b0bdf2131244eb1e1549925c724
-  RealmSwift: f28fe8507bdfb8f1c924962401b83e7b9d7abb5c
+  Realm: dd18c3014e8d90df300b83c6da740067436089c5
+  RealmSwift: 79917cae59a0c43ef8118b233a5978891dd50b4a
   SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
   Swinject: f7f15a9672e99328c1f07f277091087917215700
   SwinjectStoryboard: ad2529218a1504cc888040ee56c13d7cb1cc7998
-  TVVLCKit: 178e4f82f8b57320774821384e42eaac403d2faa
+  TVVLCKit: 9474d4644124917d29585b3962f2f3fb64cbc64a
   TVVLCPlayer: 9a78db6f5363e747213d5318edd2cc8cc73af8ec
   XCDYouTubeKit: dccfe0c17dd5c5187969ec27e93069573badb08f
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
