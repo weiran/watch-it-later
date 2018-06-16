@@ -21,5 +21,6 @@ extension SwinjectStoryboard {
             c.instapaperAPI = r.resolve(InstapaperAPI.self)!
         }
         container.register(InstapaperAPI.self) { _ in InstapaperAPI() }
+            .inObjectScope(.container)
     }
 }
