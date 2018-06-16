@@ -67,9 +67,9 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     func storedAuth() -> Promise<Void> {
         return Promise { fulfill, reject in
             let keys = Locksmith.loadDataForUserAccount(userAccount: InstapaperAPI.name)
-            if let token = keys?["token"], let secret = keys?["secret"] {
-                engine.oAuthToken = token as? String
-                engine.oAuthTokenSecret = secret as? String
+            if let token = keys?["token"] as? String, let secret = keys?["secret"] as? String {
+                engine.oAuthToken = token
+                engine.oAuthTokenSecret = secret
                 fulfill(())
             } else {
                 reject("Couldn't get authentication credentials in keychain")
@@ -94,6 +94,8 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         do {
             try? Locksmith.deleteDataForUserAccount(userAccount: InstapaperAPI.name)
             try Locksmith.saveData(data: ["token": token, "secret": secret], forUserAccount: InstapaperAPI.name)
+            self.engine.oAuthToken = token
+            self.engine.oAuthTokenSecret = secret
             loginFulfill?(())
         } catch {
             loginReject?(error)

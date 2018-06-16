@@ -14,4 +14,6 @@ target 'WatchItLater' do
   pod 'TVVLCKit'
   pod 'TVVLCPlayer', :git => 'https://github.com/weiran/TVVLCPlayer', :commit => '39cf52ea5b2793dea9ff54317b4b4dcf5be41dfa'
   pod 'SwiftyUserDefaults'
+  pod 'Swinject'
+  pod 'SwinjectStoryboard'
 end
