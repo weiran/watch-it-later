@@ -68,7 +68,8 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         return Promise { fulfill, reject in
             let keys = Locksmith.loadDataForUserAccount(userAccount: InstapaperAPI.name)
             if let token = keys?["token"] as? String, let secret = keys?["secret"] as? String {
-                IKEngine.setOAuthConsumerKey(token, andConsumerSecret: secret)
+                engine.oAuthToken = token
+                engine.oAuthTokenSecret = secret
                 fulfill(())
             } else {
                 reject("Couldn't get authentication credentials in keychain")
