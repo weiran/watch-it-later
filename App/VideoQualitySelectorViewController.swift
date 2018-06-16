@@ -15,7 +15,7 @@ class VideoQualitySelectorViewController: UITableViewController {
         // set selection to current value
         let defaultVideoQuality = Defaults[DefaultsKeys.defaultVideoQualityKey]
         let selectedIndexPath = indexPath(for: defaultVideoQuality)
-        self.tableView.selectRow(at: selectedIndexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
+        self.tableView.selectRow(at: selectedIndexPath, animated: false, scrollPosition: UITableView.ScrollPosition.none)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
