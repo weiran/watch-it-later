@@ -7,9 +7,37 @@
 //
 
 import UIKit
+import TVUIKit
 import AsyncImageView
 
 class VideoCell: UICollectionViewCell {
-    @IBOutlet weak var thumbnailImageView: AsyncImageView!
-    @IBOutlet weak var titleLabel: UILabel!
+    var posterView: TVPosterView
+    
+    required init?(coder aDecoder: NSCoder) {
+        let posterView = TVPosterView()
+        self.posterView = posterView
+        
+        super.init(coder: aDecoder)
+        
+        posterView.frame = self.bounds
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        addSubview(posterView)
+    }
+    
+    func setImage(image: UIImage) {
+        posterView.image = image
+        if let imageView = posterView.subviews[0].subviews[0] as? UIImageView {
+            imageView.contentMode = .scaleAspectFill
+        }
+    }
+    
+    func setImageURL(url: URL) {
+        if let imageView = posterView.subviews[0].subviews[0] as? UIImageView {
+            imageView.contentMode = .scaleAspectFill
+            imageView.imageURL = url
+        }
+    }
 }

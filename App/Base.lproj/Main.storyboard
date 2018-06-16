@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iRi-cv-cnM">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14269.12" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iRi-cv-cnM">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -225,47 +225,20 @@
                                 <rect key="frame" x="0.0" y="145" width="1920" height="935"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p78-KB-VtU">
-                                    <size key="itemSize" width="470" height="255"/>
+                                    <size key="itemSize" width="440" height="300"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="64" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="9vx-S2-r2N" customClass="VideoCell" customModule="WatchItLater" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="470" height="255"/>
+                                        <rect key="frame" x="0.0" y="64" width="440" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="470" height="255"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="440" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5z-KT-jKo">
-                                                    <rect key="frame" x="20" y="224" width="430" height="34"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="ms4-Ha-S4p"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageWhenAncestorFocused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aHf-7S-giT" customClass="AsyncImageView">
-                                                    <rect key="frame" x="75" y="24" width="320" height="180"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="320" id="aoH-pq-QSE"/>
-                                                        <constraint firstAttribute="height" constant="180" id="fne-RG-P0B"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="J5z-KT-jKo" secondAttribute="trailing" constant="20" id="3rh-OS-dZi"/>
-                                            <constraint firstItem="aHf-7S-giT" firstAttribute="centerX" secondItem="9vx-S2-r2N" secondAttribute="centerX" id="ZPa-xz-Tbb"/>
-                                            <constraint firstItem="J5z-KT-jKo" firstAttribute="leading" secondItem="9vx-S2-r2N" secondAttribute="leading" constant="20" id="dOU-At-aEi"/>
-                                            <constraint firstItem="aHf-7S-giT" firstAttribute="top" secondItem="9vx-S2-r2N" secondAttribute="top" constant="24" id="h3y-B9-d94"/>
-                                            <constraint firstItem="J5z-KT-jKo" firstAttribute="top" secondItem="aHf-7S-giT" secondAttribute="bottom" constant="20" id="ziq-AO-fnP"/>
-                                        </constraints>
                                         <connections>
-                                            <outlet property="thumbnailImageView" destination="aHf-7S-giT" id="nhg-dP-xpL"/>
-                                            <outlet property="titleLabel" destination="J5z-KT-jKo" id="jso-9b-EjN"/>
                                             <segue destination="lEY-XT-agt" kind="presentation" identifier="ShowDetailSegue" id="vBU-yw-1ed"/>
                                         </connections>
                                     </collectionViewCell>
