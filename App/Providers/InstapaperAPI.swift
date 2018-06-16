@@ -94,7 +94,8 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         do {
             try? Locksmith.deleteDataForUserAccount(userAccount: InstapaperAPI.name)
             try Locksmith.saveData(data: ["token": token, "secret": secret], forUserAccount: InstapaperAPI.name)
-            IKEngine.setOAuthConsumerKey(token, andConsumerSecret: secret)
+            self.engine.oAuthToken = token
+            self.engine.oAuthTokenSecret = secret
             loginFulfill?(())
         } catch {
             loginReject?(error)
