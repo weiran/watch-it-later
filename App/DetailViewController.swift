@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import TVUIKit
 
 import AsyncImageView
 import PromiseKit
@@ -30,6 +31,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var archiveButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var buttonsStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,13 +56,27 @@ class DetailViewController: UIViewController {
         }
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didPlay(_:)))
-        tapRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
+        tapRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)]
         view.addGestureRecognizer(tapRecognizer)
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
         thumbnailImageView.layer.shadowRadius = 20
         thumbnailImageView.layer.shadowOpacity = 0.4
         thumbnailImageView.layer.shadowColor = UIColor.black.cgColor
+        
+        let playButton = TVCaptionButtonView()
+        playButton.contentImage = UIImage(named: "PlayIcon")
+        playButton.title = "Play"
+        playButton.frame = CGRect(x: 0, y: 0, width: 90, height: 90)
+        playButton.addTarget(self, action: #selector(didPlay(_:)), for: .primaryActionTriggered)
+        buttonsStackView.insertArrangedSubview(playButton, at: 0)
+        
+        let archiveButton = TVCaptionButtonView()
+        archiveButton.contentImage = UIImage(named: "ArchiveIcon")
+        archiveButton.title = "Archive"
+        archiveButton.frame = CGRect(x: 0, y: 0, width: 90, height: 90)
+        archiveButton.addTarget(self, action: #selector(didArchive(_:)), for: .primaryActionTriggered)
+        buttonsStackView.insertArrangedSubview(archiveButton, at: 1)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
