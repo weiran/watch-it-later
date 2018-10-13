@@ -9,4 +9,4 @@ install:
 before_script:
 - mv 'App/Supporting Files/InstapaperConfiguration.defaults.plist' 'App/Supporting Files/InstapaperConfiguration.plist'
 script:
-- travis_wait 30 set -o pipefail && xcodebuild -workspace ${TRAVIS_XCODE_WORKSPACE} -scheme ${TRAVIS_XCODE_SCHEME} -sdk appletvsimulator -configuration Release | xcpretty
+- travis_wait 30 set -o pipefail && xcodebuild -workspace ${TRAVIS_XCODE_WORKSPACE} -scheme ${TRAVIS_XCODE_SCHEME} -sdk appletvsimulator -configuration Debug | xcpretty
