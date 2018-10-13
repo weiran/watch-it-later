@@ -36,13 +36,26 @@ DEPENDENCIES:
   - Swinject
   - SwinjectStoryboard
   - TVVLCKit
-  - TVVLCPlayer (from `https://github.com/weiran/TVVLCPlayer`, commit `39cf52ea5b2793dea9ff54317b4b4dcf5be41dfa`)
+  - TVVLCPlayer (from `https://github.com/weiran/TVVLCPlayer`, commit `a924aea2f0e9984e5853b3eb5f2efaaf5a35a5bc`)
   - XCDYouTubeKit
   - YTVimeoExtractor (from `https://github.com/lilfaf/YTVimeoExtractor`, commit `57bf479e860abd7dcd5fcbc520062cea3c7b5587`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AsyncImageView
+    - Locksmith
+    - PromiseKit
+    - Realm
+    - RealmSwift
+    - SwiftyUserDefaults
+    - Swinject
+    - SwinjectStoryboard
+    - TVVLCKit
+    - XCDYouTubeKit
+
 EXTERNAL SOURCES:
   TVVLCPlayer:
-    :commit: 39cf52ea5b2793dea9ff54317b4b4dcf5be41dfa
+    :commit: a924aea2f0e9984e5853b3eb5f2efaaf5a35a5bc
     :git: https://github.com/weiran/TVVLCPlayer
   YTVimeoExtractor:
     :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
@@ -50,7 +63,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   TVVLCPlayer:
-    :commit: 39cf52ea5b2793dea9ff54317b4b4dcf5be41dfa
+    :commit: a924aea2f0e9984e5853b3eb5f2efaaf5a35a5bc
     :git: https://github.com/weiran/TVVLCPlayer
   YTVimeoExtractor:
     :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
@@ -70,6 +83,6 @@ SPEC CHECKSUMS:
   XCDYouTubeKit: 76f14b161e9563541a3674b6b5bfb61c4b72b269
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 3d8e554fd9d0dd3eeac3e9c45a14fccd1d50fe63
+PODFILE CHECKSUM: b625356ead9b6dc4b30915270a7e585e726d7745
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

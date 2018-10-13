@@ -12,7 +12,7 @@ target 'WatchItLater' do
   pod 'PromiseKit', '~> 4.x'
   pod 'RealmSwift'
   pod 'TVVLCKit'
-  pod 'TVVLCPlayer', :git => 'https://github.com/weiran/TVVLCPlayer', :commit => '39cf52ea5b2793dea9ff54317b4b4dcf5be41dfa' # This pod only works with cocoapods 1.4.0
+  pod 'TVVLCPlayer', :git => 'https://github.com/weiran/TVVLCPlayer', :commit => 'a924aea2f0e9984e5853b3eb5f2efaaf5a35a5bc'
   pod 'SwiftyUserDefaults'
   pod 'Swinject'
   pod 'SwinjectStoryboard'
@@ -22,9 +22,14 @@ end
 post_install do |installer|
     installer.pods_project.targets.each do |target|
         if ['PromiseKit', 'SwinjectStoryboard'].include? target.name
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '4.0'
-            end
+          target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '4.0'
+          end
+        end
+        if target.name == 'TVVLCPlayer' or target.name == 'TVVLCPlayer-TVVLCPlayer'
+          target.build_configurations.each do |config|
+            config.build_settings.delete('DEFINES_MODULE')
+          end
         end
     end
 end
