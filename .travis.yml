@@ -4,9 +4,6 @@ xcode_workspace: WatchItLater.xcworkspace
 xcode_scheme: WatchItLater
 before_install:
 - gem install xcpretty
-# Currently requires cocoapods 1.4, remove this when TVVLCPlayer issue is resolved with 1.5
-- gem uninstall cocoapods -a -x
-- gem install cocoapods -v 1.4.0
 install:
 - pod install --repo-update --project-directory=$TRAVIS_BUILD_DIR
 before_script:
