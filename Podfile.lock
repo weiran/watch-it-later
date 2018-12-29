@@ -20,7 +20,7 @@ PODS:
   - SwinjectStoryboard (2.1.0):
     - Swinject (~> 2.5)
   - TVVLCKit (3.2.0)
-  - TVVLCPlayer (1.0.2):
+  - TVVLCPlayer (1.1.0):
     - TVVLCKit
   - XCDYouTubeKit (2.7.1)
   - YTVimeoExtractor (1.2.0)
@@ -34,7 +34,7 @@ DEPENDENCIES:
   - Swinject
   - SwinjectStoryboard
   - TVVLCKit
-  - TVVLCPlayer (from `https://github.com/weiran/TVVLCPlayer`, commit `a924aea2f0e9984e5853b3eb5f2efaaf5a35a5bc`)
+  - TVVLCPlayer (from `https://github.com/kodlian/TVVLCPlayer.git`, tag `1.1.1`)
   - XCDYouTubeKit
   - YTVimeoExtractor (from `https://github.com/lilfaf/YTVimeoExtractor`, commit `57bf479e860abd7dcd5fcbc520062cea3c7b5587`)
 
@@ -53,16 +53,16 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   TVVLCPlayer:
-    :commit: a924aea2f0e9984e5853b3eb5f2efaaf5a35a5bc
-    :git: https://github.com/weiran/TVVLCPlayer
+    :git: https://github.com/kodlian/TVVLCPlayer.git
+    :tag: 1.1.1
   YTVimeoExtractor:
     :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
     :git: https://github.com/lilfaf/YTVimeoExtractor
 
 CHECKOUT OPTIONS:
   TVVLCPlayer:
-    :commit: a924aea2f0e9984e5853b3eb5f2efaaf5a35a5bc
-    :git: https://github.com/weiran/TVVLCPlayer
+    :git: https://github.com/kodlian/TVVLCPlayer.git
+    :tag: 1.1.1
   YTVimeoExtractor:
     :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
     :git: https://github.com/lilfaf/YTVimeoExtractor
@@ -77,10 +77,10 @@ SPEC CHECKSUMS:
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
   TVVLCKit: 8dbd6e0b9cc4dc40676128981823c25dbc1b5afa
-  TVVLCPlayer: 9a78db6f5363e747213d5318edd2cc8cc73af8ec
+  TVVLCPlayer: 8861d14a3f594d4073c9210e7678ebd3d650f697
   XCDYouTubeKit: c8567fd5cb388a3099fa26eee4b30df2a467847d
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 265fac3fdf693883644ff1022b65bc47c8fb7770
+PODFILE CHECKSUM: 81893a47871bf892bb19700383e9f2ca9d662322
 
 COCOAPODS: 1.5.3

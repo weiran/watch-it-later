@@ -12,24 +12,13 @@ target 'WatchItLater' do
   pod 'PromiseKit'
   pod 'RealmSwift'
   pod 'TVVLCKit'
-  pod 'TVVLCPlayer', :git => 'https://github.com/weiran/TVVLCPlayer', :commit => 'a924aea2f0e9984e5853b3eb5f2efaaf5a35a5bc'
+  pod 'TVVLCPlayer', :git => 'https://github.com/kodlian/TVVLCPlayer.git', :tag => '1.1.1'
   pod 'SwiftyUserDefaults'
   pod 'Swinject'
   pod 'SwinjectStoryboard'
 end
 
-# This currently doesn't work in cocoapods 1.4.0, need to manually edit the Pod settings after
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        if ['SwinjectStoryboard'].include? target.name
-          target.build_configurations.each do |config|
-            config.build_settings['SWIFT_VERSION'] = '4.0'
-          end
-        end
-        if target.name == 'TVVLCPlayer' or target.name == 'TVVLCPlayer-TVVLCPlayer'
-          target.build_configurations.each do |config|
-            config.build_settings.delete('DEFINES_MODULE')
-          end
-        end
-    end
+# workaround for https://github.com/CocoaPods/CocoaPods/issues/3289
+pre_install do |installer|
+  Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
 end
