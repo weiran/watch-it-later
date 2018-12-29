@@ -9,7 +9,7 @@ target 'WatchItLater' do
   pod 'YTVimeoExtractor', :git => 'https://github.com/lilfaf/YTVimeoExtractor', :commit => '57bf479e860abd7dcd5fcbc520062cea3c7b5587'
   pod 'Locksmith'
   pod 'AsyncImageView'
-  pod 'PromiseKit'
+  pod 'PromiseKit/CorePromise'
   pod 'RealmSwift'
   pod 'TVVLCKit'
   pod 'TVVLCPlayer', :git => 'https://github.com/weiran/TVVLCPlayer', :commit => 'a924aea2f0e9984e5853b3eb5f2efaaf5a35a5bc'
