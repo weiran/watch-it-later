@@ -46,6 +46,7 @@ class VideoQualitySelectorViewController: UITableViewController {
         }
         
         switch unwrappedFormatType {
+            case .video2160p60: return IndexPath(row: 0, section: 0) // not a visible option but in case someone has it accidentally set
             case .video2160p: return IndexPath(row: 0, section: 0)
             case .video1440p60: return IndexPath(row: 1, section: 0)
             case .video1440p: return IndexPath(row: 2, section: 0)
