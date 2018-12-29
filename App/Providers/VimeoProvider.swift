@@ -17,47 +17,53 @@ class VimeoProvider: VideoProviderProtocol {
     }
     
     func videoStream(preferredFormatType: VideoFormatType?) -> Promise<VideoStream> {
-        return Promise { fulfill, reject in
-            YTVimeoExtractor.shared().fetchVideo(withVimeoURL: url.absoluteString, withReferer: nil) { video, error in
-                if let streamURL = video?.highestQualityStreamURL() {
-                    fulfill(VideoStream(videoURL: streamURL, audioURL: nil))
-                } else if let error = error {
-                    reject(error)
-                } else {
-                    reject(VideoError.NoStreamURLFound)
-                }
+        let (promise, seal) = Promise<VideoStream>.pending()
+        
+        YTVimeoExtractor.shared().fetchVideo(withVimeoURL: url.absoluteString, withReferer: nil) { video, error in
+            if let streamURL = video?.highestQualityStreamURL() {
+                seal.fulfill(VideoStream(videoURL: streamURL, audioURL: nil))
+            } else if let error = error {
+                seal.reject(error)
+            } else {
+                seal.reject(VideoError.NoStreamURLFound)
             }
         }
+        
+        return promise
     }
     
     func thumbnailURL() -> Promise<URL> {
-        return Promise { fulfill, reject in
-            YTVimeoExtractor.shared().fetchVideo(withVimeoURL: url.absoluteString, withReferer: nil) { video, error in
-                if let thumbnailURLs = video?.thumbnailURLs,
-                    let thumbnailURL = thumbnailURLs[NSNumber(value: YTVimeoVideoThumbnailQuality.HD.rawValue)] ??
-                        thumbnailURLs[NSNumber(value: YTVimeoVideoThumbnailQuality.medium.rawValue)] ??
-                        thumbnailURLs[NSNumber(value: YTVimeoVideoThumbnailQuality.small.rawValue)] {
-                    fulfill(thumbnailURL)
-                } else if let error = error {
-                    reject(error)
-                } else {
-                    reject(VideoError.NoThumbnailURLFound)
-                }
+        let (promise, seal) = Promise<URL>.pending()
+        
+        YTVimeoExtractor.shared().fetchVideo(withVimeoURL: url.absoluteString, withReferer: nil) { video, error in
+            if let thumbnailURLs = video?.thumbnailURLs,
+                let thumbnailURL = thumbnailURLs[NSNumber(value: YTVimeoVideoThumbnailQuality.HD.rawValue)] ??
+                    thumbnailURLs[NSNumber(value: YTVimeoVideoThumbnailQuality.medium.rawValue)] ??
+                    thumbnailURLs[NSNumber(value: YTVimeoVideoThumbnailQuality.small.rawValue)] {
+                seal.fulfill(thumbnailURL)
+            } else if let error = error {
+                seal.reject(error)
+            } else {
+                seal.reject(VideoError.NoThumbnailURLFound)
             }
         }
+        
+        return promise
     }
     
     func duration() -> Promise<Double> {
-        return Promise { fulfill, reject in
-            YTVimeoExtractor.shared().fetchVideo(withVimeoURL: url.absoluteString, withReferer: nil) { video, error in
-                if let video = video {
-                    fulfill(video.duration)
-                } else if let error = error {
-                    reject(error)
-                } else {
-                    reject(VideoError.InvalidURL)
-                }
+        let (promise, seal) = Promise<Double>.pending()
+        
+        YTVimeoExtractor.shared().fetchVideo(withVimeoURL: url.absoluteString, withReferer: nil) { video, error in
+            if let video = video {
+                seal.fulfill(video.duration)
+            } else if let error = error {
+                seal.reject(error)
+            } else {
+                seal.reject(VideoError.InvalidURL)
             }
         }
+        
+        return promise
     }
 }

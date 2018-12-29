@@ -1,16 +1,14 @@
 PODS:
   - AsyncImageView (1.6)
   - Locksmith (4.0.0)
-  - PromiseKit (4.5.2):
-    - PromiseKit/Foundation (= 4.5.2)
-    - PromiseKit/QuartzCore (= 4.5.2)
-    - PromiseKit/UIKit (= 4.5.2)
-  - PromiseKit/CorePromise (4.5.2)
-  - PromiseKit/Foundation (4.5.2):
+  - PromiseKit (6.7.0):
+    - PromiseKit/CorePromise (= 6.7.0)
+    - PromiseKit/Foundation (= 6.7.0)
+    - PromiseKit/UIKit (= 6.7.0)
+  - PromiseKit/CorePromise (6.7.0)
+  - PromiseKit/Foundation (6.7.0):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.5.2):
-    - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.5.2):
+  - PromiseKit/UIKit (6.7.0):
     - PromiseKit/CorePromise
   - Realm (3.13.0):
     - Realm/Headers (= 3.13.0)
@@ -30,7 +28,7 @@ PODS:
 DEPENDENCIES:
   - AsyncImageView
   - Locksmith
-  - PromiseKit (~> 4.x)
+  - PromiseKit
   - RealmSwift
   - SwiftyUserDefaults
   - Swinject
@@ -72,7 +70,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AsyncImageView: 416e99402e5b1f20571de70ad619ced90f56a7d9
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
-  PromiseKit: 743e497a5f505a470d3bbbf4ce0663c1268af0a4
+  PromiseKit: 453ddcc947fe7b302f3ef41882b81d31c554df7f
   Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
   RealmSwift: be5ebc7930e37cd3376b41cec7f21984528aaa16
   SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
@@ -83,6 +81,6 @@ SPEC CHECKSUMS:
   XCDYouTubeKit: c8567fd5cb388a3099fa26eee4b30df2a467847d
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 14520f6f620bc3e6ba8d50f94e09f1ea9258900e
+PODFILE CHECKSUM: 265fac3fdf693883644ff1022b65bc47c8fb7770
 
 COCOAPODS: 1.5.3
