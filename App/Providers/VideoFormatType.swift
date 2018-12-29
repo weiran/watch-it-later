@@ -23,11 +23,11 @@ enum VideoFormatType: Int {
         case .video2160p60:
             return (315, 140) // VP9
         case .video2160p:
-            return (266, 140)
+            return (313, 140) // VP9
         case .video1440p60:
             return (308, 140) // VP9
         case .video1440p:
-            return (264, 140)
+            return (271, 140) // VP9
         case .video1080p60:
             return (299, 140)
         case .video1080p:
