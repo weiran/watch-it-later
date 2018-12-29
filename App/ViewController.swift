@@ -25,13 +25,13 @@ class ViewController: UIViewController {
         activityIndicator.startAnimating()
         instapaperAPI?.storedAuth().then {
             return self.fetchVideos()
-        }.then { _ -> Void in
-            self.setNeedsFocusUpdate()
-            self.updateFocusIfNeeded()
-        }.catch { _ -> Void in
-            self.performSegue(withIdentifier: "ShowLoginSegue", sender: self)
-        }.always { [weak self] in 
+        }.done { [weak self] in
+            self?.setNeedsFocusUpdate()
+            self?.updateFocusIfNeeded()
+        }.ensure { [weak self] in
             self?.activityIndicator.stopAnimating()
+        }.catch { [weak self] _ in
+            self?.performSegue(withIdentifier: "ShowLoginSegue", sender: self)
         }
         
         observeNotifications()
@@ -49,9 +49,9 @@ class ViewController: UIViewController {
     
     @discardableResult
     func fetchVideos() -> Promise<Void> {
-        return instapaperAPI!.fetch().then { [unowned self] videos -> Void in
+        return instapaperAPI!.fetch().done { [weak self] videos in
             let filteredVideos = videos.filter {
-                ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be")) && $0 != self.hideVideo
+                ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be")) && $0 != self?.hideVideo
             }
             
             let syncedVideos = filteredVideos.map { video -> (Video) in
@@ -63,9 +63,9 @@ class ViewController: UIViewController {
                 }
             }
             
-            self.videos = syncedVideos
+            self?.videos = syncedVideos
             DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                self?.collectionView.reloadData()
             }
         }
     }
@@ -116,9 +116,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.setImage(image: UIImage.init(named: "ThumbnailPlaceholder")!)
         
         if let provider = try? VideoProvider.videoProvider(for: video.urlString) {
-            provider.thumbnailURL().then {
+            provider.thumbnailURL().done {
                 cell.setImageURL(url: $0)
-            }
+            }.cauterize()
         }
         
         return cell

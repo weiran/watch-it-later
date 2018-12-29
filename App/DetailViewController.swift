@@ -44,13 +44,13 @@ class DetailViewController: UIViewController {
             
             if let videoProvider = try? VideoProvider.videoProvider(for: video.urlString) {
                 self.videoProvider = videoProvider
-                videoProvider.thumbnailURL().then { [weak self] url in
+                videoProvider.thumbnailURL().done { [weak self] url in
                     self?.thumbnailImageView.imageURL = url
-                }
-                videoProvider.duration().then { [weak self] (duration: Double) -> Void in
+                }.cauterize()
+                videoProvider.duration().done { [weak self] (duration: Double) -> Void in
                     self?.durationLabel.text = self?.formatTimeInterval(duration: duration)
                     self?.duration = CMTime(seconds: duration, preferredTimescale: CMTimeScale(duration * 60))
-                }
+                }.cauterize()
                 self.descriptionLabel.text = ""
             }
         }
@@ -91,21 +91,23 @@ class DetailViewController: UIViewController {
         
         activityIndicator.startAnimating()
         view.isUserInteractionEnabled = false
-        videoProvider.videoStream(preferredFormatType: Defaults[DefaultsKeys.defaultVideoQualityKey]).then { [unowned self] videoStream -> Void in
+        videoProvider.videoStream(preferredFormatType: Defaults[DefaultsKeys.defaultVideoQualityKey]).done { [weak self] videoStream -> Void in
+            guard let self = self, let video = self.video else {
+                return
+            }
+            
             self.videoStream = videoStream
-            guard let video = self.video else { return }
             
             if let alertController = self.playFromPositionAlertController(video) {
                 self.present(alertController, animated: true)
             } else {
                 self.showVideoPlayer()
             }
-        }
-        .catch { [weak self] error in
-            self?.showError()
-        }.always { [weak self] in
+        }.ensure { [weak self] in
             self?.activityIndicator.stopAnimating()
             self?.view.isUserInteractionEnabled = true
+        }.catch { [weak self] error in
+            self?.showError()
         }
     }
     

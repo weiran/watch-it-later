@@ -22,11 +22,8 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     static var name = "Instapaper"
     private var engine: IKEngine
     
-    private var loginFulfill: ((Void) -> Void)?
-    private var loginReject: ((Error) -> Void)?
-    
-    private var fetchFulfill: (([Video]) -> Void)?
-    private var fetchReject: ((Error) -> Void)?
+    private var loginSeal: Resolver<Void>?
+    private var fetchSeal: Resolver<[Video]>?
     
     override init() {
         let (consumerKey, consumerSecret) = InstapaperAPI.getOAuthConfiguration()
@@ -50,11 +47,12 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     
     @discardableResult
     func login(username: String, password: String) -> Promise<Void> {
-        return Promise { fulfill, reject in
-            self.loginFulfill = fulfill
-            self.loginReject = reject
-            self.engine.authToken(forUsername: username, password: password, userInfo: nil)
-        }
+        let (promise, seal) = Promise<Void>.pending()
+        
+        self.loginSeal = seal
+        self.engine.authToken(forUsername: username, password: password, userInfo: nil)
+        
+        return promise
     }
     
     var loggedIn: Bool {
@@ -65,24 +63,27 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     
     @discardableResult
     func storedAuth() -> Promise<Void> {
-        return Promise { fulfill, reject in
-            let keys = Locksmith.loadDataForUserAccount(userAccount: InstapaperAPI.name)
-            if let token = keys?["token"] as? String, let secret = keys?["secret"] as? String {
-                engine.oAuthToken = token
-                engine.oAuthTokenSecret = secret
-                fulfill(())
-            } else {
-                reject("Couldn't get authentication credentials in keychain")
-            }
+        let (promise, seal) = Promise<Void>.pending()
+        
+        let keys = Locksmith.loadDataForUserAccount(userAccount: InstapaperAPI.name)
+        if let token = keys?["token"] as? String, let secret = keys?["secret"] as? String {
+            engine.oAuthToken = token
+            engine.oAuthTokenSecret = secret
+            seal.fulfill()
+        } else {
+            seal.reject("Couldn't get authentication credentials in keychain")
         }
+        
+        return promise
     }
     
     func fetch() -> Promise<[Video]> {
-        return Promise<[Video]> { fulfill, reject in
-            self.fetchFulfill = fulfill
-            self.fetchReject = reject
-            engine.bookmarks(in: IKFolder.unread(), limit: 500, existingBookmarks: nil, userInfo: nil)
-        }
+        let (promise, seal) = Promise<[Video]>.pending()
+        
+        self.fetchSeal = seal
+        engine.bookmarks(in: IKFolder.unread(), limit: 500, existingBookmarks: nil, userInfo: nil)
+
+        return promise
     }
     
     func archive(id: Int) {
@@ -96,12 +97,12 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
             try Locksmith.saveData(data: ["token": token, "secret": secret], forUserAccount: InstapaperAPI.name)
             self.engine.oAuthToken = token
             self.engine.oAuthTokenSecret = secret
-            loginFulfill?(())
+            loginSeal?.fulfill()
         } catch {
-            loginReject?(error)
+            loginSeal?.reject(error)
         }
         
-        clearLoginPromise()
+        loginSeal = nil
     }
     
     func engine(_ engine: IKEngine!, connection: IKURLConnection!, didReceiveBookmarks bookmarks: [Any]!, of user: IKUser!, for folder: IKFolder!) {
@@ -109,33 +110,23 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
             let videos = bookmarks.map { (bookmark) -> Video in
                 return Video(bookmark)
             }
-            fetchFulfill?(videos)
-            clearFetchPromise()
+            fetchSeal?.fulfill(videos)
+            fetchSeal = nil
         }
     }
     
     func engine(_ engine: IKEngine!, didFail connection: IKURLConnection!, error: Error!) {
         switch connection.type {
         case .authAccessToken:
-            loginReject?(error)
-            clearLoginPromise()
+            loginSeal?.reject(error)
+            loginSeal = nil
             
         case .bookmarksList:
-            fetchReject?(error)
-            clearFetchPromise()
+            fetchSeal?.reject(error)
+            fetchSeal = nil
             
         default:
             return
         }
-    }
-    
-    private func clearLoginPromise() {
-        loginReject = nil
-        loginFulfill = nil
-    }
-    
-    private func clearFetchPromise() {
-        fetchReject = nil
-        fetchFulfill = nil
     }
 }

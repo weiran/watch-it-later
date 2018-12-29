@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
@@ -19,9 +20,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        instapaperAPI?.storedAuth().then { [weak self] in
+        
+        instapaperAPI?.storedAuth().done { [weak self] in
             self?.hasStoredCredentials = true
-        }
+        }.cauterize()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -33,11 +35,12 @@ class LoginViewController: UIViewController {
         activityIndicator.startAnimating()
         view.isUserInteractionEnabled = false
         if let username = usernameTextField.text, let password = passwordTextField.text {
-            instapaperAPI?.login(username: username, password: password)
-            .then { Void -> Void in
-                // login successful
-                self.dismiss(animated: true)
+            instapaperAPI?.login(username: username, password: password).done { [weak self] in
+                self?.dismiss(animated: true)
                 NotificationCenter.default.post(name: NSNotification.Name("AuthenticationChanged"), object: self)
+            }.ensure { [weak self] in
+                self?.activityIndicator.stopAnimating()
+                self?.view.isUserInteractionEnabled = true
             }.catch { error in
                 if error.localizedDescription.contains("503") {
                     // GDPR block
@@ -49,9 +52,6 @@ class LoginViewController: UIViewController {
                     // other error
                     self.showError(title: "Couldn't log in", message: "There was an problem logging in.")
                 }
-            }.always { [weak self] in
-                self?.activityIndicator.stopAnimating()
-                self?.view.isUserInteractionEnabled = true
             }
         }
     }

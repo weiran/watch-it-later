@@ -21,44 +21,50 @@ class YouTubeProvider: VideoProviderProtocol {
     }
     
     func videoStream(preferredFormatType: VideoFormatType?) -> Promise<VideoStream> {
-        return Promise { fulfill, reject in
-            XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
-                if let streamURLs = video?.streamURLs as? Dictionary<Int, URL>,
-                    let highestQualityStream = YouTubeProvider.getHighestQualityFormatType(streams: streamURLs, highestQuality: preferredFormatType ?? .video1080p60),
-                    let videoStream = YouTubeProvider.getVideoStream(streams: streamURLs, for: highestQualityStream) {
-                    fulfill(videoStream)
-                } else if let error = error {
-                    reject(error)
-                } else {
-                    reject(VideoError.NoStreamURLFound)
-                }
+        let (promise, seal) = Promise<VideoStream>.pending()
+
+        XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
+            if let streamURLs = video?.streamURLs as? Dictionary<Int, URL>,
+                let highestQualityStream = YouTubeProvider.getHighestQualityFormatType(streams: streamURLs, highestQuality: preferredFormatType ?? .video1080p60),
+                let videoStream = YouTubeProvider.getVideoStream(streams: streamURLs, for: highestQualityStream) {
+                seal.fulfill(videoStream)
+            } else if let error = error {
+                seal.reject(error)
+            } else {
+                seal.reject(VideoError.NoStreamURLFound)
             }
         }
+        
+        return promise
     }
     
     func thumbnailURL() -> Promise<URL> {
-        return Promise { fulfill, reject in
-            let urlString = "https://i.ytimg.com/vi/\(identifier)/maxresdefault.jpg"
-            if let url = URL(string: urlString) {
-                fulfill(url)
-            } else {
-                reject(VideoError.NoThumbnailURLFound)
-            }
+        let (promise, seal) = Promise<URL>.pending()
+        
+        let urlString = "https://i.ytimg.com/vi/\(identifier)/maxresdefault.jpg"
+        if let url = URL(string: urlString) {
+            seal.fulfill(url)
+        } else {
+            seal.reject(VideoError.NoThumbnailURLFound)
         }
+        
+        return promise
     }
     
     func duration() -> Promise<Double> {
-        return Promise { fulfill, reject in
-            XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
-                if let video = video {
-                    fulfill(Double(video.duration))
-                } else if let error = error {
-                    reject(error)
-                } else {
-                    reject(VideoError.InvalidURL)
-                }
+        let (promise, seal) = Promise<Double>.pending()
+        
+        XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
+            if let video = video {
+                seal.fulfill(Double(video.duration))
+            } else if let error = error {
+                seal.reject(error)
+            } else {
+                seal.reject(VideoError.InvalidURL)
             }
         }
+        
+        return promise
     }
     
     fileprivate func parseYoutubeIdentifier(_ url: String) throws -> String {
