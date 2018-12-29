@@ -27,7 +27,7 @@ class VideoQualitySelectorViewController: UITableViewController {
     
     func formatType(for indexPath: IndexPath) -> VideoFormatType {
         switch indexPath.row {
-            case 0: return .video1440p60
+            case 0: return .video2160p
             case 1: return .video1440p
             case 2: return .video1080p60
             case 3: return .video1080p
@@ -60,6 +60,7 @@ class VideoQualitySelectorViewController: UITableViewController {
 
 extension DefaultsKeys {
     static let defaultVideoQualityKey = DefaultsKey<VideoFormatType?>("defaultVideoQuality")
+    static let newDefaultVideoQualityKey = DefaultsKey<VideoFormatType?>("newDefaultVideoQuality")
 }
 
 extension UserDefaults {
