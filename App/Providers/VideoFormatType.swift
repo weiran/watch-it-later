@@ -1,5 +1,5 @@
 //
-//  YouTubeFormatTypes.swift
+//  VideoFormatType.swift
 //  WatchItLater
 //
 //  Created by Weiran Zhang on 23/12/2017.
