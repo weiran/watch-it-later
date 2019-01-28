@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = Database.shared
         
         if Defaults[.defaultVideoQualityKey] == nil {
-           Defaults[.defaultVideoQualityKey] = .video720p
+           Defaults[.defaultVideoQualityKey] = .video1080p60
         }
         
         return true

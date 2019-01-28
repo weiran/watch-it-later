@@ -177,9 +177,9 @@
 				24205AB720666E31002BC8FF /* PreferencesViewController.swift */,
 				24205AB920666E40002BC8FF /* VideoQualitySelectorViewController.swift */,
 				241C2ABC1E154337009F98D7 /* VideoCell.swift */,
-				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
 				24C52E241E17E42900865185 /* StringError.swift */,
 				24120F5820D2CEFA0013D73A /* SwinjectStoryboardExtension.swift */,
+				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
