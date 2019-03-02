@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     
     var videoStream: VideoStream?
     var duration: CMTime?
+    var playerViewController: VLCPlayerViewController?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var domainLabel: UILabel!
@@ -147,7 +148,7 @@ class DetailViewController: UIViewController {
             if let playerViewController = segue.destination as? VLCPlayerViewController,
                 let videoStream = self.videoStream {
                 let videoMedia = VLCMedia(url: videoStream.videoURL)
-                playerViewController.media = videoMedia
+                playerViewController.player.media = videoMedia
                 
                 if let audioURL = videoStream.audioURL {
                     playerViewController.player.addPlaybackSlave(audioURL, type: .audio, enforce: true)
@@ -158,7 +159,8 @@ class DetailViewController: UIViewController {
                     playerViewController.player.time = time
                 }
                 
-                playerViewController.delegate = self
+                playerViewController.player.delegate = self
+                self.playerViewController = playerViewController
             }
         }
     }
@@ -184,18 +186,20 @@ class DetailViewController: UIViewController {
     }
 }
 
-extension DetailViewController: VLCMediaPlayerViewControllerDelegate {
-    func mediaPlayer(_ playerViewController: VLCPlayerViewController, stateChanged state: VLCMediaPlayerState) {
-        if state == .ended {
+extension DetailViewController: VLCMediaPlayerDelegate {
+    func mediaPlayerStateChanged(_ aNotification: Notification!) {
+        guard let playerViewController = self.playerViewController else { return }
+        if playerViewController.player.state == .ended {
             updateVideoProgress()
-        } else if state == .stopped {
+        } else if playerViewController.player.state == .stopped {
             updateVideoProgress(Int(playerViewController.player.time.intValue))
         }
     }
     
-    func mediaPlayer(_ playerViewController: VLCPlayerViewController, timeChanged time: VLCTime) {
-        if playerViewController.player.state == .playing || playerViewController.player.state == .buffering {
-            updateVideoProgress(Int(time.intValue))
+    func mediaPlayerTimeChanged(_ aNotification: Notification!) {
+        guard let player = self.playerViewController?.player else { return }
+        if player.state == .playing || player.state == .buffering {
+            updateVideoProgress(Int(player.time.intValue))
         }
     }
     

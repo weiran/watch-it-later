@@ -12,7 +12,7 @@ target 'WatchItLater' do
   pod 'PromiseKit/CorePromise'
   pod 'RealmSwift'
   pod 'TVVLCKit'
-  pod 'TVVLCPlayer', :git => 'https://github.com/kodlian/TVVLCPlayer.git', :tag => '1.1.1'
+  pod 'TVVLCPlayer', :git => 'https://github.com/kodlian/TVVLCPlayer', :commit => '43c26c30729988e6444ce4b69e09ca87033e6488'
   pod 'SwiftyUserDefaults'
   pod 'Swinject'
   pod 'SwinjectStoryboard'
