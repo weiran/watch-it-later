@@ -147,8 +147,9 @@ class DetailViewController: UIViewController {
         if segue.identifier == "ShowPlayerSegue" {
             if let playerViewController = segue.destination as? VLCPlayerViewController,
                 let videoStream = self.videoStream {
-                let videoMedia = VLCMedia(url: videoStream.videoURL)
-                playerViewController.player.media = videoMedia
+                let player = VLCMediaPlayer()
+                player.media = VLCMedia(url: videoStream.videoURL)
+                playerViewController.player = player
                 
                 if let audioURL = videoStream.audioURL {
                     playerViewController.player.addPlaybackSlave(audioURL, type: .audio, enforce: true)
