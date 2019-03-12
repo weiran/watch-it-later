@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode10
+osx_image: xcode10.1
 xcode_workspace: WatchItLater.xcworkspace
 xcode_scheme: WatchItLater
 before_install:
