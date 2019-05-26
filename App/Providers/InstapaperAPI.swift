@@ -69,7 +69,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         if let token = keys?["token"] as? String, let secret = keys?["secret"] as? String {
             engine.oAuthToken = token
             engine.oAuthTokenSecret = secret
-            seal.fulfill()
+            seal.fulfill(())
         } else {
             seal.reject("Couldn't get authentication credentials in keychain")
         }
@@ -97,7 +97,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
             try Locksmith.saveData(data: ["token": token, "secret": secret], forUserAccount: InstapaperAPI.name)
             self.engine.oAuthToken = token
             self.engine.oAuthTokenSecret = secret
-            loginSeal?.fulfill()
+            loginSeal?.fulfill(())
         } catch {
             loginSeal?.reject(error)
         }
