@@ -28,7 +28,7 @@ Watch It Later is open source and licenced under the MIT licence.
 
 ## Links
 
-* You can follow [Watch It Later's progress on my blog](http://weiran.co/).
+* You can follow [Watch It Later's progress on my blog](https://weiran.co/).
 * You can also get in touch via Twitter: [@weiran](https://twitter.com/weiran).
 
 ## How to build
@@ -39,6 +39,10 @@ Watch It Later is open source and licenced under the MIT licence.
 4. Install pods, in the project root folder, run `pod install`.
 5. Open the workspace file (`WatchItLater.xcworkspace`) in Xcode 8 or later, and build.
 
-## About
-
-Watch It Later is an open source project by [Weiran Zhang](http://weiran.co) licensed under the [MIT license](http://opensource.org/licenses/MIT).
+---
+<p align="center">
+  <b>By Weiran Zhang</b><br>
+  <a href="https://weiran.co">Website</a> |
+  <a href="https://twitter.com/weiran">Twitter</a> |
+  <a href="https://github.com/weiran">GitHub</a>
+</p>
