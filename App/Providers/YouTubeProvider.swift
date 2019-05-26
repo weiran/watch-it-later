@@ -95,7 +95,7 @@ class YouTubeProvider: VideoProviderProtocol {
                             VideoFormatType.video360p
                             ]
         
-        guard let startIndex = qualityOrder.index(of: highestQuality) else { return nil }
+        guard let startIndex = qualityOrder.firstIndex(of: highestQuality) else { return nil }
         
         for i in startIndex..<qualityOrder.count {
             let qualityType = qualityOrder[i]
