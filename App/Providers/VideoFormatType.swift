@@ -6,7 +6,9 @@
 //  Copyright © 2017 Weiran Zhang. All rights reserved.
 //
 
-enum VideoFormatType: Int {
+import SwiftyUserDefaults
+
+enum VideoFormatType: Int, DefaultsSerializable {
     case video2160p60 = 0
     case video2160p
     case video1440p60

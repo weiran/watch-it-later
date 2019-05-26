@@ -79,7 +79,7 @@ class ViewController: UIViewController {
     }
     
     @objc func videoArchived(notification: Notification) {
-        if let video = notification.userInfo?["video"] as? Video, let index = self.videos?.index(where: { $0 == video }) {
+        if let video = notification.userInfo?["video"] as? Video, let index = self.videos?.firstIndex(where: { $0 == video }) {
             self.videos?.remove(at: index)
             
             self.collectionView.performBatchUpdates({

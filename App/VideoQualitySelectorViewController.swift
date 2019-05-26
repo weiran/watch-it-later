@@ -64,10 +64,3 @@ extension DefaultsKeys {
     static let defaultVideoQualityKey = DefaultsKey<VideoFormatType?>("defaultVideoQuality")
     static let newDefaultVideoQualityKey = DefaultsKey<VideoFormatType?>("newDefaultVideoQuality")
 }
-
-extension UserDefaults {
-    subscript(key: DefaultsKey<VideoFormatType?>) -> VideoFormatType? {
-        get { return unarchive(key) }
-        set { archive(key, newValue) }
-    }
-}

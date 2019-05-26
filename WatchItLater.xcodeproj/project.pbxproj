@@ -25,7 +25,6 @@
 		2441297E1FEE7C9600202173 /* VideoFormatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441297D1FEE7C9600202173 /* VideoFormatType.swift */; };
 		244DE6C11E59CBE8005B441E /* InstapaperConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 244DE6C01E59CBE8005B441E /* InstapaperConfiguration.plist */; };
 		2459544C1E14420B00997693 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544B1E14420B00997693 /* Video.swift */; };
-		24794EBA20D51F520070D624 /* TVUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24794EB920D51F520070D624 /* TVUIKit.framework */; };
 		247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */; };
 		24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A771E143A50003E46FB /* IKBookmark.m */; };
 		24988A8E1E143A50003E46FB /* IKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A791E143A50003E46FB /* IKConstants.m */; };
@@ -64,6 +63,14 @@
 		2441297D1FEE7C9600202173 /* VideoFormatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormatType.swift; sourceTree = "<group>"; };
 		244DE6C01E59CBE8005B441E /* InstapaperConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InstapaperConfiguration.plist; sourceTree = "<group>"; };
 		2459544B1E14420B00997693 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		246511B0222AA26800752F46 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		246511B2222AA26F00752F46 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		246511B4222AA27400752F46 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		246511B6222AA27900752F46 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		246511B8222AA27F00752F46 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		246511BA222AA28400752F46 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		246511BC222AA28900752F46 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		246511BE222AA28E00752F46 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		24794EB920D51F520070D624 /* TVUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVUIKit.framework; path = System/Library/Frameworks/TVUIKit.framework; sourceTree = SDKROOT; };
 		247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstapaperAPI.swift; sourceTree = "<group>"; };
 		247D7F871E143D970037E4EC /* WatchItLater.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchItLater.entitlements; sourceTree = "<group>"; };
@@ -101,7 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24794EBA20D51F520070D624 /* TVUIKit.framework in Frameworks */,
 				C7143D89DA157AA928F45554 /* Pods_WatchItLater.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +245,14 @@
 		D279746CFF176AADEDCE0547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				246511BE222AA28E00752F46 /* libiconv.tbd */,
+				246511BC222AA28900752F46 /* libc++.tbd */,
+				246511BA222AA28400752F46 /* libbz2.tbd */,
+				246511B8222AA27F00752F46 /* libz.tbd */,
+				246511B6222AA27900752F46 /* CoreMedia.framework */,
+				246511B4222AA27400752F46 /* VideoToolbox.framework */,
+				246511B2222AA26F00752F46 /* AVFoundation.framework */,
+				246511B0222AA26800752F46 /* AudioToolbox.framework */,
 				24794EB920D51F520070D624 /* TVUIKit.framework */,
 				24988A541E141E37003E46FB /* AVKit.framework */,
 				0FA8D0C478FCBEAB2CC5EA52 /* Pods_WatchItLater.framework */,
@@ -258,7 +272,7 @@
 				24332BD11E108D1A00D5AA18 /* Frameworks */,
 				24332BD21E108D1A00D5AA18 /* Resources */,
 				8E73E019B62A1DFF16818668 /* [CP] Embed Pods Frameworks */,
-				2FAE2353D2944B5FD55ADC34 /* [CP] Copy Pods Resources */,
+				08FAA71DCB938D42ED0200DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,13 +290,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Weiran Zhang";
 				TargetAttributes = {
 					24332BD31E108D1A00D5AA18 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 2KB59GPA9B;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -297,6 +311,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -324,24 +339,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2FAE2353D2944B5FD55ADC34 /* [CP] Copy Pods Resources */ = {
+		08FAA71DCB938D42ED0200DC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-resources.sh",
 				"${PODS_ROOT}/TVVLCPlayer/Resources/TVVLCPlayer.storyboard",
-				"${PODS_CONFIGURATION_BUILD_DIR}/TVVLCPlayer/TVVLCPlayer.bundle",
+				"${PODS_ROOT}/TVVLCPlayer/Resources/Images.xcassets",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TVVLCPlayer.storyboardc",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TVVLCPlayer.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		54B38236EAE6C0D36F1632E0 /* [CP] Check Pods Manifest.lock */ = {
@@ -368,7 +383,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AsyncImageView/AsyncImageView.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
@@ -395,7 +410,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -455,6 +470,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -512,6 +528,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -576,13 +593,14 @@
 				);
 				INFOPLIST_FILE = "App/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = co.weiran.WatchItLater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/WatchItLater-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -609,7 +627,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/WatchItLater-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
