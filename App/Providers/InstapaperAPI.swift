@@ -94,7 +94,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     func engine(_ engine: IKEngine!, connection: IKURLConnection!, didReceiveAuthToken token: String!, andTokenSecret secret: String!) {
         do {
             try? Locksmith.deleteDataForUserAccount(userAccount: InstapaperAPI.name)
-            try Locksmith.saveData(data: ["token": token, "secret": secret], forUserAccount: InstapaperAPI.name)
+            try Locksmith.saveData(data: ["token": token as Any, "secret": secret as Any], forUserAccount: InstapaperAPI.name)
             self.engine.oAuthToken = token
             self.engine.oAuthTokenSecret = secret
             loginSeal?.fulfill(())
