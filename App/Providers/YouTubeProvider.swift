@@ -117,6 +117,6 @@ class YouTubeProvider: VideoProviderProtocol {
             audioURL = unoptionalAudioURL
         }
         
-        return VideoStream(videoURL: videoURL, audioURL: audioURL)
+        return VideoStream(videoURL: videoURL, audioURL: audioURL, videoFormatType: quality)
     }
 }
