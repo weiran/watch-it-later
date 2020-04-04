@@ -92,7 +92,7 @@ class DetailViewController: UIViewController {
         
         activityIndicator.startAnimating()
         view.isUserInteractionEnabled = false
-        videoProvider.videoStream(preferredFormatType: Defaults[DefaultsKeys.defaultVideoQualityKey]).done { [weak self] videoStream -> Void in
+        videoProvider.videoStream(preferredFormatType: Defaults[\.defaultVideoQualityKey]).done { [weak self] videoStream -> Void in
             guard let self = self, let video = self.video else {
                 return
             }
