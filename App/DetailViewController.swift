@@ -27,6 +27,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var domainLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var qualityLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var thumbnailImageView: AsyncImageView!
     @IBOutlet weak var playButton: UIButton!
@@ -37,7 +38,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        durationLabel.text = ""
+        durationLabel.text = " "
+        qualityLabel.text = " "
         
         if let video = video {
             titleLabel.text = video.title
@@ -52,7 +54,12 @@ class DetailViewController: UIViewController {
                     self?.durationLabel.text = self?.formatTimeInterval(duration: duration)
                     self?.duration = CMTime(seconds: duration, preferredTimescale: CMTimeScale(duration * 60))
                 }.cauterize()
-                self.descriptionLabel.text = ""
+                videoProvider.videoStream(preferredFormatType: Defaults[\.defaultVideoQualityKey]).done { [weak self] (videoStream) in
+                    if let format = videoStream.videoFormatType {
+                        self?.qualityLabel.text = format.description()
+                    }
+                }.cauterize()
+                self.descriptionLabel.text = " "
             }
         }
         
@@ -92,7 +99,7 @@ class DetailViewController: UIViewController {
         
         activityIndicator.startAnimating()
         view.isUserInteractionEnabled = false
-        videoProvider.videoStream(preferredFormatType: Defaults[DefaultsKeys.defaultVideoQualityKey]).done { [weak self] videoStream -> Void in
+        videoProvider.videoStream(preferredFormatType: Defaults[\.defaultVideoQualityKey]).done { [weak self] videoStream -> Void in
             guard let self = self, let video = self.video else {
                 return
             }

@@ -9,9 +9,11 @@
 struct VideoStream {
     let videoURL: URL!
     let audioURL: URL?
+    let videoFormatType: VideoFormatType?
     
-    init(videoURL: URL, audioURL: URL?) {
+    init(videoURL: URL, audioURL: URL?, videoFormatType: VideoFormatType? = nil) {
         self.videoURL = videoURL
         self.audioURL = audioURL
+        self.videoFormatType = videoFormatType
     }
 }

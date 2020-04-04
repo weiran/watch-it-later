@@ -13,14 +13,14 @@ class VideoQualitySelectorViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // set selection to current value
-        let defaultVideoQuality = Defaults[DefaultsKeys.defaultVideoQualityKey]
+        let defaultVideoQuality = Defaults[\.defaultVideoQualityKey]
         let selectedIndexPath = indexPath(for: defaultVideoQuality)
         self.tableView.selectRow(at: selectedIndexPath, animated: false, scrollPosition: UITableView.ScrollPosition.none)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedFormatType = formatType(for: indexPath)
-        Defaults[DefaultsKeys.defaultVideoQualityKey] = selectedFormatType
+        Defaults[\.defaultVideoQualityKey] = selectedFormatType
         
         self.dismiss(animated: true)
     }
@@ -61,6 +61,6 @@ class VideoQualitySelectorViewController: UITableViewController {
 }
 
 extension DefaultsKeys {
-    static let defaultVideoQualityKey = DefaultsKey<VideoFormatType?>("defaultVideoQuality")
-    static let newDefaultVideoQualityKey = DefaultsKey<VideoFormatType?>("newDefaultVideoQuality")
+    var defaultVideoQualityKey: DefaultsKey<VideoFormatType?> { .init("defaultVideoQuality", defaultValue: .video1080p60) }
+    var newDefaultVideoQualityKey: DefaultsKey<VideoFormatType?> { .init("newDefaultVideoQuality") }
 }

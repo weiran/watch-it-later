@@ -15,7 +15,7 @@ class PreferencesViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let youTubeFormatType = Defaults[.defaultVideoQualityKey] {
+        if let youTubeFormatType = Defaults[\.defaultVideoQualityKey] {
             youTubeFormatTypeLabel.text = formatName(for: youTubeFormatType)
         }
     }
