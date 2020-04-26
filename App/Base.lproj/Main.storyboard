@@ -247,10 +247,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="fUF-kK-vMu" id="kXa-Uf-3sW"/>
-                                    <outlet property="delegate" destination="fUF-kK-vMu" id="XM2-HK-9m8"/>
-                                </connections>
                             </collectionView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eEv-A6-0Sw">
                                 <rect key="frame" x="928" y="508" width="64" height="64"/>
@@ -700,7 +696,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ff7-o2-93I"/>
+        <segue reference="3F1-X3-WSL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="PreferencesIcon" width="50" height="50"/>
