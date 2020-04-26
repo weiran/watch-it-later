@@ -21,7 +21,11 @@ class VimeoProvider: VideoProviderProtocol {
         
         YTVimeoExtractor.shared().fetchVideo(withVimeoURL: url.absoluteString, withReferer: nil) { video, error in
             if let streamURL = video?.highestQualityStreamURL() {
-                seal.fulfill(VideoStream(videoURL: streamURL, audioURL: nil))
+                /// TODO we're cheating here by guessing the top quality video is 1080p
+                /// and going for the top quality no matter what the setting is
+                /// we need to map between selected max format and Vimeo format types to
+                /// select the right one
+                seal.fulfill(VideoStream(videoURL: streamURL, audioURL: nil, videoFormatType: .video1080p))
             } else if let error = error {
                 seal.reject(error)
             } else {
