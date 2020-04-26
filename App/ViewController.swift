@@ -11,20 +11,28 @@ import PromiseKit
 
 class ViewController: UIViewController {
     var instapaperAPI: InstapaperAPI?
-    fileprivate var videos: [Video]?
-    
-    var isChildViewController: Bool = false
-    var hideVideo: Video?
+    var folder: InstapaperFolder = .unread
+
+    private var videos: [Video]?
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Video>?
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         activityIndicator.startAnimating()
+        observeNotifications()
+
+        dataSource = makeDataSource()
+        collectionView.dataSource = dataSource
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         instapaperAPI?.storedAuth().then {
-            return self.fetchVideos()
+            return self.fetchVideos(self.folder)
         }.done { [weak self] in
             self?.setNeedsFocusUpdate()
             self?.updateFocusIfNeeded()
@@ -33,25 +41,13 @@ class ViewController: UIViewController {
         }.catch { [weak self] _ in
             self?.performSegue(withIdentifier: "ShowLoginSegue", sender: self)
         }
-        
-        observeNotifications()
-        
-        if isChildViewController {
-            let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-            layout.scrollDirection = .horizontal
-        }
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     @discardableResult
-    func fetchVideos() -> Promise<Void> {
-        return instapaperAPI!.fetch().done { [weak self] videos in
+    func fetchVideos(_ folder: InstapaperFolder) -> Promise<Void> {
+        return instapaperAPI!.fetch(folder).done { [weak self] videos in
             let filteredVideos = videos.filter {
-                ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be")) && $0 != self?.hideVideo
+                ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be"))
             }
             
             let syncedVideos = filteredVideos.map { video -> (Video) in
@@ -62,16 +58,14 @@ class ViewController: UIViewController {
                     return video
                 }
             }
-            
+
             self?.videos = syncedVideos
-            DispatchQueue.main.async {
-                self?.collectionView.reloadData()
-            }
+            self?.update(with: syncedVideos)
         }
     }
     
     func observeNotifications() {
-        if self.parent is UINavigationController { // only when root view controller, not embedded
+        if folder != .archive {
             NotificationCenter.default.removeObserver(self)
             NotificationCenter.default.addObserver(self, selector: #selector(videoArchived), name: Notification.Name("VideoArchived"), object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(authenticationChanged), name: Notification.Name("AuthenticationChanged"), object: nil)
@@ -79,23 +73,16 @@ class ViewController: UIViewController {
     }
     
     @objc func videoArchived(notification: Notification) {
-        if let video = notification.userInfo?["video"] as? Video, let index = self.videos?.firstIndex(where: { $0 == video }) {
+        if let video = notification.userInfo?["video"] as? Video,
+            let index = self.videos?.firstIndex(where: { $0 == video }) {
             self.videos?.remove(at: index)
-            
-            self.collectionView.performBatchUpdates({
-                self.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
-            }, completion: { completed in
-                Database.shared.deleteVideo(video)
-            })
+            self.remove(video)
+            Database.shared.deleteVideo(video)
         }
     }
     
     @objc func authenticationChanged() {
-        fetchVideos()
-    }
-    
-    @IBAction func didReload(_ sender: Any) {
-        fetchVideos()
+        fetchVideos(self.folder)
     }
     
     override weak var preferredFocusedView: UIView? {
@@ -103,27 +90,49 @@ class ViewController: UIViewController {
     }
 }
 
-// Collection View
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videos?.count ?? 0
+private extension ViewController {
+    enum Section: CaseIterable {
+        case main
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
-        let video = videos![indexPath.row]
-        cell.posterView.title = video.title
-        cell.setImage(image: UIImage.init(named: "ThumbnailPlaceholder")!)
-        
-        if let provider = try? VideoProvider.videoProvider(for: video.urlString) {
-            provider.thumbnailURL().done {
-                cell.setImageURL(url: $0)
-            }.cauterize()
+
+    func makeDataSource() -> UICollectionViewDiffableDataSource<Section, Video> {
+        let reuseIdentifier = "VideoCell"
+
+        return UICollectionViewDiffableDataSource(collectionView: collectionView) { (collectionView, indexPath, video) -> UICollectionViewCell? in
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: reuseIdentifier,
+                for: indexPath
+            ) as! VideoCell
+
+            cell.posterView.title = video.title
+
+            if let provider = try? VideoProvider.videoProvider(for: video.urlString) {
+                provider.thumbnailURL().done {
+                    cell.setImageURL(url: $0)
+                }.cauterize()
+            }
+
+            return cell
         }
-        
-        return cell
     }
-    
+
+    func update(with videos: [Video], animate: Bool = true) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Video>()
+        snapshot.appendSections(Section.allCases)
+        snapshot.appendItems(videos)
+        self.dataSource?.apply(snapshot, animatingDifferences: animate)
+    }
+
+    func remove(_ video: Video, animate: Bool = true) {
+        if let dataSource = dataSource {
+            var snapshot = dataSource.snapshot()
+            snapshot.deleteItems([video])
+            dataSource.apply(snapshot, animatingDifferences: animate)
+        }
+    }
+}
+
+extension ViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetailSegue" {
             let cell = sender as! VideoCell
@@ -132,6 +141,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.video = video
+            detailViewController.canArchive = self.folder == .unread
         }
     }
 }

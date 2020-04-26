@@ -2,8 +2,7 @@
 <document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iRi-cv-cnM">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +15,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="fUF-kK-vMu" kind="relationship" relationship="rootViewController" id="oKL-Bj-Ob1"/>
+                        <segue destination="OGN-xS-pSt" kind="relationship" relationship="rootViewController" id="Tzb-Xb-98r"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H8J-3p-LET" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2065" y="1403"/>
+            <point key="canvasLocation" x="-4833" y="-185"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="bvh-uf-fIA">
@@ -118,12 +117,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tUi-9a-MwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="4324"/>
+            <point key="canvasLocation" x="52" y="3739"/>
         </scene>
-        <!--Preferences-->
+        <!--Settings-->
         <scene sceneID="DIS-Qp-Eak">
             <objects>
-                <tableViewController title="Preferences" id="ggN-ta-n0d" customClass="PreferencesViewController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsViewController" title="Settings" id="ggN-ta-n0d" customClass="PreferencesViewController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="66" id="bak-uX-hdG">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,18 +188,35 @@
                             <outlet property="delegate" destination="ggN-ta-n0d" id="IUc-eR-Rl0"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Settings" id="hRv-oC-w8r"/>
+                    <navigationItem key="navigationItem" id="fhD-yq-A1a"/>
                     <connections>
                         <outlet property="youTubeFormatTypeLabel" destination="fRb-Xd-P8n" id="34B-I8-dhu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pn9-I4-eif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="2838"/>
+            <point key="canvasLocation" x="52" y="1819"/>
+        </scene>
+        <!--Folders Tab Bar Controller-->
+        <scene sceneID="Xr0-8q-lh1">
+            <objects>
+                <tabBarController id="OGN-xS-pSt" customClass="FoldersTabBarController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="PAL-W3-URD"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8cJ-hU-2Gq">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="0.0"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IdO-x5-Kqo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2393" y="-185"/>
         </scene>
         <!--Watch It Later-->
         <scene sceneID="gXf-k7-2Hc">
             <objects>
-                <viewController title="Watch It Later" id="fUF-kK-vMu" customClass="ViewController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" title="Watch It Later" id="fUF-kK-vMu" customClass="ViewController" customModule="WatchItLater" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZCn-0u-Axu"/>
                         <viewControllerLayoutGuide type="bottom" id="Daq-HC-BlC"/>
@@ -209,26 +225,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRm-TV-fxu">
-                                <rect key="frame" x="0.0" y="205" width="1920" height="875"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CKw-V1-WM7">
-                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="875"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vJt-1Y-uJx">
-                                <rect key="frame" x="0.0" y="205" width="1920" height="875"/>
+                                <rect key="frame" x="0.0" y="60" width="1920" height="1020"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p78-KB-VtU">
                                     <size key="itemSize" width="440" height="300"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="64" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="12" minY="64" maxX="12" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="9vx-S2-r2N" customClass="VideoCell" customModule="WatchItLater" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="440" height="300"/>
+                                        <rect key="frame" x="12" y="64" width="440" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="440" height="300"/>
@@ -239,10 +247,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="fUF-kK-vMu" id="kXa-Uf-3sW"/>
-                                    <outlet property="delegate" destination="fUF-kK-vMu" id="XM2-HK-9m8"/>
-                                </connections>
                             </collectionView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eEv-A6-0Sw">
                                 <rect key="frame" x="928" y="508" width="64" height="64"/>
@@ -251,28 +255,16 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="vJt-1Y-uJx" secondAttribute="trailing" id="30v-g6-OPi"/>
-                            <constraint firstAttribute="trailing" secondItem="aRm-TV-fxu" secondAttribute="trailing" id="Bhw-KU-rAI"/>
                             <constraint firstItem="vJt-1Y-uJx" firstAttribute="leading" secondItem="XLK-iv-fXL" secondAttribute="leading" id="IMm-25-yxY"/>
                             <constraint firstItem="vJt-1Y-uJx" firstAttribute="top" secondItem="ZCn-0u-Axu" secondAttribute="bottom" id="RA4-Vy-I2x"/>
                             <constraint firstItem="eEv-A6-0Sw" firstAttribute="centerY" secondItem="XLK-iv-fXL" secondAttribute="centerY" id="aIS-kp-fQj"/>
-                            <constraint firstItem="aRm-TV-fxu" firstAttribute="leading" secondItem="XLK-iv-fXL" secondAttribute="leading" id="gH4-Pe-wWb"/>
-                            <constraint firstAttribute="bottom" secondItem="aRm-TV-fxu" secondAttribute="bottom" id="hHE-gZ-caU"/>
                             <constraint firstAttribute="bottom" secondItem="vJt-1Y-uJx" secondAttribute="bottom" id="hOC-rf-hk5"/>
                             <constraint firstItem="eEv-A6-0Sw" firstAttribute="centerX" secondItem="XLK-iv-fXL" secondAttribute="centerX" id="kqa-zS-dCH"/>
-                            <constraint firstItem="aRm-TV-fxu" firstAttribute="top" secondItem="ZCn-0u-Axu" secondAttribute="bottom" id="tid-m1-7Or"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="Rzy-Yn-VJr"/>
                     <navigationItem key="navigationItem" title="Watch It Later" id="m9P-J2-lwj">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="tAi-aP-d9m">
-                            <connections>
-                                <action selector="didReload:" destination="fUF-kK-vMu" id="eZ6-eP-pC1"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="PreferencesIcon" id="J6g-XT-If9">
-                            <connections>
-                                <segue destination="ggN-ta-n0d" kind="show" id="jzB-0p-umX"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="PreferencesIcon" id="J6g-XT-If9"/>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="eEv-A6-0Sw" id="xBb-LQ-1Cx"/>
@@ -282,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1P-EG-r8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="1403"/>
+            <point key="canvasLocation" x="52" y="-185"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="aFN-6c-kiE">
@@ -446,15 +438,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OYa-eb-eSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="1403"/>
+            <point key="canvasLocation" x="2514" y="-185"/>
         </scene>
         <!--TVVLCPlayer-->
         <scene sceneID="W2c-9C-yKO">
             <objects>
-                <viewControllerPlaceholder storyboardName="TVVLCPlayer" bundleIdentifier="org.cocoapods.TVVLCPlayer" id="4eg-kQ-xAr" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="TVVLCPlayer" bundleIdentifier="org.cocoapods.TVVLCPlayer" id="4eg-kQ-xAr" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Jeg-1T-k31"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZzO-ue-Hmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3896" y="1403"/>
+            <point key="canvasLocation" x="4090" y="-185"/>
         </scene>
         <!--Video Quality-->
         <scene sceneID="KGF-yh-gd3">
@@ -693,7 +687,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ri-C3-BOv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="2838"/>
+            <point key="canvasLocation" x="2514" y="1819"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

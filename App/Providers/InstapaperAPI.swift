@@ -15,7 +15,13 @@ protocol API {
     
     func login(username: String, password: String) -> Promise<Void>
     func storedAuth() -> Promise<Void>
-    func fetch() -> Promise<[Video]>
+    func fetch(_ folder: InstapaperFolder) -> Promise<[Video]>
+}
+
+enum InstapaperFolder: Int {
+    case unread = -1
+    case starred = -2
+    case archive = -3
 }
 
 class InstapaperAPI: NSObject, API, IKEngineDelegate {
@@ -29,13 +35,13 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         let (consumerKey, consumerSecret) = InstapaperAPI.getOAuthConfiguration()
         IKEngine.setOAuthConsumerKey(consumerKey, andConsumerSecret: consumerSecret)
         engine = IKEngine()
-        
+
         super.init()
         
         engine.delegate = self
     }
     
-    fileprivate static func getOAuthConfiguration() -> (String?, String?) {
+    private static func getOAuthConfiguration() -> (String?, String?) {
         var result: (String?, String?) = (nil, nil)
         if let path = Bundle.main.path(forResource: "InstapaperConfiguration", ofType: "plist") {
             if let dictionary = NSDictionary(contentsOfFile: path) as? [String: String] {
@@ -77,11 +83,12 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         return promise
     }
     
-    func fetch() -> Promise<[Video]> {
+    func fetch(_ folder: InstapaperFolder = .unread) -> Promise<[Video]> {
         let (promise, seal) = Promise<[Video]>.pending()
         
         self.fetchSeal = seal
-        engine.bookmarks(in: IKFolder.unread(), limit: 500, existingBookmarks: nil, userInfo: nil)
+        let instapaperFolder = IKFolder(folderID: folder.rawValue)
+        engine.bookmarks(in: instapaperFolder, limit: 500, existingBookmarks: nil, userInfo: nil)
 
         return promise
     }

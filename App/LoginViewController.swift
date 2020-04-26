@@ -10,13 +10,13 @@ import UIKit
 import PromiseKit
 
 class LoginViewController: UIViewController {
+    var instapaperAPI: InstapaperAPI?
+    private var hasStoredCredentials = false
+
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    var instapaperAPI: InstapaperAPI?
-    private var hasStoredCredentials = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
