@@ -20,6 +20,7 @@ class VideoCell: UICollectionViewCell {
         super.init(coder: aDecoder)
         
         posterView.frame = self.bounds
+        setImage(image: UIImage.init(named: "ThumbnailPlaceholder")!)
     }
     
     override func layoutSubviews() {
