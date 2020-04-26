@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var folder: InstapaperFolder = .unread
 
     private var videos: [Video]?
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Video>?
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -22,6 +23,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         activityIndicator.startAnimating()
         observeNotifications()
+
+        dataSource = makeDataSource()
+        collectionView.dataSource = dataSource
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,11 +58,9 @@ class ViewController: UIViewController {
                     return video
                 }
             }
-            
+
             self?.videos = syncedVideos
-            DispatchQueue.main.async {
-                self?.collectionView.reloadData()
-            }
+            self?.update(with: syncedVideos)
         }
     }
     
@@ -71,14 +73,11 @@ class ViewController: UIViewController {
     }
     
     @objc func videoArchived(notification: Notification) {
-        if let video = notification.userInfo?["video"] as? Video, let index = self.videos?.firstIndex(where: { $0 == video }) {
+        if let video = notification.userInfo?["video"] as? Video,
+            let index = self.videos?.firstIndex(where: { $0 == video }) {
             self.videos?.remove(at: index)
-            
-            self.collectionView.performBatchUpdates({
-                self.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
-            }, completion: { completed in
-                Database.shared.deleteVideo(video)
-            })
+            self.remove(video)
+            Database.shared.deleteVideo(video)
         }
     }
     
@@ -95,27 +94,50 @@ class ViewController: UIViewController {
     }
 }
 
-// Collection View
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videos?.count ?? 0
+private extension ViewController {
+    enum Section: CaseIterable {
+        case main
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
-        let video = videos![indexPath.row]
-        cell.posterView.title = video.title
-        cell.setImage(image: UIImage.init(named: "ThumbnailPlaceholder")!)
-        
-        if let provider = try? VideoProvider.videoProvider(for: video.urlString) {
-            provider.thumbnailURL().done {
-                cell.setImageURL(url: $0)
-            }.cauterize()
+
+    func makeDataSource() -> UICollectionViewDiffableDataSource<Section, Video> {
+        let reuseIdentifier = "VideoCell"
+
+        return UICollectionViewDiffableDataSource(collectionView: collectionView) { (collectionView, indexPath, video) -> UICollectionViewCell? in
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: reuseIdentifier,
+                for: indexPath
+            ) as! VideoCell
+
+            cell.posterView.title = video.title
+            cell.setImage(image: UIImage.init(named: "ThumbnailPlaceholder")!)
+
+            if let provider = try? VideoProvider.videoProvider(for: video.urlString) {
+                provider.thumbnailURL().done {
+                    cell.setImageURL(url: $0)
+                }.cauterize()
+            }
+
+            return cell
         }
-        
-        return cell
     }
-    
+
+    func update(with videos: [Video], animate: Bool = true) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Video>()
+        snapshot.appendSections(Section.allCases)
+        snapshot.appendItems(videos)
+        self.dataSource?.apply(snapshot, animatingDifferences: animate)
+    }
+
+    func remove(_ video: Video, animate: Bool = true) {
+        if let dataSource = dataSource {
+            var snapshot = dataSource.snapshot()
+            snapshot.deleteItems([video])
+            dataSource.apply(snapshot, animatingDifferences: animate)
+        }
+    }
+}
+
+extension ViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetailSegue" {
             let cell = sender as! VideoCell
