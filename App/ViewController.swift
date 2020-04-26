@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     
     @discardableResult
     func fetchVideos(_ folder: InstapaperFolder) -> Promise<Void> {
-        return instapaperAPI!.fetch(folder).done { [weak self] videos in
+        return instapaperAPI!.fetch([folder]).done { [weak self] videos in
             let filteredVideos = videos.filter {
                 ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be"))
             }

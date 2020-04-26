@@ -15,7 +15,7 @@ protocol API {
     
     func login(username: String, password: String) -> Promise<Void>
     func storedAuth() -> Promise<Void>
-    func fetch(_ folder: InstapaperFolder) -> Promise<[Video]>
+    func fetch(_ folders: [InstapaperFolder]) -> Promise<[Video]>
 }
 
 enum InstapaperFolder: Int {
@@ -30,6 +30,8 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     
     private var loginSeal: Resolver<Void>?
     private var fetchSeal: Resolver<[Video]>?
+    private var foldersToFetch: [IKFolder]?
+    private var fetchedVideos: [IKBookmark]?
     
     override init() {
         let (consumerKey, consumerSecret) = InstapaperAPI.getOAuthConfiguration()
@@ -83,12 +85,17 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         return promise
     }
     
-    func fetch(_ folder: InstapaperFolder = .unread) -> Promise<[Video]> {
+    func fetch(_ folders: [InstapaperFolder] = [.unread]) -> Promise<[Video]> {
         let (promise, seal) = Promise<[Video]>.pending()
-        
         self.fetchSeal = seal
-        let instapaperFolder = IKFolder(folderID: folder.rawValue)
-        engine.bookmarks(in: instapaperFolder, limit: 500, existingBookmarks: nil, userInfo: nil)
+        self.foldersToFetch = []
+        self.fetchedVideos = []
+
+        folders.forEach { folder in
+            let instapaperFolder = IKFolder(folderID: folder.rawValue)!
+            engine.bookmarks(in: instapaperFolder, limit: 500, existingBookmarks: nil, userInfo: nil)
+            self.foldersToFetch?.append(instapaperFolder)
+        }
 
         return promise
     }
@@ -114,11 +121,28 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     
     func engine(_ engine: IKEngine!, connection: IKURLConnection!, didReceiveBookmarks bookmarks: [Any]!, of user: IKUser!, for folder: IKFolder!) {
         if let bookmarks = bookmarks as! [IKBookmark]? {
-            let videos = bookmarks.map { (bookmark) -> Video in
-                return Video(bookmark)
+            guard var fetchedVideos = self.fetchedVideos,
+                var foldersToFetch = self.foldersToFetch else {
+                    self.fetchSeal?.reject(VideoError.UnknownError)
+                    return
             }
-            fetchSeal?.fulfill(videos)
-            fetchSeal = nil
+
+            fetchedVideos.append(contentsOf: bookmarks)
+            foldersToFetch = foldersToFetch.filter { $0.folderID != folder.folderID }
+
+            if foldersToFetch.isEmpty {
+                let videos = bookmarks.map { (bookmark) -> Video in
+                    return Video(bookmark)
+                }
+                self.fetchSeal?.fulfill(videos)
+
+                self.fetchSeal = nil
+                self.fetchedVideos = nil
+                self.foldersToFetch = nil
+            } else {
+                self.fetchedVideos = fetchedVideos
+                self.foldersToFetch = foldersToFetch
+            }
         }
     }
     

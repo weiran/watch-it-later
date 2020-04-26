@@ -10,4 +10,5 @@ enum VideoError: Error {
     case InvalidURL
     case NoStreamURLFound
     case NoThumbnailURLFound
+    case UnknownError
 }
