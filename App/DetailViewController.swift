@@ -16,13 +16,14 @@ import TVVLCPlayer
 import SwiftyUserDefaults
 
 class DetailViewController: UIViewController {
-    var video: Video?
-    var videoProvider: VideoProviderProtocol?
     var instapaperAPI: InstapaperAPI?
-    
-    var videoStream: VideoStream?
-    var duration: CMTime?
-    var playerViewController: VLCPlayerViewController?
+    var video: Video?
+    var canArchive = true
+
+    private var videoProvider: VideoProviderProtocol?
+    private var videoStream: VideoStream?
+    private var duration: CMTime?
+    private var playerViewController: VLCPlayerViewController?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var domainLabel: UILabel!
@@ -78,13 +79,15 @@ class DetailViewController: UIViewController {
         playButton.frame = CGRect(x: 0, y: 0, width: 90, height: 90)
         playButton.addTarget(self, action: #selector(didPlay(_:)), for: .primaryActionTriggered)
         buttonsStackView.insertArrangedSubview(playButton, at: 0)
-        
-        let archiveButton = TVCaptionButtonView()
-        archiveButton.contentImage = UIImage(named: "ArchiveIcon")
-        archiveButton.title = "Archive"
-        archiveButton.frame = CGRect(x: 0, y: 0, width: 90, height: 90)
-        archiveButton.addTarget(self, action: #selector(didArchive(_:)), for: .primaryActionTriggered)
-        buttonsStackView.insertArrangedSubview(archiveButton, at: 1)
+
+        if canArchive {
+            let archiveButton = TVCaptionButtonView()
+            archiveButton.contentImage = UIImage(named: "ArchiveIcon")
+            archiveButton.title = "Archive"
+            archiveButton.frame = CGRect(x: 0, y: 0, width: 90, height: 90)
+            archiveButton.addTarget(self, action: #selector(didArchive(_:)), for: .primaryActionTriggered)
+            buttonsStackView.insertArrangedSubview(archiveButton, at: 1)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

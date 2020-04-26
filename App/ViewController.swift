@@ -11,20 +11,23 @@ import PromiseKit
 
 class ViewController: UIViewController {
     var instapaperAPI: InstapaperAPI?
-    fileprivate var videos: [Video]?
-    
-    var isChildViewController: Bool = false
-    var hideVideo: Video?
+    var folder: InstapaperFolder = .unread
+    private var videos: [Video]?
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         activityIndicator.startAnimating()
+        observeNotifications()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         instapaperAPI?.storedAuth().then {
-            return self.fetchVideos()
+            return self.fetchVideos(self.folder)
         }.done { [weak self] in
             self?.setNeedsFocusUpdate()
             self?.updateFocusIfNeeded()
@@ -33,25 +36,13 @@ class ViewController: UIViewController {
         }.catch { [weak self] _ in
             self?.performSegue(withIdentifier: "ShowLoginSegue", sender: self)
         }
-        
-        observeNotifications()
-        
-        if isChildViewController {
-            let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-            layout.scrollDirection = .horizontal
-        }
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     @discardableResult
-    func fetchVideos() -> Promise<Void> {
-        return instapaperAPI!.fetch().done { [weak self] videos in
+    func fetchVideos(_ folder: InstapaperFolder) -> Promise<Void> {
+        return instapaperAPI!.fetch(folder).done { [weak self] videos in
             let filteredVideos = videos.filter {
-                ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be")) && $0 != self?.hideVideo
+                ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be"))
             }
             
             let syncedVideos = filteredVideos.map { video -> (Video) in
@@ -71,7 +62,7 @@ class ViewController: UIViewController {
     }
     
     func observeNotifications() {
-        if self.parent is UINavigationController { // only when root view controller, not embedded
+        if folder != .archive {
             NotificationCenter.default.removeObserver(self)
             NotificationCenter.default.addObserver(self, selector: #selector(videoArchived), name: Notification.Name("VideoArchived"), object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(authenticationChanged), name: Notification.Name("AuthenticationChanged"), object: nil)
@@ -91,11 +82,11 @@ class ViewController: UIViewController {
     }
     
     @objc func authenticationChanged() {
-        fetchVideos()
+        fetchVideos(self.folder)
     }
     
     @IBAction func didReload(_ sender: Any) {
-        fetchVideos()
+        fetchVideos(self.folder)
     }
     
     override weak var preferredFocusedView: UIView? {
@@ -132,6 +123,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.video = video
+            detailViewController.canArchive = self.folder == .unread
         }
     }
 }

@@ -67,7 +67,7 @@ class YouTubeProvider: VideoProviderProtocol {
         return promise
     }
     
-    fileprivate func parseYoutubeIdentifier(_ url: String) throws -> String {
+    private func parseYoutubeIdentifier(_ url: String) throws -> String {
         do {
             let identifierRegex = try NSRegularExpression(pattern: "(?<=v(=|/))([-a-zA-Z0-9_]+)|(?<=youtu.be/)([-a-zA-Z0-9_]+)")
             let results = identifierRegex.matches(in: url, range: NSRange(location: 0, length: url.count))
@@ -82,7 +82,7 @@ class YouTubeProvider: VideoProviderProtocol {
         }
     }
     
-    fileprivate static func getHighestQualityFormatType(streams: Dictionary<Int, URL>, highestQuality: VideoFormatType = .video2160p60) -> VideoFormatType? {
+    private static func getHighestQualityFormatType(streams: Dictionary<Int, URL>, highestQuality: VideoFormatType = .video2160p60) -> VideoFormatType? {
         let qualityOrder = [VideoFormatType.video2160p60,
                             VideoFormatType.video2160p,
                             VideoFormatType.video1440p60,
@@ -108,7 +108,7 @@ class YouTubeProvider: VideoProviderProtocol {
         return nil
     }
     
-    fileprivate static func getVideoStream(streams: Dictionary<Int, URL>, for quality: VideoFormatType) -> VideoStream? {
+    private static func getVideoStream(streams: Dictionary<Int, URL>, for quality: VideoFormatType) -> VideoStream? {
         let (videoTypeId, audioTypeId) = quality.typeIdentifiers()
         guard let videoURL = streams[videoTypeId] else { return nil }
         var audioURL: URL?
