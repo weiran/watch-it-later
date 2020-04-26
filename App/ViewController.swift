@@ -85,10 +85,6 @@ class ViewController: UIViewController {
         fetchVideos(self.folder)
     }
     
-    @IBAction func didReload(_ sender: Any) {
-        fetchVideos(self.folder)
-    }
-    
     override weak var preferredFocusedView: UIView? {
         return collectionView
     }

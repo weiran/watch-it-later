@@ -264,11 +264,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="Rzy-Yn-VJr"/>
                     <navigationItem key="navigationItem" title="Watch It Later" id="m9P-J2-lwj">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="tAi-aP-d9m">
-                            <connections>
-                                <action selector="didReload:" destination="fUF-kK-vMu" id="eZ6-eP-pC1"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="PreferencesIcon" id="J6g-XT-If9"/>
                     </navigationItem>
                     <connections>
