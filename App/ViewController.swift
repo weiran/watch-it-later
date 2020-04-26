@@ -12,6 +12,7 @@ import PromiseKit
 class ViewController: UIViewController {
     var instapaperAPI: InstapaperAPI?
     var folder: InstapaperFolder = .unread
+
     private var videos: [Video]?
     
     @IBOutlet weak var collectionView: UICollectionView!
