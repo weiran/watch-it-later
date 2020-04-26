@@ -30,26 +30,29 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        performFetch()
+    }
 
+    func performFetch() {
         instapaperAPI?.storedAuth().then {
-            return self.fetchVideos(self.folder)
+            return self.fetchFolders()
+        }.done { [weak self] folders in
+            return self?.fetchVideos(folders)
         }.done { [weak self] in
             self?.setNeedsFocusUpdate()
             self?.updateFocusIfNeeded()
-        }.ensure { [weak self] in
-            self?.activityIndicator.stopAnimating()
         }.catch { [weak self] _ in
             self?.performSegue(withIdentifier: "ShowLoginSegue", sender: self)
         }
     }
     
     @discardableResult
-    func fetchVideos(_ folder: InstapaperFolder) -> Promise<Void> {
-        return instapaperAPI!.fetch([folder]).done { [weak self] videos in
+    func fetchVideos(_ folders: [Int]) -> Promise<Void> {
+        return instapaperAPI!.fetch(folders).done { [weak self] videos in
             let filteredVideos = videos.filter {
                 ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be"))
             }
-            
+
             let syncedVideos = filteredVideos.map { video -> (Video) in
                 if let existingVideo = Database.shared.getVideo(id: video.id) {
                     return existingVideo
@@ -61,7 +64,18 @@ class ViewController: UIViewController {
 
             self?.videos = syncedVideos
             self?.update(with: syncedVideos)
+            self?.activityIndicator.stopAnimating()
         }
+    }
+
+    func fetchFolders() -> Promise<[Int]> {
+        if folder != .other {
+            return Promise<[Int]> { seal in
+                seal.fulfill([folder.rawValue])
+            }
+        }
+
+        return instapaperAPI!.fetchFolders()
     }
     
     func observeNotifications() {
@@ -82,7 +96,7 @@ class ViewController: UIViewController {
     }
     
     @objc func authenticationChanged() {
-        fetchVideos(self.folder)
+        performFetch()
     }
     
     override weak var preferredFocusedView: UIView? {
