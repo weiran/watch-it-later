@@ -143,7 +143,7 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
                 var videos = fetchedVideos.map { (bookmark) -> Video in
                     return Video(bookmark)
                 }
-                videos = videos.sorted { $0.date < $1.date }
+                videos = videos.sorted { $0.date > $1.date }
                 self.fetchSeal?.fulfill(videos)
 
                 self.fetchSeal = nil
