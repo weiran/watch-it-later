@@ -48,14 +48,10 @@ class DetailViewController: UIViewController {
             
             if let videoProvider = try? VideoProvider.videoProvider(for: video.urlString) {
                 self.videoProvider = videoProvider
-                videoProvider.thumbnailURL().done { [weak self] url in
-                    self?.thumbnailImageView.imageURL = url
-                }.cauterize()
-                videoProvider.duration().done { [weak self] (duration: Double) -> Void in
-                    self?.durationLabel.text = self?.formatTimeInterval(duration: duration)
-                    self?.duration = CMTime(seconds: duration, preferredTimescale: CMTimeScale(duration * 60))
-                }.cauterize()
                 videoProvider.videoStream(preferredFormatType: Defaults[\.defaultVideoQualityKey]).done { [weak self] (videoStream) in
+                    self?.thumbnailImageView.imageURL = videoStream.thumbnailURL
+                    self?.durationLabel.text = self?.formatTimeInterval(duration: videoStream.duration)
+                    self?.duration = CMTime(seconds: videoStream.duration, preferredTimescale: CMTimeScale(videoStream.duration * 60))
                     if let format = videoStream.videoFormatType {
                         self?.qualityLabel.text = format.description()
                     }

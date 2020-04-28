@@ -24,46 +24,15 @@ class YouTubeProvider: VideoProviderProtocol {
         let (promise, seal) = Promise<VideoStream>.pending()
 
         XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
-            if let streamURLs = video?.streamURLs as? Dictionary<Int, URL>,
+            if let video = video,
+                let streamURLs = video.streamURLs as? Dictionary<Int, URL>,
                 let highestQualityStream = YouTubeProvider.getHighestQualityFormatType(streams: streamURLs, highestQuality: preferredFormatType ?? .video1080p60),
-                let videoStream = YouTubeProvider.getVideoStream(streams: streamURLs, for: highestQualityStream) {
+                let videoStream = YouTubeProvider.getVideoStream(video: video, streams: streamURLs, for: highestQualityStream) {
                 seal.fulfill(videoStream)
             } else if let error = error {
                 seal.reject(error)
             } else {
                 seal.reject(VideoError.NoStreamURLFound)
-            }
-        }
-        
-        return promise
-    }
-    
-    func thumbnailURL() -> Promise<URL> {
-        let (promise, seal) = Promise<URL>.pending()
-
-        XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
-            if let video = video, let url = video.thumbnailURLs?.last {
-                seal.fulfill(url)
-            } else if let error = error {
-                seal.reject(error)
-            } else {
-                seal.reject(VideoError.InvalidURL)
-            }
-        }
-        
-        return promise
-    }
-    
-    func duration() -> Promise<Double> {
-        let (promise, seal) = Promise<Double>.pending()
-        
-        XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
-            if let video = video {
-                seal.fulfill(Double(video.duration))
-            } else if let error = error {
-                seal.reject(error)
-            } else {
-                seal.reject(VideoError.InvalidURL)
             }
         }
         
@@ -111,7 +80,7 @@ class YouTubeProvider: VideoProviderProtocol {
         return nil
     }
     
-    private static func getVideoStream(streams: Dictionary<Int, URL>, for quality: VideoFormatType) -> VideoStream? {
+    private static func getVideoStream(video: XCDYouTubeVideo, streams: Dictionary<Int, URL>, for quality: VideoFormatType) -> VideoStream? {
         let (videoTypeId, audioTypeId) = quality.typeIdentifiers()
         guard let videoURL = streams[videoTypeId] else { return nil }
         var audioURL: URL?
@@ -120,6 +89,12 @@ class YouTubeProvider: VideoProviderProtocol {
             audioURL = unoptionalAudioURL
         }
         
-        return VideoStream(videoURL: videoURL, audioURL: audioURL, videoFormatType: quality)
+        return VideoStream(
+            videoURL: videoURL,
+            audioURL: audioURL,
+            duration: Double(video.duration),
+            videoFormatType: quality,
+            thumbnailURL: video.thumbnailURLs?.last
+        )
     }
 }

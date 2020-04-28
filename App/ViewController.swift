@@ -118,11 +118,14 @@ private extension ViewController {
                 for: indexPath
             ) as! VideoCell
 
+            cell.setImage(image: UIImage(named: "ThumbnailPlaceholder")!)
             cell.posterView.title = video.title
 
             if let provider = try? VideoProvider.videoProvider(for: video.urlString) {
-                provider.thumbnailURL().done {
-                    cell.setImageURL(url: $0)
+                provider.videoStream().done {
+                    if let thumbnailURL = $0.thumbnailURL {
+                        cell.setImageURL(url: thumbnailURL)
+                    }
                 }.cauterize()
             }
 
