@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 import TVUIKit
 
-import AsyncImageView
+import Kingfisher
 import PromiseKit
 import TVVLCPlayer
 import SwiftyUserDefaults
@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var qualityLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var thumbnailImageView: AsyncImageView!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var archiveButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -49,7 +49,7 @@ class DetailViewController: UIViewController {
             if let videoProvider = try? VideoProvider.videoProvider(for: video.urlString) {
                 self.videoProvider = videoProvider
                 videoProvider.videoStream(preferredFormatType: Defaults[\.defaultVideoQualityKey]).done { [weak self] (videoStream) in
-                    self?.thumbnailImageView.imageURL = videoStream.thumbnailURL
+                    self?.thumbnailImageView.kf.setImage(with: videoStream.thumbnailURL)
                     self?.durationLabel.text = self?.formatTimeInterval(duration: videoStream.duration)
                     self?.duration = CMTime(seconds: videoStream.duration, preferredTimescale: CMTimeScale(videoStream.duration * 60))
                     if let format = videoStream.videoFormatType {
