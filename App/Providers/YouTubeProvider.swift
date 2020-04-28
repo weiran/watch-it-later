@@ -40,12 +40,15 @@ class YouTubeProvider: VideoProviderProtocol {
     
     func thumbnailURL() -> Promise<URL> {
         let (promise, seal) = Promise<URL>.pending()
-        
-        let urlString = "https://i.ytimg.com/vi/\(identifier)/maxresdefault.jpg"
-        if let url = URL(string: urlString) {
-            seal.fulfill(url)
-        } else {
-            seal.reject(VideoError.NoThumbnailURLFound)
+
+        XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
+            if let video = video, let url = video.thumbnailURLs?.last {
+                seal.fulfill(url)
+            } else if let error = error {
+                seal.reject(error)
+            } else {
+                seal.reject(VideoError.InvalidURL)
+            }
         }
         
         return promise
