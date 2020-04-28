@@ -48,12 +48,12 @@ class ViewController: UIViewController {
     
     @discardableResult
     func fetchVideos(_ folders: [Int]) -> Promise<Void> {
-        return instapaperAPI!.fetch(folders).done { [weak self] videos in
-            let filteredVideos = videos.filter {
+        return instapaperAPI!.fetch(folders).done { [weak self] bookmarks in
+            let videos = bookmarks.filter {
                 ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be"))
             }
 
-            let syncedVideos = filteredVideos.map { video -> (Video) in
+            let syncedVideos = videos.map { video -> (Video) in
                 if let existingVideo = Database.shared.getVideo(id: video.id) {
                     return existingVideo
                 } else {
