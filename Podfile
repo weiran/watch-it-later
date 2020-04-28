@@ -20,8 +20,3 @@ target 'WatchItLater' do
   pod 'Swinject'
   pod 'SwinjectStoryboard'
 end
-
-# workaround for https://github.com/CocoaPods/CocoaPods/issues/3289
-pre_install do |installer|
-  Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
-end
