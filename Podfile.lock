@@ -1,5 +1,4 @@
 PODS:
-  - AsyncImageView (1.6)
   - Kingfisher (5.13.4):
     - Kingfisher/Core (= 5.13.4)
   - Kingfisher/Core (5.13.4)
@@ -21,7 +20,6 @@ PODS:
   - YTVimeoExtractor (1.2.0)
 
 DEPENDENCIES:
-  - AsyncImageView
   - Kingfisher
   - Locksmith
   - PromiseKit/CorePromise
@@ -36,7 +34,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - AsyncImageView
     - Kingfisher
     - Locksmith
     - PromiseKit
@@ -65,7 +62,6 @@ CHECKOUT OPTIONS:
     :git: https://github.com/lilfaf/YTVimeoExtractor
 
 SPEC CHECKSUMS:
-  AsyncImageView: 416e99402e5b1f20571de70ad619ced90f56a7d9
   Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
@@ -79,6 +75,6 @@ SPEC CHECKSUMS:
   XCDYouTubeKit: 4902fca1721b593112b6607c509a089e911294f3
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 8e812d3bcc046d7621a3baea24cd2b306ba36597
+PODFILE CHECKSUM: 79808c8b83d6799e2133a45063096ad945d0a049
 
 COCOAPODS: 1.9.1
