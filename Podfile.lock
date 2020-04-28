@@ -1,5 +1,8 @@
 PODS:
   - AsyncImageView (1.6)
+  - Kingfisher (5.13.4):
+    - Kingfisher/Core (= 5.13.4)
+  - Kingfisher/Core (5.13.4)
   - Locksmith (4.0.0)
   - PromiseKit/CorePromise (6.13.1)
   - Realm (4.4.1):
@@ -19,6 +22,7 @@ PODS:
 
 DEPENDENCIES:
   - AsyncImageView
+  - Kingfisher
   - Locksmith
   - PromiseKit/CorePromise
   - RealmSwift
@@ -33,6 +37,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AsyncImageView
+    - Kingfisher
     - Locksmith
     - PromiseKit
     - Realm
@@ -61,6 +66,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AsyncImageView: 416e99402e5b1f20571de70ad619ced90f56a7d9
+  Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
@@ -73,6 +79,6 @@ SPEC CHECKSUMS:
   XCDYouTubeKit: 4902fca1721b593112b6607c509a089e911294f3
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: dc7684580e6646698be401a4489bbf5761023d6e
+PODFILE CHECKSUM: 8e812d3bcc046d7621a3baea24cd2b306ba36597
 
 COCOAPODS: 1.9.1
