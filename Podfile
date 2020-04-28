@@ -1,6 +1,8 @@
 platform :tvos, '12.0'
 use_frameworks!
 inhibit_all_warnings!
+# workaround for https://github.com/CocoaPods/CocoaPods/issues/8122
+install! 'cocoapods', :disable_input_output_paths => true
 
 target 'WatchItLater' do
 
