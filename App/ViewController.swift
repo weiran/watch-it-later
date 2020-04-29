@@ -81,17 +81,7 @@ class ViewController: UIViewController {
     func observeNotifications() {
         if folder != .archive {
             NotificationCenter.default.removeObserver(self)
-            NotificationCenter.default.addObserver(self, selector: #selector(videoArchived), name: Notification.Name("VideoArchived"), object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(authenticationChanged), name: Notification.Name("AuthenticationChanged"), object: nil)
-        }
-    }
-    
-    @objc func videoArchived(notification: Notification) {
-        if let video = notification.userInfo?["video"] as? Video,
-            let index = self.videos?.firstIndex(where: { $0 == video }) {
-            self.videos?.remove(at: index)
-            self.remove(video)
-            Database.shared.deleteVideo(video)
         }
     }
     
