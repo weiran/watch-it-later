@@ -120,10 +120,17 @@ class DetailViewController: UIViewController {
     
     @IBAction func didArchive(_ sender: Any) {
         if let video = video, let instapaperAPI = instapaperAPI {
-            instapaperAPI.archive(id: video.id)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "VideoArchived"), object: sender, userInfo: ["video": video])
+            instapaperAPI.archive(id: video.id).done { [weak self] in
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "VideoArchived"), object: sender, userInfo: ["video": video])
+                self?.dismiss(animated: true, completion: nil)
+            }.catch { [weak self] error in
+                guard let self = self else { return }
+                let alert = UIAlertController(
+                    title: "Error archiving", message: "There was a problem archiving this video.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                self.present(alert, animated: true)
+            }
         }
-        dismiss(animated: true, completion: nil)
     }
     
     private func showVideoPlayer(startFrom: Int? = nil) {
