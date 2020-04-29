@@ -32,6 +32,8 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     private var loginSeal: Resolver<Void>?
     private var fetchFoldersSeal: Resolver<[Int]>?
     private var fetchSeal: Resolver<[Video]>?
+    private var archiveSeal: Resolver<Void>?
+
     private var foldersToFetch: [IKFolder]?
     private var fetchedVideos: [IKBookmark]?
     
@@ -109,9 +111,12 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         return promise
     }
     
-    func archive(id: Int) {
+    func archive(id: Int) -> Promise<Void> {
+        let (promise, seal) = Promise<Void>.pending()
+        self.archiveSeal = seal
         let bookmark = IKBookmark(bookmarkID: id)
         engine.archiveBookmark(bookmark, userInfo: nil)
+        return promise
     }
     
     func engine(_ engine: IKEngine!, connection: IKURLConnection!, didReceiveAuthToken token: String!, andTokenSecret secret: String!) {
@@ -178,8 +183,17 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         case .foldersList:
             fetchFoldersSeal?.reject(error)
             fetchFoldersSeal = nil
+
+        case .bookmarksArchive:
+            archiveSeal?.reject(error)
+            archiveSeal = nil
+
         default:
             return
         }
+    }
+
+    func engine(_ engine: IKEngine!, connection: IKURLConnection!, didArchiveBookmark bookmark: IKBookmark!) {
+        archiveSeal?.fulfill(())
     }
 }
