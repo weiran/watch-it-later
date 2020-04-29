@@ -12,7 +12,7 @@ PODS:
   - SwiftyUserDefaults (5.0.0)
   - Swinject (2.7.1)
   - SwinjectStoryboard (2.2.0):
-    - Swinject (~> 2.6)
+    - Swinject (~> 2.7.1)
   - TVVLCKit (3.3.10)
   - TVVLCPlayer (1.1.0):
     - TVVLCKit
@@ -26,7 +26,7 @@ DEPENDENCIES:
   - RealmSwift
   - SwiftyUserDefaults
   - Swinject
-  - SwinjectStoryboard
+  - SwinjectStoryboard (from `https://github.com/Swinject/SwinjectStoryboard`, commit `0ca45c83a8aa398c153d8a036c95abb4343cfa0c`, branch `master`)
   - TVVLCKit
   - TVVLCPlayer (from `https://github.com/weiran/TVVLCPlayer`, branch `kodlian_master`)
   - XCDYouTubeKit
@@ -41,11 +41,14 @@ SPEC REPOS:
     - RealmSwift
     - SwiftyUserDefaults
     - Swinject
-    - SwinjectStoryboard
     - TVVLCKit
     - XCDYouTubeKit
 
 EXTERNAL SOURCES:
+  SwinjectStoryboard:
+    :branch: master
+    :commit: 0ca45c83a8aa398c153d8a036c95abb4343cfa0c
+    :git: https://github.com/Swinject/SwinjectStoryboard
   TVVLCPlayer:
     :branch: kodlian_master
     :git: https://github.com/weiran/TVVLCPlayer
@@ -54,6 +57,9 @@ EXTERNAL SOURCES:
     :git: https://github.com/lilfaf/YTVimeoExtractor
 
 CHECKOUT OPTIONS:
+  SwinjectStoryboard:
+    :commit: 0ca45c83a8aa398c153d8a036c95abb4343cfa0c
+    :git: https://github.com/Swinject/SwinjectStoryboard
   TVVLCPlayer:
     :commit: 79564c0a0e0d43bca294b415bdcfb96825a55c72
     :git: https://github.com/weiran/TVVLCPlayer
@@ -69,12 +75,12 @@ SPEC CHECKSUMS:
   RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
   SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
-  SwinjectStoryboard: 32512ef16c2b0ff5b8f823b23539c4a50f6d3383
+  SwinjectStoryboard: f0d5b1c16459949d6ff1cbb6610107946b18e1f8
   TVVLCKit: f638dcaf37a6ba4027161cbc27be86f0cb02d2f7
   TVVLCPlayer: 357ae9ec2c52ff6cdd41588fe3e58525640a41eb
   XCDYouTubeKit: 4902fca1721b593112b6607c509a089e911294f3
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 871f315a4343fbe8ae7b9747032696a65c8e8c38
+PODFILE CHECKSUM: 292b9cd9ac2e0d4bfed463267829e5c3a46a5bef
 
 COCOAPODS: 1.9.1
