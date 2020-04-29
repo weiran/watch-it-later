@@ -102,7 +102,6 @@ class DetailViewController: UIViewController {
             guard let self = self, let video = self.video else {
                 return
             }
-            
             self.videoStream = videoStream
             
             if let alertController = self.playFromPositionAlertController(video) {
