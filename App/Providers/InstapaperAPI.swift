@@ -169,6 +169,11 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         fetchFoldersSeal?.fulfill(folderIDs)
         fetchFoldersSeal = nil
     }
+
+    func engine(_ engine: IKEngine!, connection: IKURLConnection!, didArchiveBookmark bookmark: IKBookmark!) {
+        archiveSeal?.fulfill(())
+        archiveSeal = nil
+    }
     
     func engine(_ engine: IKEngine!, didFail connection: IKURLConnection!, error: Error!) {
         switch connection.type {
@@ -191,9 +196,5 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         default:
             return
         }
-    }
-
-    func engine(_ engine: IKEngine!, connection: IKURLConnection!, didArchiveBookmark bookmark: IKBookmark!) {
-        archiveSeal?.fulfill(())
     }
 }
