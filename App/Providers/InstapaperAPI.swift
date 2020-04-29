@@ -72,7 +72,8 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
             return engine.oAuthToken != nil && engine.oAuthTokenSecret != nil
         }
     }
-    
+
+    // this must be called first to set auth tokens
     @discardableResult
     func storedAuth() -> Promise<Void> {
         let (promise, seal) = Promise<Void>.pending()
