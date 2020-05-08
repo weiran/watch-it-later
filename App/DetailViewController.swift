@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 import TVUIKit
 
-import AsyncImageView
+import Kingfisher
 import PromiseKit
 import TVVLCPlayer
 import SwiftyUserDefaults
@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var qualityLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var thumbnailImageView: AsyncImageView!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var archiveButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -38,6 +38,8 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        instapaperAPI?.storedAuth().cauterize()
         
         durationLabel.text = " "
         qualityLabel.text = " "
@@ -48,14 +50,10 @@ class DetailViewController: UIViewController {
             
             if let videoProvider = try? VideoProvider.videoProvider(for: video.urlString) {
                 self.videoProvider = videoProvider
-                videoProvider.thumbnailURL().done { [weak self] url in
-                    self?.thumbnailImageView.imageURL = url
-                }.cauterize()
-                videoProvider.duration().done { [weak self] (duration: Double) -> Void in
-                    self?.durationLabel.text = self?.formatTimeInterval(duration: duration)
-                    self?.duration = CMTime(seconds: duration, preferredTimescale: CMTimeScale(duration * 60))
-                }.cauterize()
                 videoProvider.videoStream(preferredFormatType: Defaults[\.defaultVideoQualityKey]).done { [weak self] (videoStream) in
+                    self?.thumbnailImageView.kf.setImage(with: videoStream.thumbnailURL)
+                    self?.durationLabel.text = self?.formatTimeInterval(duration: videoStream.duration)
+                    self?.duration = CMTime(seconds: videoStream.duration, preferredTimescale: CMTimeScale(videoStream.duration * 60))
                     if let format = videoStream.videoFormatType {
                         self?.qualityLabel.text = format.description()
                     }
@@ -106,7 +104,6 @@ class DetailViewController: UIViewController {
             guard let self = self, let video = self.video else {
                 return
             }
-            
             self.videoStream = videoStream
             
             if let alertController = self.playFromPositionAlertController(video) {
@@ -124,10 +121,15 @@ class DetailViewController: UIViewController {
     
     @IBAction func didArchive(_ sender: Any) {
         if let video = video, let instapaperAPI = instapaperAPI {
-            instapaperAPI.archive(id: video.id)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "VideoArchived"), object: sender, userInfo: ["video": video])
+            instapaperAPI.archive(id: video.id).done { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+            }.catch { [weak self] error in
+                let alert = UIAlertController(
+                    title: "Error archiving", message: "There was a problem archiving this video.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                self?.present(alert, animated: true)
+            }
         }
-        dismiss(animated: true, completion: nil)
     }
     
     private func showVideoPlayer(startFrom: Int? = nil) {

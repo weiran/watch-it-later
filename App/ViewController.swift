@@ -30,27 +30,30 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        performFetch()
+    }
 
+    func performFetch() {
         instapaperAPI?.storedAuth().then {
-            return self.fetchVideos(self.folder)
+            return self.fetchFolders()
+        }.done { [weak self] folders in
+            return self?.fetchVideos(folders)
         }.done { [weak self] in
             self?.setNeedsFocusUpdate()
             self?.updateFocusIfNeeded()
-        }.ensure { [weak self] in
-            self?.activityIndicator.stopAnimating()
         }.catch { [weak self] _ in
             self?.performSegue(withIdentifier: "ShowLoginSegue", sender: self)
         }
     }
     
     @discardableResult
-    func fetchVideos(_ folder: InstapaperFolder) -> Promise<Void> {
-        return instapaperAPI!.fetch(folder).done { [weak self] videos in
-            let filteredVideos = videos.filter {
+    func fetchVideos(_ folders: [Int]) -> Promise<Void> {
+        return instapaperAPI!.fetch(folders).done { [weak self] bookmarks in
+            let videos = bookmarks.filter {
                 ($0.urlString.contains("vimeo.com") || $0.urlString.contains("youtube.com") || $0.urlString.contains("youtu.be"))
             }
-            
-            let syncedVideos = filteredVideos.map { video -> (Video) in
+
+            let syncedVideos = videos.map { video -> (Video) in
                 if let existingVideo = Database.shared.getVideo(id: video.id) {
                     return existingVideo
                 } else {
@@ -61,28 +64,29 @@ class ViewController: UIViewController {
 
             self?.videos = syncedVideos
             self?.update(with: syncedVideos)
+            self?.activityIndicator.stopAnimating()
         }
+    }
+
+    func fetchFolders() -> Promise<[Int]> {
+        if folder != .other {
+            return Promise<[Int]> { seal in
+                seal.fulfill([folder.rawValue])
+            }
+        }
+
+        return instapaperAPI!.fetchFolders()
     }
     
     func observeNotifications() {
         if folder != .archive {
             NotificationCenter.default.removeObserver(self)
-            NotificationCenter.default.addObserver(self, selector: #selector(videoArchived), name: Notification.Name("VideoArchived"), object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(authenticationChanged), name: Notification.Name("AuthenticationChanged"), object: nil)
         }
     }
     
-    @objc func videoArchived(notification: Notification) {
-        if let video = notification.userInfo?["video"] as? Video,
-            let index = self.videos?.firstIndex(where: { $0 == video }) {
-            self.videos?.remove(at: index)
-            self.remove(video)
-            Database.shared.deleteVideo(video)
-        }
-    }
-    
     @objc func authenticationChanged() {
-        fetchVideos(self.folder)
+        performFetch()
     }
     
     override weak var preferredFocusedView: UIView? {
@@ -104,11 +108,14 @@ private extension ViewController {
                 for: indexPath
             ) as! VideoCell
 
+            cell.setImage(image: UIImage(named: "ThumbnailPlaceholder")!)
             cell.posterView.title = video.title
 
             if let provider = try? VideoProvider.videoProvider(for: video.urlString) {
-                provider.thumbnailURL().done {
-                    cell.setImageURL(url: $0)
+                provider.videoStream().done {
+                    if let thumbnailURL = $0.thumbnailURL {
+                        cell.setImageURL(url: thumbnailURL)
+                    }
                 }.cauterize()
             }
 

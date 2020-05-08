@@ -16,9 +16,10 @@ class FoldersTabBarController: UITabBarController {
         let unreadViewController = viewController(for: .unread, with: storyboard)
         let starredViewController = viewController(for: .starred, with: storyboard)
         let archiveViewController = viewController(for: .archive, with: storyboard)
+        let otherViewController = viewController(for: .other, with: storyboard)
         let settingsViewController = storyboard.instantiateViewController(identifier: "SettingsViewController")
 
-        self.viewControllers = [unreadViewController, starredViewController, archiveViewController, settingsViewController]
+        self.viewControllers = [unreadViewController, starredViewController, archiveViewController, otherViewController, settingsViewController]
 
         guard let tabBarItems = self.tabBar.items else { return }
         for (index, element) in tabBarItems.enumerated() {
@@ -26,6 +27,7 @@ class FoldersTabBarController: UITabBarController {
             case 0: element.title = "New"
             case 1: element.title = "Starred"
             case 2: element.title = "Archive"
+            case 3: element.title = "Other"
             default: break
             }
         }

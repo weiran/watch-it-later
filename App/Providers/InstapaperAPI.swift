@@ -15,13 +15,14 @@ protocol API {
     
     func login(username: String, password: String) -> Promise<Void>
     func storedAuth() -> Promise<Void>
-    func fetch(_ folder: InstapaperFolder) -> Promise<[Video]>
+    func fetch(_ folders: [Int]) -> Promise<[Video]>
 }
 
 enum InstapaperFolder: Int {
     case unread = -1
     case starred = -2
     case archive = -3
+    case other = -999
 }
 
 class InstapaperAPI: NSObject, API, IKEngineDelegate {
@@ -29,7 +30,12 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     private var engine: IKEngine
     
     private var loginSeal: Resolver<Void>?
+    private var fetchFoldersSeal: Resolver<[Int]>?
     private var fetchSeal: Resolver<[Video]>?
+    private var archiveSeal: Resolver<Void>?
+
+    private var foldersToFetch: [IKFolder]?
+    private var fetchedVideos: [IKBookmark]?
     
     override init() {
         let (consumerKey, consumerSecret) = InstapaperAPI.getOAuthConfiguration()
@@ -66,7 +72,8 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
             return engine.oAuthToken != nil && engine.oAuthTokenSecret != nil
         }
     }
-    
+
+    // this must be called first to set auth tokens
     @discardableResult
     func storedAuth() -> Promise<Void> {
         let (promise, seal) = Promise<Void>.pending()
@@ -83,19 +90,34 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         return promise
     }
     
-    func fetch(_ folder: InstapaperFolder = .unread) -> Promise<[Video]> {
+    func fetch(_ folders: [Int]) -> Promise<[Video]> {
         let (promise, seal) = Promise<[Video]>.pending()
-        
         self.fetchSeal = seal
-        let instapaperFolder = IKFolder(folderID: folder.rawValue)
-        engine.bookmarks(in: instapaperFolder, limit: 500, existingBookmarks: nil, userInfo: nil)
+        self.foldersToFetch = []
+        self.fetchedVideos = []
+
+        folders.forEach { folder in
+            let instapaperFolder = IKFolder(folderID: folder)!
+            engine.bookmarks(in: instapaperFolder, limit: 500, existingBookmarks: nil, userInfo: nil)
+            self.foldersToFetch?.append(instapaperFolder)
+        }
 
         return promise
     }
+
+    func fetchFolders() -> Promise<[Int]> {
+        let (promise, seal) = Promise<[Int]>.pending()
+        self.fetchFoldersSeal = seal
+        engine.folders(withUserInfo: nil)
+        return promise
+    }
     
-    func archive(id: Int) {
+    func archive(id: Int) -> Promise<Void> {
+        let (promise, seal) = Promise<Void>.pending()
+        self.archiveSeal = seal
         let bookmark = IKBookmark(bookmarkID: id)
         engine.archiveBookmark(bookmark, userInfo: nil)
+        return promise
     }
     
     func engine(_ engine: IKEngine!, connection: IKURLConnection!, didReceiveAuthToken token: String!, andTokenSecret secret: String!) {
@@ -114,12 +136,44 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
     
     func engine(_ engine: IKEngine!, connection: IKURLConnection!, didReceiveBookmarks bookmarks: [Any]!, of user: IKUser!, for folder: IKFolder!) {
         if let bookmarks = bookmarks as! [IKBookmark]? {
-            let videos = bookmarks.map { (bookmark) -> Video in
-                return Video(bookmark)
+            guard var fetchedVideos = self.fetchedVideos,
+                var foldersToFetch = self.foldersToFetch else {
+                    self.fetchSeal?.reject(VideoError.UnknownError)
+                    return
             }
-            fetchSeal?.fulfill(videos)
-            fetchSeal = nil
+
+            fetchedVideos.append(contentsOf: bookmarks)
+            foldersToFetch = foldersToFetch.filter { $0.folderID != folder.folderID }
+
+            if foldersToFetch.isEmpty {
+                var videos = fetchedVideos.map { (bookmark) -> Video in
+                    return Video(bookmark)
+                }
+                videos = videos.sorted { $0.date > $1.date }
+                self.fetchSeal?.fulfill(videos)
+
+                self.fetchSeal = nil
+                self.fetchedVideos = nil
+                self.foldersToFetch = nil
+            } else {
+                self.fetchedVideos = fetchedVideos
+                self.foldersToFetch = foldersToFetch
+            }
         }
+    }
+
+    func engine(_ engine: IKEngine!, connection: IKURLConnection!, didReceiveFolders folders: [Any]!) {
+        guard let folders = folders as! [IKFolder]? else { return }
+        let folderIDs = folders.map { folder in
+            return folder.folderID
+        }
+        fetchFoldersSeal?.fulfill(folderIDs)
+        fetchFoldersSeal = nil
+    }
+
+    func engine(_ engine: IKEngine!, connection: IKURLConnection!, didArchiveBookmark bookmark: IKBookmark!) {
+        archiveSeal?.fulfill(())
+        archiveSeal = nil
     }
     
     func engine(_ engine: IKEngine!, didFail connection: IKURLConnection!, error: Error!) {
@@ -131,7 +185,15 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         case .bookmarksList:
             fetchSeal?.reject(error)
             fetchSeal = nil
-            
+
+        case .foldersList:
+            fetchFoldersSeal?.reject(error)
+            fetchFoldersSeal = nil
+
+        case .bookmarksArchive:
+            archiveSeal?.reject(error)
+            archiveSeal = nil
+
         default:
             return
         }
