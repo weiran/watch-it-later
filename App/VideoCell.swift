@@ -8,7 +8,7 @@
 
 import UIKit
 import TVUIKit
-import Kingfisher
+import Nuke
 
 class VideoCell: UICollectionViewCell {
     var posterView: TVPosterView
@@ -38,7 +38,8 @@ class VideoCell: UICollectionViewCell {
     func setImageURL(url: URL) {
         if let imageView = posterView.subviews[0].subviews[0] as? UIImageView {
             imageView.contentMode = .scaleAspectFill
-            imageView.kf.setImage(with: url)
+            let options = ImageLoadingOptions(placeholder: UIImage(named: "ThumbnailPlaceholder"))
+            Nuke.loadImage(with: url, options: options, into: imageView)
         }
     }
 }
