@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 import TVUIKit
 
-import Kingfisher
+import Nuke
 import PromiseKit
 import TVVLCPlayer
 import SwiftyUserDefaults
@@ -51,7 +51,10 @@ class DetailViewController: UIViewController {
             if let videoProvider = try? VideoProvider.videoProvider(for: video.urlString) {
                 self.videoProvider = videoProvider
                 videoProvider.videoStream(preferredFormatType: Defaults[\.defaultVideoQualityKey]).done { [weak self] (videoStream) in
-                    self?.thumbnailImageView.kf.setImage(with: videoStream.thumbnailURL)
+                    if let imageView = self?.thumbnailImageView, let url = videoStream.thumbnailURL {
+                        let options = ImageLoadingOptions(placeholder: UIImage(named: "ThumbnailPlaceholder"))
+                        Nuke.loadImage(with: url, options: options, into: imageView)
+                    }
                     self?.durationLabel.text = self?.formatTimeInterval(duration: videoStream.duration)
                     self?.duration = CMTime(seconds: videoStream.duration, preferredTimescale: CMTimeScale(videoStream.duration * 60))
                     if let format = videoStream.videoFormatType {
