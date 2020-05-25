@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         performFetch()
     }
 
-    func performFetch() {
+    @objc func performFetch() {
         instapaperAPI?.storedAuth().then {
             return self.fetchFolders()
         }.done { [weak self] folders in
@@ -81,12 +81,10 @@ class ViewController: UIViewController {
     func observeNotifications() {
         if folder != .archive {
             NotificationCenter.default.removeObserver(self)
-            NotificationCenter.default.addObserver(self, selector: #selector(authenticationChanged), name: Notification.Name("AuthenticationChanged"), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(performFetch), name: Notification.Name("AuthenticationChanged"), object: nil)
+        } else if folder == .unread {
+            NotificationCenter.default.addObserver(self, selector: #selector(performFetch), name: UIApplication.willEnterForegroundNotification, object: nil)
         }
-    }
-    
-    @objc func authenticationChanged() {
-        performFetch()
     }
     
     override weak var preferredFocusedView: UIView? {
