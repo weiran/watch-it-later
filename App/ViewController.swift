@@ -83,7 +83,7 @@ class ViewController: UIViewController {
             NotificationCenter.default.removeObserver(self)
             NotificationCenter.default.addObserver(self, selector: #selector(performFetch), name: Notification.Name("AuthenticationChanged"), object: nil)
         } else if folder == .unread {
-            NotificationCenter.default.addObserver(self, selector: #selector(performFetch), name: UIApplication.willEnterForegroundNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(performFetch), name: Notification.Name.didBecomeActive, object: nil)
         }
     }
     

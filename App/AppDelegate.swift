@@ -17,4 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = Database.shared
         return true
     }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        NotificationCenter.default.post(name: NSNotification.Name.didBecomeActive, object: nil)
+    }
 }
