@@ -96,6 +96,10 @@ class InstapaperAPI: NSObject, API, IKEngineDelegate {
         self.foldersToFetch = []
         self.fetchedVideos = []
 
+        guard folders.count > 0 else {
+            return Promise.value([])
+        }
+
         folders.forEach { folder in
             let instapaperFolder = IKFolder(folderID: folder)!
             engine.bookmarks(in: instapaperFolder, limit: 500, existingBookmarks: nil, userInfo: nil)

@@ -25,6 +25,7 @@
 		2441297E1FEE7C9600202173 /* VideoFormatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441297D1FEE7C9600202173 /* VideoFormatType.swift */; };
 		244DE6C11E59CBE8005B441E /* InstapaperConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 244DE6C01E59CBE8005B441E /* InstapaperConfiguration.plist */; };
 		2459544C1E14420B00997693 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544B1E14420B00997693 /* Video.swift */; };
+		2474F7E524A8DF0500956E76 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2474F7E424A8DF0500956E76 /* NotificationExtensions.swift */; };
 		247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */; };
 		248C27892455A8B000B6756E /* FoldersTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C27882455A8B000B6756E /* FoldersTabBarController.swift */; };
 		24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A771E143A50003E46FB /* IKBookmark.m */; };
@@ -72,6 +73,7 @@
 		246511BA222AA28400752F46 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		246511BC222AA28900752F46 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		246511BE222AA28E00752F46 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		2474F7E424A8DF0500956E76 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		24794EB920D51F520070D624 /* TVUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVUIKit.framework; path = System/Library/Frameworks/TVUIKit.framework; sourceTree = SDKROOT; };
 		247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstapaperAPI.swift; sourceTree = "<group>"; };
 		247D7F871E143D970037E4EC /* WatchItLater.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchItLater.entitlements; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				241C2ABC1E154337009F98D7 /* VideoCell.swift */,
 				24C52E241E17E42900865185 /* StringError.swift */,
 				24120F5820D2CEFA0013D73A /* SwinjectStoryboardExtension.swift */,
+				2474F7E424A8DF0500956E76 /* NotificationExtensions.swift */,
 				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
 			);
 			path = App;
@@ -424,6 +427,7 @@
 				2441297A1FEE7A7F00202173 /* VideoError.swift in Sources */,
 				24988A911E143A50003E46FB /* IKFolder.m in Sources */,
 				24988A931E143A50003E46FB /* IKUser.m in Sources */,
+				2474F7E524A8DF0500956E76 /* NotificationExtensions.swift in Sources */,
 				24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,7 +567,7 @@
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/WatchItLater.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 38;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -571,7 +575,7 @@
 				);
 				INFOPLIST_FILE = "App/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = co.weiran.WatchItLater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -594,7 +598,7 @@
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/WatchItLater.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 38;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -602,7 +606,7 @@
 				);
 				INFOPLIST_FILE = "App/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = co.weiran.WatchItLater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
