@@ -19,6 +19,16 @@ class Video: Object {
         urlString = bookmark.url.absoluteString
     }
 
+    convenience init(dummyData: Bool) {
+        self.init()
+
+        if dummyData {
+            id = 1
+            title = "Test Video"
+            urlString = "https://www.youtube.com/watch?v=W9-pVpAtvoM"
+        }
+    }
+
     @objc dynamic var id: Int = 0
     @objc dynamic var title: String = ""
     @objc dynamic var date: Date = Date()

@@ -40,6 +40,7 @@
 		24AEF7E11EBF5E53006458D1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AEF7E01EBF5E53006458D1 /* Database.swift */; };
 		24C52E231E17C6D200865185 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C52E221E17C6D200865185 /* LoginViewController.swift */; };
 		24C52E251E17E42900865185 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C52E241E17E42900865185 /* StringError.swift */; };
+		24E474E624B9CE1800CB63A2 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E474E524B9CE1800CB63A2 /* FeedView.swift */; };
 		C7143D89DA157AA928F45554 /* Pods_WatchItLater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8D0C478FCBEAB2CC5EA52 /* Pods_WatchItLater.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		24C52E221E17C6D200865185 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		24C52E241E17E42900865185 /* StringError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
 		24D942411E113238008387CC /* WatchItLater-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WatchItLater-Bridging-Header.h"; sourceTree = "<group>"; };
+		24E474E524B9CE1800CB63A2 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		4016E8F0C73D7075DAA216C0 /* Pods-WatchItLater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchItLater.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater.release.xcconfig"; sourceTree = "<group>"; };
 		889B88034148F2099F4C25C1 /* Pods-WatchItLater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchItLater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +184,7 @@
 				241C2ABE1E15498E009F98D7 /* Supporting Files */,
 				24332BD71E108D1A00D5AA18 /* AppDelegate.swift */,
 				248C27882455A8B000B6756E /* FoldersTabBarController.swift */,
+				24E474E524B9CE1800CB63A2 /* FeedView.swift */,
 				24332BD91E108D1A00D5AA18 /* ViewController.swift */,
 				241C2AC11E15511E009F98D7 /* DetailViewController.swift */,
 				24C52E221E17C6D200865185 /* LoginViewController.swift */,
@@ -421,6 +424,7 @@
 				241C2ACA1E156564009F98D7 /* VimeoProvider.swift in Sources */,
 				24120F5920D2CEFA0013D73A /* SwinjectStoryboardExtension.swift in Sources */,
 				241C2AC41E1557FD009F98D7 /* YouTubeProvider.swift in Sources */,
+				24E474E624B9CE1800CB63A2 /* FeedView.swift in Sources */,
 				24988A8F1E143A50003E46FB /* IKDeserializer.m in Sources */,
 				2459544C1E14420B00997693 /* Video.swift in Sources */,
 				24205AB820666E31002BC8FF /* PreferencesViewController.swift in Sources */,
@@ -585,7 +589,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/WatchItLater-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Debug;
 		};
@@ -615,7 +619,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/WatchItLater-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Release;
 		};
