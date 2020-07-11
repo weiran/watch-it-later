@@ -35,14 +35,14 @@ class ViewController: UIViewController {
 
     @objc func performFetch() {
         instapaperAPI?.storedAuth().then {
-            return self.fetchFolders()
-        }.done { [weak self] folders in
-            return self?.fetchVideos(folders)
-        }.done { [weak self] in
-            self?.setNeedsFocusUpdate()
-            self?.updateFocusIfNeeded()
-        }.catch { [weak self] _ in
-            self?.performSegue(withIdentifier: "ShowLoginSegue", sender: self)
+            self.fetchFolders()
+        }.then { folders in
+            self.fetchVideos(folders)
+        }.done { _ in
+            self.setNeedsFocusUpdate()
+            self.updateFocusIfNeeded()
+        }.catch { _ in
+            self.performSegue(withIdentifier: "ShowLoginSegue", sender: self)
         }
     }
     
@@ -69,10 +69,8 @@ class ViewController: UIViewController {
     }
 
     func fetchFolders() -> Promise<[Int]> {
-        if folder != .other {
-            return Promise<[Int]> { seal in
-                seal.fulfill([folder.rawValue])
-            }
+        guard folder != .other else {
+            return Promise.value([folder.rawValue])
         }
 
         return instapaperAPI!.fetchFolders()
