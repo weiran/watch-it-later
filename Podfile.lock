@@ -11,7 +11,7 @@ PODS:
   - Swinject (2.7.1)
   - SwinjectStoryboard (2.2.0):
     - Swinject (~> 2.7.1)
-  - TVVLCKit (3.3.13)
+  - TVVLCKit (3.3.14)
   - TVVLCPlayer (1.1.0):
     - TVVLCKit
   - XCDYouTubeKit (2.14.0)
@@ -74,7 +74,7 @@ SPEC CHECKSUMS:
   SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectStoryboard: f0d5b1c16459949d6ff1cbb6610107946b18e1f8
-  TVVLCKit: 33c0e6221b7ea312ae35703cd898b3b610aa4e0d
+  TVVLCKit: aa7c0f34d6ae19e33838c3dcad594578364fd513
   TVVLCPlayer: 357ae9ec2c52ff6cdd41588fe3e58525640a41eb
   XCDYouTubeKit: 04a2f89dca6c5c53d1786701a0e98dcb484be7a8
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
