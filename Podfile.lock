@@ -14,7 +14,7 @@ PODS:
   - TVVLCKit (3.3.14)
   - TVVLCPlayer (1.1.0):
     - TVVLCKit
-  - XCDYouTubeKit (2.14.0)
+  - XCDYouTubeKit (2.14.1)
   - YTVimeoExtractor (1.2.0)
 
 DEPENDENCIES:
@@ -76,7 +76,7 @@ SPEC CHECKSUMS:
   SwinjectStoryboard: f0d5b1c16459949d6ff1cbb6610107946b18e1f8
   TVVLCKit: aa7c0f34d6ae19e33838c3dcad594578364fd513
   TVVLCPlayer: 357ae9ec2c52ff6cdd41588fe3e58525640a41eb
-  XCDYouTubeKit: 04a2f89dca6c5c53d1786701a0e98dcb484be7a8
+  XCDYouTubeKit: 5d50bbacdd9fedf26fb578bab901d946ff3d064c
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
 PODFILE CHECKSUM: 6c830d36ed915cef7de598851abfc6d5a3a828dd
