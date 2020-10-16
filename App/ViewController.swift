@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     }
 
     func fetchFolders() -> Promise<[Int]> {
-        guard folder != .other else {
+        guard folder == .other else {
             return Promise.value([folder.rawValue])
         }
 
