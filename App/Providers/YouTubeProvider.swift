@@ -25,9 +25,8 @@ class YouTubeProvider: VideoProviderProtocol {
 
         XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
             if let video = video,
-                let streamURLs = video.streamURLs as? Dictionary<Int, URL>,
-                let highestQualityStream = YouTubeProvider.getHighestQualityFormatType(streams: streamURLs, highestQuality: preferredFormatType ?? .video1080p60),
-                let videoStream = YouTubeProvider.getVideoStream(video: video, streams: streamURLs, for: highestQualityStream) {
+                let highestQualityStream = YouTubeProvider.getHighestQualityFormatType(streams: video.streamURLs, highestQuality: preferredFormatType ?? .video1080p60),
+                let videoStream = YouTubeProvider.getVideoStream(video: video, streams: video.streamURLs, for: highestQualityStream) {
                 seal.fulfill(videoStream)
             } else if let error = error {
                 seal.reject(error)
@@ -54,7 +53,7 @@ class YouTubeProvider: VideoProviderProtocol {
         }
     }
     
-    private static func getHighestQualityFormatType(streams: Dictionary<Int, URL>, highestQuality: VideoFormatType = .video2160p60) -> VideoFormatType? {
+    private static func getHighestQualityFormatType(streams: Dictionary<AnyHashable, URL>, highestQuality: VideoFormatType = .video2160p60) -> VideoFormatType? {
         let qualityOrder = [VideoFormatType.video2160p60,
                             VideoFormatType.video2160p,
                             VideoFormatType.video1440p60,
@@ -80,7 +79,7 @@ class YouTubeProvider: VideoProviderProtocol {
         return nil
     }
     
-    private static func getVideoStream(video: XCDYouTubeVideo, streams: Dictionary<Int, URL>, for quality: VideoFormatType) -> VideoStream? {
+    private static func getVideoStream(video: XCDYouTubeVideo, streams: Dictionary<AnyHashable, URL>, for quality: VideoFormatType) -> VideoStream? {
         let (videoTypeId, audioTypeId) = quality.typeIdentifiers()
         guard let videoURL = streams[videoTypeId] else { return nil }
         var audioURL: URL?
