@@ -1,20 +1,20 @@
 PODS:
   - Locksmith (4.0.0)
-  - Nuke (9.1.1)
+  - Nuke (9.2.3)
   - PromiseKit/CorePromise (6.13.1)
-  - Realm (5.2.0):
-    - Realm/Headers (= 5.2.0)
-  - Realm/Headers (5.2.0)
-  - RealmSwift (5.2.0):
-    - Realm (= 5.2.0)
+  - Realm (10.5.1):
+    - Realm/Headers (= 10.5.1)
+  - Realm/Headers (10.5.1)
+  - RealmSwift (10.5.1):
+    - Realm (= 10.5.1)
   - SwiftyUserDefaults (5.0.0)
   - Swinject (2.7.1)
   - SwinjectStoryboard (2.2.0):
     - Swinject (~> 2.7.1)
-  - TVVLCKit (3.3.14)
+  - TVVLCKit (3.3.15)
   - TVVLCPlayer (1.1.0):
     - TVVLCKit
-  - XCDYouTubeKit (2.14.1)
+  - XCDYouTubeKit (2.15.2)
   - YTVimeoExtractor (1.2.0)
 
 DEPENDENCIES:
@@ -67,18 +67,18 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
-  Nuke: af4301b154d3afd8a3b045a5194a9a773a00b7a8
+  Nuke: 3dd19fd03612c179036d2af7f56ec57cb84144e2
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
-  Realm: f749c723e272f08fdf1939af5e61d2bd09b203e8
-  RealmSwift: bf0ab78b52c5bafba8b3ad73be8dfb4c1ea5cf01
+  Realm: 77fcb4e0b9f2963ea06f584749a0d7dc9cab95e1
+  RealmSwift: 6abe6aa6cd8b70cc1a87afcb9232cabea74ff1ac
   SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectStoryboard: f0d5b1c16459949d6ff1cbb6610107946b18e1f8
-  TVVLCKit: aa7c0f34d6ae19e33838c3dcad594578364fd513
+  TVVLCKit: c0d238a966ead6bfcc452d5c42c1d273b1003ba7
   TVVLCPlayer: 357ae9ec2c52ff6cdd41588fe3e58525640a41eb
-  XCDYouTubeKit: 5d50bbacdd9fedf26fb578bab901d946ff3d064c
+  XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 6c830d36ed915cef7de598851abfc6d5a3a828dd
+PODFILE CHECKSUM: 980843adfef5e608acb306854cb88a871eeadd2e
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0
