@@ -1,11 +1,8 @@
-platform :tvos, '12.0'
-use_frameworks!
+platform :tvos, '14.0'
+use_modular_headers!
 inhibit_all_warnings!
-# workaround for https://github.com/CocoaPods/CocoaPods/issues/8122
-install! 'cocoapods', :disable_input_output_paths => true
 
 target 'WatchItLater' do
-
   # Pods for Watch It Later
   pod 'XCDYouTubeKit'
   pod 'YTVimeoExtractor', :git => 'https://github.com/lilfaf/YTVimeoExtractor', :commit => '57bf479e860abd7dcd5fcbc520062cea3c7b5587'

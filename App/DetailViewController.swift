@@ -47,22 +47,24 @@ class DetailViewController: UIViewController {
         if let video = video {
             titleLabel.text = video.title
             domainLabel.text = video.urlString.contains("vimeo.com") ? "vimeo.com" : "youtube.com"
-            
-            if let videoProvider = try? VideoProvider.videoProvider(for: video.urlString) {
-                self.videoProvider = videoProvider
-                videoProvider.videoStream(preferredFormatType: Defaults[\.defaultVideoQualityKey]).done { [weak self] (videoStream) in
-                    if let imageView = self?.thumbnailImageView, let url = videoStream.thumbnailURL {
-                        let options = ImageLoadingOptions(placeholder: UIImage(named: "ThumbnailPlaceholder"))
-                        Nuke.loadImage(with: url, options: options, into: imageView)
-                    }
-                    self?.durationLabel.text = self?.formatTimeInterval(duration: videoStream.duration)
-                    self?.duration = CMTime(seconds: videoStream.duration, preferredTimescale: CMTimeScale(videoStream.duration * 60))
-                    if let format = videoStream.videoFormatType {
-                        self?.qualityLabel.text = format.description()
-                    }
-                }.cauterize()
-                self.descriptionLabel.text = " "
+
+            guard let videoProvider = try? VideoProvider.videoProvider(for: video.urlString) else {
+                return
             }
+            
+            self.videoProvider = videoProvider
+            videoProvider.videoStream(preferredFormatType: Defaults[\.defaultVideoQualityKey]).done { [weak self] (videoStream) in
+                if let imageView = self?.thumbnailImageView, let url = videoStream.thumbnailURL {
+                    let options = ImageLoadingOptions(placeholder: UIImage(named: "ThumbnailPlaceholder"))
+                    Nuke.loadImage(with: url, options: options, into: imageView)
+                }
+                self?.durationLabel.text = self?.formatTimeInterval(duration: videoStream.duration)
+                self?.duration = CMTime(seconds: videoStream.duration, preferredTimescale: CMTimeScale(videoStream.duration * 60))
+                if let format = videoStream.videoFormatType {
+                    self?.qualityLabel.text = format.description()
+                }
+            }.cauterize()
+            self.descriptionLabel.text = " "
         }
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didPlay(_:)))
