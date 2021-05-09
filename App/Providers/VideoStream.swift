@@ -12,18 +12,24 @@ struct VideoStream {
     let duration: Double
     let videoFormatType: VideoFormatType?
     let thumbnailURL: URL?
+    let title: String?
+    let description: String?
     
     init(
         videoURL: URL,
         audioURL: URL?,
         duration: Double,
         videoFormatType: VideoFormatType? = nil,
-        thumbnailURL: URL?
+        thumbnailURL: URL?,
+        title: String? = nil,
+        description: String? = nil
     ) {
         self.videoURL = videoURL
         self.audioURL = audioURL
         self.duration = duration
         self.videoFormatType = videoFormatType
         self.thumbnailURL = thumbnailURL
+        self.title = title
+        self.description = description
     }
 }

@@ -63,6 +63,12 @@ class DetailViewController: UIViewController {
                 if let format = videoStream.videoFormatType {
                     self?.qualityLabel.text = format.description()
                 }
+                if let title = videoStream.title {
+                    self?.titleLabel.text = title
+                }
+                if let description = videoStream.description {
+                    self?.descriptionLabel.text = description
+                }
             }.cauterize()
             self.descriptionLabel.text = " "
         }

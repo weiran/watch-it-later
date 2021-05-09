@@ -93,7 +93,9 @@ class YouTubeProvider: VideoProviderProtocol {
             audioURL: audioURL,
             duration: Double(video.duration),
             videoFormatType: quality,
-            thumbnailURL: video.thumbnailURLs?.last
+            thumbnailURL: video.thumbnailURLs?.last,
+            title: video.title,
+            description: video.description
         )
     }
 }

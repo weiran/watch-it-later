@@ -112,6 +112,9 @@ private extension ViewController {
                     if let thumbnailURL = $0.thumbnailURL {
                         cell.setImageURL(url: thumbnailURL)
                     }
+                    if let title = $0.title {
+                        cell.posterView.title = title
+                    }
                 }.cauterize()
             }
 
