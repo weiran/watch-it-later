@@ -4,7 +4,7 @@ inhibit_all_warnings!
 
 target 'WatchItLater' do
   # Pods for Watch It Later
-  pod 'XCDYouTubeKit'
+  pod 'XCDYouTubeKit', :git => 'https://github.com/alexeichhorn/XCDYouTubeKit', :branch => 'fix/youtube-consent'
   pod 'YTVimeoExtractor', :git => 'https://github.com/lilfaf/YTVimeoExtractor', :commit => '57bf479e860abd7dcd5fcbc520062cea3c7b5587'
   pod 'Locksmith'
   pod 'Nuke'
