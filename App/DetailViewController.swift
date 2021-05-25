@@ -43,6 +43,7 @@ class DetailViewController: UIViewController {
         
         durationLabel.text = " "
         qualityLabel.text = " "
+        descriptionLabel.text = " "
         
         if let video = video {
             titleLabel.text = video.title
@@ -63,8 +64,24 @@ class DetailViewController: UIViewController {
                 if let format = videoStream.videoFormatType {
                     self?.qualityLabel.text = format.description()
                 }
-            }.cauterize()
-            self.descriptionLabel.text = " "
+                if let title = videoStream.title {
+                    self?.titleLabel.text = title
+                }
+                if let description = videoStream.description {
+                    self?.descriptionLabel.text = description
+                }
+            }.catch { error in
+                var message = "Watch It Later couldn't open this video."
+
+                if let failureReason = (error as NSError).userInfo[NSLocalizedFailureReasonErrorKey] as? String {
+                    message = failureReason
+                }
+
+                let alert = UIAlertController(
+                    title: "Error Opening Video", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                self.present(alert, animated: true)
+            }
         }
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didPlay(_:)))
