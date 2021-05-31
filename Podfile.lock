@@ -1,7 +1,7 @@
 PODS:
   - Locksmith (4.0.0)
   - Nuke (9.5.0)
-  - PromiseKit/CorePromise (6.13.1)
+  - PromiseKit/CorePromise (6.15.3)
   - Realm (10.7.5):
     - Realm/Headers (= 10.7.5)
   - Realm/Headers (10.7.5)
@@ -73,7 +73,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   Nuke: 6f400a4ea957e09149ec335a3c6acdcc814d89e4
-  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
+  PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
   Realm: 06f5c67f87cb8c5f27b122218ce22e9a77314517
   RealmSwift: b46535b52e69b9ed33912f0fcb3182ab0a5743ee
   SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
