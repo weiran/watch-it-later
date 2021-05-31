@@ -67,7 +67,8 @@ class DetailViewController: UIViewController {
                 if let title = videoStream.title {
                     self?.titleLabel.text = title
                 }
-                if let description = videoStream.description {
+                if var description = videoStream.description {
+                    description = description.replacingOccurrences(of: #"\[.*.\] "#, with: "", options: .regularExpression)
                     self?.descriptionLabel.text = description
                 }
             }.catch { error in
