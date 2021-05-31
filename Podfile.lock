@@ -7,7 +7,7 @@ PODS:
   - Realm/Headers (10.7.6)
   - RealmSwift (10.7.6):
     - Realm (= 10.7.6)
-  - SwiftyUserDefaults (5.0.0)
+  - SwiftyUserDefaults (5.3.0)
   - Swinject (2.7.1)
   - SwinjectStoryboard (2.2.0):
     - Swinject (~> 2.7.1)
@@ -76,7 +76,7 @@ SPEC CHECKSUMS:
   PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
   Realm: ed860452717c8db8f4bf832b6807f7f2ce708839
   RealmSwift: e31c4ddbcc42ac879313d656b86f9ca539f6f4f4
-  SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
+  SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectStoryboard: f0d5b1c16459949d6ff1cbb6610107946b18e1f8
   TVVLCKit: c0d238a966ead6bfcc452d5c42c1d273b1003ba7
