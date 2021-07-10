@@ -67,21 +67,11 @@ class DetailViewController: UIViewController {
                 if let title = videoStream.title {
                     self?.titleLabel.text = title
                 }
-                if let description = videoStream.description {
+                if var description = videoStream.description {
+                    description = description.replacingOccurrences(of: #"\[.*.\] "#, with: "", options: .regularExpression)
                     self?.descriptionLabel.text = description
                 }
-            }.catch { error in
-                var message = "Watch It Later couldn't open this video."
-
-                if let failureReason = (error as NSError).userInfo[NSLocalizedFailureReasonErrorKey] as? String {
-                    message = failureReason
-                }
-
-                let alert = UIAlertController(
-                    title: "Error Opening Video", message: message, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-                self.present(alert, animated: true)
-            }
+            }.cauterize()
         }
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didPlay(_:)))
@@ -137,7 +127,27 @@ class DetailViewController: UIViewController {
             self?.activityIndicator.stopAnimating()
             self?.view.isUserInteractionEnabled = true
         }.catch { [weak self] error in
-            self?.showError()
+            // try to open the video in the YouTube app
+            if videoProvider is YouTubeProvider,
+               let url = self?.video?.urlString {
+                let regex = try! NSRegularExpression(pattern: #"([^\/|=]*$)"#, options: .caseInsensitive)
+                let range = NSRange(location: 0, length: url.utf16.count)
+
+                if let youtubeIdMatch = regex.firstMatch(in: url, options: [], range: range),
+                   youtubeIdMatch.range(at: 0).location != NSNotFound {
+                   let lowerBound = url.index(url.startIndex, offsetBy: youtubeIdMatch.range(at: 0).location)
+                   let youtubeId = url[lowerBound...]
+
+                    if let youtubeURL = URL(string: "youtube://watch/\(youtubeId)") {
+                        if UIApplication.shared.canOpenURL(youtubeURL) {
+                            UIApplication.shared.open(youtubeURL, options: [:], completionHandler: nil)
+                            return
+                        }
+                    }
+                }
+            }
+
+            self?.showError(error)
         }
     }
     
@@ -200,11 +210,22 @@ class DetailViewController: UIViewController {
         }
     }
     
-    private func showError() {
-        let alertController = UIAlertController(title: "Video Error", message: "There's something wrong with the video and it can't be played.", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler:nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true)
+    private func showError(_ error: Error? = nil) {
+        var message = "Watch It Later couldn't play this video."
+
+        if let error = error,
+           let failureReason = (error as NSError).userInfo[NSLocalizedFailureReasonErrorKey] as? String {
+            message = failureReason
+        }
+
+        let alert = UIAlertController(
+            title: "Error Opening Video",
+            message: message,
+            preferredStyle: .alert
+        )
+
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(alert, animated: true)
     }
     
     func formatTimeInterval(duration: TimeInterval) -> String {
