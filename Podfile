@@ -10,7 +10,7 @@ target 'WatchItLater' do
   pod 'Nuke'
   pod 'PromiseKit/CorePromise'
   pod 'RealmSwift'
-  pod 'TVVLCKit', '~> 3.3.15'
+  pod 'TVVLCKit', '3.3.15'
   pod 'TVVLCPlayer', :git => 'https://github.com/weiran/TVVLCPlayer', :branch => 'kodlian_master'
 # pod 'TVVLCPlayer', :path => "../../Forks/TVVLCPlayer/TVVLCPlayer.podspec"
   pod 'SwiftyUserDefaults'
