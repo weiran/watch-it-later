@@ -27,7 +27,7 @@ DEPENDENCIES:
   - SwinjectStoryboard (from `https://github.com/Swinject/SwinjectStoryboard`, commit `0ca45c83a8aa398c153d8a036c95abb4343cfa0c`, branch `master`)
   - TVVLCKit (= 3.3.15)
   - TVVLCPlayer (from `https://github.com/weiran/TVVLCPlayer`, branch `kodlian_master`)
-  - XCDYouTubeKit (from `https://github.com/armendh/XCDYouTubeKit`, branch `master`)
+  - XCDYouTubeKit (from `https://github.com/kbex-dev/XCDYouTubeKit`, branch `master`)
   - YTVimeoExtractor (from `https://github.com/lilfaf/YTVimeoExtractor`, commit `57bf479e860abd7dcd5fcbc520062cea3c7b5587`)
 
 SPEC REPOS:
@@ -51,7 +51,7 @@ EXTERNAL SOURCES:
     :git: https://github.com/weiran/TVVLCPlayer
   XCDYouTubeKit:
     :branch: master
-    :git: https://github.com/armendh/XCDYouTubeKit
+    :git: https://github.com/kbex-dev/XCDYouTubeKit
   YTVimeoExtractor:
     :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
     :git: https://github.com/lilfaf/YTVimeoExtractor
@@ -64,8 +64,8 @@ CHECKOUT OPTIONS:
     :commit: 79564c0a0e0d43bca294b415bdcfb96825a55c72
     :git: https://github.com/weiran/TVVLCPlayer
   XCDYouTubeKit:
-    :commit: 651a6a51c695c5819eb51ba2f98d0b64094315b9
-    :git: https://github.com/armendh/XCDYouTubeKit
+    :commit: a35b5fe91c2f6ea8d1ec1e0d2abba18fb8615e9e
+    :git: https://github.com/kbex-dev/XCDYouTubeKit
   YTVimeoExtractor:
     :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
     :git: https://github.com/lilfaf/YTVimeoExtractor
@@ -84,6 +84,6 @@ SPEC CHECKSUMS:
   XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: 74f7501c5f19fa571283e8bfdf4d482648ab4838
+PODFILE CHECKSUM: c31f6ab9fa5249b01633277e2eff540d818cbbae
 
 COCOAPODS: 1.11.2
