@@ -1,12 +1,12 @@
 PODS:
   - Locksmith (4.0.0)
-  - Nuke (10.4.1)
+  - Nuke (10.5.2)
   - PromiseKit/CorePromise (6.15.3)
-  - Realm (10.17.0):
-    - Realm/Headers (= 10.17.0)
-  - Realm/Headers (10.17.0)
-  - RealmSwift (10.17.0):
-    - Realm (= 10.17.0)
+  - Realm (10.20.0):
+    - Realm/Headers (= 10.20.0)
+  - Realm/Headers (10.20.0)
+  - RealmSwift (10.20.0):
+    - Realm (= 10.20.0)
   - SwiftyUserDefaults (5.3.0)
   - Swinject (2.7.1)
   - SwinjectStoryboard (2.2.1):
@@ -25,9 +25,9 @@ DEPENDENCIES:
   - SwiftyUserDefaults
   - Swinject
   - SwinjectStoryboard (from `https://github.com/Swinject/SwinjectStoryboard`, commit `0ca45c83a8aa398c153d8a036c95abb4343cfa0c`, branch `master`)
-  - TVVLCKit (~> 3.3.15)
+  - TVVLCKit (= 3.3.15)
   - TVVLCPlayer (from `https://github.com/weiran/TVVLCPlayer`, branch `kodlian_master`)
-  - XCDYouTubeKit (from `https://github.com/armendh/XCDYouTubeKit`, branch `master`)
+  - XCDYouTubeKit (from `https://github.com/kbex-dev/XCDYouTubeKit`, branch `master`)
   - YTVimeoExtractor (from `https://github.com/lilfaf/YTVimeoExtractor`, commit `57bf479e860abd7dcd5fcbc520062cea3c7b5587`)
 
 SPEC REPOS:
@@ -51,7 +51,7 @@ EXTERNAL SOURCES:
     :git: https://github.com/weiran/TVVLCPlayer
   XCDYouTubeKit:
     :branch: master
-    :git: https://github.com/armendh/XCDYouTubeKit
+    :git: https://github.com/kbex-dev/XCDYouTubeKit
   YTVimeoExtractor:
     :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
     :git: https://github.com/lilfaf/YTVimeoExtractor
@@ -64,18 +64,18 @@ CHECKOUT OPTIONS:
     :commit: 79564c0a0e0d43bca294b415bdcfb96825a55c72
     :git: https://github.com/weiran/TVVLCPlayer
   XCDYouTubeKit:
-    :commit: 651a6a51c695c5819eb51ba2f98d0b64094315b9
-    :git: https://github.com/armendh/XCDYouTubeKit
+    :commit: a35b5fe91c2f6ea8d1ec1e0d2abba18fb8615e9e
+    :git: https://github.com/kbex-dev/XCDYouTubeKit
   YTVimeoExtractor:
     :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
     :git: https://github.com/lilfaf/YTVimeoExtractor
 
 SPEC CHECKSUMS:
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
-  Nuke: fa2d83b3ee99bb88eccc62ab6c7590e207b50096
+  Nuke: 62d6d401e2b3ce553151a6f5e2f9332878710fbd
   PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
-  Realm: 9533276bd76f66aa2fd0d3ffe700c1f6023dcab6
-  RealmSwift: 57f5d59aa29852587aad1e861989e7af139894b5
+  Realm: ae32bdc1da7d19c7617e0400201a77acd4a211b9
+  RealmSwift: c95eec6a712924870b2e36c4c081d63ec07e5414
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectStoryboard: 92ca3575fec0b87a27d79be2d03f8d94495d6a10
@@ -84,6 +84,6 @@ SPEC CHECKSUMS:
   XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
   YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: dc7dc75ff968c6bafc5be38f1ff9e28816afa854
+PODFILE CHECKSUM: c31f6ab9fa5249b01633277e2eff540d818cbbae
 
 COCOAPODS: 1.11.2

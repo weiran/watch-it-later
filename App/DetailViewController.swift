@@ -109,6 +109,25 @@ class DetailViewController: UIViewController {
             showError()
             return
         }
+
+        // try to open the video in the YouTube app first
+        if videoProvider is YouTubeProvider, let url = self.video?.urlString {
+            let regex = try! NSRegularExpression(pattern: #"([^\/|=]*$)"#, options: .caseInsensitive)
+            let range = NSRange(location: 0, length: url.utf16.count)
+
+            if let youtubeIdMatch = regex.firstMatch(in: url, options: [], range: range),
+               youtubeIdMatch.range(at: 0).location != NSNotFound {
+               let lowerBound = url.index(url.startIndex, offsetBy: youtubeIdMatch.range(at: 0).location)
+               let youtubeId = url[lowerBound...]
+
+                if let youtubeURL = URL(string: "youtube://watch/\(youtubeId)") {
+                    if UIApplication.shared.canOpenURL(youtubeURL) {
+                        UIApplication.shared.open(youtubeURL, options: [:], completionHandler: nil)
+                        return
+                    }
+                }
+            }
+        }
         
         activityIndicator.startAnimating()
         view.isUserInteractionEnabled = false
@@ -127,26 +146,6 @@ class DetailViewController: UIViewController {
             self?.activityIndicator.stopAnimating()
             self?.view.isUserInteractionEnabled = true
         }.catch { [weak self] error in
-            // try to open the video in the YouTube app
-            if videoProvider is YouTubeProvider,
-               let url = self?.video?.urlString {
-                let regex = try! NSRegularExpression(pattern: #"([^\/|=]*$)"#, options: .caseInsensitive)
-                let range = NSRange(location: 0, length: url.utf16.count)
-
-                if let youtubeIdMatch = regex.firstMatch(in: url, options: [], range: range),
-                   youtubeIdMatch.range(at: 0).location != NSNotFound {
-                   let lowerBound = url.index(url.startIndex, offsetBy: youtubeIdMatch.range(at: 0).location)
-                   let youtubeId = url[lowerBound...]
-
-                    if let youtubeURL = URL(string: "youtube://watch/\(youtubeId)") {
-                        if UIApplication.shared.canOpenURL(youtubeURL) {
-                            UIApplication.shared.open(youtubeURL, options: [:], completionHandler: nil)
-                            return
-                        }
-                    }
-                }
-            }
-
             self?.showError(error)
         }
     }

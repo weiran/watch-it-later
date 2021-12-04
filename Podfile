@@ -4,13 +4,13 @@ inhibit_all_warnings!
 
 target 'WatchItLater' do
   # Pods for Watch It Later
-  pod 'XCDYouTubeKit', :git => 'https://github.com/armendh/XCDYouTubeKit', :branch => 'master'
+  pod 'XCDYouTubeKit', :git => 'https://github.com/kbex-dev/XCDYouTubeKit', :branch => 'master'
   pod 'YTVimeoExtractor', :git => 'https://github.com/lilfaf/YTVimeoExtractor', :commit => '57bf479e860abd7dcd5fcbc520062cea3c7b5587'
   pod 'Locksmith'
   pod 'Nuke'
   pod 'PromiseKit/CorePromise'
   pod 'RealmSwift'
-  pod 'TVVLCKit', '~> 3.3.15'
+  pod 'TVVLCKit', '3.3.15'
   pod 'TVVLCPlayer', :git => 'https://github.com/weiran/TVVLCPlayer', :branch => 'kodlian_master'
 # pod 'TVVLCPlayer', :path => "../../Forks/TVVLCPlayer/TVVLCPlayer.podspec"
   pod 'SwiftyUserDefaults'
