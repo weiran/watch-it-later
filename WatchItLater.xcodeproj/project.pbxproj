@@ -27,6 +27,8 @@
 		2459544C1E14420B00997693 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544B1E14420B00997693 /* Video.swift */; };
 		2474F7E524A8DF0500956E76 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2474F7E424A8DF0500956E76 /* NotificationExtensions.swift */; };
 		247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */; };
+		2486D7DC27FB23DA007504C6 /* HCVimeoVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2486D7DB27FB23DA007504C6 /* HCVimeoVideo.swift */; };
+		2486D7DE27FB23EC007504C6 /* HCVimeoVideoExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2486D7DD27FB23EC007504C6 /* HCVimeoVideoExtractor.swift */; };
 		248C27892455A8B000B6756E /* FoldersTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C27882455A8B000B6756E /* FoldersTabBarController.swift */; };
 		24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A771E143A50003E46FB /* IKBookmark.m */; };
 		24988A8E1E143A50003E46FB /* IKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A791E143A50003E46FB /* IKConstants.m */; };
@@ -76,6 +78,8 @@
 		24794EB920D51F520070D624 /* TVUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVUIKit.framework; path = System/Library/Frameworks/TVUIKit.framework; sourceTree = SDKROOT; };
 		247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstapaperAPI.swift; sourceTree = "<group>"; };
 		247D7F871E143D970037E4EC /* WatchItLater.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchItLater.entitlements; sourceTree = "<group>"; };
+		2486D7DB27FB23DA007504C6 /* HCVimeoVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCVimeoVideo.swift; sourceTree = "<group>"; };
+		2486D7DD27FB23EC007504C6 /* HCVimeoVideoExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCVimeoVideoExtractor.swift; sourceTree = "<group>"; };
 		248C27882455A8B000B6756E /* FoldersTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersTabBarController.swift; sourceTree = "<group>"; };
 		24988A541E141E37003E46FB /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		24988A761E143A50003E46FB /* IKBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKBookmark.h; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 		241C2ABF1E1549A1009F98D7 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				2486D7DA27FB23BD007504C6 /* HCVimeoVideoExtractor */,
 				247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */,
 				241C2AC71E155FCC009F98D7 /* VideoProvider.swift */,
 				241C2AC51E155C36009F98D7 /* VideoProviderProtocol.swift */,
@@ -194,6 +199,15 @@
 				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		2486D7DA27FB23BD007504C6 /* HCVimeoVideoExtractor */ = {
+			isa = PBXGroup;
+			children = (
+				2486D7DB27FB23DA007504C6 /* HCVimeoVideo.swift */,
+				2486D7DD27FB23EC007504C6 /* HCVimeoVideoExtractor.swift */,
+			);
+			path = HCVimeoVideoExtractor;
 			sourceTree = "<group>";
 		};
 		24988A8A1E143A50003E46FB /* Base64 */ = {
@@ -277,7 +291,6 @@
 				24332BD01E108D1A00D5AA18 /* Sources */,
 				24332BD11E108D1A00D5AA18 /* Frameworks */,
 				24332BD21E108D1A00D5AA18 /* Resources */,
-				08FAA71DCB938D42ED0200DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -343,25 +356,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08FAA71DCB938D42ED0200DC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-resources.sh",
-				"${PODS_ROOT}/TVVLCPlayer/Resources/TVVLCPlayer.storyboard",
-				"${PODS_ROOT}/TVVLCPlayer/Resources/Images.xcassets",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TVVLCPlayer.storyboardc",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		54B38236EAE6C0D36F1632E0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,8 +398,10 @@
 				24988A941E143A50003E46FB /* NSString+IKEncoding.m in Sources */,
 				2441297C1FEE7A8900202173 /* VideoStream.swift in Sources */,
 				24AEF7E11EBF5E53006458D1 /* Database.swift in Sources */,
+				2486D7DC27FB23DA007504C6 /* HCVimeoVideo.swift in Sources */,
 				24988A901E143A50003E46FB /* IKEngine.m in Sources */,
 				247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */,
+				2486D7DE27FB23EC007504C6 /* HCVimeoVideoExtractor.swift in Sources */,
 				241C2ACA1E156564009F98D7 /* VimeoProvider.swift in Sources */,
 				24120F5920D2CEFA0013D73A /* SwinjectStoryboardExtension.swift in Sources */,
 				241C2AC41E1557FD009F98D7 /* YouTubeProvider.swift in Sources */,

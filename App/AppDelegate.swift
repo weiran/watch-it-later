@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 import SwiftyUserDefaults
 import SwinjectStoryboard
 
@@ -17,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         _ = Database.shared
         SwinjectStoryboard.configure()
+
+        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
+
         return true
     }
 

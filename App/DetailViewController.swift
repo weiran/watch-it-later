@@ -12,7 +12,6 @@ import TVUIKit
 
 import Nuke
 import PromiseKit
-import TVVLCPlayer
 import SwiftyUserDefaults
 
 class DetailViewController: UIViewController {
@@ -23,7 +22,6 @@ class DetailViewController: UIViewController {
     private var videoProvider: VideoProviderProtocol?
     private var videoStream: VideoStream?
     private var duration: CMTime?
-    private var playerViewController: VLCPlayerViewController?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var domainLabel: UILabel!
@@ -54,7 +52,7 @@ class DetailViewController: UIViewController {
             }
             
             self.videoProvider = videoProvider
-            videoProvider.videoStream(preferredFormatType: Defaults[\.defaultVideoQualityKey]).done { [weak self] (videoStream) in
+            videoProvider.videoStream().done { [weak self] (videoStream) in
                 if let imageView = self?.thumbnailImageView, let url = videoStream.thumbnailURL {
                     let options = ImageLoadingOptions(placeholder: UIImage(named: "ThumbnailPlaceholder"))
                     Nuke.loadImage(with: url, options: options, into: imageView)
@@ -128,25 +126,20 @@ class DetailViewController: UIViewController {
                 }
             }
         }
-        
-        activityIndicator.startAnimating()
-        view.isUserInteractionEnabled = false
-        videoProvider.videoStream(preferredFormatType: Defaults[\.defaultVideoQualityKey]).done { [weak self] videoStream -> Void in
-            guard let self = self, let video = self.video else {
-                return
+
+        // play Vimeo using native player
+        if videoProvider is VimeoProvider {
+            activityIndicator.startAnimating()
+            view.isUserInteractionEnabled = false
+            videoProvider.videoStream().done { [weak self] videoStream -> Void in
+                self?.videoStream = videoStream
+                self?.showVideoPlayer()
+            }.ensure { [weak self] in
+                self?.activityIndicator.stopAnimating()
+                self?.view.isUserInteractionEnabled = true
+            }.catch { [weak self] error in
+                self?.showError(error)
             }
-            self.videoStream = videoStream
-            
-            if let alertController = self.playFromPositionAlertController(video) {
-                self.present(alertController, animated: true)
-            } else {
-                self.showVideoPlayer()
-            }
-        }.ensure { [weak self] in
-            self?.activityIndicator.stopAnimating()
-            self?.view.isUserInteractionEnabled = true
-        }.catch { [weak self] error in
-            self?.showError(error)
         }
     }
     
@@ -164,47 +157,19 @@ class DetailViewController: UIViewController {
     }
     
     private func showVideoPlayer(startFrom: Int? = nil) {
-        if startFrom == nil || startFrom! <= 0 {
-            updateVideoProgress()
-        }
-        performSegue(withIdentifier: "ShowPlayerSegue", sender: self)
-    }
-    
-    private func playFromPositionAlertController(_ video: Video) -> UIAlertController? {
-        guard video.progress > 0 else { return nil }
+        if let videoStream = videoStream {
+            let player = AVPlayer(url: videoStream.videoURL)
 
-        let progressInSeconds = video.progress / 1000
-        let formattedProgress = formatTimeInterval(duration: TimeInterval(progressInSeconds))
-        let alertController = UIAlertController(title: "", message: "Do you want to resume playback from your last saved position, or start from the beginning?", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Resume from \(formattedProgress)", style: .default, handler: { action in
-            self.showVideoPlayer(startFrom: video.progress)
-        }))
-        alertController.addAction(UIAlertAction(title: "Start from beginning", style: .default, handler: { action in
-            self.showVideoPlayer(startFrom: 0)
-        }))
+            if let startFrom = startFrom, startFrom > 0 {
+                let time = CMTimeMakeWithSeconds(Double(startFrom), preferredTimescale: 1)
+                player.seek(to: time)
+            }
 
-        return alertController
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowPlayerSegue" {
-            if let playerViewController = segue.destination as? VLCPlayerViewController,
-                let videoStream = self.videoStream {
-                let player = VLCMediaPlayer()
-                player.media = VLCMedia(url: videoStream.videoURL)
-                playerViewController.player = player
-                
-                if let audioURL = videoStream.audioURL {
-                    playerViewController.player.addPlaybackSlave(audioURL, type: .audio, enforce: true)
-                }
-                
-                if let video = self.video, video.progress > 0 {
-                    let time = VLCTime.init(number: NSNumber(value: video.progress))
-                    playerViewController.player.time = time
-                }
-                
-                playerViewController.player.delegate = self
-                self.playerViewController = playerViewController
+            let controller = AVPlayerViewController()
+            controller.player = player
+
+            present(controller, animated: true) {
+                player.play()
             }
         }
     }
@@ -238,39 +203,5 @@ class DetailViewController: UIViewController {
         }
         
         return formatter.string(from: duration) ?? ""
-    }
-}
-
-extension DetailViewController: VLCMediaPlayerDelegate {
-    func mediaPlayerStateChanged(_ aNotification: Notification!) {
-        guard let playerViewController = self.playerViewController else { return }
-        if playerViewController.player.state == .ended {
-            updateVideoProgress()
-        } else if playerViewController.player.state == .stopped {
-            updateVideoProgress(Int(playerViewController.player.time.intValue))
-        }
-    }
-    
-    func mediaPlayerTimeChanged(_ aNotification: Notification!) {
-        guard let player = self.playerViewController?.player else { return }
-        if player.state == .playing || player.state == .buffering {
-            updateVideoProgress(Int(player.time.intValue))
-        }
-    }
-    
-    private func updateVideoProgress(_ duration: Int = 0) {
-        if let video = video {
-            Database.shared.updateVideoProgress(video, progress: duration)
-        }
-    }
-}
-
-extension VLCPlayerViewController {
-    public override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        if presses.first?.type == .menu {
-            // stop the player when quitting to trigger the delegate
-            player.stop()
-        }
-        super.pressesBegan(presses, with: event)
     }
 }

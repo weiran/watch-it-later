@@ -6,7 +6,7 @@
 //  Copyright © 2020 Weiran Zhang. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class FoldersTabBarController: UITabBarController {
     override func viewDidLoad() {

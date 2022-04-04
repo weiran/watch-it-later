@@ -11,11 +11,7 @@ PODS:
   - Swinject (2.7.1)
   - SwinjectStoryboard (2.2.1):
     - Swinject (~> 2.7.1)
-  - TVVLCKit (3.3.15)
-  - TVVLCPlayer (1.1.0):
-    - TVVLCKit
   - XCDYouTubeKit (2.15.2)
-  - YTVimeoExtractor (1.2.0)
 
 DEPENDENCIES:
   - Locksmith
@@ -25,10 +21,7 @@ DEPENDENCIES:
   - SwiftyUserDefaults
   - Swinject
   - SwinjectStoryboard (from `https://github.com/Swinject/SwinjectStoryboard`, commit `0ca45c83a8aa398c153d8a036c95abb4343cfa0c`, branch `master`)
-  - TVVLCKit (= 3.3.15)
-  - TVVLCPlayer (from `https://github.com/weiran/TVVLCPlayer`, branch `kodlian_master`)
   - XCDYouTubeKit (from `https://github.com/kbex-dev/XCDYouTubeKit`, branch `master`)
-  - YTVimeoExtractor (from `https://github.com/lilfaf/YTVimeoExtractor`, commit `57bf479e860abd7dcd5fcbc520062cea3c7b5587`)
 
 SPEC REPOS:
   trunk:
@@ -39,36 +32,23 @@ SPEC REPOS:
     - RealmSwift
     - SwiftyUserDefaults
     - Swinject
-    - TVVLCKit
 
 EXTERNAL SOURCES:
   SwinjectStoryboard:
     :branch: master
     :commit: 0ca45c83a8aa398c153d8a036c95abb4343cfa0c
     :git: https://github.com/Swinject/SwinjectStoryboard
-  TVVLCPlayer:
-    :branch: kodlian_master
-    :git: https://github.com/weiran/TVVLCPlayer
   XCDYouTubeKit:
     :branch: master
     :git: https://github.com/kbex-dev/XCDYouTubeKit
-  YTVimeoExtractor:
-    :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
-    :git: https://github.com/lilfaf/YTVimeoExtractor
 
 CHECKOUT OPTIONS:
   SwinjectStoryboard:
     :commit: 47df16142f8f9ce54a54bd61d04ae5c93d9de8eb
     :git: https://github.com/Swinject/SwinjectStoryboard
-  TVVLCPlayer:
-    :commit: 79564c0a0e0d43bca294b415bdcfb96825a55c72
-    :git: https://github.com/weiran/TVVLCPlayer
   XCDYouTubeKit:
     :commit: a35b5fe91c2f6ea8d1ec1e0d2abba18fb8615e9e
     :git: https://github.com/kbex-dev/XCDYouTubeKit
-  YTVimeoExtractor:
-    :commit: 57bf479e860abd7dcd5fcbc520062cea3c7b5587
-    :git: https://github.com/lilfaf/YTVimeoExtractor
 
 SPEC CHECKSUMS:
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
@@ -79,11 +59,8 @@ SPEC CHECKSUMS:
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectStoryboard: 92ca3575fec0b87a27d79be2d03f8d94495d6a10
-  TVVLCKit: c0d238a966ead6bfcc452d5c42c1d273b1003ba7
-  TVVLCPlayer: 357ae9ec2c52ff6cdd41588fe3e58525640a41eb
   XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
-  YTVimeoExtractor: f4ed90f43e08d33d56c1d1aff3f4f64663747966
 
-PODFILE CHECKSUM: c31f6ab9fa5249b01633277e2eff540d818cbbae
+PODFILE CHECKSUM: 45da6a9502260d4e8de80d70e0b3ca8a9001ebc7
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

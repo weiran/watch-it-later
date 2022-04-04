@@ -7,7 +7,7 @@
 //
 
 import PromiseKit
-import YTVimeoExtractor
+import Foundation
 
 class VimeoProvider: VideoProviderProtocol {
     var url: URL
@@ -16,26 +16,17 @@ class VimeoProvider: VideoProviderProtocol {
         self.url = URL(string: url)!
     }
     
-    func videoStream(preferredFormatType: VideoFormatType? = nil) -> Promise<VideoStream> {
+    func videoStream() -> Promise<VideoStream> {
         let (promise, seal) = Promise<VideoStream>.pending()
-        
-        YTVimeoExtractor.shared().fetchVideo(withVimeoURL: url.absoluteString, withReferer: nil) { video, error in
+
+        HCVimeoVideoExtractor.fetchVideoURLFrom(url: self.url) { video, error in
             if let video = video {
-                /// TODO we're cheating here by guessing the top quality video is 1080p
-                /// and going for the top quality no matter what the setting is
-                /// we need to map between selected max format and Vimeo format types to
-                /// select the right one
-                let streamURL = video.highestQualityStreamURL()
-                let duration = Double(video.duration)
-                let thumbnailURL = video.thumbnailURLs?[NSNumber(value: YTVimeoVideoThumbnailQuality.HD.rawValue)] ??
-                    video.thumbnailURLs?[NSNumber(value: YTVimeoVideoThumbnailQuality.medium.rawValue)] ??
-                    video.thumbnailURLs?[NSNumber(value: YTVimeoVideoThumbnailQuality.small.rawValue)]
                 let videoStream = VideoStream(
-                    videoURL: streamURL,
+                    videoURL: video.videoURL[.quality1080p]!,
                     audioURL: nil,
-                    duration: duration,
-                    videoFormatType: .video1080p,
-                    thumbnailURL: thumbnailURL
+                    duration: Double(video.duration),
+                    videoFormatType: VideoFormatType.video1080p,
+                    thumbnailURL: video.thumbnailURL[.quality1280]
                 )
                 seal.fulfill(videoStream)
             } else if let error = error {
@@ -44,7 +35,7 @@ class VimeoProvider: VideoProviderProtocol {
                 seal.reject(VideoError.NoStreamURLFound)
             }
         }
-        
+
         return promise
     }
 }

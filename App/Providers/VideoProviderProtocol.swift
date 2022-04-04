@@ -11,11 +11,11 @@ import PromiseKit
 protocol VideoProviderProtocol {
     init(_ url: String) throws
     
-    func videoStream(preferredFormatType: VideoFormatType?) -> Promise<VideoStream>
+    func videoStream() -> Promise<VideoStream>
 }
 
 extension VideoProviderProtocol {
-    func videoStream(preferredFormatType: VideoFormatType? = nil) -> Promise<VideoStream> {
-        return videoStream(preferredFormatType: preferredFormatType)
+    func videoStream() -> Promise<VideoStream> {
+        return videoStream()
     }
 }

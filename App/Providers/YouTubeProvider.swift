@@ -20,12 +20,12 @@ class YouTubeProvider: VideoProviderProtocol {
         self.identifier = try parseYoutubeIdentifier(url)
     }
     
-    func videoStream(preferredFormatType: VideoFormatType?) -> Promise<VideoStream> {
+    func videoStream() -> Promise<VideoStream> {
         let (promise, seal) = Promise<VideoStream>.pending()
 
         XCDYouTubeClient.default().getVideoWithIdentifier(identifier) { video, error in
             if let video = video,
-                let highestQualityStream = YouTubeProvider.getHighestQualityFormatType(streams: video.streamURLs, highestQuality: preferredFormatType ?? .video1080p60),
+                let highestQualityStream = YouTubeProvider.getHighestQualityFormatType(streams: video.streamURLs),
                 let videoStream = YouTubeProvider.getVideoStream(video: video, streams: video.streamURLs, for: highestQualityStream) {
                 seal.fulfill(videoStream)
             } else if let error = error {
@@ -53,7 +53,8 @@ class YouTubeProvider: VideoProviderProtocol {
         }
     }
     
-    private static func getHighestQualityFormatType(streams: Dictionary<AnyHashable, URL>, highestQuality: VideoFormatType = .video2160p60) -> VideoFormatType? {
+    private static func getHighestQualityFormatType(streams: Dictionary<AnyHashable, URL>) -> VideoFormatType? {
+        let highestQuality = VideoFormatType.video2160p60
         let qualityOrder = [VideoFormatType.video2160p60,
                             VideoFormatType.video2160p,
                             VideoFormatType.video1440p60,
