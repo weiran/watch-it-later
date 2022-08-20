@@ -18,7 +18,7 @@ jobs:
     - name: Build
       uses: sersoft-gmbh/xcodebuild-action@v2
       with:
-        project: WatchItLater.xcworkspace
+        project: WatchItLater.xcodeproj
         scheme: WatchItLater
         configuration: debug
         sdk: appletvsimulator
