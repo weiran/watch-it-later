@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,9 +24,20 @@
 		2441297C1FEE7A8900202173 /* VideoStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441297B1FEE7A8900202173 /* VideoStream.swift */; };
 		2441297E1FEE7C9600202173 /* VideoFormatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441297D1FEE7C9600202173 /* VideoFormatType.swift */; };
 		244DE6C11E59CBE8005B441E /* InstapaperConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 244DE6C01E59CBE8005B441E /* InstapaperConfiguration.plist */; };
+		24500F8C28B0EDF2003FB188 /* Locksmith in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F8B28B0EDF2003FB188 /* Locksmith */; };
+		24500F8F28B0EE1E003FB188 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F8E28B0EE1E003FB188 /* PromiseKit */; };
+		24500F9228B0EE3A003FB188 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F9128B0EE3A003FB188 /* Nuke */; };
+		24500F9528B0EE55003FB188 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F9428B0EE55003FB188 /* SwiftyUserDefaults */; };
+		24500F9828B0EE69003FB188 /* SwinjectStoryboard in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F9728B0EE69003FB188 /* SwinjectStoryboard */; };
+		24500F9B28B0EE8E003FB188 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F9A28B0EE8E003FB188 /* Realm */; };
+		24500F9D28B0EE8E003FB188 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F9C28B0EE8E003FB188 /* RealmSwift */; };
+		24500FA028B0EF2C003FB188 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F9F28B0EF2C003FB188 /* Realm */; };
+		24500FA228B0EF2C003FB188 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 24500FA128B0EF2C003FB188 /* RealmSwift */; };
 		2459544C1E14420B00997693 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544B1E14420B00997693 /* Video.swift */; };
 		2474F7E524A8DF0500956E76 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2474F7E424A8DF0500956E76 /* NotificationExtensions.swift */; };
 		247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */; };
+		2486D7DC27FB23DA007504C6 /* HCVimeoVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2486D7DB27FB23DA007504C6 /* HCVimeoVideo.swift */; };
+		2486D7DE27FB23EC007504C6 /* HCVimeoVideoExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2486D7DD27FB23EC007504C6 /* HCVimeoVideoExtractor.swift */; };
 		248C27892455A8B000B6756E /* FoldersTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C27882455A8B000B6756E /* FoldersTabBarController.swift */; };
 		24988A8D1E143A50003E46FB /* IKBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A771E143A50003E46FB /* IKBookmark.m */; };
 		24988A8E1E143A50003E46FB /* IKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A791E143A50003E46FB /* IKConstants.m */; };
@@ -38,9 +49,9 @@
 		24988A941E143A50003E46FB /* NSString+IKEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A871E143A50003E46FB /* NSString+IKEncoding.m */; };
 		24988A951E143A50003E46FB /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 24988A891E143A50003E46FB /* NSData+Base64.m */; };
 		24AEF7E11EBF5E53006458D1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AEF7E01EBF5E53006458D1 /* Database.swift */; };
+		24B8A06628B0E6AB00080B31 /* XCDYouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 24B8A06528B0E6AB00080B31 /* XCDYouTubeKit */; };
 		24C52E231E17C6D200865185 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C52E221E17C6D200865185 /* LoginViewController.swift */; };
 		24C52E251E17E42900865185 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C52E241E17E42900865185 /* StringError.swift */; };
-		6E3FCC9A0F273F5D7C1FC16F /* libPods-WatchItLater.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C590B7B659D40878CB6A2B14 /* libPods-WatchItLater.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +87,8 @@
 		24794EB920D51F520070D624 /* TVUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVUIKit.framework; path = System/Library/Frameworks/TVUIKit.framework; sourceTree = SDKROOT; };
 		247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstapaperAPI.swift; sourceTree = "<group>"; };
 		247D7F871E143D970037E4EC /* WatchItLater.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchItLater.entitlements; sourceTree = "<group>"; };
+		2486D7DB27FB23DA007504C6 /* HCVimeoVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCVimeoVideo.swift; sourceTree = "<group>"; };
+		2486D7DD27FB23EC007504C6 /* HCVimeoVideoExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCVimeoVideoExtractor.swift; sourceTree = "<group>"; };
 		248C27882455A8B000B6756E /* FoldersTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersTabBarController.swift; sourceTree = "<group>"; };
 		24988A541E141E37003E46FB /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		24988A761E143A50003E46FB /* IKBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKBookmark.h; sourceTree = "<group>"; };
@@ -102,9 +115,6 @@
 		24C52E221E17C6D200865185 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		24C52E241E17E42900865185 /* StringError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
 		24D942411E113238008387CC /* WatchItLater-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WatchItLater-Bridging-Header.h"; sourceTree = "<group>"; };
-		4016E8F0C73D7075DAA216C0 /* Pods-WatchItLater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchItLater.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater.release.xcconfig"; sourceTree = "<group>"; };
-		889B88034148F2099F4C25C1 /* Pods-WatchItLater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchItLater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WatchItLater/Pods-WatchItLater.debug.xcconfig"; sourceTree = "<group>"; };
-		C590B7B659D40878CB6A2B14 /* libPods-WatchItLater.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WatchItLater.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +122,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E3FCC9A0F273F5D7C1FC16F /* libPods-WatchItLater.a in Frameworks */,
+				24500F9D28B0EE8E003FB188 /* RealmSwift in Frameworks */,
+				24500F9B28B0EE8E003FB188 /* Realm in Frameworks */,
+				24B8A06628B0E6AB00080B31 /* XCDYouTubeKit in Frameworks */,
+				24500F8F28B0EE1E003FB188 /* PromiseKit in Frameworks */,
+				24500F8C28B0EDF2003FB188 /* Locksmith in Frameworks */,
+				24500F9528B0EE55003FB188 /* SwiftyUserDefaults in Frameworks */,
+				24500FA028B0EF2C003FB188 /* Realm in Frameworks */,
+				24500F9828B0EE69003FB188 /* SwinjectStoryboard in Frameworks */,
+				24500FA228B0EF2C003FB188 /* RealmSwift in Frameworks */,
+				24500F9228B0EE3A003FB188 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +153,7 @@
 		241C2ABF1E1549A1009F98D7 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				2486D7DA27FB23BD007504C6 /* HCVimeoVideoExtractor */,
 				247D7F851E143CFD0037E4EC /* InstapaperAPI.swift */,
 				241C2AC71E155FCC009F98D7 /* VideoProvider.swift */,
 				241C2AC51E155C36009F98D7 /* VideoProviderProtocol.swift */,
@@ -162,7 +182,6 @@
 				D279746CFF176AADEDCE0547 /* Frameworks */,
 				24988A8C1E143A50003E46FB /* InstapaperKit */,
 				24332BD51E108D1A00D5AA18 /* Products */,
-				4613E00C874BD95CE361EFB1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -194,6 +213,15 @@
 				24332BDB1E108D1A00D5AA18 /* Main.storyboard */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		2486D7DA27FB23BD007504C6 /* HCVimeoVideoExtractor */ = {
+			isa = PBXGroup;
+			children = (
+				2486D7DB27FB23DA007504C6 /* HCVimeoVideo.swift */,
+				2486D7DD27FB23EC007504C6 /* HCVimeoVideoExtractor.swift */,
+			);
+			path = HCVimeoVideoExtractor;
 			sourceTree = "<group>";
 		};
 		24988A8A1E143A50003E46FB /* Base64 */ = {
@@ -239,15 +267,6 @@
 			path = InstapaperKit;
 			sourceTree = "<group>";
 		};
-		4613E00C874BD95CE361EFB1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				889B88034148F2099F4C25C1 /* Pods-WatchItLater.debug.xcconfig */,
-				4016E8F0C73D7075DAA216C0 /* Pods-WatchItLater.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		D279746CFF176AADEDCE0547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,7 +280,6 @@
 				246511B0222AA26800752F46 /* AudioToolbox.framework */,
 				24794EB920D51F520070D624 /* TVUIKit.framework */,
 				24988A541E141E37003E46FB /* AVKit.framework */,
-				C590B7B659D40878CB6A2B14 /* libPods-WatchItLater.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -273,17 +291,27 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24332BE31E108D1A00D5AA18 /* Build configuration list for PBXNativeTarget "WatchItLater" */;
 			buildPhases = (
-				54B38236EAE6C0D36F1632E0 /* [CP] Check Pods Manifest.lock */,
 				24332BD01E108D1A00D5AA18 /* Sources */,
 				24332BD11E108D1A00D5AA18 /* Frameworks */,
 				24332BD21E108D1A00D5AA18 /* Resources */,
-				08FAA71DCB938D42ED0200DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = WatchItLater;
+			packageProductDependencies = (
+				24B8A06528B0E6AB00080B31 /* XCDYouTubeKit */,
+				24500F8B28B0EDF2003FB188 /* Locksmith */,
+				24500F8E28B0EE1E003FB188 /* PromiseKit */,
+				24500F9128B0EE3A003FB188 /* Nuke */,
+				24500F9428B0EE55003FB188 /* SwiftyUserDefaults */,
+				24500F9728B0EE69003FB188 /* SwinjectStoryboard */,
+				24500F9A28B0EE8E003FB188 /* Realm */,
+				24500F9C28B0EE8E003FB188 /* RealmSwift */,
+				24500F9F28B0EF2C003FB188 /* Realm */,
+				24500FA128B0EF2C003FB188 /* RealmSwift */,
+			);
 			productName = "Instapaper TV";
 			productReference = 24332BD41E108D1A00D5AA18 /* WatchItLater.app */;
 			productType = "com.apple.product-type.application";
@@ -320,6 +348,17 @@
 				Base,
 			);
 			mainGroup = 24332BCB1E108D1900D5AA18;
+			packageReferences = (
+				24B8A06428B0E6AB00080B31 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */,
+				24B8A06C28B0E7A500080B31 /* XCRemoteSwiftPackageReference "Swinject" */,
+				24B8A06E28B0E84B00080B31 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */,
+				24500F8A28B0EDF2003FB188 /* XCRemoteSwiftPackageReference "Locksmith" */,
+				24500F8D28B0EE1E003FB188 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+				24500F9028B0EE39003FB188 /* XCRemoteSwiftPackageReference "Nuke" */,
+				24500F9328B0EE55003FB188 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
+				24500F9628B0EE69003FB188 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */,
+				24500F9928B0EE8E003FB188 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 24332BD51E108D1A00D5AA18 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -341,46 +380,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		08FAA71DCB938D42ED0200DC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-resources.sh",
-				"${PODS_ROOT}/TVVLCPlayer/Resources/TVVLCPlayer.storyboard",
-				"${PODS_ROOT}/TVVLCPlayer/Resources/Images.xcassets",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TVVLCPlayer.storyboardc",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WatchItLater/Pods-WatchItLater-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		54B38236EAE6C0D36F1632E0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WatchItLater-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		24332BD01E108D1A00D5AA18 /* Sources */ = {
@@ -404,8 +403,10 @@
 				24988A941E143A50003E46FB /* NSString+IKEncoding.m in Sources */,
 				2441297C1FEE7A8900202173 /* VideoStream.swift in Sources */,
 				24AEF7E11EBF5E53006458D1 /* Database.swift in Sources */,
+				2486D7DC27FB23DA007504C6 /* HCVimeoVideo.swift in Sources */,
 				24988A901E143A50003E46FB /* IKEngine.m in Sources */,
 				247D7F861E143CFD0037E4EC /* InstapaperAPI.swift in Sources */,
+				2486D7DE27FB23EC007504C6 /* HCVimeoVideoExtractor.swift in Sources */,
 				241C2ACA1E156564009F98D7 /* VimeoProvider.swift in Sources */,
 				24120F5920D2CEFA0013D73A /* SwinjectStoryboardExtension.swift in Sources */,
 				241C2AC41E1557FD009F98D7 /* YouTubeProvider.swift in Sources */,
@@ -490,7 +491,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
@@ -539,16 +540,16 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = appletvos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		24332BE41E108D1A00D5AA18 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 889B88034148F2099F4C25C1 /* Pods-WatchItLater.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
@@ -558,15 +559,18 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 49;
 				DEVELOPMENT_TEAM = 2KB59GPA9B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = "App/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.0.10;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = co.weiran.WatchItLater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -574,13 +578,12 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/WatchItLater-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 14.0;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
 		24332BE51E108D1A00D5AA18 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4016E8F0C73D7075DAA216C0 /* Pods-WatchItLater.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
@@ -590,22 +593,25 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 49;
 				DEVELOPMENT_TEAM = 2KB59GPA9B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = "App/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.0.10;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = co.weiran.WatchItLater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/WatchItLater-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 14.0;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
 		};
@@ -631,6 +637,134 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		24500F8A28B0EDF2003FB188 /* XCRemoteSwiftPackageReference "Locksmith" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joaodforce/Locksmith";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		24500F8D28B0EE1E003FB188 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/PromiseKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		24500F9028B0EE39003FB188 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		24500F9328B0EE55003FB188 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sunshinejr/SwiftyUserDefaults";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		24500F9628B0EE69003FB188 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/SwinjectStoryboard";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		24500F9928B0EE8E003FB188 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+		24B8A06428B0E6AB00080B31 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kbex-dev/XCDYouTubeKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		24B8A06C28B0E7A500080B31 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		24B8A06E28B0E84B00080B31 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kbex-dev/XCDYouTubeKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		24500F8B28B0EDF2003FB188 /* Locksmith */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24500F8A28B0EDF2003FB188 /* XCRemoteSwiftPackageReference "Locksmith" */;
+			productName = Locksmith;
+		};
+		24500F8E28B0EE1E003FB188 /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24500F8D28B0EE1E003FB188 /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+		24500F9128B0EE3A003FB188 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24500F9028B0EE39003FB188 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		24500F9428B0EE55003FB188 /* SwiftyUserDefaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24500F9328B0EE55003FB188 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
+			productName = SwiftyUserDefaults;
+		};
+		24500F9728B0EE69003FB188 /* SwinjectStoryboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24500F9628B0EE69003FB188 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */;
+			productName = SwinjectStoryboard;
+		};
+		24500F9A28B0EE8E003FB188 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24500F9928B0EE8E003FB188 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		24500F9C28B0EE8E003FB188 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24500F9928B0EE8E003FB188 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		24500F9F28B0EF2C003FB188 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24500F9928B0EE8E003FB188 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		24500FA128B0EF2C003FB188 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24500F9928B0EE8E003FB188 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		24B8A06528B0E6AB00080B31 /* XCDYouTubeKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24B8A06428B0E6AB00080B31 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */;
+			productName = XCDYouTubeKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 24332BCC1E108D1A00D5AA18 /* Project object */;
 }

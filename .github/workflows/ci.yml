@@ -9,18 +9,16 @@ on:
 jobs:
 
   build:
-    runs-on: macos-latest
+    runs-on: macos-12
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install Dependencies
-      run: pod install --repo-update
     - name: Setup Config
       run: mv 'App/Supporting Files/InstapaperConfiguration.defaults.plist' 'App/Supporting Files/InstapaperConfiguration.plist'
     - name: Build
-      uses: sersoft-gmbh/xcodebuild-action@v1.1
+      uses: sersoft-gmbh/xcodebuild-action@v2
       with:
-        workspace: WatchItLater.xcworkspace
+        project: WatchItLater.xcworkspace
         scheme: WatchItLater
         configuration: debug
         sdk: appletvsimulator
