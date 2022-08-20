@@ -1,0 +1,86 @@
+{
+  "pins" : [
+    {
+      "identity" : "locksmith",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/joaodforce/Locksmith",
+      "state" : {
+        "branch" : "master",
+        "revision" : "c2477484052857c20758a460493cd8c5d2564c07"
+      }
+    },
+    {
+      "identity" : "nuke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Nuke",
+      "state" : {
+        "revision" : "7f73ceaeacd5df75a7994cd82e165ad9ff1815db",
+        "version" : "9.6.1"
+      }
+    },
+    {
+      "identity" : "promisekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mxcl/PromiseKit",
+      "state" : {
+        "revision" : "43772616c46a44a9977e41924ae01d0e55f2f9ca",
+        "version" : "6.18.1"
+      }
+    },
+    {
+      "identity" : "realm-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-core",
+      "state" : {
+        "revision" : "6f6a0f415bd33cf2ced4467e36a47f7c84f0a1d7",
+        "version" : "12.5.1"
+      }
+    },
+    {
+      "identity" : "realm-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-swift.git",
+      "state" : {
+        "revision" : "5629961d905387b40fb2e1e9d8594c87a2ab8811",
+        "version" : "10.28.6"
+      }
+    },
+    {
+      "identity" : "swiftyuserdefaults",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sunshinejr/SwiftyUserDefaults",
+      "state" : {
+        "revision" : "f66bcd04088582c8fbb5cb8554d577e303bae396",
+        "version" : "5.3.0"
+      }
+    },
+    {
+      "identity" : "swinject",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Swinject/Swinject.git",
+      "state" : {
+        "revision" : "11e65d83ba100459a41837119a8af32f182339f1",
+        "version" : "2.8.2"
+      }
+    },
+    {
+      "identity" : "swinjectstoryboard",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Swinject/SwinjectStoryboard",
+      "state" : {
+        "revision" : "a39bd7abe7e7427f9a0929a402cf2d1916fa5d50",
+        "version" : "2.2.2"
+      }
+    },
+    {
+      "identity" : "xcdyoutubekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kbex-dev/XCDYouTubeKit",
+      "state" : {
+        "revision" : "f2b1b685c375edca711cc2b229f6bf2bb4588611",
+        "version" : "2.16.0"
+      }
+    }
+  ],
+  "version" : 2
+}
