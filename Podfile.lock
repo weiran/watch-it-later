@@ -1,17 +1,17 @@
 PODS:
   - Locksmith (4.0.0)
-  - Nuke (10.5.2)
-  - PromiseKit/CorePromise (6.15.3)
-  - Realm (10.20.0):
-    - Realm/Headers (= 10.20.0)
-  - Realm/Headers (10.20.0)
-  - RealmSwift (10.20.0):
-    - Realm (= 10.20.0)
+  - Nuke (10.7.1)
+  - PromiseKit/CorePromise (6.18.1)
+  - Realm (10.28.6):
+    - Realm/Headers (= 10.28.6)
+  - Realm/Headers (10.28.6)
+  - RealmSwift (10.28.6):
+    - Realm (= 10.28.6)
   - SwiftyUserDefaults (5.3.0)
   - Swinject (2.7.1)
-  - SwinjectStoryboard (2.2.1):
+  - SwinjectStoryboard (2.2.2):
     - Swinject (~> 2.7.1)
-  - XCDYouTubeKit (2.15.2)
+  - XCDYouTubeKit-kbexdev (2.16.0)
 
 DEPENDENCIES:
   - Locksmith
@@ -20,8 +20,8 @@ DEPENDENCIES:
   - RealmSwift
   - SwiftyUserDefaults
   - Swinject
-  - SwinjectStoryboard (from `https://github.com/Swinject/SwinjectStoryboard`, commit `0ca45c83a8aa398c153d8a036c95abb4343cfa0c`, branch `master`)
-  - XCDYouTubeKit (from `https://github.com/kbex-dev/XCDYouTubeKit`, branch `master`)
+  - SwinjectStoryboard
+  - XCDYouTubeKit-kbexdev
 
 SPEC REPOS:
   trunk:
@@ -32,35 +32,20 @@ SPEC REPOS:
     - RealmSwift
     - SwiftyUserDefaults
     - Swinject
-
-EXTERNAL SOURCES:
-  SwinjectStoryboard:
-    :branch: master
-    :commit: 0ca45c83a8aa398c153d8a036c95abb4343cfa0c
-    :git: https://github.com/Swinject/SwinjectStoryboard
-  XCDYouTubeKit:
-    :branch: master
-    :git: https://github.com/kbex-dev/XCDYouTubeKit
-
-CHECKOUT OPTIONS:
-  SwinjectStoryboard:
-    :commit: 47df16142f8f9ce54a54bd61d04ae5c93d9de8eb
-    :git: https://github.com/Swinject/SwinjectStoryboard
-  XCDYouTubeKit:
-    :commit: a35b5fe91c2f6ea8d1ec1e0d2abba18fb8615e9e
-    :git: https://github.com/kbex-dev/XCDYouTubeKit
+    - SwinjectStoryboard
+    - XCDYouTubeKit-kbexdev
 
 SPEC CHECKSUMS:
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
-  Nuke: 62d6d401e2b3ce553151a6f5e2f9332878710fbd
-  PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
-  Realm: ae32bdc1da7d19c7617e0400201a77acd4a211b9
-  RealmSwift: c95eec6a712924870b2e36c4c081d63ec07e5414
+  Nuke: 279f17a599fd1c83cf51de5e0e1f2db143a287b0
+  PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
+  Realm: 9b12f16a14446d7d46a9e36225d0a0332a6ec739
+  RealmSwift: 5927726fce21005f43b1fb57c832297a22031bfc
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
-  SwinjectStoryboard: 92ca3575fec0b87a27d79be2d03f8d94495d6a10
-  XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
+  SwinjectStoryboard: 240ce371396da09a4c43c72ee5c148108500e184
+  XCDYouTubeKit-kbexdev: d6bdf492b85a547fe8605568359ec2e91980a465
 
-PODFILE CHECKSUM: 45da6a9502260d4e8de80d70e0b3ca8a9001ebc7
+PODFILE CHECKSUM: 2107476228fbcde22404adac8b35f2b397884216
 
 COCOAPODS: 1.11.3

@@ -9,7 +9,7 @@
 import UIKit
 
 import PromiseKit
-import XCDYouTubeKit
+import XCDYouTubeKit_kbexdev
 
 class YouTubeProvider: VideoProviderProtocol {
     var url: URL
