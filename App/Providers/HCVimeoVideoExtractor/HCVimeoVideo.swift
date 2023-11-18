@@ -41,6 +41,8 @@ public enum HCVimeoVideoQuality: String {
    case quality720p = "720p"
    case quality960p = "960p"
    case quality1080p = "1080p"
+    case quality1440p = "1440p"
+    case quality2160p = "2160p"
    case qualityUnknown = "unknown"
 }
 
