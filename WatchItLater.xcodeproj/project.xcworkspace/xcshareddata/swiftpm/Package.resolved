@@ -1,4 +1,5 @@
 {
+  "originHash" : "bb9c9a95356fa8a077626d7b9165282edb8add2c9688e7f6af4b2ec7ecfa57e2",
   "pins" : [
     {
       "identity" : "locksmith",
@@ -23,17 +24,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mxcl/PromiseKit",
       "state" : {
-        "revision" : "43772616c46a44a9977e41924ae01d0e55f2f9ca",
-        "version" : "6.18.1"
+        "revision" : "8a98e31a47854d3180882c8068cc4d9381bf382d",
+        "version" : "6.22.1"
       }
     },
     {
       "identity" : "realm-core",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/realm/realm-core",
+      "location" : "https://github.com/realm/realm-core.git",
       "state" : {
-        "revision" : "5da7744b4056ad185c025bccf0924f17f73f7a91",
-        "version" : "12.6.0"
+        "revision" : "85eeca41654cc9070ad81a21a4b1d153ad467c33",
+        "version" : "14.13.1"
       }
     },
     {
@@ -41,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-swift.git",
       "state" : {
-        "revision" : "28c488974f544c9affc4eacdd5b9dfc6785ebbc0",
-        "version" : "10.29.0"
+        "revision" : "5553cfd1c789efdb3d6daf7f0cc0733cfe601846",
+        "version" : "10.54.1"
       }
     },
     {
@@ -59,8 +60,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Swinject/Swinject.git",
       "state" : {
-        "revision" : "11e65d83ba100459a41837119a8af32f182339f1",
-        "version" : "2.8.2"
+        "revision" : "be9dbcc7b86811bc131539a20c6f9c2d3e56919f",
+        "version" : "2.9.1"
       }
     },
     {
@@ -68,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Swinject/SwinjectStoryboard",
       "state" : {
-        "revision" : "a39bd7abe7e7427f9a0929a402cf2d1916fa5d50",
-        "version" : "2.2.2"
+        "revision" : "e4498ce2dfe37e1ca9d2d20af06fcc087507561c",
+        "version" : "2.2.3"
       }
     },
     {
@@ -82,5 +83,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
