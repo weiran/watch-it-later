@@ -29,9 +29,7 @@
 		24500F9228B0EE3A003FB188 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F9128B0EE3A003FB188 /* Nuke */; };
 		24500F9528B0EE55003FB188 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F9428B0EE55003FB188 /* SwiftyUserDefaults */; };
 		24500F9828B0EE69003FB188 /* SwinjectStoryboard in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F9728B0EE69003FB188 /* SwinjectStoryboard */; };
-		24500F9B28B0EE8E003FB188 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F9A28B0EE8E003FB188 /* Realm */; };
 		24500F9D28B0EE8E003FB188 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F9C28B0EE8E003FB188 /* RealmSwift */; };
-		24500FA028B0EF2C003FB188 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 24500F9F28B0EF2C003FB188 /* Realm */; };
 		24500FA228B0EF2C003FB188 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 24500FA128B0EF2C003FB188 /* RealmSwift */; };
 		2459544C1E14420B00997693 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459544B1E14420B00997693 /* Video.swift */; };
 		2474F7E524A8DF0500956E76 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2474F7E424A8DF0500956E76 /* NotificationExtensions.swift */; };
@@ -123,12 +121,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				24500F9D28B0EE8E003FB188 /* RealmSwift in Frameworks */,
-				24500F9B28B0EE8E003FB188 /* Realm in Frameworks */,
 				24B8A06628B0E6AB00080B31 /* XCDYouTubeKit in Frameworks */,
 				24500F8F28B0EE1E003FB188 /* PromiseKit in Frameworks */,
 				24500F8C28B0EDF2003FB188 /* Locksmith in Frameworks */,
 				24500F9528B0EE55003FB188 /* SwiftyUserDefaults in Frameworks */,
-				24500FA028B0EF2C003FB188 /* Realm in Frameworks */,
 				24500F9828B0EE69003FB188 /* SwinjectStoryboard in Frameworks */,
 				24500FA228B0EF2C003FB188 /* RealmSwift in Frameworks */,
 				24500F9228B0EE3A003FB188 /* Nuke in Frameworks */,
@@ -307,9 +303,7 @@
 				24500F9128B0EE3A003FB188 /* Nuke */,
 				24500F9428B0EE55003FB188 /* SwiftyUserDefaults */,
 				24500F9728B0EE69003FB188 /* SwinjectStoryboard */,
-				24500F9A28B0EE8E003FB188 /* Realm */,
 				24500F9C28B0EE8E003FB188 /* RealmSwift */,
-				24500F9F28B0EF2C003FB188 /* Realm */,
 				24500FA128B0EF2C003FB188 /* RealmSwift */,
 			);
 			productName = "Instapaper TV";
@@ -739,20 +733,10 @@
 			package = 24500F9628B0EE69003FB188 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */;
 			productName = SwinjectStoryboard;
 		};
-		24500F9A28B0EE8E003FB188 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 24500F9928B0EE8E003FB188 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
 		24500F9C28B0EE8E003FB188 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 24500F9928B0EE8E003FB188 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
-		};
-		24500F9F28B0EF2C003FB188 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 24500F9928B0EE8E003FB188 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
 		};
 		24500FA128B0EF2C003FB188 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
